@@ -1,0 +1,10 @@
+.menu-group {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.separator {
+  // margin: 3px 10px;
+  margin: 0.2308em 10px;
+  height: 1px;
+}

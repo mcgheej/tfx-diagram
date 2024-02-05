@@ -1,0 +1,15 @@
+<div class="container" [ngStyle]="containerStyles">
+  <div
+    (tfxResizeObserver)="onResize($event)"
+    class="gutter"
+    [ngStyle]="gutterStyles"
+    (click)="onScroll($event)"
+  >
+    <div
+      class="thumb"
+      [ngStyle]="thumbStyles"
+      (mousedown)="onMousedown($event)"
+      (click)="onThumbClick($event)"
+    ></div>
+  </div>
+</div>

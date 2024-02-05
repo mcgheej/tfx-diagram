@@ -1,0 +1,13 @@
+<div class="container">
+  <tfx-endpoint-option
+    *ngFor="let endpoint of endpoints"
+    [endpoint]="endpoint"
+    [selected]="
+      (endpoint === null && data.endpoint === null) ||
+      endpoint?.endpointType === data.endpoint?.endpointType
+    "
+    [end]="data.end"
+    class="endpoint-option"
+    (click)="onEndpointClick(endpoint)"
+  ></tfx-endpoint-option>
+</div>

@@ -1,0 +1,41 @@
+@import '../menu-item.constants.scss';
+
+.menu-item {
+  display: grid;
+  // grid-template-columns: 30px 1fr 30px;
+  grid-template-columns: 2.3077em 1fr 2.3077em;
+  // grid-template-rows: 20px;
+  grid-template-rows: 1.5385em;
+}
+
+.label-shortcut {
+  display: grid;
+  grid-template-columns: minmax($submenu-min-label-length, max-content) 1fr;
+  // grid-template-rows: 20px;
+  grid-template-rows: 1.5385em;
+  // column-gap: 5px;
+  column-gap: 0.3846em;
+}
+
+.item-artifact {
+  align-self: center;
+}
+
+.item-sublabel {
+  align-self: center;
+  justify-self: right;
+}
+
+.icon {
+  font-size: 1.3em;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.icon-symbol {
+  // font-size: 18px;
+  // font-size: 1.2308em;
+  font-size: 1em;
+  align-self: center;
+  justify-self: center;
+}

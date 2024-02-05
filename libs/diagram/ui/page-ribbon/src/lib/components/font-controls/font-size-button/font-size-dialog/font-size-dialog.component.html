@@ -1,0 +1,14 @@
+<mat-selection-list
+  #fontSizeList
+  [multiple]="false"
+  (selectionChange)="onSelectionChange($event)"
+>
+  <mat-list-option
+    *ngFor="let fontSize of PRESET_FONT_SIZES_PT"
+    [value]="fontSize"
+    [selected]="fontSize === data.fontSizePt"
+    class="no-text-select"
+  >
+    {{ fontSize }}
+  </mat-list-option>
+</mat-selection-list>

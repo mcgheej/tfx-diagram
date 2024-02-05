@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/diagram/ui/file-save-close-xstate/src",
+  "prefix": "tfx",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/diagram/ui/file-save-close-xstate/src/**/*.ts",
+          "libs/diagram/ui/file-save-close-xstate/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

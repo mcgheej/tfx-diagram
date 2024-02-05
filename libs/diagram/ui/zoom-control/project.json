@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/diagram/ui/zoom-control/src",
+  "prefix": "tfx",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/diagram/ui/zoom-control/src/**/*.ts",
+          "libs/diagram/ui/zoom-control/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

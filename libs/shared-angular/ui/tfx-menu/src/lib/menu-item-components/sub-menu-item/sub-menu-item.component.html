@@ -1,0 +1,19 @@
+<div *ngIf="subMenuItem.vm$ | async as vm">
+  <div
+    *ngIf="vm.visible"
+    class="menu-item"
+    #item
+    [style.backgroundColor]="vm.backgroundColor"
+    [style.color]="vm.color"
+    [style.cursor]="vm.cursor"
+  >
+    <div></div>
+    <div class="label-shortcut">
+      <div class="item-artifact no-text-select">{{ subMenuItem.label }}</div>
+      <div class="item-artifact"></div>
+    </div>
+    <div class="icon">
+      <span class="material-icons icon-symbol">chevron_right</span>
+    </div>
+  </div>
+</div>

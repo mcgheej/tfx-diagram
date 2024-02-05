@@ -1,0 +1,11 @@
+<div
+  class="item-container"
+  #item
+  *ngIf="appMenuItem.vm$ | async as vm"
+  [style.backgroundColor]="vm.backgroundColor"
+  [style.color]="vm.color"
+>
+  <div *ngIf="vm.visible" class="item no-text-select">
+    {{ appMenuItem.label }}
+  </div>
+</div>

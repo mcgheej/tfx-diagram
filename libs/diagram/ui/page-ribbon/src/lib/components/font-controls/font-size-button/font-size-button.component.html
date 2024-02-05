@@ -1,0 +1,22 @@
+<div #fontSize class="font-size-button">
+  <tfx-icon-button
+    [config]="{ iconName: 'remove', buttonType: 'rectangle', fontSizePx: 12 }"
+    matTooltip="Reduce Font Size"
+    matTooltipShowDelay="2000"
+    (buttonClick)="onReduceSizeClick()"
+  ></tfx-icon-button>
+  <div
+    class="font-size-container"
+    matTooltip="Open Font Size Dialog"
+    matTooltipShowDelay="2000"
+    (click)="onSizeClick()"
+  >
+    <div class="font-size no-text-select">{{ fontSizePt }}pt</div>
+  </div>
+  <tfx-icon-button
+    [config]="{ iconName: 'add', buttonType: 'rectangle', fontSizePx: 12 }"
+    matTooltip="Increase Font Size"
+    matTooltipShowDelay="2000"
+    (buttonClick)="onIncreaseSizeClick()"
+  ></tfx-icon-button>
+</div>

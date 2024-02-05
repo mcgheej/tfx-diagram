@@ -1,0 +1,4 @@
+.prettierignore
+.docusaurus/
+
+/apps/diagram-docs/docs/

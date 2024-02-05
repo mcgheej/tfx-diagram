@@ -1,0 +1,9 @@
+<div *ngIf="showControls && (vm$ | async) as vm" class="ribbon-container">
+  <tfx-font-controls [fontProps]="vm.fontProps"></tfx-font-controls>
+  <tfx-color-buttons [colors]="vm.colors"></tfx-color-buttons>
+  <tfx-line-buttons [lineWidth]="vm.lineWidth" [lineDash]="vm.lineDash"></tfx-line-buttons>
+  <tfx-endpoint-buttons
+    [startEndpoint]="vm.endpoints.startEndpoint"
+    [finishEndpoint]="vm.endpoints.finishEndpoint"
+  ></tfx-endpoint-buttons>
+</div>

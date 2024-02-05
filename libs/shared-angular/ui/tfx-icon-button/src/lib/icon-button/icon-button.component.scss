@@ -1,0 +1,22 @@
+.icon-button {
+  height: 100%;
+  width: inherit;
+  background-color: inherit;
+  display: grid;
+  line-height: 1;
+}
+
+.icon {
+  grid-area: 1 / 1 / 1 / 1;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.icon-symbol {
+  align-self: center;
+  justify-self: center;
+  user-select: none;
+}

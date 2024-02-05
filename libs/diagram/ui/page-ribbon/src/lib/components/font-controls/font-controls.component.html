@@ -1,0 +1,40 @@
+<div *ngIf="fontProps" class="toggle-buttons">
+  <tfx-font-family-button [fontFamily]="fontProps.fontFamily"></tfx-font-family-button>
+  <tfx-font-size-button
+    [fontSizePt]="fontProps.fontSizePt"
+    (reduceSizeClick)="onReduceSizeClick()"
+    (increaseSizeClick)="onIncreaseSizeClick()"
+  ></tfx-font-size-button>
+  <tfx-font-toggle-button
+    iconName="format_bold"
+    tooltip="Bold Text"
+    [highlighted]="fontProps.fontWeight === 'bold'"
+    (buttonClick)="onBoldToggleClick()"
+  ></tfx-font-toggle-button>
+  <tfx-font-toggle-button
+    iconName="format_italic"
+    tooltip="Italicise Text"
+    [highlighted]="fontProps.fontStyle === 'italic'"
+    (buttonClick)="onItalicToggleClick()"
+  ></tfx-font-toggle-button>
+  <tfx-font-toggle-button
+    iconName="format_underline"
+    tooltip="Underline Text"
+    [highlighted]="fontProps.underline"
+    (buttonClick)="onUnderlineToggleClick()"
+  ></tfx-font-toggle-button>
+  <tfx-color-button
+    #text
+    [color]="ColorMapRef.resolve(fontProps.color)"
+    [iconName]="'format_color_text'"
+    [tooltip]="'Fill Colour'"
+    (buttonClick)="onTextColorClick()"
+  ></tfx-color-button>
+  <tfx-font-toggle-button
+    #textOptionsButton
+    iconName="text_fields"
+    tooltip="Text Options"
+    [highlighted]="textOptionsDialogOpen$ | async"
+    (buttonClick)="onTextOptionsClick()"
+  ></tfx-font-toggle-button>
+</div>

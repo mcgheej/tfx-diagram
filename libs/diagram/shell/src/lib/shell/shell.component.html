@@ -1,0 +1,14 @@
+<div *ngIf="shellVM$ | async as vm" class="shell-container">
+  <nav class="app-bar-container">
+    <tfx-app-bar
+      [menu]="appMenu"
+      [appTitle]="vm.title"
+      [controlButtonConfigs]="controlButtonConfigs"
+      [lowerZAppBar]="vm.lowerZAppBar"
+      (controlButtonClick)="onControlButtonClick($event)"
+    ></tfx-app-bar>
+  </nav>
+  <div *ngIf="vm.status !== 'closed'" class="sketchbook-view">
+    <tfx-sketchbook-view></tfx-sketchbook-view>
+  </div>
+</div>

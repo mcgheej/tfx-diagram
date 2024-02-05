@@ -1,0 +1,11 @@
+export const LS_GRID_SHOW = 'tfx-diagram-grid-show';
+export const LS_GRID_SNAP = 'tfx-diagram-grid-snap';
+export const LS_GRID_SIZE = 'tfx-diagram-grid-size';
+export const LS_SHAPE_SNAP = 'tfx-diagram-shape-snap';
+export const LS_SHOW_RULERS = 'tfx-diagram-show-rulers';
+export const LS_SCREEN_PIXEL_DENSITY = 'tfx-diagram-screen-pixel-density';
+export const LS_PAGE_ALIGNMENT_IN_VIEWPORT = 'tfx-diagram-page-alignment-in-viewport';
+export const LS_SHOW_MOUSE_POSITION = 'tfx-diagram-show-mouse-position';
+export const LS_MOUSE_POSITION_COORDS_TYPE = 'tfx-diagram-mouse-position-coords-type';
+export const LS_SHOW_SHAPE_INSPECTOR = 'tfx-diagram-show-shape-inspector';
+export const LS_JPEG_QUALITY = 'tfx-diagram-jpeg-quality';

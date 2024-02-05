@@ -1,0 +1,31 @@
+:host {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template: 1fr;
+}
+
+.font-size-button {
+  height: 60%;
+  width: calc(100% - 12px);
+  align-self: center;
+  justify-self: center;
+  border: 1px solid #888;
+  background-color: white;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 20px 1fr 20px;
+  grid-template-rows: 1fr;
+}
+
+.font-size-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.font-size {
+  align-self: center;
+  justify-self: center;
+  font-size: 12px;
+}

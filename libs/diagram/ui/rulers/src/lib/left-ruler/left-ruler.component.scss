@@ -1,0 +1,13 @@
+.ruler {
+  height: 100%;
+  width: 16px;
+  border-right: 1px solid #dfe3e8;
+  background-color: #fff;
+  position: relative;
+}
+
+.ruler-canvas {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}

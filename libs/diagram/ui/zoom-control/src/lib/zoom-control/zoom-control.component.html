@@ -1,0 +1,29 @@
+<div class="container">
+  <tfx-icon-button
+    class="icon-button"
+    [config]="{
+      iconName: 'remove',
+      buttonType: 'rectangle'
+    }"
+    buttonType="rectangle"
+    (buttonClick)="decreaseZoom()"
+  ></tfx-icon-button>
+  <div class="zoom-factor" (click)="onContextMenu()" #zoomText>
+    <div class="text-container">
+      <div class="zoom-text no-text-select">
+        {{ (zoomFactor * 100 | number: '1.0-0') + '%' }}
+      </div>
+    </div>
+    <div class="icon">
+      <span class="material-icons icon-symbol">arrow_drop_down</span>
+    </div>
+  </div>
+  <tfx-icon-button
+    class="icon-button"
+    [config]="{
+      iconName: 'add',
+      buttonType: 'rectangle'
+    }"
+    (buttonClick)="increaseZoom()"
+  ></tfx-icon-button>
+</div>

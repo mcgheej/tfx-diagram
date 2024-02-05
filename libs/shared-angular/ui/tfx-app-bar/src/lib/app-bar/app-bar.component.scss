@@ -1,0 +1,55 @@
+.app-bar {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+  font-size: 13px;
+  line-height: 13px;
+  // z-index: 2000;
+  -webkit-app-region: nodrag;
+}
+
+.app-bar-drag-region {
+  width: 100%;
+  height: 100%;
+}
+
+.no-drag {
+  -webkit-app-region: nodrag;
+}
+
+.app-bar-title-centering {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 35px auto 1fr auto;
+  grid-template-rows: 30px;
+}
+
+.app-bar-title-container {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-app-region: drag;
+}
+
+.app-bar-title {
+  align-self: center;
+  justify-self: center;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.pos-title {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr;
+  -webkit-app-region: drag;
+}

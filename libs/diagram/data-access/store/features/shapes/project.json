@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/diagram/data-access/store/features/shapes/src",
+  "prefix": "tfx",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/diagram/data-access/store/features/shapes/src/**/*.ts",
+          "libs/diagram/data-access/store/features/shapes/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

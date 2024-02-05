@@ -1,0 +1,47 @@
+<div *ngIf="viewVM$ | async as vm" class="sketchbook-view">
+  <tfx-page-ribbon [showControls]="vm.showControls"></tfx-page-ribbon>
+  <div *ngIf="vm.showControls" class="center-area">
+    <tfx-shape-inspector [visible]="vm.showShapeInspector"></tfx-shape-inspector>
+    <div *ngIf="vm.showRulers" class="page-view with-rulers">
+      <div class="ruler-viewport">
+        <tfx-left-ruler></tfx-left-ruler>
+        <tfx-page-viewport></tfx-page-viewport>
+      </div>
+      <tfx-bottom-ruler></tfx-bottom-ruler>
+    </div>
+    <div *ngIf="!vm.showRulers" class="page-view without-rulers">
+      <tfx-page-viewport></tfx-page-viewport>
+    </div>
+  </div>
+  <div
+    [ngClass]="{
+      'page-control-bar': true,
+      'with-mouse-position': vm.showMousePosition,
+      'without-mouse-position': !vm.showMousePosition
+    }"
+  >
+    <tfx-page-selector
+      *ngIf="vm.showControls"
+      class="page-selector"
+      [pages]="vm.pageNames"
+      [selectedPageIndex]="vm.pageData.currentIdx"
+      (pageAdd)="onPageAdd()"
+      (pageDelete)="onPageDelete($event, vm.pageData.pages)"
+      (pageRename)="onPageRename($event, vm.pageData.pages)"
+      (selectedPageIndexChanged)="onPageChange($event)"
+      (pageMove)="onPageMove($event)"
+    ></tfx-page-selector>
+    <tfx-mouse-position
+      *ngIf="vm.showMousePosition && vm.showControls"
+      class="mouse-position"
+      [coords]="vm.mousePosition"
+      [coordsFormat]="vm.format"
+    ></tfx-mouse-position>
+    <tfx-zoom-control
+      *ngIf="vm.showControls"
+      class="zoom-control"
+      [zoomFactor]="vm.zoomFactor"
+      (zoomChange)="onZoomChanged($event)"
+    ></tfx-zoom-control>
+  </div>
+</div>

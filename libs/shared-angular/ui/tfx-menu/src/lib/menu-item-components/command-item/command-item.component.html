@@ -1,0 +1,23 @@
+<div *ngIf="menuItem.vm$ | async as vm">
+  <div
+    *ngIf="vm.visible"
+    class="menu-item"
+    [style.backgroundColor]="vm.backgroundColor"
+    [style.color]="vm.color"
+    [style.cursor]="vm.cursor"
+  >
+    <div class="icon">
+      <span
+        *ngIf="menuItem.icon"
+        [ngClass]="{ 'material-icons-outlined': vm.outlinedIcons }"
+        class="material-icons icon-symbol"
+        >{{ menuItem.icon }}</span
+      >
+    </div>
+    <div class="label-shortcut">
+      <div class="item-artifact no-text-select">{{ menuItem.label }}</div>
+      <div class="item-sublabel no-text-select">{{ menuItem.subLabel }}</div>
+    </div>
+    <div></div>
+  </div>
+</div>

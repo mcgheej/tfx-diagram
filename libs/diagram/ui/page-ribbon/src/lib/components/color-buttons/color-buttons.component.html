@@ -1,0 +1,16 @@
+<div *ngIf="colors" class="color-buttons">
+  <tfx-color-button
+    #fill
+    [color]="ColorMapRef.resolve(colors.fillColor)"
+    [iconName]="'format_color_fill'"
+    [tooltip]="'Fill Colour'"
+    (buttonClick)="onFillColorClick()"
+  ></tfx-color-button>
+  <tfx-color-button
+    #line
+    [color]="ColorMapRef.resolve(colors.lineColor)"
+    [iconName]="'border_color'"
+    [tooltip]="'Border/Line Colour'"
+    (buttonClick)="onLineColorClick()"
+  ></tfx-color-button>
+</div>

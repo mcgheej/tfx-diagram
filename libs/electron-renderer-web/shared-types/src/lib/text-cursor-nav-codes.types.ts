@@ -1,0 +1,16 @@
+export type TextCursorCommandCodes =
+  | 'NoCommand'
+  | 'NextChar'
+  | 'PrevChar'
+  | 'EndWord'
+  | 'StartWord'
+  | 'EndLine'
+  | 'StartLine'
+  | 'EndText'
+  | 'StartText'
+  | 'UpLine'
+  | 'DownLine'
+  | 'Escape'
+  | 'Enter'
+  | 'Backspace'
+  | 'Delete';

@@ -1,0 +1,80 @@
+// .title {
+//   margin: 3px 0 10px 10px;
+//   font-size: 10pt;
+//   font-weight: 500;
+// }
+
+.primary-colors {
+  display: grid;
+  grid-template-columns: repeat(10, 15px);
+  grid-template-rows: 15px;
+  column-gap: 4px;
+}
+
+.tints {
+  margin-top: 13px;
+}
+
+.tint-row {
+  display: grid;
+  grid-template-columns: repeat(10, 15px);
+  grid-template-rows: 15px;
+  column-gap: 4px;
+}
+
+.standard-title {
+  margin: 10px 0 10px 0;
+  width: 100%;
+  // height: 1px;
+  border-top: 1px solid #e2e4e7;
+  font-size: 10pt;
+  font-weight: 500;
+  padding: 8px 0 0px 10px;
+}
+
+.custom-colors {
+  display: grid;
+  grid-template-columns: 32px 1fr;
+}
+
+.add-button {
+  justify-self: center;
+}
+
+.custom-colors-empty-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 24px;
+  row-gap: 2px;
+  font-size: 8pt;
+}
+
+.no-fill-separator {
+  margin: 10px 0 0 0;
+  width: 100%;
+  border-top: 1px solid #e2e4e7;
+}
+
+.no-fill {
+  width: 100%;
+  height: 30px;
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  column-gap: 8px;
+}
+
+.no-fill-square {
+  width: 20px;
+  height: 20px;
+  align-self: center;
+  justify-self: end;
+}
+
+.no-fill-label {
+  font-size: 8pt;
+  align-self: center;
+}
+
+.align-center {
+  align-self: center;
+}

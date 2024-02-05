@@ -1,0 +1,65 @@
+<!-- <div class="title">Select Custom Colour</div> -->
+<h1 mat-dialog-title class="no-text-select">Select Custom Colour</h1>
+<div mat-dialog-content>
+  <tfx-color-picker
+    [discSizePx]="250"
+    [sliderSizePx]="32"
+    [hue]="color.hsl.hue"
+    [saturation]="color.hsl.saturation"
+    [lightness]="color.hsl.lightness"
+    (colorChange)="onColorChange($event)"
+  ></tfx-color-picker>
+  <div class="values-container">
+    <div class="color-values">
+      <tfx-color-input
+        [label]="'red'"
+        [initialValue]="rgb.red"
+        [min]="0"
+        [max]="255"
+        (valueChanges)="onRGBChange($event, rgb.green, rgb.blue)"
+      ></tfx-color-input>
+      <tfx-color-input
+        [label]="'green'"
+        [initialValue]="rgb.green"
+        [min]="0"
+        [max]="255"
+        (valueChanges)="onRGBChange(rgb.red, $event, rgb.blue)"
+      ></tfx-color-input>
+      <tfx-color-input
+        [label]="'blue'"
+        [initialValue]="rgb.blue"
+        [min]="0"
+        [max]="255"
+        (valueChanges)="onRGBChange(rgb.red, rgb.green, $event)"
+      ></tfx-color-input>
+    </div>
+    <div class="color-values">
+      <tfx-color-input
+        [label]="'hue'"
+        [initialValue]="color.hsl.hue"
+        [min]="0"
+        [max]="359"
+        (valueChanges)="onHSLChange($event, hsl.saturation, hsl.lightness)"
+      ></tfx-color-input>
+      <tfx-color-input
+        [label]="'saturation'"
+        [initialValue]="color.hsl.saturation * 100"
+        [min]="0"
+        [max]="100"
+        (valueChanges)="onHSLChange(hsl.hue, $event, hsl.lightness)"
+      ></tfx-color-input>
+      <tfx-color-input
+        [label]="'lightness'"
+        [initialValue]="color.hsl.lightness * 100"
+        [min]="0"
+        [max]="100"
+        (valueChanges)="onHSLChange(hsl.hue, hsl.saturation, $event)"
+      ></tfx-color-input>
+    </div>
+  </div>
+  <div class="current-color" [style.backgroundColor]="colorStyle"></div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button (click)="onColorSelect()">Select</button>
+</div>

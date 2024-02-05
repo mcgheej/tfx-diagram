@@ -1,0 +1,68 @@
+.sketchbook-view {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.center-area {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.page-view {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  overflow: hidden;
+}
+
+.with-rulers {
+  grid-template-rows: 1fr auto;
+}
+
+.without-rulers {
+  grid-template-rows: 1fr;
+}
+
+.ruler-viewport {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+.page-control-bar {
+  width: 100%;
+  height: 32px;
+  background-color: #fafbfc;
+  border-top: 1px solid #dfe3e8;
+  overflow: hidden;
+  display: grid;
+}
+
+.with-mouse-position {
+  grid-template-columns: 1fr 125px 152px;
+}
+
+.without-mouse-position {
+  display: grid;
+  grid-template-columns: 1fr 152px;
+}
+
+.page-selector {
+  height: 100%;
+}
+
+.mouse-position {
+  height: 100%;
+  border-left: 1px solid #dfe3e8;
+}
+
+.zoom-control {
+  height: 100%;
+  border-left: 1px solid #dfe3e8;
+  cursor: pointer;
+}

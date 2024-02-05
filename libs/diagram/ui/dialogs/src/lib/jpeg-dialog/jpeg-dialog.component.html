@@ -1,0 +1,29 @@
+<h2 mat-dialog-title>Export JPEG File</h2>
+<canvas #canvas class="hidden-canvas" [width]="imageWidth" [height]="imageHeight"></canvas>
+<div class="canvas-container">
+  <canvas
+    #thumbnail
+    class="thumbnail"
+    [style.width.px]="thumbnailWidth"
+    [style.height.px]="thumbnailHeight"
+    [width]="thumbnailWidth"
+    [height]="thumbnailHeight"
+  ></canvas>
+</div>
+<mat-dialog-content [formGroup]="form">
+  <label>Quality</label>
+  <mat-slider
+    formControlName="quality"
+    [min]="0"
+    [max]="1"
+    [step]="0.05"
+    (change)="changeQuality($event)"
+    (input)="changeQuality($event)"
+  >
+  </mat-slider>
+  <div>{{ quality | number: '1.1-2' }}</div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-stroked-button (click)="close()">Cancel</button>
+  <button mat-stroked-button (click)="export()">Export</button>
+</mat-dialog-actions>

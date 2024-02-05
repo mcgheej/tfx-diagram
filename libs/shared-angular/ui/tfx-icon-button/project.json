@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared-angular/ui/tfx-icon-button/src",
+  "prefix": "tfx",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared-angular/ui/tfx-icon-button/src/**/*.ts",
+          "libs/shared-angular/ui/tfx-icon-button/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

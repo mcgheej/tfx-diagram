@@ -1,0 +1,51 @@
+.viewport-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.text-cursor-canvas {
+  position: absolute;
+  z-index: 10;
+}
+
+.hidden-canvas {
+  display: none;
+}
+
+.viewport {
+  background-color: #f2f3f4;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 12px;
+  grid-template-rows: 1fr 12px;
+}
+
+.vertical-scrollbar {
+  grid-area: 1 / 2 / 2 / 3;
+  z-index: 10;
+  background-color: transparent;
+}
+
+.horizontal-scrollbar {
+  grid-area: 2 / 1 / 3 / 2;
+  z-index: 9;
+  background-color: transparent;
+}
+
+.canvas-container {
+  grid-area: 1 / 1 / 3 / 3;
+  position: relative;
+}
+
+// In order to position and size the canvas element it
+// has to be positioned absolutely and the height / width
+// set to 100%. Without this its size will cause vertical
+// scrolling to kick in when the window is resized smaller.
+// Not sure what is going on really but this works!
+.canvas {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}

@@ -1,0 +1,64 @@
+.options-container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.title {
+  margin: 3px 0 10px 0;
+  font-size: 10pt;
+  font-weight: 500;
+}
+
+.alignment-buttons {
+  width: 120px;
+  height: 120px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.padding-options {
+  display: grid;
+  grid-template-rows: repeat(4, 30px);
+}
+
+.padding-option {
+  display: grid;
+  grid-template-columns: 30px auto;
+}
+
+mat-icon {
+  align-self: center;
+}
+
+.input {
+  align-self: center;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 88px;
+  height: 24px;
+  border: 1px solid rgb(151, 158, 168);
+}
+
+input {
+  border: none;
+  border-radius: 4px;
+  width: 68px;
+  height: 20px;
+  text-align: center;
+}
+
+text-area:focus,
+input:focus {
+  outline: none;
+}
+
+.save-button {
+  margin-top: 15px;
+  display: grid;
+  width: calc(100% - 16px);
+}
+
+.save-button > button {
+  justify-self: end;
+}

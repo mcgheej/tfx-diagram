@@ -1,0 +1,21 @@
+<div
+  class="icon-button"
+  [style.cursor]="config.disabled ? 'default' : config.cursorType"
+  (click)="onButtonClick()"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+>
+  <div [ngStyle]="iconAreaStyles"></div>
+  <div class="icon">
+    <span
+      [style.opacity]="
+        config.disabled || (config.buttonType === 'icon' && highlightIcon)
+          ? '0.5'
+          : '1'
+      "
+      [ngStyle]="iconSymbolStyles"
+      class="material-icons icon-symbol"
+      >{{ config.iconName }}</span
+    >
+  </div>
+</div>

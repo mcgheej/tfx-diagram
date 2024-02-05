@@ -1,0 +1,30 @@
+<div
+  class="app-bar"
+  [style.zIndex]="lowerZAppBar ? 800 : 2000"
+  [style.letterSpacing]="letterSpacing + 'px'"
+  #appBar
+>
+  <div class="app-bar-drag-region no-drag">
+    <div class="app-bar-title-centering no-drag">
+      <div class="app-bar-icon no-drag"></div>
+      <div class="app-bar-menu no-drag" #appMenu>
+        <tfx-app-menu class="no-drag" [menu]="menu"></tfx-app-menu>
+      </div>
+      <div class="app-bar-title-container" #appBarTitle>
+        <div *ngIf="!titleCentred" class="app-bar-title no-text-select">
+          {{ appTitle }}
+        </div>
+      </div>
+      <div class="no-drag">
+        <tfx-control-buttons
+          class="no-drag"
+          [controlButtonConfigs]="controlButtonConfigs"
+          (buttonClick)="onControlButtonClick($event)"
+        ></tfx-control-buttons>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="titleCentred" class="pos-title" [style.left.px]="titleX">
+    <div class="app-bar-title no-text-select">{{ appTitle }}</div>
+  </div>
+</div>

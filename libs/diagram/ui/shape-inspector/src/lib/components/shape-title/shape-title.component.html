@@ -1,0 +1,12 @@
+<div *ngIf="shape" class="container">
+  <tfx-icon-button
+    class="icon-button"
+    [config]="{
+      iconName: expanded ? 'arrow_drop_down' : 'arrow_right',
+      buttonType: 'rectangle'
+    }"
+    (buttonClick)="onToggleExpand()"
+  ></tfx-icon-button>
+  <div class="shape-type no-text-select">{{ shape.shapeType }}:</div>
+  <div class="shape-id no-text-select">{{ shape.id }}</div>
+</div>

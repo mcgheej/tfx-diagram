@@ -1,0 +1,15 @@
+.canvas-container {
+  width: 250px;
+  height: 250px;
+  display: grid;
+}
+
+.thumbnail {
+  align-self: center;
+  justify-self: center;
+  outline: 1px solid grey;
+}
+
+.hidden-canvas {
+  display: none;
+}

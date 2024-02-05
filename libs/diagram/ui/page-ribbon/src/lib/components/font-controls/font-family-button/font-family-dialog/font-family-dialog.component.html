@@ -1,0 +1,15 @@
+<mat-selection-list
+  #fontFamilyList
+  [multiple]="false"
+  (selectionChange)="onSelectionChange($event)"
+>
+  <mat-list-option
+    *ngFor="let fontFamily of PRESET_FONT_FAMILIES"
+    [value]="fontFamily"
+    [selected]="fontFamily === data.fontFamily"
+    class="no-text-select"
+    [style.fontFamily]="fontFamily"
+  >
+    {{ fontFamily }}
+  </mat-list-option>
+</mat-selection-list>

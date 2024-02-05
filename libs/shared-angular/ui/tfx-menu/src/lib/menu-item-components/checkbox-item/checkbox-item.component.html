@@ -1,0 +1,21 @@
+<div *ngIf="menuItem.vm$ | async as vm">
+  <div
+    *ngIf="vm.visible"
+    class="menu-item"
+    [style.backgroundColor]="vm.backgroundColor"
+    [style.color]="vm.color"
+    [style.cursor]="vm.cursor"
+  >
+    <div class="icon" *ngIf="vm.checked; else notChecked">
+      <span class="material-icons icon-symbol">check</span>
+    </div>
+    <ng-template #notChecked>
+      <div></div>
+    </ng-template>
+    <div class="label-shortcut">
+      <div class="item-label no-text-select">{{ menuItem.label }}</div>
+      <div class="item-sublabel no-text-select">{{ menuItem.subLabel }}</div>
+    </div>
+    <div></div>
+  </div>
+</div>

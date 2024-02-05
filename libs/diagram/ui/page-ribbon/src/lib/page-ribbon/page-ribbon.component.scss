@@ -1,0 +1,12 @@
+.ribbon-container {
+  width: 100%;
+  height: 32px;
+  background-color: #fafbfc;
+  color: #2a2b2d;
+  border-bottom: 1px solid #dfe3e8;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1;
+  display: grid;
+  grid-template-columns: max-content max-content max-content max-content;
+}

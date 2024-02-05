@@ -1,0 +1,15 @@
+<div
+  class="menu-group"
+  *ngFor="let group of menu.menuItemGroups; last as isLast"
+>
+  <div *ngFor="let item of group.items" (click)="menuItemClick.emit(item)">
+    <ng-container
+      *ngComponentOutlet="item.componentType; injector: getInjector(item)"
+    ></ng-container>
+  </div>
+  <div
+    *ngIf="!isLast"
+    class="separator"
+    [style.backgroundColor]="menu.options.itemGroupSeparatorColor"
+  ></div>
+</div>

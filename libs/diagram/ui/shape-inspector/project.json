@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/diagram/ui/shape-inspector/src",
+  "prefix": "tfx",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/diagram/ui/shape-inspector/src/**/*.ts",
+          "libs/diagram/ui/shape-inspector/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

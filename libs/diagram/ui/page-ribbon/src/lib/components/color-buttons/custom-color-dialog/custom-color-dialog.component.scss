@@ -1,0 +1,19 @@
+.values-container {
+  margin-top: 10px;
+  margin-left: -10px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.color-values {
+  display: grid;
+  grid-template-rows: 30px 30px 30px;
+  row-gap: 5px;
+}
+
+.current-color {
+  margin-top: 10px;
+  height: 30px;
+  width: 100%;
+}

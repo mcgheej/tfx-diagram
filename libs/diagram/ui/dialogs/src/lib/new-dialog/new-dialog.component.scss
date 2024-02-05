@@ -1,0 +1,29 @@
+mat-dialog-content {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.filler {
+  height: 80px;
+}
+
+.width-height {
+  display: grid;
+  grid-template-columns: 80px 30px 1fr 30px 1fr 80px 30px;
+}
+
+.units {
+  align-self: end;
+  padding: 0 0 36px 3px;
+  font-size: 14px;
+}
+
+.by {
+  align-self: end;
+  padding: 0 0 36px 7px;
+  font-size: 14px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/diagram/util/mouse-wheel/src",
+  "prefix": "tfx",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/diagram/util/mouse-wheel/src/**/*.ts",
+          "libs/diagram/util/mouse-wheel/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

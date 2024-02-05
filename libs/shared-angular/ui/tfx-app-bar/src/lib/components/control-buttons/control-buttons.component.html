@@ -1,0 +1,7 @@
+<div [ngStyle]="controlButtonsStyles">
+  <tfx-icon-button
+    *ngFor="let buttonConfig of controlButtonConfigs; index as i"
+    [config]="buttonConfig"
+    (buttonClick)="onClick(i)"
+  ></tfx-icon-button>
+</div>

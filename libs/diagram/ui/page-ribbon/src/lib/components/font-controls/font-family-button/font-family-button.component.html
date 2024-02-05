@@ -1,0 +1,15 @@
+<div
+  #family
+  *ngIf="fontFamily"
+  class="font-family-button"
+  matTooltip="Open Font Dialog"
+  matTooltipShowDelay="2000"
+  (click)="onFontFamilyClick()"
+>
+  <div class="font-family-container">
+    <div class="font-family no-text-select">{{ fontFamily }}</div>
+  </div>
+  <tfx-icon-button
+    [config]="{ iconName: 'arrow_drop_down', buttonType: 'rectangle', fontSizePx: 16 }"
+  ></tfx-icon-button>
+</div>

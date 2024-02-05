@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../../dist/out-tsc",
+    "declaration": true,
+    "types": []
+  },
+  "include": ["**/*.ts", "../ngrx-state-colors/src/lib/colors-state.ts"],
+  "exclude": ["**/*.spec.ts"]
+}

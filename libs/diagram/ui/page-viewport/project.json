@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/diagram/ui/page-viewport/src",
+  "prefix": "tfx",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/diagram/ui/page-viewport/src/**/*.ts",
+          "libs/diagram/ui/page-viewport/src/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

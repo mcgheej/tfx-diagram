@@ -1,0 +1,26 @@
+.ruler-container {
+  height: 16px;
+  width: 100%;
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: 16px 1fr;
+}
+
+.units {
+  place-self: center;
+  font-size: 10px;
+  color: #9f9fa1;
+}
+
+.ruler {
+  border-top: 1px solid #dfe3e8;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.ruler-canvas {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}

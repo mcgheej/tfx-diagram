@@ -1,0 +1,129 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@tfx-diagram/diagram-data-access-shape-base-class": [
+        "libs/diagram/data-access/shape-base-class/src/index.ts"
+      ],
+      "@tfx-diagram/diagram-data-access-store-actions": [
+        "libs/diagram/data-access/store/actions/src/index.ts"
+      ],
+      "@tfx-diagram/diagram-data-access-store-features-pages": [
+        "libs/diagram/data-access/store/features/pages/src/index.ts"
+      ],
+      "@tfx-diagram/diagram-data-access-store-features-settings": [
+        "libs/diagram/data-access/store/features/settings/src/index.ts"
+      ],
+      "@tfx-diagram/diagram-data-access-store-features-sketchbook": [
+        "libs/diagram/data-access/store/features/sketchbook/src/index.ts"
+      ],
+      "@tfx-diagram/diagram-data-access-store-features-transform": [
+        "libs/diagram/data-access/store/features/transform/src/index.ts"
+      ],
+      "@tfx-diagram/diagram-data-access-store-selectors-select-current-page": [
+        "libs/diagram/data-access/store/selectors/select-current-page/src/index.ts"
+      ],
+      "@tfx-diagram/diagram-data-access-store-selectors-select-mouse-and-position-format": [
+        "libs/diagram/data-access/store/selectors/select-mouse-and-position-format/src/index.ts"
+      ],
+      "@tfx-diagram/diagram-data-access-store-undo-redo": [
+        "libs/diagram/data-access/store/undo-redo/src/index.ts"
+      ],
+      "@tfx-diagram/diagram/data-access/color-classes": [
+        "libs/diagram/data-access/color-classes/src/index.ts"
+      ],
+      "@tfx-diagram/diagram/data-access/endpoint-classes": [
+        "libs/diagram/data-access/endpoint-classes/src/index.ts"
+      ],
+      "@tfx-diagram/diagram/data-access/shape-classes": [
+        "libs/diagram/data-access/shape-classes/src/index.ts"
+      ],
+      "@tfx-diagram/diagram/data-access/store/features/colors": [
+        "libs/diagram/data-access/store/features/colors/src/index.ts"
+      ],
+      "@tfx-diagram/diagram/data-access/store/features/control-frame": [
+        "libs/diagram/data-access/store/features/control-frame/src/index.ts"
+      ],
+      "@tfx-diagram/diagram/data-access/store/features/shapes": [
+        "libs/diagram/data-access/store/features/shapes/src/index.ts"
+      ],
+      "@tfx-diagram/diagram/data-access/text-classes": [
+        "libs/diagram/data-access/text-classes/src/index.ts"
+      ],
+      "@tfx-diagram/diagram/shell": ["libs/diagram/shell/src/index.ts"],
+      "@tfx-diagram/diagram/ui/diagram-app-menu": [
+        "libs/diagram/ui/diagram-app-menu/src/index.ts"
+      ],
+      "@tfx-diagram/diagram/ui/dialogs": ["libs/diagram/ui/dialogs/src/index.ts"],
+      "@tfx-diagram/diagram/ui/file-save-close-xstate": [
+        "libs/diagram/ui/file-save-close-xstate/src/index.ts"
+      ],
+      "@tfx-diagram/diagram/ui/material": ["libs/diagram/ui/material/src/index.ts"],
+      "@tfx-diagram/diagram/ui/mouse-position": ["libs/diagram/ui/mouse-position/src/index.ts"],
+      "@tfx-diagram/diagram/ui/page-ribbon": ["libs/diagram/ui/page-ribbon/src/index.ts"],
+      "@tfx-diagram/diagram/ui/page-selector": ["libs/diagram/ui/page-selector/src/index.ts"],
+      "@tfx-diagram/diagram/ui/page-viewport": ["libs/diagram/ui/page-viewport/src/index.ts"],
+      "@tfx-diagram/diagram/ui/rulers": ["libs/diagram/ui/rulers/src/index.ts"],
+      "@tfx-diagram/diagram/ui/shape-inspector": [
+        "libs/diagram/ui/shape-inspector/src/index.ts"
+      ],
+      "@tfx-diagram/diagram/ui/zoom-control": ["libs/diagram/ui/zoom-control/src/index.ts"],
+      "@tfx-diagram/diagram/util/app-tokens": ["libs/diagram/util/app-tokens/src/index.ts"],
+      "@tfx-diagram/diagram/util/keyboard-state": [
+        "libs/diagram/util/keyboard-state/src/index.ts"
+      ],
+      "@tfx-diagram/diagram/util/misc-functions": [
+        "libs/diagram/util/misc-functions/src/index.ts"
+      ],
+      "@tfx-diagram/diagram/util/mouse-wheel": ["libs/diagram/util/mouse-wheel/src/index.ts"],
+      "@tfx-diagram/electron-renderer-web-context-bridge-api": [
+        "libs/electron-renderer-web/context-bridge-api/src/index.ts"
+      ],
+      "@tfx-diagram/electron-renderer-web/ngrx-state-colors": [
+        "libs/electron-renderer-web/ngrx-state-colors/src/index.ts"
+      ],
+      "@tfx-diagram/electron-renderer-web/shared-types": [
+        "libs/electron-renderer-web/shared-types/src/index.ts"
+      ],
+      "@tfx-diagram/electron/file-operations": ["libs/electron/file-operations/src/index.ts"],
+      "@tfx-diagram/shared-angular/ui/tfx-app-bar": [
+        "libs/shared-angular/ui/tfx-app-bar/src/index.ts"
+      ],
+      "@tfx-diagram/shared-angular/ui/tfx-color-picker": [
+        "libs/shared-angular/ui/tfx-color-picker/src/index.ts"
+      ],
+      "@tfx-diagram/shared-angular/ui/tfx-icon-button": [
+        "libs/shared-angular/ui/tfx-icon-button/src/index.ts"
+      ],
+      "@tfx-diagram/shared-angular/ui/tfx-menu": [
+        "libs/shared-angular/ui/tfx-menu/src/index.ts"
+      ],
+      "@tfx-diagram/shared-angular/ui/tfx-resize-observer": [
+        "libs/shared-angular/ui/tfx-resize-observer/src/index.ts"
+      ],
+      "@tfx-diagram/shared-angular/ui/tfx-scrollbar": [
+        "libs/shared-angular/ui/tfx-scrollbar/src/index.ts"
+      ],
+      "@tfx-diagram/shared-angular/ui/tfx-show-if-truncated": [
+        "libs/shared-angular/ui/tfx-show-if-truncated/src/index.ts"
+      ],
+      "@tfx-diagram/shared-angular/utils/shared-types": [
+        "libs/shared-angular/utils/shared-types/src/index.ts"
+      ]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
