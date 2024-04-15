@@ -1,10 +1,16 @@
 {
+  "name": "electron-file-operations",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/electron/file-operations/src",
   "projectType": "library",
   "targets": {
+    "build": {
+      "options": {
+        "tsConfig": "libs/electron/file-operations/tsconfig.lib.json"
+      }
+    },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/electron/file-operations/**/*.ts"]

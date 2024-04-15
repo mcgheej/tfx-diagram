@@ -1,11 +1,17 @@
 {
+  "name": "shared-angular-ui-tfx-color-picker",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/shared-angular/ui/tfx-color-picker/src",
   "prefix": "tfx",
   "targets": {
+    "build": {
+      "options": {
+        "tsConfig": "libs/shared-angular/ui/tfx-color-picker/tsconfig.lib.json"
+      }
+    },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/shared-angular/ui/tfx-color-picker/src/**/*.ts",

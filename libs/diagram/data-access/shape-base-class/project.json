@@ -1,10 +1,16 @@
 {
+  "name": "diagram-data-access-shape-base-class",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/diagram/data-access/shape-base-class/src",
   "projectType": "library",
   "targets": {
+    "build": {
+      "options": {
+        "tsConfig": "libs/diagram/data-access/shape-base-class/tsconfig.lib.json"
+      }
+    },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/diagram/data-access/shape-base-class/**/*.ts"]

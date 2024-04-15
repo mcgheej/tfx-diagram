@@ -1,11 +1,17 @@
 {
+  "name": "diagram-util-mouse-wheel",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/diagram/util/mouse-wheel/src",
   "prefix": "tfx",
   "targets": {
+    "build": {
+      "options": {
+        "tsConfig": "libs/diagram/util/mouse-wheel/tsconfig.lib.json"
+      }
+    },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/diagram/util/mouse-wheel/src/**/*.ts",

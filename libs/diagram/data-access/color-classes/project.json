@@ -1,10 +1,16 @@
 {
+  "name": "diagram-data-access-color-classes",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/diagram/data-access/color-classes/src",
   "projectType": "library",
   "targets": {
+    "build": {
+      "options": {
+        "tsConfig": "libs/diagram/data-access/color-classes/tsconfig.lib.json"
+      }
+    },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/diagram/data-access/color-classes/**/*.ts"]

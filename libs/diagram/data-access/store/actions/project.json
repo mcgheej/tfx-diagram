@@ -1,10 +1,16 @@
 {
+  "name": "diagram-data-access-store-actions",
   "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/diagram/data-access/store/actions/src",
   "projectType": "library",
   "targets": {
+    "build": {
+      "options": {
+        "tsConfig": "libs/diagram/data-access/store/actions/tsconfig.lib.json"
+      }
+    },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/diagram/data-access/store/actions/**/*.ts"]

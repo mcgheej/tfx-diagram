@@ -1,9 +1,15 @@
 {
+  "name": "diagram-shell",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/diagram/shell/src",
   "prefix": "tfx",
   "targets": {
+    "build": {
+      "options": {
+        "tsConfig": "libs/diagram/shell/tsconfig.lib.json"
+      }
+    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {

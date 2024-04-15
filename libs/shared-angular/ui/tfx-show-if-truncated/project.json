@@ -1,11 +1,17 @@
 {
+  "name": "shared-angular-ui-tfx-show-if-truncated",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/shared-angular/ui/tfx-show-if-truncated/src",
   "prefix": "tfx",
   "targets": {
+    "build": {
+      "options": {
+        "tsConfig": "libs/shared-angular/ui/tfx-show-if-truncated/tsconfig.lib.json"
+      }
+    },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/shared-angular/ui/tfx-show-if-truncated/src/**/*.ts",

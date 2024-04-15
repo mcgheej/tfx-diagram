@@ -1,4 +1,5 @@
 {
+  "name": "diagram-docs",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/diagram-docs/src",
@@ -6,7 +7,8 @@
     "build": {
       "executor": "@nx-plus/docusaurus:browser",
       "options": {
-        "outputPath": "dist/apps/diagram-docs"
+        "outputPath": "dist/apps/diagram-docs",
+        "tsConfig": "apps/diagram-docs/tsconfig.json"
       }
     },
     "serve": {

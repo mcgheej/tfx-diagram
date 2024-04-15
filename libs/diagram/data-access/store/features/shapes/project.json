@@ -1,11 +1,17 @@
 {
+  "name": "diagram-data-access-store-features-shapes",
   "$schema": "../../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/diagram/data-access/store/features/shapes/src",
   "prefix": "tfx",
   "targets": {
+    "build": {
+      "options": {
+        "tsConfig": "libs/diagram/data-access/store/features/shapes/tsconfig.lib.json"
+      }
+    },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/diagram/data-access/store/features/shapes/src/**/*.ts",

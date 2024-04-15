@@ -1,11 +1,17 @@
 {
+  "name": "diagram-data-access-store-undo-redo",
   "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/diagram/data-access/store/undo-redo/src",
   "prefix": "tfx",
   "targets": {
+    "build": {
+      "options": {
+        "tsConfig": "libs/diagram/data-access/store/undo-redo/tsconfig.lib.json"
+      }
+    },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/diagram/data-access/store/undo-redo/src/**/*.ts",

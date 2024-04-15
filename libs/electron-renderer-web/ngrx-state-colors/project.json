@@ -1,10 +1,16 @@
 {
+  "name": "electron-renderer-web-ngrx-state-colors",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/electron-renderer-web/ngrx-state-colors/src",
   "projectType": "library",
   "targets": {
+    "build": {
+      "options": {
+        "tsConfig": "libs/electron-renderer-web/ngrx-state-colors/tsconfig.lib.json"
+      }
+    },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": ["libs/electron-renderer-web/ngrx-state-colors/**/*.ts"]

@@ -1,11 +1,17 @@
 {
+  "name": "diagram-ui-page-ribbon",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/diagram/ui/page-ribbon/src",
   "prefix": "tfx",
   "targets": {
+    "build": {
+      "options": {
+        "tsConfig": "libs/diagram/ui/page-ribbon/tsconfig.lib.json"
+      }
+    },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": [
           "libs/diagram/ui/page-ribbon/src/**/*.ts",
