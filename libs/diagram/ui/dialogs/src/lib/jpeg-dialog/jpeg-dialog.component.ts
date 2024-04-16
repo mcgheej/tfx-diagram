@@ -9,8 +9,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatSliderChange } from '@angular/material/slider';
+import { MatLegacyDialogRef as MatDialogRef, MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from '@angular/material/legacy-dialog';
+import { MatLegacySliderChange as MatSliderChange } from '@angular/material/legacy-slider';
 import { nextInChain, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { Page, Size, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 

@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatLegacySnackBarModule as MatSnackBarModule } from '@angular/material/legacy-snack-bar';
+import { MatLegacyTooltipModule as MatTooltipModule } from '@angular/material/legacy-tooltip';
 import { TfxIconButtonModule } from '@tfx-diagram/shared-angular/ui/tfx-icon-button';
 import { TfxShowIfTruncatedModule } from '@tfx-diagram/shared-angular/ui/tfx-show-if-truncated';
 import { PagePositionIndicatorComponent } from './components/page-position-indicator/page-position-indicator.component';

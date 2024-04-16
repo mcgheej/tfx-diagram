@@ -10,7 +10,7 @@ import {
   QueryList,
   ViewChildren,
 } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { PageSelectorMachineService } from '../../+xstate/page-selector-machine.service';
 import { PageRenameDetails, TfxPoint } from '../../page-selector.types';
 

@@ -7,12 +7,12 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog, MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
 import { MatIconRegistry } from '@angular/material/icon';
 import {
-  MatTooltipDefaultOptions,
-  MAT_TOOLTIP_DEFAULT_OPTIONS,
-} from '@angular/material/tooltip';
+  MatLegacyTooltipDefaultOptions as MatTooltipDefaultOptions,
+  MAT_LEGACY_TOOLTIP_DEFAULT_OPTIONS as MAT_TOOLTIP_DEFAULT_OPTIONS,
+} from '@angular/material/legacy-tooltip';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
 import { ShellComponentActions } from '@tfx-diagram/diagram-data-access-store-actions';

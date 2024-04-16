@@ -7,11 +7,11 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatLegacyDialogRef as MatDialogRef, MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from '@angular/material/legacy-dialog';
 import {
-  MatTooltipDefaultOptions,
-  MAT_TOOLTIP_DEFAULT_OPTIONS,
-} from '@angular/material/tooltip';
+  MatLegacyTooltipDefaultOptions as MatTooltipDefaultOptions,
+  MAT_LEGACY_TOOLTIP_DEFAULT_OPTIONS as MAT_TOOLTIP_DEFAULT_OPTIONS,
+} from '@angular/material/legacy-tooltip';
 import { Alignment } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { alignmentButtonConfigs } from './text-alignment-button-options';
 import { TextOptionsDialogData, TextOptionsDialogDataProps } from './text-options-dialog.types';

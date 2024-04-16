@@ -1,5 +1,5 @@
 import { Inject, Injectable, OnDestroy } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { Store } from '@ngrx/store';
 import { SaveCloseMachineService } from '@tfx-diagram/diagram/ui/file-save-close-xstate';
 import { ZoomControlService } from '@tfx-diagram/diagram/ui/zoom-control';
