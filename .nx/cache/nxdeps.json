@@ -1,6 +1,6 @@
 {
   "version": "5.1",
-  "nxVersion": "15.9.7",
+  "nxVersion": "16.0.0",
   "deps": {
     "@angular/animations": "15.2.10",
     "@angular/cdk": "15.2.9",
@@ -41,28 +41,27 @@
     "@angular/compiler-cli": "15.2.10",
     "@angular/language-service": "15.2.10",
     "@docusaurus/module-type-aliases": "2.0.0-beta.13",
-    "@nrwl/angular": "15.9.7",
-    "@nrwl/cli": "15.9.7",
-    "@nrwl/cypress": "15.9.7",
-    "@nrwl/eslint-plugin-nx": "15.9.7",
-    "@nrwl/linter": "15.9.7",
-    "@nrwl/nx-cloud": "18.0.0",
-    "@nrwl/workspace": "15.9.7",
     "@nx-plus/docusaurus": "^13.0.2",
     "@schematics/angular": "15.2.11",
     "@types/node": "16.11.7",
-    "@typescript-eslint/eslint-plugin": "5.36.1",
-    "@typescript-eslint/parser": "5.36.1",
+    "@typescript-eslint/eslint-plugin": "5.58.0",
+    "@typescript-eslint/parser": "5.58.0",
     "cypress": "^9.1.0",
     "electron": "^18.2.3",
     "electron-devtools-installer": "^3.2.0",
     "eslint": "8.15.0",
     "eslint-config-prettier": "8.1.0",
     "exitzero": "^1.0.1",
-    "nx": "15.9.7",
+    "nx": "16.0.0",
     "nx-electron": "^14.0.2",
     "prettier": "2.6.2",
-    "typescript": "4.9.5"
+    "typescript": "4.9.5",
+    "nx-cloud": "18.0.0",
+    "@nx/workspace": "16.0.0",
+    "@nx/cypress": "16.0.0",
+    "@nx/eslint-plugin": "16.0.0",
+    "@nx/linter": "16.0.0",
+    "@nx/angular": "16.0.0"
   },
   "pathMappings": {
     "@tfx-diagram/diagram-data-access-shape-base-class": [
@@ -245,7 +244,7 @@
         "files": [
           {
             "file": "libs/diagram/data-access/store/selectors/select-mouse-and-position-format/.babelrc",
-            "hash": "2685020516260856122"
+            "hash": "12678781556853150254"
           },
           {
             "file": "libs/diagram/data-access/store/selectors/select-mouse-and-position-format/.eslintrc.json",
@@ -344,7 +343,7 @@
         "files": [
           {
             "file": "libs/diagram/data-access/store/features/control-frame/.eslintrc.json",
-            "hash": "13443674634263550407"
+            "hash": "13877101042053061079"
           },
           {
             "file": "libs/diagram/data-access/store/features/control-frame/project.json",
@@ -1794,7 +1793,7 @@
         "files": [
           {
             "file": "libs/diagram/data-access/store/features/sketchbook/.eslintrc.json",
-            "hash": "14548074456990071473"
+            "hash": "8370984722634735585"
           },
           {
             "file": "libs/diagram/data-access/store/features/sketchbook/project.json",
@@ -1992,7 +1991,7 @@
         "files": [
           {
             "file": "libs/diagram/data-access/store/features/transform/.eslintrc.json",
-            "hash": "14548074456990071473"
+            "hash": "8370984722634735585"
           },
           {
             "file": "libs/diagram/data-access/store/features/transform/project.json",
@@ -2185,7 +2184,7 @@
         "files": [
           {
             "file": "libs/diagram/data-access/store/features/settings/.eslintrc.json",
-            "hash": "14548074456990071473"
+            "hash": "8370984722634735585"
           },
           {
             "file": "libs/diagram/data-access/store/features/settings/project.json",
@@ -2368,7 +2367,7 @@
         "files": [
           {
             "file": "libs/diagram/data-access/store/features/colors/.eslintrc.json",
-            "hash": "16457244232287029556"
+            "hash": "2325945399474423149"
           },
           {
             "file": "libs/diagram/data-access/store/features/colors/project.json",
@@ -2588,7 +2587,7 @@
         "files": [
           {
             "file": "libs/diagram/data-access/store/features/shapes/.eslintrc.json",
-            "hash": "16457244232287029556"
+            "hash": "2325945399474423149"
           },
           {
             "file": "libs/diagram/data-access/store/features/shapes/project.json",
@@ -3352,7 +3351,7 @@
         "files": [
           {
             "file": "libs/electron-renderer-web/context-bridge-api/.babelrc",
-            "hash": "2685020516260856122"
+            "hash": "12678781556853150254"
           },
           {
             "file": "libs/electron-renderer-web/context-bridge-api/.eslintrc.json",
@@ -3535,7 +3534,7 @@
         "files": [
           {
             "file": "libs/diagram/data-access/store/features/pages/.eslintrc.json",
-            "hash": "14548074456990071473"
+            "hash": "8370984722634735585"
           },
           {
             "file": "libs/diagram/data-access/store/features/pages/project.json",
@@ -3719,7 +3718,7 @@
         "files": [
           {
             "file": "libs/electron-renderer-web/ngrx-state-colors/.babelrc",
-            "hash": "2685020516260856122"
+            "hash": "12678781556853150254"
           },
           {
             "file": "libs/electron-renderer-web/ngrx-state-colors/.eslintrc.json",
@@ -3808,7 +3807,7 @@
         "files": [
           {
             "file": "libs/shared-angular/ui/tfx-show-if-truncated/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/shared-angular/ui/tfx-show-if-truncated/project.json",
@@ -3827,13 +3826,13 @@
             "hash": "1334328654872187120",
             "dependencies": [
               {
-                "source": "shared-angular-ui-tfx-show-if-truncated",
                 "target": "npm:@angular/core",
+                "source": "shared-angular-ui-tfx-show-if-truncated",
                 "type": "static"
               },
               {
-                "source": "shared-angular-ui-tfx-show-if-truncated",
                 "target": "npm:@angular/material",
+                "source": "shared-angular-ui-tfx-show-if-truncated",
                 "type": "static"
               }
             ]
@@ -3843,18 +3842,18 @@
             "hash": "18179534355418101999",
             "dependencies": [
               {
-                "source": "shared-angular-ui-tfx-show-if-truncated",
                 "target": "npm:@angular/common",
+                "source": "shared-angular-ui-tfx-show-if-truncated",
                 "type": "static"
               },
               {
-                "source": "shared-angular-ui-tfx-show-if-truncated",
                 "target": "npm:@angular/core",
+                "source": "shared-angular-ui-tfx-show-if-truncated",
                 "type": "static"
               },
               {
-                "source": "shared-angular-ui-tfx-show-if-truncated",
                 "target": "npm:@angular/material",
+                "source": "shared-angular-ui-tfx-show-if-truncated",
                 "type": "static"
               }
             ]
@@ -3914,7 +3913,7 @@
         "files": [
           {
             "file": "libs/shared-angular/ui/tfx-resize-observer/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/shared-angular/ui/tfx-resize-observer/project.json",
@@ -4021,7 +4020,7 @@
         "files": [
           {
             "file": "libs/diagram/data-access/endpoint-classes/.babelrc",
-            "hash": "2685020516260856122"
+            "hash": "12678781556853150254"
           },
           {
             "file": "libs/diagram/data-access/endpoint-classes/.eslintrc.json",
@@ -4130,7 +4129,7 @@
         "files": [
           {
             "file": "libs/diagram/data-access/shape-base-class/.babelrc",
-            "hash": "2685020516260856122"
+            "hash": "12678781556853150254"
           },
           {
             "file": "libs/diagram/data-access/shape-base-class/.eslintrc.json",
@@ -4271,7 +4270,7 @@
         "files": [
           {
             "file": "libs/diagram/data-access/store/undo-redo/.eslintrc.json",
-            "hash": "3972344419495614778"
+            "hash": "14468837229552476947"
           },
           {
             "file": "libs/diagram/data-access/store/undo-redo/project.json",
@@ -4467,7 +4466,7 @@
         "files": [
           {
             "file": "libs/electron-renderer-web/shared-types/.babelrc",
-            "hash": "2685020516260856122"
+            "hash": "12678781556853150254"
           },
           {
             "file": "libs/electron-renderer-web/shared-types/.eslintrc.json",
@@ -4611,7 +4610,7 @@
         "files": [
           {
             "file": "libs/shared-angular/ui/tfx-color-picker/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/shared-angular/ui/tfx-color-picker/project.json",
@@ -4809,7 +4808,7 @@
         "files": [
           {
             "file": "libs/diagram/data-access/color-classes/.babelrc",
-            "hash": "2685020516260856122"
+            "hash": "12678781556853150254"
           },
           {
             "file": "libs/diagram/data-access/color-classes/.eslintrc.json",
@@ -4904,7 +4903,7 @@
         "files": [
           {
             "file": "libs/diagram/data-access/shape-classes/.babelrc",
-            "hash": "2685020516260856122"
+            "hash": "12678781556853150254"
           },
           {
             "file": "libs/diagram/data-access/shape-classes/.eslintrc.json",
@@ -6141,7 +6140,7 @@
         "files": [
           {
             "file": "libs/diagram/ui/file-save-close-xstate/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/diagram/ui/file-save-close-xstate/project.json",
@@ -6164,18 +6163,18 @@
             "hash": "13832620197333127153",
             "dependencies": [
               {
-                "source": "diagram-ui-file-save-close-xstate",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-file-save-close-xstate",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-file-save-close-xstate",
                 "target": "npm:@ngrx/store",
+                "source": "diagram-ui-file-save-close-xstate",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-file-save-close-xstate",
                 "target": "diagram-data-access-store-actions",
+                "source": "diagram-ui-file-save-close-xstate",
                 "type": "static"
               }
             ]
@@ -6201,38 +6200,38 @@
             "hash": "13720080585748803608",
             "dependencies": [
               {
-                "source": "diagram-ui-file-save-close-xstate",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-file-save-close-xstate",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-file-save-close-xstate",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-file-save-close-xstate",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-file-save-close-xstate",
                 "target": "npm:@ngrx/store",
+                "source": "diagram-ui-file-save-close-xstate",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-file-save-close-xstate",
                 "target": "diagram-data-access-store-features-sketchbook",
+                "source": "diagram-ui-file-save-close-xstate",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-file-save-close-xstate",
                 "target": "electron-renderer-web-shared-types",
+                "source": "diagram-ui-file-save-close-xstate",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-file-save-close-xstate",
                 "target": "npm:rxjs",
+                "source": "diagram-ui-file-save-close-xstate",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-file-save-close-xstate",
                 "target": "npm:xstate",
+                "source": "diagram-ui-file-save-close-xstate",
                 "type": "static"
               }
             ]
@@ -6351,7 +6350,7 @@
         "files": [
           {
             "file": "libs/shared-angular/ui/tfx-icon-button/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/shared-angular/ui/tfx-icon-button/project.json",
@@ -6460,7 +6459,7 @@
         "files": [
           {
             "file": "libs/shared-angular/utils/shared-types/.babelrc",
-            "hash": "2685020516260856122"
+            "hash": "12678781556853150254"
           },
           {
             "file": "libs/shared-angular/utils/shared-types/.eslintrc.json",
@@ -6546,7 +6545,7 @@
         "files": [
           {
             "file": "libs/diagram/data-access/store/actions/.babelrc",
-            "hash": "2685020516260856122"
+            "hash": "12678781556853150254"
           },
           {
             "file": "libs/diagram/data-access/store/actions/.eslintrc.json",
@@ -7118,7 +7117,7 @@
         "files": [
           {
             "file": "libs/diagram/data-access/text-classes/.babelrc",
-            "hash": "2685020516260856122"
+            "hash": "12678781556853150254"
           },
           {
             "file": "libs/diagram/data-access/text-classes/.eslintrc.json",
@@ -7255,7 +7254,7 @@
         "files": [
           {
             "file": "libs/shared-angular/ui/tfx-scrollbar/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/shared-angular/ui/tfx-scrollbar/project.json",
@@ -7389,7 +7388,7 @@
         "files": [
           {
             "file": "libs/shared-angular/ui/tfx-app-bar/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/shared-angular/ui/tfx-app-bar/project.json",
@@ -7537,7 +7536,7 @@
         "files": [
           {
             "file": "libs/diagram/ui/diagram-app-menu/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/diagram/ui/diagram-app-menu/project.json",
@@ -8218,48 +8217,48 @@
             "hash": "10171119043880302809",
             "dependencies": [
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "npm:@ngrx/store",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "diagram-ui-file-save-close-xstate",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "diagram-ui-zoom-control",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "diagram-util-app-tokens",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "shared-angular-ui-tfx-menu",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "npm:angular2-hotkeys",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "npm:rxjs",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               }
             ]
@@ -8624,33 +8623,33 @@
             "hash": "11325990543999546386",
             "dependencies": [
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "npm:@ngrx/store",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "diagram-data-access-store-actions",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "diagram-ui-dialogs",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "diagram-ui-file-save-close-xstate",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "shared-angular-ui-tfx-menu",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               }
             ]
@@ -8717,28 +8716,28 @@
             "hash": "274580705137946015",
             "dependencies": [
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "npm:@ngrx/store",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "diagram-ui-file-save-close-xstate",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "shared-angular-ui-tfx-menu",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-diagram-app-menu",
                 "target": "npm:rxjs",
+                "source": "diagram-ui-diagram-app-menu",
                 "type": "static"
               }
             ]
@@ -10055,7 +10054,7 @@
         "files": [
           {
             "file": "libs/diagram/util/keyboard-state/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/diagram/util/keyboard-state/project.json",
@@ -10177,7 +10176,7 @@
         "files": [
           {
             "file": "libs/diagram/util/misc-functions/.babelrc",
-            "hash": "2685020516260856122"
+            "hash": "12678781556853150254"
           },
           {
             "file": "libs/diagram/util/misc-functions/.eslintrc.json",
@@ -10312,7 +10311,7 @@
         "files": [
           {
             "file": "libs/diagram/ui/shape-inspector/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/diagram/ui/shape-inspector/project.json",
@@ -10548,7 +10547,7 @@
         "files": [
           {
             "file": "libs/shared-angular/ui/tfx-menu/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/shared-angular/ui/tfx-menu/project.json",
@@ -11056,7 +11055,7 @@
         "files": [
           {
             "file": "libs/diagram/ui/mouse-position/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/diagram/ui/mouse-position/project.json",
@@ -11166,7 +11165,7 @@
         "files": [
           {
             "file": "libs/electron/file-operations/.babelrc",
-            "hash": "2685020516260856122"
+            "hash": "12678781556853150254"
           },
           {
             "file": "libs/electron/file-operations/.eslintrc.json",
@@ -11294,7 +11293,7 @@
         "files": [
           {
             "file": "libs/diagram/ui/page-selector/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/diagram/ui/page-selector/project.json",
@@ -11576,13 +11575,13 @@
             "hash": "10290980023468494023",
             "dependencies": [
               {
-                "source": "diagram-ui-page-selector",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-selector",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-selector",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-selector",
                 "type": "static"
               }
             ]
@@ -11592,33 +11591,33 @@
             "hash": "11622808243799963755",
             "dependencies": [
               {
-                "source": "diagram-ui-page-selector",
                 "target": "npm:@angular/common",
+                "source": "diagram-ui-page-selector",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-selector",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-selector",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-selector",
                 "target": "npm:@angular/forms",
+                "source": "diagram-ui-page-selector",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-selector",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-selector",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-selector",
                 "target": "shared-angular-ui-tfx-icon-button",
+                "source": "diagram-ui-page-selector",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-selector",
                 "target": "shared-angular-ui-tfx-show-if-truncated",
+                "source": "diagram-ui-page-selector",
                 "type": "static"
               }
             ]
@@ -11732,7 +11731,7 @@
         "files": [
           {
             "file": "libs/diagram/ui/page-viewport/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/diagram/ui/page-viewport/project.json",
@@ -12345,7 +12344,7 @@
         "files": [
           {
             "file": "libs/diagram/util/mouse-wheel/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/diagram/util/mouse-wheel/project.json",
@@ -12451,7 +12450,7 @@
         "files": [
           {
             "file": "libs/diagram/ui/zoom-control/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/diagram/ui/zoom-control/project.json",
@@ -12634,7 +12633,7 @@
         "files": [
           {
             "file": "libs/diagram/util/app-tokens/.babelrc",
-            "hash": "2685020516260856122"
+            "hash": "12678781556853150254"
           },
           {
             "file": "libs/diagram/util/app-tokens/.eslintrc.json",
@@ -12718,7 +12717,7 @@
         "files": [
           {
             "file": "libs/diagram/ui/page-ribbon/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/diagram/ui/page-ribbon/project.json",
@@ -12777,28 +12776,28 @@
             "hash": "11965082485682402204",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@ngrx/store",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "diagram-data-access-store-actions",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "electron-renderer-web-shared-types",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -12866,23 +12865,23 @@
             "hash": "14380216385159453769",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "shared-angular-utils-shared-types",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:rxjs",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -12964,43 +12963,43 @@
             "hash": "7951517691713821907",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@ngrx/store",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "diagram-data-access-store-actions",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "diagram-data-access-store-features-colors",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "electron-renderer-web-shared-types",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "shared-angular-utils-shared-types",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:rxjs",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -13060,28 +13059,28 @@
             "hash": "1680844669413524951",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "diagram-util-misc-functions",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "shared-angular-ui-tfx-color-picker",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "shared-angular-utils-shared-types",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -13159,28 +13158,28 @@
             "hash": "654551306573461409",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@ngrx/store",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "diagram-data-access-store-actions",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "diagram-data-access-endpoint-classes",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -13198,23 +13197,23 @@
             "hash": "2202084994111638959",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "diagram-data-access-endpoint-classes",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:electron",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -13356,23 +13355,23 @@
             "hash": "155801057509295100",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@ngrx/store",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "diagram-data-access-store-actions",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -13390,18 +13389,18 @@
             "hash": "12365314051016336789",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "electron-renderer-web-shared-types",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -13434,23 +13433,23 @@
             "hash": "15364651771636469010",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@ngrx/store",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "diagram-data-access-store-actions",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -13468,18 +13467,18 @@
             "hash": "13442536831215889138",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "electron-renderer-web-shared-types",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -13523,18 +13522,18 @@
             "hash": "15547682078217154108",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "electron-renderer-web-shared-types",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -13555,33 +13554,33 @@
             "hash": "10160456535759286870",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@ngrx/store",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "diagram-data-access-store-actions",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "electron-renderer-web-shared-types",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:rxjs",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -13649,23 +13648,23 @@
             "hash": "16517390749019398551",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@ngrx/store",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "diagram-data-access-store-actions",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -13699,18 +13698,18 @@
             "hash": "10090007218204330152",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "electron-renderer-web-shared-types",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -13771,23 +13770,23 @@
             "hash": "14042164083741407379",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@ngrx/store",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "diagram-data-access-store-actions",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -13805,23 +13804,23 @@
             "hash": "17634088027272963816",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "electron-renderer-web-shared-types",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:electron",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -13851,33 +13850,33 @@
             "hash": "8719536052183292538",
             "dependencies": [
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/common",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/forms",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "shared-angular-ui-tfx-color-picker",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-page-ribbon",
                 "target": "shared-angular-ui-tfx-icon-button",
+                "source": "diagram-ui-page-ribbon",
                 "type": "static"
               }
             ]
@@ -13986,7 +13985,7 @@
         "files": [
           {
             "file": "libs/diagram/ui/material/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/diagram/ui/material/project.json",
@@ -14005,18 +14004,18 @@
             "hash": "16477397568625163809",
             "dependencies": [
               {
-                "source": "diagram-ui-material",
                 "target": "npm:@angular/common",
+                "source": "diagram-ui-material",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-material",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-material",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-material",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-material",
                 "type": "static"
               }
             ]
@@ -14076,7 +14075,7 @@
         "files": [
           {
             "file": "libs/diagram/ui/dialogs/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/diagram/ui/dialogs/project.json",
@@ -14129,28 +14128,28 @@
             "hash": "13766116179566154743",
             "dependencies": [
               {
-                "source": "diagram-ui-dialogs",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-dialogs",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-dialogs",
                 "target": "npm:@angular/forms",
+                "source": "diagram-ui-dialogs",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-dialogs",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-dialogs",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-dialogs",
                 "target": "diagram-data-access-shape-base-class",
+                "source": "diagram-ui-dialogs",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-dialogs",
                 "target": "electron-renderer-web-shared-types",
+                "source": "diagram-ui-dialogs",
                 "type": "static"
               }
             ]
@@ -14168,23 +14167,23 @@
             "hash": "4275965345162208672",
             "dependencies": [
               {
-                "source": "diagram-ui-dialogs",
                 "target": "npm:@angular/core",
+                "source": "diagram-ui-dialogs",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-dialogs",
                 "target": "npm:@angular/forms",
+                "source": "diagram-ui-dialogs",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-dialogs",
                 "target": "npm:@angular/material",
+                "source": "diagram-ui-dialogs",
                 "type": "static"
               },
               {
-                "source": "diagram-ui-dialogs",
                 "target": "electron-renderer-web-shared-types",
+                "source": "diagram-ui-dialogs",
                 "type": "static"
               }
             ]
@@ -14244,7 +14243,7 @@
         "files": [
           {
             "file": "libs/diagram/ui/rulers/.eslintrc.json",
-            "hash": "6755585090710233591"
+            "hash": "10976848420227536960"
           },
           {
             "file": "libs/diagram/ui/rulers/project.json",
@@ -14506,7 +14505,7 @@
               "default",
               "{workspaceRoot}/.eslintrc.json"
             ],
-            "executor": "@nrwl/linter:eslint",
+            "executor": "@nx/linter:eslint",
             "outputs": [
               "{options.outputFile}"
             ],
@@ -14528,7 +14527,7 @@
           },
           {
             "file": "apps/diagram-electron/project.json",
-            "hash": "17792168760657336249"
+            "hash": "15923506013741070432"
           },
           {
             "file": "apps/diagram-electron/src/app/api/main.preload.ts",
@@ -14552,11 +14551,6 @@
             "dependencies": [
               {
                 "target": "npm:electron",
-                "source": "diagram-electron",
-                "type": "static"
-              },
-              {
-                "target": "npm:url",
                 "source": "diagram-electron",
                 "type": "static"
               }
@@ -14723,7 +14717,7 @@
               "default",
               "{workspaceRoot}/.eslintrc.json"
             ],
-            "executor": "@nrwl/linter:eslint",
+            "executor": "@nx/linter:eslint",
             "options": {
               "lintFilePatterns": [
                 "apps/diagram-renderer/src/**/*.ts",
@@ -14739,11 +14733,11 @@
         "files": [
           {
             "file": "apps/diagram-renderer/.eslintrc.json",
-            "hash": "12400563846944109128"
+            "hash": "7330308690001399942"
           },
           {
             "file": "apps/diagram-renderer/project.json",
-            "hash": "14992969404535673816"
+            "hash": "13122028362093364399"
           },
           {
             "file": "apps/diagram-renderer/proxy.conf.json",
@@ -14997,7 +14991,7 @@
               "default",
               "{workspaceRoot}/.eslintrc.json"
             ],
-            "executor": "@nrwl/linter:eslint",
+            "executor": "@nx/linter:eslint",
             "options": {
               "lintFilePatterns": [
                 "libs/diagram/shell/src/**/*.ts",
@@ -15013,11 +15007,11 @@
         "files": [
           {
             "file": "libs/diagram/shell/.eslintrc.json",
-            "hash": "6970916528244364789"
+            "hash": "4989473565759885174"
           },
           {
             "file": "libs/diagram/shell/project.json",
-            "hash": "16697774362741992149"
+            "hash": "1523904045201804331"
           },
           {
             "file": "libs/diagram/shell/README.md",
@@ -15040,73 +15034,73 @@
             "hash": "3517798366829207295",
             "dependencies": [
               {
-                "source": "diagram-shell",
                 "target": "npm:@angular/core",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "npm:@angular/material",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "npm:@ngrx/store",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-actions",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-features-pages",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-features-settings",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-features-sketchbook",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-selectors-select-mouse-and-position-format",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-ui-dialogs",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-ui-page-selector",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-ui-zoom-control",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-util-mouse-wheel",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "electron-renderer-web-shared-types",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "npm:rxjs",
+                "source": "diagram-shell",
                 "type": "static"
               }
             ]
@@ -15116,123 +15110,123 @@
             "hash": "174352669613383264",
             "dependencies": [
               {
-                "source": "diagram-shell",
                 "target": "npm:@angular/common",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "npm:@angular/core",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "npm:@angular/material",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-features-pages",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-features-settings",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-features-sketchbook",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-features-transform",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-undo-redo",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-features-colors",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-features-control-frame",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-features-shapes",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-ui-diagram-app-menu",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-ui-mouse-position",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-ui-page-ribbon",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-ui-page-selector",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-ui-page-viewport",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-ui-rulers",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-ui-shape-inspector",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-ui-zoom-control",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-util-mouse-wheel",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "electron-renderer-web-shared-types",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "shared-angular-ui-tfx-app-bar",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "shared-angular-ui-tfx-color-picker",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "shared-angular-ui-tfx-menu",
+                "source": "diagram-shell",
                 "type": "static"
               }
             ]
@@ -15250,68 +15244,68 @@
             "hash": "2825665187603094438",
             "dependencies": [
               {
-                "source": "diagram-shell",
                 "target": "npm:@angular/core",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "npm:@angular/material",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "npm:@angular/platform-browser",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "npm:@ngrx/store",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-actions",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-features-pages",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-features-settings",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-features-sketchbook",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-data-access-store-features-shapes",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-ui-diagram-app-menu",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "diagram-ui-dialogs",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "shared-angular-ui-tfx-icon-button",
+                "source": "diagram-shell",
                 "type": "static"
               },
               {
-                "source": "diagram-shell",
                 "target": "npm:rxjs",
+                "source": "diagram-shell",
                 "type": "static"
               }
             ]
@@ -15825,7 +15819,7 @@
               "default",
               "{workspaceRoot}/.eslintrc.json"
             ],
-            "executor": "@nrwl/linter:eslint",
+            "executor": "@nx/linter:eslint",
             "options": {
               "lintFilePatterns": [
                 "apps/diagram-web/src/**/*.ts",
@@ -15841,11 +15835,11 @@
         "files": [
           {
             "file": "apps/diagram-web/.eslintrc.json",
-            "hash": "12400563846944109128"
+            "hash": "7330308690001399942"
           },
           {
             "file": "apps/diagram-web/project.json",
-            "hash": "12720941751045038452"
+            "hash": "5080194329659748832"
           },
           {
             "file": "apps/diagram-web/src/app/app.component.html",
@@ -16331,15 +16325,6 @@
         "version": "5.7.1",
         "packageName": "semver",
         "hash": "sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ=="
-      }
-    },
-    "npm:semver@7.5.4": {
-      "type": "npm",
-      "name": "npm:semver@7.5.4",
-      "data": {
-        "version": "7.5.4",
-        "packageName": "semver",
-        "hash": "sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA=="
       }
     },
     "npm:semver@7.3.8": {
@@ -19447,6 +19432,24 @@
         "hash": "sha512-1iuezdyDNngPnz8rLRDO2C/ZZ/emJLb72OsZeqQ6gL6Avko/XCXZw+NuxBSNhBAP13Hie418V7VMt9et1FMvpg=="
       }
     },
+    "npm:@eslint-community/eslint-utils": {
+      "type": "npm",
+      "name": "npm:@eslint-community/eslint-utils",
+      "data": {
+        "version": "4.4.0",
+        "packageName": "@eslint-community/eslint-utils",
+        "hash": "sha512-1/sA4dwrzBAyeUoQ6oxahHKmrZvsnLCg4RfxW3ZFGGmQkSNQPFNLV9CUEFQP1x9EYXHTo5p6xdhZM1Ne9p/AfA=="
+      }
+    },
+    "npm:@eslint-community/regexpp": {
+      "type": "npm",
+      "name": "npm:@eslint-community/regexpp",
+      "data": {
+        "version": "4.10.0",
+        "packageName": "@eslint-community/regexpp",
+        "hash": "sha512-Cu96Sd2By9mCNTx2iyKOmq10v22jUVQv0lQnlGNy16oE9589yE+QADPbrMGCkA51cKZSg3Pu/aTJVTGfL/qjUA=="
+      }
+    },
     "npm:@eslint/eslintrc": {
       "type": "npm",
       "name": "npm:@eslint/eslintrc",
@@ -20576,18 +20579,18 @@
       "type": "npm",
       "name": "npm:@nrwl/angular",
       "data": {
-        "version": "15.9.7",
+        "version": "16.0.0",
         "packageName": "@nrwl/angular",
-        "hash": "sha512-FOvAfvYBzDTZiiylLfllM7Yki2OSx5QH+Ytt4YwUvEIiG6xbkfe/azTDdY77fFiQfakddL0LhtYzCF0dCNCKjQ=="
+        "hash": "sha512-BeiWfhzJ5LAwLkmbMqOdee/k8uMgwQAqDfbYsOmBvy8+LBbXqdevzkANGZGAlYO7iWZnjjsvNPBictKFtA2dcg=="
       }
     },
-    "npm:@nrwl/devkit@15.9.7": {
+    "npm:@nrwl/cypress": {
       "type": "npm",
-      "name": "npm:@nrwl/devkit@15.9.7",
+      "name": "npm:@nrwl/cypress",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/devkit",
-        "hash": "sha512-Sb7Am2TMT8AVq8e+vxOlk3AtOA2M0qCmhBzoM1OJbdHaPKc0g0UgSnWRml1kPGg5qfPk72tWclLoZJ5/ut0vTg=="
+        "version": "16.0.0",
+        "packageName": "@nrwl/cypress",
+        "hash": "sha512-FtDUsxlCkcDN9xUjmku9F8aiVNDZoTi7KZsbDFETK8h+eyuR2/cbGgZQtBSkzT59zdla34zi8WXQ7pHRsoVwVA=="
       }
     },
     "npm:@nrwl/devkit": {
@@ -20597,6 +20600,105 @@
         "version": "13.10.6",
         "packageName": "@nrwl/devkit",
         "hash": "sha512-oxL+r9pGguFwl//iuIyPih8mxFwYjYmPY7K8coPoucLCIwKWAnp1B8T5LEMlZh58VaYEQFaGUnuILdVrK1s4pA=="
+      }
+    },
+    "npm:@nrwl/devkit@16.0.0": {
+      "type": "npm",
+      "name": "npm:@nrwl/devkit@16.0.0",
+      "data": {
+        "version": "16.0.0",
+        "packageName": "@nrwl/devkit",
+        "hash": "sha512-ycd4wD4v1N/ywjU1cwTVCPQJwxnGjEsWIll5z5cMtfHwJf+0OhMTqC3zeZibIwnjjoh721pyEzXODyUmjkGmVw=="
+      }
+    },
+    "npm:@nrwl/eslint-plugin-nx": {
+      "type": "npm",
+      "name": "npm:@nrwl/eslint-plugin-nx",
+      "data": {
+        "version": "16.0.0",
+        "packageName": "@nrwl/eslint-plugin-nx",
+        "hash": "sha512-HJLMP6/g00huvsr7ik4NStvXB/MWDkWo45nKtvuZIvmycYt4VUATzQt2CrUaKKqRM5eAW7Ho8aW63DOIsufOcg=="
+      }
+    },
+    "npm:@nrwl/jest": {
+      "type": "npm",
+      "name": "npm:@nrwl/jest",
+      "data": {
+        "version": "16.0.0",
+        "packageName": "@nrwl/jest",
+        "hash": "sha512-3EOp1Sa9ZSKuqJIC9zYzwBuitvmXC9nn0BVCqv6NgfdXRzQgA7+RFObE+Zym/nejF0ZMGIvZnXZFMT/z6Cbczw=="
+      }
+    },
+    "npm:@nrwl/js": {
+      "type": "npm",
+      "name": "npm:@nrwl/js",
+      "data": {
+        "version": "16.0.0",
+        "packageName": "@nrwl/js",
+        "hash": "sha512-RedHAlmQpbGIWdFOl0bbl4BND1OlZjEumQG0nNIg0pgDhPgJtfovP1UKBJErUJ/mNhINKh7VCmxPhYM9RARtWQ=="
+      }
+    },
+    "npm:@nrwl/linter": {
+      "type": "npm",
+      "name": "npm:@nrwl/linter",
+      "data": {
+        "version": "16.0.0",
+        "packageName": "@nrwl/linter",
+        "hash": "sha512-TPRRtmNZWVF/OaZMWWk4dB/f2MAmfw+Kyih7GVohOgut0qS4DB1HkFAWhGgEDOVFD0hRfj3vVayDkfEeONqJJg=="
+      }
+    },
+    "npm:@nrwl/nx-cloud": {
+      "type": "npm",
+      "name": "npm:@nrwl/nx-cloud",
+      "data": {
+        "version": "18.0.0",
+        "packageName": "@nrwl/nx-cloud",
+        "hash": "sha512-rjjcJgzDmKwFD1QVIMs5O3X4SoMQIk0bzh3pL90ZP/B5YJUlTySv7+R0JoGQ6ROGwVQHjPFMVKKLB09zl5perA=="
+      }
+    },
+    "npm:@nrwl/tao": {
+      "type": "npm",
+      "name": "npm:@nrwl/tao",
+      "data": {
+        "version": "16.0.0",
+        "packageName": "@nrwl/tao",
+        "hash": "sha512-0A+e6jGmBBhpcaSlFr24uNvMRNZmlAWETj8K7gvYYjbWpVx3VP5hY+9R9vOxRwozWEHeEDFl1xue8ci0HWzORA=="
+      }
+    },
+    "npm:@nrwl/webpack": {
+      "type": "npm",
+      "name": "npm:@nrwl/webpack",
+      "data": {
+        "version": "16.0.0",
+        "packageName": "@nrwl/webpack",
+        "hash": "sha512-xecs4ylS3lYEE0k38ZRwEEwAm/s+jYisBGjo6bIOb6LEIZHkcrxvZeK3GJMTfAPDs08X1ei/XUo9IyUPh19McA=="
+      }
+    },
+    "npm:@nrwl/workspace": {
+      "type": "npm",
+      "name": "npm:@nrwl/workspace",
+      "data": {
+        "version": "16.0.0",
+        "packageName": "@nrwl/workspace",
+        "hash": "sha512-cZOiSYXQP69tgTtHOxuoT9PUY7lZ1DWbB40MRpGqZN1Xk8efr9jG23LrHSN5Fr9ShfMdXkKqK7NQT8HijXu/UA=="
+      }
+    },
+    "npm:@nx-plus/docusaurus": {
+      "type": "npm",
+      "name": "npm:@nx-plus/docusaurus",
+      "data": {
+        "version": "13.0.2",
+        "packageName": "@nx-plus/docusaurus",
+        "hash": "sha512-ltkB0bEa7ZCfU2xYOT7el41jHJKXlsmL9ZtUNCJmeIomV7hPTLa0HR2amYa7MiajH8vfxT8SB9S8OJjfW82+RA=="
+      }
+    },
+    "npm:@nx/angular": {
+      "type": "npm",
+      "name": "npm:@nx/angular",
+      "data": {
+        "version": "16.0.0",
+        "packageName": "@nx/angular",
+        "hash": "sha512-lCx2e7bB+vvxphKdatku2aPJ2wM8NI+AzhNei5243tL18yoN1tdcLB/OL/lRzknQ57Oi8nyFsHhnjsLrBdnsEw=="
       }
     },
     "npm:strip-bom@3.0.0": {
@@ -20635,49 +20737,184 @@
         "hash": "sha512-fxDhWnFSLt3VuTwtvJt5fpwxBHg5AdKWMsgcPOOIilyjymcYVZoCQF8fvFRezCNfblEXmi+PcM1eYHeOAgXCOQ=="
       }
     },
-    "npm:@nrwl/cli": {
+    "npm:@nx/cypress": {
       "type": "npm",
-      "name": "npm:@nrwl/cli",
+      "name": "npm:@nx/cypress",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/cli",
-        "hash": "sha512-1jtHBDuJzA57My5nLzYiM372mJW0NY6rFKxlWt5a0RLsAZdPTHsd8lE3Gs9XinGC1jhXbruWmhhnKyYtZvX/zA=="
+        "version": "16.0.0",
+        "packageName": "@nx/cypress",
+        "hash": "sha512-L6dzZkDBypzJpk1KJHGEqnKAG0qyh3EJxVc9OdrQ6Tcq1ndMTWStkkxaA/IodgTZUBzlZcuDei4jrQOnL76QoQ=="
       }
     },
-    "npm:@nrwl/cypress": {
+    "npm:@nx/devkit": {
       "type": "npm",
-      "name": "npm:@nrwl/cypress",
+      "name": "npm:@nx/devkit",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/cypress",
-        "hash": "sha512-FBTCV6BGA5MYJrLJ1bk+2pxu2IKK0kileL6VlFIJSoWCOSqzF9qFmEzZEJxH1ftGDhrL6GpSi9Ve9aBJDn6EuA=="
+        "version": "16.0.0",
+        "packageName": "@nx/devkit",
+        "hash": "sha512-ooIaAcheEUJ0pRdLv91btVssGL7TLOcvW8EF0yKYAdCNv3HRHtZX7Ompc6NPMauLuHYmp4eeRly3wADa7xBzAg=="
       }
     },
-    "npm:@nrwl/eslint-plugin-nx": {
+    "npm:@nx/eslint-plugin": {
       "type": "npm",
-      "name": "npm:@nrwl/eslint-plugin-nx",
+      "name": "npm:@nx/eslint-plugin",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/eslint-plugin-nx",
-        "hash": "sha512-vbWayEFtTqIrpv32dc1cQeNpGeUATkQJc7It6SZDaJlp2JzNVe8kgFfSx4wbxfvzpRMIUmM/3s+J70/mABGsHw=="
+        "version": "16.0.0",
+        "packageName": "@nx/eslint-plugin",
+        "hash": "sha512-vBleTWAneUOAmmwZdJb2TisKi7A3fBuiWcdW7vpxgLF2dh8oMBB54AMjXKdibwMOIKTVLtECDNR84b2kkYElyA=="
       }
     },
-    "npm:@nrwl/jest": {
+    "npm:@typescript-eslint/scope-manager@5.62.0": {
       "type": "npm",
-      "name": "npm:@nrwl/jest",
+      "name": "npm:@typescript-eslint/scope-manager@5.62.0",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/jest",
-        "hash": "sha512-Uqv6DKwRoXdc77OYPkQRAj4c5v2o8anXjoJpgcQDaZi0KsDduw2s8qnrp7Mcq7M5xBi+HENRedsYrIRCORoruQ=="
+        "version": "5.62.0",
+        "packageName": "@typescript-eslint/scope-manager",
+        "hash": "sha512-VXuvVvZeQCQb5Zgf4HAxc04q5j+WrNAtNh9OwCsCgpKqESMTu3tF/jhZ3xG6T4NZwWl65Bg8KuS2uEvhSfLl0w=="
       }
     },
-    "npm:@nrwl/js": {
+    "npm:@typescript-eslint/scope-manager": {
       "type": "npm",
-      "name": "npm:@nrwl/js",
+      "name": "npm:@typescript-eslint/scope-manager",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/js",
-        "hash": "sha512-YHPYJP1by/YH+nO2MXBpsgQDx+QVRwnxAYcfr9240YbwCZcPwl1k7sDOruzMxzbIwbadVdkNxm9tNxhwoXK3TA=="
+        "version": "5.58.0",
+        "packageName": "@typescript-eslint/scope-manager",
+        "hash": "sha512-b+w8ypN5CFvrXWQb9Ow9T4/6LC2MikNf1viLkYTiTbkQl46CnR69w7lajz1icW0TBsYmlpg+mRzFJ4LEJ8X9NA=="
+      }
+    },
+    "npm:@typescript-eslint/scope-manager@5.43.0": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/scope-manager@5.43.0",
+      "data": {
+        "version": "5.43.0",
+        "packageName": "@typescript-eslint/scope-manager",
+        "hash": "sha512-XNWnGaqAtTJsUiZaoiGIrdJYHsUOd3BZ3Qj5zKp9w6km6HsrjPk/TGZv0qMTWyWj0+1QOqpHQ2gZOLXaGA9Ekw=="
+      }
+    },
+    "npm:@typescript-eslint/types@5.62.0": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/types@5.62.0",
+      "data": {
+        "version": "5.62.0",
+        "packageName": "@typescript-eslint/types",
+        "hash": "sha512-87NVngcbVXUahrRTqIK27gD2t5Cu1yuCXxbLcFtCzZGlfyVWWh8mLHkoxzjsB6DDNnvdL+fW8MiwPEJyGJQDgQ=="
+      }
+    },
+    "npm:@typescript-eslint/types@5.43.0": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/types@5.43.0",
+      "data": {
+        "version": "5.43.0",
+        "packageName": "@typescript-eslint/types",
+        "hash": "sha512-jpsbcD0x6AUvV7tyOlyvon0aUsQpF8W+7TpJntfCUWU1qaIKu2K34pMwQKSzQH8ORgUrGYY6pVIh1Pi8TNeteg=="
+      }
+    },
+    "npm:@typescript-eslint/types": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/types",
+      "data": {
+        "version": "5.58.0",
+        "packageName": "@typescript-eslint/types",
+        "hash": "sha512-JYV4eITHPzVQMnHZcYJXl2ZloC7thuUHrcUmxtzvItyKPvQ50kb9QXBkgNAt90OYMqwaodQh2kHutWZl1fc+1g=="
+      }
+    },
+    "npm:@typescript-eslint/typescript-estree@5.62.0": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/typescript-estree@5.62.0",
+      "data": {
+        "version": "5.62.0",
+        "packageName": "@typescript-eslint/typescript-estree",
+        "hash": "sha512-CmcQ6uY7b9y694lKdRB8FEel7JbU/40iSAPomu++SjLMntB+2Leay2LO6i8VnJk58MtE9/nQSFIH6jpyRWyYzA=="
+      }
+    },
+    "npm:@typescript-eslint/typescript-estree@5.43.0": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/typescript-estree@5.43.0",
+      "data": {
+        "version": "5.43.0",
+        "packageName": "@typescript-eslint/typescript-estree",
+        "hash": "sha512-BZ1WVe+QQ+igWal2tDbNg1j2HWUkAa+CVqdU79L4HP9izQY6CNhXfkNwd1SS4+sSZAP/EthI1uiCSY/+H0pROg=="
+      }
+    },
+    "npm:@typescript-eslint/typescript-estree": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/typescript-estree",
+      "data": {
+        "version": "5.58.0",
+        "packageName": "@typescript-eslint/typescript-estree",
+        "hash": "sha512-cRACvGTodA+UxnYM2uwA2KCwRL7VAzo45syNysqlMyNyjw0Z35Icc9ihPJZjIYuA5bXJYiJ2YGUB59BqlOZT1Q=="
+      }
+    },
+    "npm:@typescript-eslint/utils@5.62.0": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/utils@5.62.0",
+      "data": {
+        "version": "5.62.0",
+        "packageName": "@typescript-eslint/utils",
+        "hash": "sha512-n8oxjeb5aIbPFEtmQxQYOLI0i9n5ySBEY/ZEHHZqKQSFnxio1rv6dthascc9dLuwrL0RC5mPCxB7vnAVGAYWAQ=="
+      }
+    },
+    "npm:@typescript-eslint/utils@5.58.0": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/utils@5.58.0",
+      "data": {
+        "version": "5.58.0",
+        "packageName": "@typescript-eslint/utils",
+        "hash": "sha512-gAmLOTFXMXOC+zP1fsqm3VceKSBQJNzV385Ok3+yzlavNHZoedajjS4UyS21gabJYcobuigQPs/z71A9MdJFqQ=="
+      }
+    },
+    "npm:@typescript-eslint/utils": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/utils",
+      "data": {
+        "version": "5.43.0",
+        "packageName": "@typescript-eslint/utils",
+        "hash": "sha512-8nVpA6yX0sCjf7v/NDfeaOlyaIIqL7OaIGOWSPFqUKK59Gnumd3Wa+2l8oAaYO2lk0sO+SbWFWRSvhu8gLGv4A=="
+      }
+    },
+    "npm:@typescript-eslint/visitor-keys@5.62.0": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/visitor-keys@5.62.0",
+      "data": {
+        "version": "5.62.0",
+        "packageName": "@typescript-eslint/visitor-keys",
+        "hash": "sha512-07ny+LHRzQXepkGg6w0mFY41fVUNBrL2Roj/++7V1txKugfjm/Ci/qSND03r2RhlJhJYMcTn9AhhSSqQp0Ysyw=="
+      }
+    },
+    "npm:@typescript-eslint/visitor-keys@5.43.0": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/visitor-keys@5.43.0",
+      "data": {
+        "version": "5.43.0",
+        "packageName": "@typescript-eslint/visitor-keys",
+        "hash": "sha512-icl1jNH/d18OVHLfcwdL3bWUKsBeIiKYTGxMJCoGe7xFht+E4QgzOqoWYrU8XSLJWhVw8nTacbm03v23J/hFTg=="
+      }
+    },
+    "npm:@typescript-eslint/visitor-keys": {
+      "type": "npm",
+      "name": "npm:@typescript-eslint/visitor-keys",
+      "data": {
+        "version": "5.58.0",
+        "packageName": "@typescript-eslint/visitor-keys",
+        "hash": "sha512-/fBraTlPj0jwdyTwLyrRTxv/3lnU2H96pNTVM6z3esTWLtA5MZ9ghSMJ7Rb+TtUAdtEw9EyJzJ0EydIMKxQ9gA=="
+      }
+    },
+    "npm:@nx/jest": {
+      "type": "npm",
+      "name": "npm:@nx/jest",
+      "data": {
+        "version": "16.0.0",
+        "packageName": "@nx/jest",
+        "hash": "sha512-WbZ+msoi69kUkMR73nr+aLLTZnHy+XjkaBYCzu/9xdGF99ZYReBy2peHHxWVJSmZ8u7HgYZHuv4h3vEQuEiFdw=="
+      }
+    },
+    "npm:@nx/js": {
+      "type": "npm",
+      "name": "npm:@nx/js",
+      "data": {
+        "version": "16.0.0",
+        "packageName": "@nx/js",
+        "hash": "sha512-/GDbJhwnFzz24WOFmN95y0RD/iZTUWdrrrux9rUV/hsDvET5QJKx+Kw7nDUPqFnvojf/D9N5jB3uQAZFx2zLtQ=="
       }
     },
     "npm:source-map-support@0.5.19": {
@@ -20707,121 +20944,103 @@
         "hash": "sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w=="
       }
     },
-    "npm:@nrwl/linter": {
+    "npm:@nx/linter": {
       "type": "npm",
-      "name": "npm:@nrwl/linter",
+      "name": "npm:@nx/linter",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/linter",
-        "hash": "sha512-PSbdBodqpbw1jmCWGLB1kxKRM8wpbonhZ3V133aLwb8P9c4q0aN7b3Z9VvtNKSS9eaLxYLu50BGiOahMIf4VXg=="
+        "version": "16.0.0",
+        "packageName": "@nx/linter",
+        "hash": "sha512-814Si3lmETTWk4mMWRFEjPuKH9mdOq0jnb8+v9YXMkVhxYU7Zt7DasvLnguy5j8rDIWw5jPakcgaS48WK+Ro1A=="
       }
     },
-    "npm:@nrwl/nx-cloud": {
+    "npm:@nx/nx-darwin-arm64": {
       "type": "npm",
-      "name": "npm:@nrwl/nx-cloud",
+      "name": "npm:@nx/nx-darwin-arm64",
       "data": {
-        "version": "18.0.0",
-        "packageName": "@nrwl/nx-cloud",
-        "hash": "sha512-rjjcJgzDmKwFD1QVIMs5O3X4SoMQIk0bzh3pL90ZP/B5YJUlTySv7+R0JoGQ6ROGwVQHjPFMVKKLB09zl5perA=="
+        "version": "16.0.0",
+        "packageName": "@nx/nx-darwin-arm64",
+        "hash": "sha512-GtXS0NPENG+s5bsVdsaXTX1jKOw85jHSALhrXXiMXknjwnvyHUelxFDS4fHhIlcOSd56Y5sn1pdg/fi2WPoscw=="
       }
     },
-    "npm:@nrwl/nx-darwin-arm64": {
+    "npm:@nx/nx-darwin-x64": {
       "type": "npm",
-      "name": "npm:@nrwl/nx-darwin-arm64",
+      "name": "npm:@nx/nx-darwin-x64",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/nx-darwin-arm64",
-        "hash": "sha512-aBUgnhlkrgC0vu0fK6eb9Vob7eFnkuknrK+YzTjmLrrZwj7FGNAeyGXSlyo1dVokIzjVKjJg2saZZ0WQbfuCJw=="
+        "version": "16.0.0",
+        "packageName": "@nx/nx-darwin-x64",
+        "hash": "sha512-iZv59vEoHekLahBrENYFtyUxuMwIQG24weluc00N2Edp7AlxVf7wRw6gd/xp3ATQbx/N92UPg6X761uBp2gm+Q=="
       }
     },
-    "npm:@nrwl/nx-darwin-x64": {
+    "npm:@nx/nx-linux-arm-gnueabihf": {
       "type": "npm",
-      "name": "npm:@nrwl/nx-darwin-x64",
+      "name": "npm:@nx/nx-linux-arm-gnueabihf",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/nx-darwin-x64",
-        "hash": "sha512-L+elVa34jhGf1cmn38Z0sotQatmLovxoASCIw5r1CBZZeJ5Tg7Y9nOwjRiDixZxNN56hPKXm6xl9EKlVHVeKlg=="
+        "version": "16.0.0",
+        "packageName": "@nx/nx-linux-arm-gnueabihf",
+        "hash": "sha512-o+ds8HogpkIc+Q8j5KEdiuEvGo6iHSpKSaFxKPIKHgD7xa6Kll966hKiFigeY2FDT2nGQlKZ0n1wNWQ4x2rijw=="
       }
     },
-    "npm:@nrwl/nx-linux-arm-gnueabihf": {
+    "npm:@nx/nx-linux-arm64-gnu": {
       "type": "npm",
-      "name": "npm:@nrwl/nx-linux-arm-gnueabihf",
+      "name": "npm:@nx/nx-linux-arm64-gnu",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/nx-linux-arm-gnueabihf",
-        "hash": "sha512-pqmfqqEUGFu6PmmHKyXyUw1Al0Ki8PSaR0+ndgCAb1qrekVDGDfznJfaqxN0JSLeolPD6+PFtLyXNr9ZyPFlFg=="
+        "version": "16.0.0",
+        "packageName": "@nx/nx-linux-arm64-gnu",
+        "hash": "sha512-ue2ravlNusu5xojC37JjgLaUyqm0swL5egVSHBARxOsT7piyk0ac56/j+ZrBckrjLbIplTGpwFGGS9vbKiEeoQ=="
       }
     },
-    "npm:@nrwl/nx-linux-arm64-gnu": {
+    "npm:@nx/nx-linux-arm64-musl": {
       "type": "npm",
-      "name": "npm:@nrwl/nx-linux-arm64-gnu",
+      "name": "npm:@nx/nx-linux-arm64-musl",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/nx-linux-arm64-gnu",
-        "hash": "sha512-NYOa/eRrqmM+In5g3M0rrPVIS9Z+q6fvwXJYf/KrjOHqqan/KL+2TOfroA30UhcBrwghZvib7O++7gZ2hzwOnA=="
+        "version": "16.0.0",
+        "packageName": "@nx/nx-linux-arm64-musl",
+        "hash": "sha512-dSqC3Tp8GfWqOH/jZBkdGtoDoi/A5+LA45nqXRAMawyFv3jODcBsPPuCT8FHk0Yb7X8+MNYx7gk7H14aRIjlQg=="
       }
     },
-    "npm:@nrwl/nx-linux-arm64-musl": {
+    "npm:@nx/nx-linux-x64-gnu": {
       "type": "npm",
-      "name": "npm:@nrwl/nx-linux-arm64-musl",
+      "name": "npm:@nx/nx-linux-x64-gnu",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/nx-linux-arm64-musl",
-        "hash": "sha512-zyStqjEcmbvLbejdTOrLUSEdhnxNtdQXlmOuymznCzYUEGRv+4f7OAepD3yRoR0a/57SSORZmmGQB7XHZoYZJA=="
+        "version": "16.0.0",
+        "packageName": "@nx/nx-linux-x64-gnu",
+        "hash": "sha512-xk35VXMp6LfopYFSHy4aEgn1xhFyxDl0xYVcg0nrp0ohppjkYIW2H/XVuuEdYZvRuTPkn3a6dQDoo0LLeY77Cg=="
       }
     },
-    "npm:@nrwl/nx-linux-x64-gnu": {
+    "npm:@nx/nx-linux-x64-musl": {
       "type": "npm",
-      "name": "npm:@nrwl/nx-linux-x64-gnu",
+      "name": "npm:@nx/nx-linux-x64-musl",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/nx-linux-x64-gnu",
-        "hash": "sha512-saNK5i2A8pKO3Il+Ejk/KStTApUpWgCxjeUz9G+T8A+QHeDloZYH2c7pU/P3jA9QoNeKwjVO9wYQllPL9loeVg=="
+        "version": "16.0.0",
+        "packageName": "@nx/nx-linux-x64-musl",
+        "hash": "sha512-yIdIlggK3WyDGoB7zS2UaiX2Q7ew0De62cNDudHgdg8dzHxa6IzKeFJjVEoNEt5Z+BG8ILaSn/lYxQs8YtV4FA=="
       }
     },
-    "npm:@nrwl/nx-linux-x64-musl": {
+    "npm:@nx/nx-win32-arm64-msvc": {
       "type": "npm",
-      "name": "npm:@nrwl/nx-linux-x64-musl",
+      "name": "npm:@nx/nx-win32-arm64-msvc",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/nx-linux-x64-musl",
-        "hash": "sha512-extIUThYN94m4Vj4iZggt6hhMZWQSukBCo8pp91JHnDcryBg7SnYmnikwtY1ZAFyyRiNFBLCKNIDFGkKkSrZ9Q=="
+        "version": "16.0.0",
+        "packageName": "@nx/nx-win32-arm64-msvc",
+        "hash": "sha512-YgnkVewQgA/RhXcGDbyhIi+WqAdIzjKGF1JPsA8q+6di3hRksvN+Ud4TVM9R8NFCrRclIxt04v+fqM24PmMIUQ=="
       }
     },
-    "npm:@nrwl/nx-win32-arm64-msvc": {
+    "npm:@nx/nx-win32-x64-msvc": {
       "type": "npm",
-      "name": "npm:@nrwl/nx-win32-arm64-msvc",
+      "name": "npm:@nx/nx-win32-x64-msvc",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/nx-win32-arm64-msvc",
-        "hash": "sha512-GSQ54hJ5AAnKZb4KP4cmBnJ1oC4ILxnrG1mekxeM65c1RtWg9NpBwZ8E0gU3xNrTv8ZNsBeKi/9UhXBxhsIh8A=="
+        "version": "16.0.0",
+        "packageName": "@nx/nx-win32-x64-msvc",
+        "hash": "sha512-6UXuO3v5rD3ae5jyYZ0cvlLMJ1NzmdLIIQHio/sWno3KJ0+NR/gpkQBl6F4CdZmoXTXZ+ZsDGUNzQtXWkCdSLg=="
       }
     },
-    "npm:@nrwl/nx-win32-x64-msvc": {
+    "npm:@nx/webpack": {
       "type": "npm",
-      "name": "npm:@nrwl/nx-win32-x64-msvc",
+      "name": "npm:@nx/webpack",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/nx-win32-x64-msvc",
-        "hash": "sha512-x6URof79RPd8AlapVbPefUD3ynJZpmah3tYaYZ9xZRMXojVtEHV8Qh5vysKXQ1rNYJiiB8Ah6evSKWLbAH60tw=="
-      }
-    },
-    "npm:@nrwl/tao": {
-      "type": "npm",
-      "name": "npm:@nrwl/tao",
-      "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/tao",
-        "hash": "sha512-OBnHNvQf3vBH0qh9YnvBQQWyyFZ+PWguF6dJ8+1vyQYlrLVk/XZ8nJ4ukWFb+QfPv/O8VBmqaofaOI9aFC4yTw=="
-      }
-    },
-    "npm:@nrwl/webpack": {
-      "type": "npm",
-      "name": "npm:@nrwl/webpack",
-      "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/webpack",
-        "hash": "sha512-sFLl+9pgZexFrs1fLO05Bctji7E0kKsr8x7nM4EmB9Tb892JWaGvOCTfoklRoZ+YyI2xpOqAhKiwNcm2X9A9dw=="
+        "version": "16.0.0",
+        "packageName": "@nx/webpack",
+        "hash": "sha512-7goJiGaBis16JXyVsSae1hmN5Hej+4z1PbkO7tTWzx7prp67ozgzQV2duhE8pmBSohNXjtSyZAGxFE9J7ACJ9A=="
       }
     },
     "npm:array-union@3.0.1": {
@@ -21193,58 +21412,13 @@
         "hash": "sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q=="
       }
     },
-    "npm:@nrwl/workspace": {
+    "npm:@nx/workspace": {
       "type": "npm",
-      "name": "npm:@nrwl/workspace",
+      "name": "npm:@nx/workspace",
       "data": {
-        "version": "15.9.7",
-        "packageName": "@nrwl/workspace",
-        "hash": "sha512-tOYYReTgUtP66mtbl6rGfs83il6ywb99GIsyCGINWNBVuU3WE44Io0MCvfirDwlxwSIWouDr64qhGqqzTo3Z9g=="
-      }
-    },
-    "npm:cliui@8.0.1": {
-      "type": "npm",
-      "name": "npm:cliui@8.0.1",
-      "data": {
-        "version": "8.0.1",
-        "packageName": "cliui",
-        "hash": "sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ=="
-      }
-    },
-    "npm:cliui": {
-      "type": "npm",
-      "name": "npm:cliui",
-      "data": {
-        "version": "7.0.4",
-        "packageName": "cliui",
-        "hash": "sha512-OcRE68cOsVMXp1Yvonl/fzkQOyjLSu/8bhPDfQt0e0/Eb283TKP20Fs2MqoPsr9SwA595rRCA+QMzYc9nBP+JQ=="
-      }
-    },
-    "npm:yargs@17.7.2": {
-      "type": "npm",
-      "name": "npm:yargs@17.7.2",
-      "data": {
-        "version": "17.7.2",
-        "packageName": "yargs",
-        "hash": "sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w=="
-      }
-    },
-    "npm:yargs": {
-      "type": "npm",
-      "name": "npm:yargs",
-      "data": {
-        "version": "17.6.2",
-        "packageName": "yargs",
-        "hash": "sha512-1/9UrdHjDZc0eOU0HxOHoS78C69UD3JRMvzlJ7S79S2nTaWRA/whGCTV8o9e/N/1Va9YIV7Q4sOxD8VV4pCWOw=="
-      }
-    },
-    "npm:@nx-plus/docusaurus": {
-      "type": "npm",
-      "name": "npm:@nx-plus/docusaurus",
-      "data": {
-        "version": "13.0.2",
-        "packageName": "@nx-plus/docusaurus",
-        "hash": "sha512-ltkB0bEa7ZCfU2xYOT7el41jHJKXlsmL9ZtUNCJmeIomV7hPTLa0HR2amYa7MiajH8vfxT8SB9S8OJjfW82+RA=="
+        "version": "16.0.0",
+        "packageName": "@nx/workspace",
+        "hash": "sha512-+yjcuFJ0r1MBokL5KqpnSwRJz8zNZMwAJRAcDNbauo5OeEDVGb4TXFuwGWWnkxQI2WTFSaTyuEE8Ga50s/nNyw=="
       }
     },
     "npm:@parcel/watcher": {
@@ -21260,9 +21434,9 @@
       "type": "npm",
       "name": "npm:@phenomnomnominal/tsquery",
       "data": {
-        "version": "4.1.1",
+        "version": "5.0.1",
         "packageName": "@phenomnomnominal/tsquery",
-        "hash": "sha512-jjMmK1tnZbm1Jq5a7fBliM4gQwjxMU7TFoRNwIyzwlO+eHPRCFv/Nv+H/Gi1jc3WR7QURG8D5d0Tn12YGrUqBQ=="
+        "hash": "sha512-3nVv+e2FQwsW8Aw6qTU6f+1rfcJ3hrcnvH/mu9i8YhxO+9sqbOfpL8m6PbET5+xKOlz/VSbp0RoYWYCtIsnmuA=="
       }
     },
     "npm:@pkgjs/parseargs": {
@@ -22232,18 +22406,18 @@
       "type": "npm",
       "name": "npm:@typescript-eslint/eslint-plugin",
       "data": {
-        "version": "5.36.1",
+        "version": "5.58.0",
         "packageName": "@typescript-eslint/eslint-plugin",
-        "hash": "sha512-iC40UK8q1tMepSDwiLbTbMXKDxzNy+4TfPWgIL661Ym0sD42vRcQU93IsZIrmi+x292DBr60UI/gSwfdVYexCA=="
+        "hash": "sha512-vxHvLhH0qgBd3/tW6/VccptSfc8FxPQIkmNTVLWcCOVqSBvqpnKkBTYrhcGlXfSnd78azwe+PsjYFj0X34/njA=="
       }
     },
-    "npm:@typescript-eslint/type-utils@5.36.1": {
+    "npm:@typescript-eslint/type-utils@5.58.0": {
       "type": "npm",
-      "name": "npm:@typescript-eslint/type-utils@5.36.1",
+      "name": "npm:@typescript-eslint/type-utils@5.58.0",
       "data": {
-        "version": "5.36.1",
+        "version": "5.58.0",
         "packageName": "@typescript-eslint/type-utils",
-        "hash": "sha512-xfZhfmoQT6m3lmlqDvDzv9TiCYdw22cdj06xY0obSznBsT///GK5IEZQdGliXpAOaRL34o8phEvXzEo/VJx13Q=="
+        "hash": "sha512-FF5vP/SKAFJ+LmR9PENql7fQVVgGDOS+dq3j+cKl9iW/9VuZC/8CFmzIP0DLKXfWKpRHawJiG70rVH+xZZbp8w=="
       }
     },
     "npm:@typescript-eslint/type-utils": {
@@ -22255,103 +22429,13 @@
         "hash": "sha512-K21f+KY2/VvYggLf5Pk4tgBOPs2otTaIHy2zjclo7UZGLyFH86VfUOm5iq+OtDtxq/Zwu2I3ujDBykVW4Xtmtg=="
       }
     },
-    "npm:@typescript-eslint/utils@5.36.1": {
-      "type": "npm",
-      "name": "npm:@typescript-eslint/utils@5.36.1",
-      "data": {
-        "version": "5.36.1",
-        "packageName": "@typescript-eslint/utils",
-        "hash": "sha512-lNj4FtTiXm5c+u0pUehozaUWhh7UYKnwryku0nxJlYUEWetyG92uw2pr+2Iy4M/u0ONMKzfrx7AsGBTCzORmIg=="
-      }
-    },
-    "npm:@typescript-eslint/utils": {
-      "type": "npm",
-      "name": "npm:@typescript-eslint/utils",
-      "data": {
-        "version": "5.43.0",
-        "packageName": "@typescript-eslint/utils",
-        "hash": "sha512-8nVpA6yX0sCjf7v/NDfeaOlyaIIqL7OaIGOWSPFqUKK59Gnumd3Wa+2l8oAaYO2lk0sO+SbWFWRSvhu8gLGv4A=="
-      }
-    },
     "npm:@typescript-eslint/parser": {
       "type": "npm",
       "name": "npm:@typescript-eslint/parser",
       "data": {
-        "version": "5.36.1",
+        "version": "5.58.0",
         "packageName": "@typescript-eslint/parser",
-        "hash": "sha512-/IsgNGOkBi7CuDfUbwt1eOqUXF9WGVBW9dwEe1pi+L32XrTsZIgmDFIi2RxjzsvB/8i+MIf5JIoTEH8LOZ368A=="
-      }
-    },
-    "npm:@typescript-eslint/scope-manager": {
-      "type": "npm",
-      "name": "npm:@typescript-eslint/scope-manager",
-      "data": {
-        "version": "5.36.1",
-        "packageName": "@typescript-eslint/scope-manager",
-        "hash": "sha512-pGC2SH3/tXdu9IH3ItoqciD3f3RRGCh7hb9zPdN2Drsr341zgd6VbhP5OHQO/reUqihNltfPpMpTNihFMarP2w=="
-      }
-    },
-    "npm:@typescript-eslint/scope-manager@5.43.0": {
-      "type": "npm",
-      "name": "npm:@typescript-eslint/scope-manager@5.43.0",
-      "data": {
-        "version": "5.43.0",
-        "packageName": "@typescript-eslint/scope-manager",
-        "hash": "sha512-XNWnGaqAtTJsUiZaoiGIrdJYHsUOd3BZ3Qj5zKp9w6km6HsrjPk/TGZv0qMTWyWj0+1QOqpHQ2gZOLXaGA9Ekw=="
-      }
-    },
-    "npm:@typescript-eslint/types@5.43.0": {
-      "type": "npm",
-      "name": "npm:@typescript-eslint/types@5.43.0",
-      "data": {
-        "version": "5.43.0",
-        "packageName": "@typescript-eslint/types",
-        "hash": "sha512-jpsbcD0x6AUvV7tyOlyvon0aUsQpF8W+7TpJntfCUWU1qaIKu2K34pMwQKSzQH8ORgUrGYY6pVIh1Pi8TNeteg=="
-      }
-    },
-    "npm:@typescript-eslint/types": {
-      "type": "npm",
-      "name": "npm:@typescript-eslint/types",
-      "data": {
-        "version": "5.36.1",
-        "packageName": "@typescript-eslint/types",
-        "hash": "sha512-jd93ShpsIk1KgBTx9E+hCSEuLCUFwi9V/urhjOWnOaksGZFbTOxAT47OH2d4NLJnLhkVD+wDbB48BuaycZPLBg=="
-      }
-    },
-    "npm:@typescript-eslint/typescript-estree@5.43.0": {
-      "type": "npm",
-      "name": "npm:@typescript-eslint/typescript-estree@5.43.0",
-      "data": {
-        "version": "5.43.0",
-        "packageName": "@typescript-eslint/typescript-estree",
-        "hash": "sha512-BZ1WVe+QQ+igWal2tDbNg1j2HWUkAa+CVqdU79L4HP9izQY6CNhXfkNwd1SS4+sSZAP/EthI1uiCSY/+H0pROg=="
-      }
-    },
-    "npm:@typescript-eslint/typescript-estree": {
-      "type": "npm",
-      "name": "npm:@typescript-eslint/typescript-estree",
-      "data": {
-        "version": "5.36.1",
-        "packageName": "@typescript-eslint/typescript-estree",
-        "hash": "sha512-ih7V52zvHdiX6WcPjsOdmADhYMDN15SylWRZrT2OMy80wzKbc79n8wFW0xpWpU0x3VpBz/oDgTm2xwDAnFTl+g=="
-      }
-    },
-    "npm:@typescript-eslint/visitor-keys@5.43.0": {
-      "type": "npm",
-      "name": "npm:@typescript-eslint/visitor-keys@5.43.0",
-      "data": {
-        "version": "5.43.0",
-        "packageName": "@typescript-eslint/visitor-keys",
-        "hash": "sha512-icl1jNH/d18OVHLfcwdL3bWUKsBeIiKYTGxMJCoGe7xFht+E4QgzOqoWYrU8XSLJWhVw8nTacbm03v23J/hFTg=="
-      }
-    },
-    "npm:@typescript-eslint/visitor-keys": {
-      "type": "npm",
-      "name": "npm:@typescript-eslint/visitor-keys",
-      "data": {
-        "version": "5.36.1",
-        "packageName": "@typescript-eslint/visitor-keys",
-        "hash": "sha512-ojB9aRyRFzVMN3b5joSYni6FAS10BBSCAfKJhjJAV08t/a95aM6tAhz+O1jF+EtgxktuSO3wJysp2R+Def/IWQ=="
+        "hash": "sha512-ixaM3gRtlfrKzP8N6lRhBbjTow1t6ztfBvQNGuRM8qH1bjFFXIJ35XY+FC0RRBKn3C6cT+7VW1y8tNm7DwPHDQ=="
       }
     },
     "npm:@webassemblyjs/ast": {
@@ -24044,6 +24128,24 @@
         "version": "3.0.0",
         "packageName": "cli-width",
         "hash": "sha512-FxqpkPPwu1HjuN93Omfm4h8uIanXofW0RxVEW3k5RKx+mJJYSthzNhp32Kzxxy3YAEZ/Dc/EWN1vZRY0+kOhbw=="
+      }
+    },
+    "npm:cliui": {
+      "type": "npm",
+      "name": "npm:cliui",
+      "data": {
+        "version": "7.0.4",
+        "packageName": "cliui",
+        "hash": "sha512-OcRE68cOsVMXp1Yvonl/fzkQOyjLSu/8bhPDfQt0e0/Eb283TKP20Fs2MqoPsr9SwA595rRCA+QMzYc9nBP+JQ=="
+      }
+    },
+    "npm:cliui@8.0.1": {
+      "type": "npm",
+      "name": "npm:cliui@8.0.1",
+      "data": {
+        "version": "8.0.1",
+        "packageName": "cliui",
+        "hash": "sha512-BSeNnyus75C4//NQ9gQt1/csTXyo/8Sb+afLAkzAptFuMsod9HFokGNudZpi/oQV73hnVK+sR+5PVRMd+Dr7YQ=="
       }
     },
     "npm:clone": {
@@ -26555,6 +26657,15 @@
         "version": "1.0.1",
         "packageName": "graceful-readlink",
         "hash": "sha512-8tLu60LgxF6XpdbK8OW3FA+IfTNBn1ZHGHKF4KQbEeSkajYw5PlYJcKluntgegDPTg8UkHjpet1T82vk6TQ68w=="
+      }
+    },
+    "npm:grapheme-splitter": {
+      "type": "npm",
+      "name": "npm:grapheme-splitter",
+      "data": {
+        "version": "1.0.4",
+        "packageName": "grapheme-splitter",
+        "hash": "sha512-bzh50DW9kTPM00T8y4o8vQg89Di9oLJVLW/KaOGIXJWP/iqCN6WKYkbNOF04vFLJhwcpYUh9ydh/+5vpOqV4YQ=="
       }
     },
     "npm:gray-matter": {
@@ -29122,6 +29233,15 @@
         "hash": "sha1-Sr6/7tdUHywnrPspvbvRXI1bpPc="
       }
     },
+    "npm:natural-compare-lite": {
+      "type": "npm",
+      "name": "npm:natural-compare-lite",
+      "data": {
+        "version": "1.4.0",
+        "packageName": "natural-compare-lite",
+        "hash": "sha512-Tj+HTDSJJKaZnfiuw+iaF9skdPpTo2GtEly5JHnWV/hfv2Qj/9RKsGISQtLh2ox3l5EAGw487hnBee0sIJ6v2g=="
+      }
+    },
     "npm:needle": {
       "type": "npm",
       "name": "npm:needle",
@@ -29450,9 +29570,9 @@
       "type": "npm",
       "name": "npm:nx",
       "data": {
-        "version": "15.9.7",
+        "version": "16.0.0",
         "packageName": "nx",
-        "hash": "sha512-1qlEeDjX9OKZEryC8i4bA+twNg+lB5RKrozlNwWx/lLJHqWPUfvUTvxh+uxlPYL9KzVReQjUuxMLFMsHNqWUrA=="
+        "hash": "sha512-ZqqXDqJL3gW1wqwuDXPDeCZZWWSQAi2TrhpK9X1oyCml2TixzMhFBXVF+WZebIw2TCE83T3kK0lHMo72UZTmNw=="
       }
     },
     "npm:nx-cloud": {
@@ -29498,6 +29618,24 @@
         "version": "1.0.0",
         "packageName": "rxjs-for-await",
         "hash": "sha512-MJhvf1vtQaljd5wlzsasvOjcohVogzkHkUI0gFE9nGhZ15/fT2vR1CjkLEh37oRqWwpv11vHo5D+sLM+Aw9Y8g=="
+      }
+    },
+    "npm:yargs@17.7.2": {
+      "type": "npm",
+      "name": "npm:yargs@17.7.2",
+      "data": {
+        "version": "17.7.2",
+        "packageName": "yargs",
+        "hash": "sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w=="
+      }
+    },
+    "npm:yargs": {
+      "type": "npm",
+      "name": "npm:yargs",
+      "data": {
+        "version": "17.6.2",
+        "packageName": "yargs",
+        "hash": "sha512-1/9UrdHjDZc0eOU0HxOHoS78C69UD3JRMvzlJ7S79S2nTaWRA/whGCTV8o9e/N/1Va9YIV7Q4sOxD8VV4pCWOw=="
       }
     },
     "npm:object-assign": {
@@ -30017,9 +30155,9 @@
       "type": "npm",
       "name": "npm:portfinder",
       "data": {
-        "version": "1.0.28",
+        "version": "1.0.32",
         "packageName": "portfinder",
-        "hash": "sha512-Se+2isanIcEqf2XMHjyUKskczxbPH7dQnlMjXX6+dybayyHvAf/TCgyMRlzf/B6QDhAEFOGes0pzRo3by4AbMA=="
+        "hash": "sha512-on2ZJVVDXRADWE6jnQaX0ioEylzgBpQk8r55NE4wjXW1ZxO+BgDlY6DXwj20i0V8eB4SenDQ00WEaxfiIQPcxg=="
       }
     },
     "npm:possible-typed-array-names": {
@@ -33249,11 +33387,6 @@
     "diagram-data-access-store-selectors-select-mouse-and-position-format": [
       {
         "source": "diagram-data-access-store-selectors-select-mouse-and-position-format",
-        "target": "npm:@ngrx/store",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-selectors-select-mouse-and-position-format",
         "target": "diagram-data-access-store-features-settings",
         "type": "static"
       },
@@ -33266,32 +33399,17 @@
         "source": "diagram-data-access-store-selectors-select-mouse-and-position-format",
         "target": "diagram-util-misc-functions",
         "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-selectors-select-mouse-and-position-format",
+        "target": "npm:@ngrx/store",
+        "type": "static"
       }
     ],
     "diagram-data-access-store-features-control-frame": [
       {
         "source": "diagram-data-access-store-features-control-frame",
-        "target": "npm:@angular/core",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-control-frame",
-        "target": "npm:@ngrx/effects",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-control-frame",
-        "target": "npm:@ngrx/store",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-control-frame",
         "target": "electron-renderer-web-context-bridge-api",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-control-frame",
-        "target": "npm:@angular/common",
         "type": "static"
       },
       {
@@ -33326,11 +33444,6 @@
       },
       {
         "source": "diagram-data-access-store-features-control-frame",
-        "target": "npm:rxjs",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-control-frame",
         "target": "diagram-data-access-store-features-pages",
         "type": "static"
       },
@@ -33353,24 +33466,34 @@
         "source": "diagram-data-access-store-features-control-frame",
         "target": "shared-angular-utils-shared-types",
         "type": "static"
-      }
-    ],
-    "diagram-data-access-store-features-sketchbook": [
+      },
       {
-        "source": "diagram-data-access-store-features-sketchbook",
+        "source": "diagram-data-access-store-features-control-frame",
         "target": "npm:@angular/core",
         "type": "static"
       },
       {
-        "source": "diagram-data-access-store-features-sketchbook",
+        "source": "diagram-data-access-store-features-control-frame",
         "target": "npm:@ngrx/effects",
         "type": "static"
       },
       {
-        "source": "diagram-data-access-store-features-sketchbook",
+        "source": "diagram-data-access-store-features-control-frame",
         "target": "npm:@ngrx/store",
         "type": "static"
       },
+      {
+        "source": "diagram-data-access-store-features-control-frame",
+        "target": "npm:@angular/common",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-control-frame",
+        "target": "npm:rxjs",
+        "type": "static"
+      }
+    ],
+    "diagram-data-access-store-features-sketchbook": [
       {
         "source": "diagram-data-access-store-features-sketchbook",
         "target": "diagram-data-access-shape-base-class",
@@ -33408,6 +33531,21 @@
       },
       {
         "source": "diagram-data-access-store-features-sketchbook",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-sketchbook",
+        "target": "npm:@ngrx/effects",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-sketchbook",
+        "target": "npm:@ngrx/store",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-sketchbook",
         "target": "npm:nanoid",
         "type": "static"
       },
@@ -33423,21 +33561,6 @@
       }
     ],
     "diagram-data-access-store-features-transform": [
-      {
-        "source": "diagram-data-access-store-features-transform",
-        "target": "npm:@angular/core",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-transform",
-        "target": "npm:@ngrx/effects",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-transform",
-        "target": "npm:@ngrx/store",
-        "type": "static"
-      },
       {
         "source": "diagram-data-access-store-features-transform",
         "target": "diagram-data-access-store-actions",
@@ -33475,12 +33598,27 @@
       },
       {
         "source": "diagram-data-access-store-features-transform",
-        "target": "npm:rxjs",
+        "target": "electron-renderer-web-context-bridge-api",
         "type": "static"
       },
       {
         "source": "diagram-data-access-store-features-transform",
-        "target": "electron-renderer-web-context-bridge-api",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-transform",
+        "target": "npm:@ngrx/effects",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-transform",
+        "target": "npm:@ngrx/store",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-transform",
+        "target": "npm:rxjs",
         "type": "static"
       },
       {
@@ -33490,21 +33628,6 @@
       }
     ],
     "diagram-data-access-store-features-settings": [
-      {
-        "source": "diagram-data-access-store-features-settings",
-        "target": "npm:@angular/core",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-settings",
-        "target": "npm:@ngrx/effects",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-settings",
-        "target": "npm:@ngrx/store",
-        "type": "static"
-      },
       {
         "source": "diagram-data-access-store-features-settings",
         "target": "diagram-data-access-store-actions",
@@ -33527,6 +33650,21 @@
       },
       {
         "source": "diagram-data-access-store-features-settings",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-settings",
+        "target": "npm:@ngrx/effects",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-settings",
+        "target": "npm:@ngrx/store",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-settings",
         "target": "npm:rxjs",
         "type": "static"
       },
@@ -33539,21 +33677,6 @@
     "diagram-data-access-store-features-colors": [
       {
         "source": "diagram-data-access-store-features-colors",
-        "target": "npm:@angular/core",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-colors",
-        "target": "npm:@ngrx/effects",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-colors",
-        "target": "npm:@ngrx/store",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-colors",
         "target": "diagram-data-access-store-actions",
         "type": "static"
       },
@@ -33564,22 +33687,7 @@
       },
       {
         "source": "diagram-data-access-store-features-colors",
-        "target": "npm:rxjs",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-colors",
         "target": "electron-renderer-web-ngrx-state-colors",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-colors",
-        "target": "npm:@angular/common",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-colors",
-        "target": "npm:nanoid",
         "type": "static"
       },
       {
@@ -33601,19 +33709,39 @@
         "source": "diagram-data-access-store-features-colors",
         "target": "shared-angular-utils-shared-types",
         "type": "static"
-      }
-    ],
-    "diagram-data-access-store-features-shapes": [
+      },
       {
-        "source": "diagram-data-access-store-features-shapes",
+        "source": "diagram-data-access-store-features-colors",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-colors",
         "target": "npm:@ngrx/effects",
         "type": "static"
       },
       {
-        "source": "diagram-data-access-store-features-shapes",
+        "source": "diagram-data-access-store-features-colors",
         "target": "npm:@ngrx/store",
         "type": "static"
       },
+      {
+        "source": "diagram-data-access-store-features-colors",
+        "target": "npm:rxjs",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-colors",
+        "target": "npm:@angular/common",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-colors",
+        "target": "npm:nanoid",
+        "type": "static"
+      }
+    ],
+    "diagram-data-access-store-features-shapes": [
       {
         "source": "diagram-data-access-store-features-shapes",
         "target": "diagram-data-access-shape-base-class",
@@ -33636,17 +33764,37 @@
       },
       {
         "source": "diagram-data-access-store-features-shapes",
-        "target": "npm:rxjs",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-shapes",
         "target": "diagram-data-access-store-features-pages",
         "type": "static"
       },
       {
         "source": "diagram-data-access-store-features-shapes",
         "target": "electron-renderer-web-shared-types",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-shapes",
+        "target": "electron-renderer-web-context-bridge-api",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-shapes",
+        "target": "diagram-data-access-endpoint-classes",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-shapes",
+        "target": "npm:@ngrx/effects",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-shapes",
+        "target": "npm:@ngrx/store",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-shapes",
+        "target": "npm:rxjs",
         "type": "static"
       },
       {
@@ -33661,17 +33809,7 @@
       },
       {
         "source": "diagram-data-access-store-features-shapes",
-        "target": "electron-renderer-web-context-bridge-api",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-shapes",
         "target": "npm:@angular/common",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-shapes",
-        "target": "diagram-data-access-endpoint-classes",
         "type": "static"
       }
     ],
@@ -33705,21 +33843,6 @@
     "diagram-data-access-store-features-pages": [
       {
         "source": "diagram-data-access-store-features-pages",
-        "target": "npm:@angular/core",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-pages",
-        "target": "npm:@ngrx/effects",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-pages",
-        "target": "npm:@ngrx/store",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-pages",
         "target": "diagram-data-access-store-actions",
         "type": "static"
       },
@@ -33735,17 +33858,32 @@
       },
       {
         "source": "diagram-data-access-store-features-pages",
+        "target": "electron-renderer-web-context-bridge-api",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-pages",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-pages",
+        "target": "npm:@ngrx/effects",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-pages",
+        "target": "npm:@ngrx/store",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-features-pages",
         "target": "npm:nanoid",
         "type": "static"
       },
       {
         "source": "diagram-data-access-store-features-pages",
         "target": "npm:rxjs",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-features-pages",
-        "target": "electron-renderer-web-context-bridge-api",
         "type": "static"
       },
       {
@@ -33766,32 +33904,15 @@
         "type": "static"
       }
     ],
-    "shared-angular-ui-tfx-show-if-truncated": [
-      {
-        "source": "shared-angular-ui-tfx-show-if-truncated",
-        "target": "npm:@angular/core",
-        "type": "static"
-      },
-      {
-        "source": "shared-angular-ui-tfx-show-if-truncated",
-        "target": "npm:@angular/material",
-        "type": "static"
-      },
-      {
-        "source": "shared-angular-ui-tfx-show-if-truncated",
-        "target": "npm:@angular/common",
-        "type": "static"
-      }
-    ],
     "shared-angular-ui-tfx-resize-observer": [
       {
         "source": "shared-angular-ui-tfx-resize-observer",
-        "target": "npm:@angular/core",
+        "target": "shared-angular-utils-shared-types",
         "type": "static"
       },
       {
         "source": "shared-angular-ui-tfx-resize-observer",
-        "target": "shared-angular-utils-shared-types",
+        "target": "npm:@angular/core",
         "type": "static"
       },
       {
@@ -33847,11 +33968,6 @@
       },
       {
         "source": "diagram-data-access-store-undo-redo",
-        "target": "npm:@ngrx/store",
-        "type": "static"
-      },
-      {
-        "source": "diagram-data-access-store-undo-redo",
         "target": "diagram-data-access-store-features-pages",
         "type": "static"
       },
@@ -33863,6 +33979,11 @@
       {
         "source": "diagram-data-access-store-undo-redo",
         "target": "electron-renderer-web-context-bridge-api",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-undo-redo",
+        "target": "npm:@ngrx/store",
         "type": "static"
       },
       {
@@ -33886,22 +34007,22 @@
     "shared-angular-ui-tfx-color-picker": [
       {
         "source": "shared-angular-ui-tfx-color-picker",
-        "target": "npm:@angular/core",
-        "type": "static"
-      },
-      {
-        "source": "shared-angular-ui-tfx-color-picker",
         "target": "shared-angular-utils-shared-types",
         "type": "static"
       },
       {
         "source": "shared-angular-ui-tfx-color-picker",
-        "target": "npm:@angular/common",
+        "target": "shared-angular-ui-tfx-resize-observer",
         "type": "static"
       },
       {
         "source": "shared-angular-ui-tfx-color-picker",
-        "target": "shared-angular-ui-tfx-resize-observer",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "shared-angular-ui-tfx-color-picker",
+        "target": "npm:@angular/common",
         "type": "static"
       }
     ],
@@ -33962,22 +34083,7 @@
     "diagram-ui-file-save-close-xstate": [
       {
         "source": "diagram-ui-file-save-close-xstate",
-        "target": "npm:@angular/material",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-file-save-close-xstate",
-        "target": "npm:@ngrx/store",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-file-save-close-xstate",
         "target": "diagram-data-access-store-actions",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-file-save-close-xstate",
-        "target": "npm:@angular/core",
         "type": "static"
       },
       {
@@ -33988,6 +34094,26 @@
       {
         "source": "diagram-ui-file-save-close-xstate",
         "target": "electron-renderer-web-shared-types",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-file-save-close-xstate",
+        "target": "diagram-ui-material",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-file-save-close-xstate",
+        "target": "npm:@angular/material",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-file-save-close-xstate",
+        "target": "npm:@ngrx/store",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-file-save-close-xstate",
+        "target": "npm:@angular/core",
         "type": "static"
       },
       {
@@ -34004,32 +34130,10 @@
         "source": "diagram-ui-file-save-close-xstate",
         "target": "npm:@angular/common",
         "type": "static"
-      },
-      {
-        "source": "diagram-ui-file-save-close-xstate",
-        "target": "diagram-ui-material",
-        "type": "static"
-      }
-    ],
-    "shared-angular-ui-tfx-icon-button": [
-      {
-        "source": "shared-angular-ui-tfx-icon-button",
-        "target": "npm:@angular/core",
-        "type": "static"
-      },
-      {
-        "source": "shared-angular-ui-tfx-icon-button",
-        "target": "npm:@angular/common",
-        "type": "static"
       }
     ],
     "shared-angular-utils-shared-types": [],
     "diagram-data-access-store-actions": [
-      {
-        "source": "diagram-data-access-store-actions",
-        "target": "npm:@ngrx/store",
-        "type": "static"
-      },
       {
         "source": "diagram-data-access-store-actions",
         "target": "electron-renderer-web-shared-types",
@@ -34077,6 +34181,11 @@
       },
       {
         "source": "diagram-data-access-store-actions",
+        "target": "npm:@ngrx/store",
+        "type": "static"
+      },
+      {
+        "source": "diagram-data-access-store-actions",
         "target": "npm:electron",
         "type": "static"
       }
@@ -34101,6 +34210,16 @@
     "shared-angular-ui-tfx-scrollbar": [
       {
         "source": "shared-angular-ui-tfx-scrollbar",
+        "target": "shared-angular-utils-shared-types",
+        "type": "static"
+      },
+      {
+        "source": "shared-angular-ui-tfx-scrollbar",
+        "target": "shared-angular-ui-tfx-resize-observer",
+        "type": "static"
+      },
+      {
+        "source": "shared-angular-ui-tfx-scrollbar",
         "target": "npm:@angular/core",
         "type": "static"
       },
@@ -34111,26 +34230,11 @@
       },
       {
         "source": "shared-angular-ui-tfx-scrollbar",
-        "target": "shared-angular-utils-shared-types",
-        "type": "static"
-      },
-      {
-        "source": "shared-angular-ui-tfx-scrollbar",
         "target": "npm:@angular/common",
-        "type": "static"
-      },
-      {
-        "source": "shared-angular-ui-tfx-scrollbar",
-        "target": "shared-angular-ui-tfx-resize-observer",
         "type": "static"
       }
     ],
     "shared-angular-ui-tfx-app-bar": [
-      {
-        "source": "shared-angular-ui-tfx-app-bar",
-        "target": "npm:@angular/core",
-        "type": "static"
-      },
       {
         "source": "shared-angular-ui-tfx-app-bar",
         "target": "shared-angular-ui-tfx-icon-button",
@@ -34143,16 +34247,16 @@
       },
       {
         "source": "shared-angular-ui-tfx-app-bar",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "shared-angular-ui-tfx-app-bar",
         "target": "npm:@angular/common",
         "type": "static"
       }
     ],
     "diagram-ui-diagram-app-menu": [
-      {
-        "source": "diagram-ui-diagram-app-menu",
-        "target": "npm:@ngrx/store",
-        "type": "static"
-      },
       {
         "source": "diagram-ui-diagram-app-menu",
         "target": "diagram-data-access-store-features-sketchbook",
@@ -34161,16 +34265,6 @@
       {
         "source": "diagram-ui-diagram-app-menu",
         "target": "shared-angular-ui-tfx-menu",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-diagram-app-menu",
-        "target": "npm:angular2-hotkeys",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-diagram-app-menu",
-        "target": "npm:rxjs",
         "type": "static"
       },
       {
@@ -34190,27 +34284,7 @@
       },
       {
         "source": "diagram-ui-diagram-app-menu",
-        "target": "npm:@angular/common",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-diagram-app-menu",
-        "target": "npm:@angular/core",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-diagram-app-menu",
-        "target": "npm:@angular/forms",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-diagram-app-menu",
         "target": "diagram-ui-material",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-diagram-app-menu",
-        "target": "npm:@angular/material",
         "type": "static"
       },
       {
@@ -34272,24 +34346,44 @@
         "source": "diagram-ui-diagram-app-menu",
         "target": "diagram-data-access-store-features-settings",
         "type": "static"
-      }
-    ],
-    "diagram-util-keyboard-state": [
+      },
       {
-        "source": "diagram-util-keyboard-state",
-        "target": "npm:@angular/core",
+        "source": "diagram-ui-diagram-app-menu",
+        "target": "npm:@ngrx/store",
         "type": "static"
       },
       {
-        "source": "diagram-util-keyboard-state",
+        "source": "diagram-ui-diagram-app-menu",
+        "target": "npm:angular2-hotkeys",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-diagram-app-menu",
+        "target": "npm:rxjs",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-diagram-app-menu",
         "target": "npm:@angular/common",
         "type": "static"
       },
       {
-        "source": "diagram-util-keyboard-state",
-        "target": "npm:@ngrx/store",
+        "source": "diagram-ui-diagram-app-menu",
+        "target": "npm:@angular/core",
         "type": "static"
       },
+      {
+        "source": "diagram-ui-diagram-app-menu",
+        "target": "npm:@angular/forms",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-diagram-app-menu",
+        "target": "npm:@angular/material",
+        "type": "static"
+      }
+    ],
+    "diagram-util-keyboard-state": [
       {
         "source": "diagram-util-keyboard-state",
         "target": "diagram-data-access-store-actions",
@@ -34303,6 +34397,21 @@
       {
         "source": "diagram-util-keyboard-state",
         "target": "electron-renderer-web-shared-types",
+        "type": "static"
+      },
+      {
+        "source": "diagram-util-keyboard-state",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "diagram-util-keyboard-state",
+        "target": "npm:@angular/common",
+        "type": "static"
+      },
+      {
+        "source": "diagram-util-keyboard-state",
+        "target": "npm:@ngrx/store",
         "type": "static"
       },
       {
@@ -34326,17 +34435,7 @@
     "diagram-ui-shape-inspector": [
       {
         "source": "diagram-ui-shape-inspector",
-        "target": "npm:@angular/core",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-shape-inspector",
         "target": "diagram-data-access-shape-base-class",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-shape-inspector",
-        "target": "npm:@angular/common",
         "type": "static"
       },
       {
@@ -34351,11 +34450,6 @@
       },
       {
         "source": "diagram-ui-shape-inspector",
-        "target": "npm:@ngrx/store",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-shape-inspector",
         "target": "diagram-data-access-store-features-pages",
         "type": "static"
       },
@@ -34366,45 +34460,33 @@
       },
       {
         "source": "diagram-ui-shape-inspector",
-        "target": "npm:rxjs",
-        "type": "static"
-      }
-    ],
-    "shared-angular-ui-tfx-menu": [
-      {
-        "source": "shared-angular-ui-tfx-menu",
-        "target": "npm:xstate",
-        "type": "static"
-      },
-      {
-        "source": "shared-angular-ui-tfx-menu",
-        "target": "npm:nanoid",
-        "type": "static"
-      },
-      {
-        "source": "shared-angular-ui-tfx-menu",
-        "target": "npm:rxjs",
-        "type": "static"
-      },
-      {
-        "source": "shared-angular-ui-tfx-menu",
         "target": "npm:@angular/core",
         "type": "static"
       },
       {
-        "source": "shared-angular-ui-tfx-menu",
-        "target": "npm:@angular/cdk",
+        "source": "diagram-ui-shape-inspector",
+        "target": "npm:@angular/common",
         "type": "static"
       },
       {
-        "source": "shared-angular-ui-tfx-menu",
-        "target": "npm:@angular/common",
+        "source": "diagram-ui-shape-inspector",
+        "target": "npm:@ngrx/store",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-shape-inspector",
+        "target": "npm:rxjs",
         "type": "static"
       }
     ],
     "diagram-ui-mouse-position": [
       {
         "source": "diagram-ui-mouse-position",
+        "target": "electron-renderer-web-shared-types",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-mouse-position",
         "target": "npm:@angular/core",
         "type": "static"
       },
@@ -34412,26 +34494,36 @@
         "source": "diagram-ui-mouse-position",
         "target": "npm:@angular/common",
         "type": "static"
-      },
-      {
-        "source": "diagram-ui-mouse-position",
-        "target": "electron-renderer-web-shared-types",
-        "type": "static"
       }
     ],
     "electron-file-operations": [
       {
         "source": "electron-file-operations",
-        "target": "npm:electron",
+        "target": "electron-renderer-web-context-bridge-api",
         "type": "static"
       },
       {
         "source": "electron-file-operations",
-        "target": "electron-renderer-web-context-bridge-api",
+        "target": "npm:electron",
         "type": "static"
       }
     ],
     "diagram-ui-page-selector": [
+      {
+        "source": "diagram-ui-page-selector",
+        "target": "shared-angular-ui-tfx-menu",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-page-selector",
+        "target": "shared-angular-ui-tfx-icon-button",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-page-selector",
+        "target": "shared-angular-ui-tfx-show-if-truncated",
+        "type": "static"
+      },
       {
         "source": "diagram-ui-page-selector",
         "target": "npm:@angular/core",
@@ -34459,11 +34551,6 @@
       },
       {
         "source": "diagram-ui-page-selector",
-        "target": "shared-angular-ui-tfx-menu",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-page-selector",
         "target": "npm:@angular/material",
         "type": "static"
       },
@@ -34471,24 +34558,9 @@
         "source": "diagram-ui-page-selector",
         "target": "npm:@angular/common",
         "type": "static"
-      },
-      {
-        "source": "diagram-ui-page-selector",
-        "target": "shared-angular-ui-tfx-icon-button",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-page-selector",
-        "target": "shared-angular-ui-tfx-show-if-truncated",
-        "type": "static"
       }
     ],
     "diagram-ui-page-viewport": [
-      {
-        "source": "diagram-ui-page-viewport",
-        "target": "npm:@ngrx/store",
-        "type": "static"
-      },
       {
         "source": "diagram-ui-page-viewport",
         "target": "diagram-data-access-store-actions",
@@ -34496,22 +34568,7 @@
       },
       {
         "source": "diagram-ui-page-viewport",
-        "target": "npm:xstate",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-page-viewport",
         "target": "electron-renderer-web-shared-types",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-page-viewport",
-        "target": "npm:@angular/core",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-page-viewport",
-        "target": "npm:rxjs",
         "type": "static"
       },
       {
@@ -34551,17 +34608,7 @@
       },
       {
         "source": "diagram-ui-page-viewport",
-        "target": "npm:electron",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-page-viewport",
         "target": "diagram-data-access-store-features-settings",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-page-viewport",
-        "target": "npm:@angular/common",
         "type": "static"
       },
       {
@@ -34588,9 +34635,44 @@
         "source": "diagram-ui-page-viewport",
         "target": "diagram-util-mouse-wheel",
         "type": "static"
+      },
+      {
+        "source": "diagram-ui-page-viewport",
+        "target": "npm:@ngrx/store",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-page-viewport",
+        "target": "npm:xstate",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-page-viewport",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-page-viewport",
+        "target": "npm:rxjs",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-page-viewport",
+        "target": "npm:electron",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-page-viewport",
+        "target": "npm:@angular/common",
+        "type": "static"
       }
     ],
     "diagram-util-mouse-wheel": [
+      {
+        "source": "diagram-util-mouse-wheel",
+        "target": "diagram-util-keyboard-state",
+        "type": "static"
+      },
       {
         "source": "diagram-util-mouse-wheel",
         "target": "npm:@angular/core",
@@ -34599,11 +34681,6 @@
       {
         "source": "diagram-util-mouse-wheel",
         "target": "npm:@angular/common",
-        "type": "static"
-      },
-      {
-        "source": "diagram-util-mouse-wheel",
-        "target": "diagram-util-keyboard-state",
         "type": "static"
       },
       {
@@ -34615,12 +34692,17 @@
     "diagram-ui-zoom-control": [
       {
         "source": "diagram-ui-zoom-control",
-        "target": "npm:@angular/core",
+        "target": "shared-angular-ui-tfx-menu",
         "type": "static"
       },
       {
         "source": "diagram-ui-zoom-control",
-        "target": "shared-angular-ui-tfx-menu",
+        "target": "shared-angular-ui-tfx-icon-button",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-zoom-control",
+        "target": "npm:@angular/core",
         "type": "static"
       },
       {
@@ -34632,26 +34714,9 @@
         "source": "diagram-ui-zoom-control",
         "target": "npm:@angular/common",
         "type": "static"
-      },
-      {
-        "source": "diagram-ui-zoom-control",
-        "target": "shared-angular-ui-tfx-icon-button",
-        "type": "static"
-      }
-    ],
-    "diagram-util-app-tokens": [
-      {
-        "source": "diagram-util-app-tokens",
-        "target": "npm:@angular/core",
-        "type": "static"
       }
     ],
     "diagram-ui-page-ribbon": [
-      {
-        "source": "diagram-ui-page-ribbon",
-        "target": "npm:@angular/core",
-        "type": "static"
-      },
       {
         "source": "diagram-ui-page-ribbon",
         "target": "diagram-data-access-color-classes",
@@ -34660,16 +34725,6 @@
       {
         "source": "diagram-ui-page-ribbon",
         "target": "electron-renderer-web-shared-types",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-page-ribbon",
-        "target": "npm:@angular/material",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-page-ribbon",
-        "target": "npm:@ngrx/store",
         "type": "static"
       },
       {
@@ -34689,17 +34744,7 @@
       },
       {
         "source": "diagram-ui-page-ribbon",
-        "target": "npm:rxjs",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-page-ribbon",
         "target": "diagram-data-access-store-features-colors",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-page-ribbon",
-        "target": "npm:@angular/forms",
         "type": "static"
       },
       {
@@ -34729,16 +34774,6 @@
       },
       {
         "source": "diagram-ui-page-ribbon",
-        "target": "npm:electron",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-page-ribbon",
-        "target": "npm:@angular/common",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-page-ribbon",
         "target": "diagram-data-access-store-features-control-frame",
         "type": "static"
       },
@@ -34746,26 +34781,59 @@
         "source": "diagram-ui-page-ribbon",
         "target": "diagram-data-access-store-features-shapes",
         "type": "static"
-      }
-    ],
-    "diagram-ui-material": [
-      {
-        "source": "diagram-ui-material",
-        "target": "npm:@angular/common",
-        "type": "static"
       },
       {
-        "source": "diagram-ui-material",
+        "source": "diagram-ui-page-ribbon",
         "target": "npm:@angular/core",
         "type": "static"
       },
       {
-        "source": "diagram-ui-material",
+        "source": "diagram-ui-page-ribbon",
         "target": "npm:@angular/material",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-page-ribbon",
+        "target": "npm:@ngrx/store",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-page-ribbon",
+        "target": "npm:rxjs",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-page-ribbon",
+        "target": "npm:@angular/forms",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-page-ribbon",
+        "target": "npm:electron",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-page-ribbon",
+        "target": "npm:@angular/common",
         "type": "static"
       }
     ],
     "diagram-ui-dialogs": [
+      {
+        "source": "diagram-ui-dialogs",
+        "target": "diagram-ui-material",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-dialogs",
+        "target": "diagram-data-access-shape-base-class",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-dialogs",
+        "target": "electron-renderer-web-shared-types",
+        "type": "static"
+      },
       {
         "source": "diagram-ui-dialogs",
         "target": "npm:@angular/common",
@@ -34783,36 +34851,11 @@
       },
       {
         "source": "diagram-ui-dialogs",
-        "target": "diagram-ui-material",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-dialogs",
         "target": "npm:@angular/material",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-dialogs",
-        "target": "diagram-data-access-shape-base-class",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-dialogs",
-        "target": "electron-renderer-web-shared-types",
         "type": "static"
       }
     ],
     "diagram-ui-rulers": [
-      {
-        "source": "diagram-ui-rulers",
-        "target": "npm:@angular/core",
-        "type": "static"
-      },
-      {
-        "source": "diagram-ui-rulers",
-        "target": "npm:@ngrx/store",
-        "type": "static"
-      },
       {
         "source": "diagram-ui-rulers",
         "target": "diagram-data-access-store-features-pages",
@@ -34835,6 +34878,16 @@
       },
       {
         "source": "diagram-ui-rulers",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-rulers",
+        "target": "npm:@ngrx/store",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-rulers",
         "target": "npm:rxjs",
         "type": "static"
       },
@@ -34852,29 +34905,44 @@
       },
       {
         "source": "diagram-electron",
-        "target": "npm:electron",
-        "type": "static"
-      },
-      {
-        "source": "diagram-electron",
-        "target": "npm:url",
-        "type": "static"
-      },
-      {
-        "source": "diagram-electron",
         "target": "electron-file-operations",
+        "type": "static"
+      },
+      {
+        "source": "diagram-electron",
+        "target": "npm:electron",
         "type": "static"
       }
     ],
     "diagram-renderer": [
       {
         "source": "diagram-renderer",
-        "target": "npm:@angular/core",
+        "target": "shared-angular-ui-tfx-icon-button",
         "type": "static"
       },
       {
         "source": "diagram-renderer",
-        "target": "shared-angular-ui-tfx-icon-button",
+        "target": "diagram-shell",
+        "type": "static"
+      },
+      {
+        "source": "diagram-renderer",
+        "target": "diagram-ui-file-save-close-xstate",
+        "type": "static"
+      },
+      {
+        "source": "diagram-renderer",
+        "target": "diagram-util-app-tokens",
+        "type": "static"
+      },
+      {
+        "source": "diagram-renderer",
+        "target": "electron-renderer-web-context-bridge-api",
+        "type": "static"
+      },
+      {
+        "source": "diagram-renderer",
+        "target": "npm:@angular/core",
         "type": "static"
       },
       {
@@ -34904,21 +34972,6 @@
       },
       {
         "source": "diagram-renderer",
-        "target": "diagram-shell",
-        "type": "static"
-      },
-      {
-        "source": "diagram-renderer",
-        "target": "diagram-ui-file-save-close-xstate",
-        "type": "static"
-      },
-      {
-        "source": "diagram-renderer",
-        "target": "diagram-util-app-tokens",
-        "type": "static"
-      },
-      {
-        "source": "diagram-renderer",
         "target": "npm:angular2-hotkeys",
         "type": "static"
       },
@@ -34929,31 +34982,11 @@
       },
       {
         "source": "diagram-renderer",
-        "target": "electron-renderer-web-context-bridge-api",
-        "type": "static"
-      },
-      {
-        "source": "diagram-renderer",
         "target": "npm:zone.js",
         "type": "static"
       }
     ],
     "diagram-shell": [
-      {
-        "source": "diagram-shell",
-        "target": "npm:@angular/core",
-        "type": "static"
-      },
-      {
-        "source": "diagram-shell",
-        "target": "npm:@angular/material",
-        "type": "static"
-      },
-      {
-        "source": "diagram-shell",
-        "target": "npm:@ngrx/store",
-        "type": "static"
-      },
       {
         "source": "diagram-shell",
         "target": "diagram-data-access-store-actions",
@@ -35002,16 +35035,6 @@
       {
         "source": "diagram-shell",
         "target": "electron-renderer-web-shared-types",
-        "type": "static"
-      },
-      {
-        "source": "diagram-shell",
-        "target": "npm:rxjs",
-        "type": "static"
-      },
-      {
-        "source": "diagram-shell",
-        "target": "npm:@angular/common",
         "type": "static"
       },
       {
@@ -35086,43 +35109,56 @@
       },
       {
         "source": "diagram-shell",
-        "target": "npm:@angular/platform-browser",
+        "target": "shared-angular-ui-tfx-icon-button",
         "type": "static"
       },
       {
         "source": "diagram-shell",
-        "target": "shared-angular-ui-tfx-icon-button",
-        "type": "static"
-      }
-    ],
-    "diagram-docs": [
-      {
-        "source": "diagram-docs",
-        "target": "npm:prism-react-renderer",
+        "target": "npm:@angular/core",
         "type": "static"
       },
       {
-        "source": "diagram-docs",
-        "target": "npm:remark-math",
+        "source": "diagram-shell",
+        "target": "npm:@angular/material",
         "type": "static"
       },
       {
-        "source": "diagram-docs",
-        "target": "npm:rehype-katex",
+        "source": "diagram-shell",
+        "target": "npm:@ngrx/store",
         "type": "static"
       },
       {
-        "source": "diagram-docs",
-        "target": "npm:react",
+        "source": "diagram-shell",
+        "target": "npm:rxjs",
         "type": "static"
       },
       {
-        "source": "diagram-docs",
-        "target": "npm:clsx",
+        "source": "diagram-shell",
+        "target": "npm:@angular/common",
+        "type": "static"
+      },
+      {
+        "source": "diagram-shell",
+        "target": "npm:@angular/platform-browser",
         "type": "static"
       }
     ],
     "diagram-web": [
+      {
+        "source": "diagram-web",
+        "target": "diagram-shell",
+        "type": "static"
+      },
+      {
+        "source": "diagram-web",
+        "target": "diagram-util-app-tokens",
+        "type": "static"
+      },
+      {
+        "source": "diagram-web",
+        "target": "electron-renderer-web-context-bridge-api",
+        "type": "static"
+      },
       {
         "source": "diagram-web",
         "target": "npm:@angular/core",
@@ -35150,22 +35186,7 @@
       },
       {
         "source": "diagram-web",
-        "target": "diagram-shell",
-        "type": "static"
-      },
-      {
-        "source": "diagram-web",
-        "target": "diagram-util-app-tokens",
-        "type": "static"
-      },
-      {
-        "source": "diagram-web",
         "target": "npm:angular2-hotkeys",
-        "type": "static"
-      },
-      {
-        "source": "diagram-web",
-        "target": "electron-renderer-web-context-bridge-api",
         "type": "static"
       },
       {
@@ -41430,6 +41451,18 @@
         "type": "static"
       }
     ],
+    "npm:@eslint-community/eslint-utils": [
+      {
+        "source": "npm:@eslint-community/eslint-utils",
+        "target": "npm:eslint",
+        "type": "static"
+      },
+      {
+        "source": "npm:@eslint-community/eslint-utils",
+        "target": "npm:eslint-visitor-keys",
+        "type": "static"
+      }
+    ],
     "npm:@eslint/eslintrc": [
       {
         "source": "npm:@eslint/eslintrc",
@@ -44789,265 +44822,23 @@
     "npm:@nrwl/angular": [
       {
         "source": "npm:@nrwl/angular",
-        "target": "npm:@angular-devkit/build-angular",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:@angular-devkit/core",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:@angular-devkit/schematics",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:@schematics/angular",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:rxjs",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:@nrwl/cypress",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:@nrwl/devkit@15.9.7",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:@nrwl/jest",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:@nrwl/js",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:@nrwl/linter",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:@nrwl/webpack",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:@nrwl/workspace",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:@phenomnomnominal/tsquery",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:chalk",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:chokidar",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:enquirer",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:http-server",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:ignore",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:magic-string@0.26.7",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:minimatch@3.0.5",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:semver@7.5.4",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:ts-node",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:tsconfig-paths@4.2.0",
+        "target": "npm:@nx/angular",
         "type": "static"
       },
       {
         "source": "npm:@nrwl/angular",
         "target": "npm:tslib",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:webpack",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/angular",
-        "target": "npm:webpack-merge",
-        "type": "static"
-      }
-    ],
-    "npm:@nrwl/devkit@15.9.7": [
-      {
-        "source": "npm:@nrwl/devkit@15.9.7",
-        "target": "npm:nx",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/devkit@15.9.7",
-        "target": "npm:ejs",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/devkit@15.9.7",
-        "target": "npm:ignore",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/devkit@15.9.7",
-        "target": "npm:semver@7.5.4",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/devkit@15.9.7",
-        "target": "npm:tmp",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/devkit@15.9.7",
-        "target": "npm:tslib",
-        "type": "static"
-      }
-    ],
-    "npm:magic-string@0.26.7": [
-      {
-        "source": "npm:magic-string@0.26.7",
-        "target": "npm:sourcemap-codec",
-        "type": "static"
-      }
-    ],
-    "npm:minimatch@3.0.5": [
-      {
-        "source": "npm:minimatch@3.0.5",
-        "target": "npm:brace-expansion",
-        "type": "static"
-      }
-    ],
-    "npm:semver@7.5.4": [
-      {
-        "source": "npm:semver@7.5.4",
-        "target": "npm:lru-cache",
-        "type": "static"
-      }
-    ],
-    "npm:tsconfig-paths@4.2.0": [
-      {
-        "source": "npm:tsconfig-paths@4.2.0",
-        "target": "npm:json5",
-        "type": "static"
-      },
-      {
-        "source": "npm:tsconfig-paths@4.2.0",
-        "target": "npm:minimist",
-        "type": "static"
-      },
-      {
-        "source": "npm:tsconfig-paths@4.2.0",
-        "target": "npm:strip-bom@3.0.0",
-        "type": "static"
-      }
-    ],
-    "npm:@nrwl/cli": [
-      {
-        "source": "npm:@nrwl/cli",
-        "target": "npm:nx",
         "type": "static"
       }
     ],
     "npm:@nrwl/cypress": [
       {
         "source": "npm:@nrwl/cypress",
-        "target": "npm:cypress",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/cypress",
-        "target": "npm:@nrwl/devkit@15.9.7",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/cypress",
-        "target": "npm:@nrwl/js",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/cypress",
-        "target": "npm:@nrwl/linter",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/cypress",
-        "target": "npm:@nrwl/workspace",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/cypress",
-        "target": "npm:@phenomnomnominal/tsquery",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/cypress",
-        "target": "npm:detect-port",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/cypress",
-        "target": "npm:dotenv",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/cypress",
-        "target": "npm:semver@7.5.4",
+        "target": "npm:@nx/cypress",
         "type": "static"
       }
     ],
     "npm:@nrwl/devkit": [
-      {
-        "source": "npm:@nrwl/devkit",
-        "target": "npm:nx",
-        "type": "static"
-      },
       {
         "source": "npm:@nrwl/devkit",
         "target": "npm:ejs",
@@ -45077,215 +44868,665 @@
     "npm:@nrwl/eslint-plugin-nx": [
       {
         "source": "npm:@nrwl/eslint-plugin-nx",
-        "target": "npm:@typescript-eslint/parser",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/eslint-plugin-nx",
-        "target": "npm:eslint-config-prettier",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/eslint-plugin-nx",
-        "target": "npm:@nrwl/devkit@15.9.7",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/eslint-plugin-nx",
-        "target": "npm:@typescript-eslint/utils",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/eslint-plugin-nx",
-        "target": "npm:chalk",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/eslint-plugin-nx",
-        "target": "npm:confusing-browser-globals",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/eslint-plugin-nx",
-        "target": "npm:semver@7.5.4",
+        "target": "npm:@nx/eslint-plugin",
         "type": "static"
       }
     ],
     "npm:@nrwl/jest": [
       {
         "source": "npm:@nrwl/jest",
-        "target": "npm:@jest/reporters",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/jest",
-        "target": "npm:@jest/test-result",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/jest",
-        "target": "npm:@nrwl/devkit@15.9.7",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/jest",
-        "target": "npm:@nrwl/js",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/jest",
-        "target": "npm:@phenomnomnominal/tsquery",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/jest",
-        "target": "npm:chalk",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/jest",
-        "target": "npm:dotenv",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/jest",
-        "target": "npm:identity-obj-proxy",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/jest",
-        "target": "npm:jest-config",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/jest",
-        "target": "npm:jest-resolve",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/jest",
-        "target": "npm:jest-util",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/jest",
-        "target": "npm:resolve.exports",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/jest",
-        "target": "npm:tslib",
+        "target": "npm:@nx/jest",
         "type": "static"
       }
     ],
     "npm:@nrwl/js": [
       {
         "source": "npm:@nrwl/js",
-        "target": "npm:@babel/core",
+        "target": "npm:@nx/js",
+        "type": "static"
+      }
+    ],
+    "npm:@nrwl/linter": [
+      {
+        "source": "npm:@nrwl/linter",
+        "target": "npm:@nx/linter",
+        "type": "static"
+      }
+    ],
+    "npm:@nrwl/nx-cloud": [
+      {
+        "source": "npm:@nrwl/nx-cloud",
+        "target": "npm:nx-cloud",
+        "type": "static"
+      }
+    ],
+    "npm:@nrwl/tao": [
+      {
+        "source": "npm:@nrwl/tao",
+        "target": "npm:nx",
+        "type": "static"
+      }
+    ],
+    "npm:@nrwl/webpack": [
+      {
+        "source": "npm:@nrwl/webpack",
+        "target": "npm:@nx/webpack",
+        "type": "static"
+      }
+    ],
+    "npm:@nrwl/workspace": [
+      {
+        "source": "npm:@nrwl/workspace",
+        "target": "npm:@nx/workspace",
+        "type": "static"
+      }
+    ],
+    "npm:@nx-plus/docusaurus": [
+      {
+        "source": "npm:@nx-plus/docusaurus",
+        "target": "npm:@nrwl/devkit",
+        "type": "static"
+      }
+    ],
+    "npm:@nx/angular": [
+      {
+        "source": "npm:@nx/angular",
+        "target": "npm:@angular-devkit/build-angular",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
-        "target": "npm:@babel/plugin-proposal-class-properties",
+        "source": "npm:@nx/angular",
+        "target": "npm:@angular-devkit/core",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
-        "target": "npm:@babel/plugin-proposal-decorators",
+        "source": "npm:@nx/angular",
+        "target": "npm:@angular-devkit/schematics",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
-        "target": "npm:@babel/plugin-transform-runtime",
+        "source": "npm:@nx/angular",
+        "target": "npm:@schematics/angular",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
-        "target": "npm:@babel/preset-env",
+        "source": "npm:@nx/angular",
+        "target": "npm:rxjs",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
-        "target": "npm:@babel/preset-typescript",
+        "source": "npm:@nx/angular",
+        "target": "npm:@nrwl/angular",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
-        "target": "npm:@babel/runtime",
+        "source": "npm:@nx/angular",
+        "target": "npm:@nx/cypress",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
-        "target": "npm:@nrwl/devkit@15.9.7",
+        "source": "npm:@nx/angular",
+        "target": "npm:@nx/devkit",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
-        "target": "npm:@nrwl/workspace",
+        "source": "npm:@nx/angular",
+        "target": "npm:@nx/jest",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
+        "source": "npm:@nx/angular",
+        "target": "npm:@nx/js",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/angular",
+        "target": "npm:@nx/linter",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/angular",
+        "target": "npm:@nx/webpack",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/angular",
+        "target": "npm:@nx/workspace",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/angular",
         "target": "npm:@phenomnomnominal/tsquery",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
-        "target": "npm:babel-plugin-const-enum",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/js",
-        "target": "npm:babel-plugin-macros",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/js",
-        "target": "npm:babel-plugin-transform-typescript-metadata",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/js",
+        "source": "npm:@nx/angular",
         "target": "npm:chalk",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
-        "target": "npm:fast-glob",
+        "source": "npm:@nx/angular",
+        "target": "npm:chokidar",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
-        "target": "npm:fs-extra@11.2.0",
+        "source": "npm:@nx/angular",
+        "target": "npm:enquirer",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
+        "source": "npm:@nx/angular",
+        "target": "npm:http-server",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/angular",
         "target": "npm:ignore",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
-        "target": "npm:js-tokens",
+        "source": "npm:@nx/angular",
+        "target": "npm:magic-string@0.26.7",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
+        "source": "npm:@nx/angular",
         "target": "npm:minimatch@3.0.5",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
+        "source": "npm:@nx/angular",
+        "target": "npm:semver",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/angular",
+        "target": "npm:ts-node",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/angular",
+        "target": "npm:tsconfig-paths@4.2.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/angular",
+        "target": "npm:tslib",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/angular",
+        "target": "npm:webpack",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/angular",
+        "target": "npm:webpack-merge",
+        "type": "static"
+      }
+    ],
+    "npm:magic-string@0.26.7": [
+      {
+        "source": "npm:magic-string@0.26.7",
+        "target": "npm:sourcemap-codec",
+        "type": "static"
+      }
+    ],
+    "npm:minimatch@3.0.5": [
+      {
+        "source": "npm:minimatch@3.0.5",
+        "target": "npm:brace-expansion",
+        "type": "static"
+      }
+    ],
+    "npm:tsconfig-paths@4.2.0": [
+      {
+        "source": "npm:tsconfig-paths@4.2.0",
+        "target": "npm:json5",
+        "type": "static"
+      },
+      {
+        "source": "npm:tsconfig-paths@4.2.0",
+        "target": "npm:minimist",
+        "type": "static"
+      },
+      {
+        "source": "npm:tsconfig-paths@4.2.0",
+        "target": "npm:strip-bom@3.0.0",
+        "type": "static"
+      }
+    ],
+    "npm:@nx/cypress": [
+      {
+        "source": "npm:@nx/cypress",
+        "target": "npm:cypress",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/cypress",
+        "target": "npm:@nrwl/cypress",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/cypress",
+        "target": "npm:@nx/devkit",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/cypress",
+        "target": "npm:@nx/js",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/cypress",
+        "target": "npm:@nx/linter",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/cypress",
+        "target": "npm:@phenomnomnominal/tsquery",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/cypress",
+        "target": "npm:detect-port",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/cypress",
+        "target": "npm:dotenv",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/cypress",
+        "target": "npm:semver",
+        "type": "static"
+      }
+    ],
+    "npm:@nx/devkit": [
+      {
+        "source": "npm:@nx/devkit",
+        "target": "npm:nx",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/devkit",
+        "target": "npm:@nrwl/devkit@16.0.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/devkit",
+        "target": "npm:ejs",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/devkit",
+        "target": "npm:ignore",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/devkit",
+        "target": "npm:semver",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/devkit",
+        "target": "npm:tmp",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/devkit",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@nrwl/devkit@16.0.0": [
+      {
+        "source": "npm:@nrwl/devkit@16.0.0",
+        "target": "npm:@nx/devkit",
+        "type": "static"
+      }
+    ],
+    "npm:@nx/eslint-plugin": [
+      {
+        "source": "npm:@nx/eslint-plugin",
+        "target": "npm:@typescript-eslint/parser",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/eslint-plugin",
+        "target": "npm:eslint-config-prettier",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/eslint-plugin",
+        "target": "npm:@nrwl/eslint-plugin-nx",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/eslint-plugin",
+        "target": "npm:@nx/devkit",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/eslint-plugin",
+        "target": "npm:@nx/js",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/eslint-plugin",
+        "target": "npm:@typescript-eslint/utils@5.62.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/eslint-plugin",
+        "target": "npm:chalk",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/eslint-plugin",
+        "target": "npm:confusing-browser-globals",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/eslint-plugin",
+        "target": "npm:semver",
+        "type": "static"
+      }
+    ],
+    "npm:@typescript-eslint/scope-manager@5.62.0": [
+      {
+        "source": "npm:@typescript-eslint/scope-manager@5.62.0",
+        "target": "npm:@typescript-eslint/types@5.62.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/scope-manager@5.62.0",
+        "target": "npm:@typescript-eslint/visitor-keys@5.62.0",
+        "type": "static"
+      }
+    ],
+    "npm:@typescript-eslint/typescript-estree@5.62.0": [
+      {
+        "source": "npm:@typescript-eslint/typescript-estree@5.62.0",
+        "target": "npm:@typescript-eslint/types@5.62.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/typescript-estree@5.62.0",
+        "target": "npm:@typescript-eslint/visitor-keys@5.62.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/typescript-estree@5.62.0",
+        "target": "npm:debug",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/typescript-estree@5.62.0",
+        "target": "npm:globby",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/typescript-estree@5.62.0",
+        "target": "npm:is-glob",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/typescript-estree@5.62.0",
+        "target": "npm:semver@7.6.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/typescript-estree@5.62.0",
+        "target": "npm:tsutils",
+        "type": "static"
+      }
+    ],
+    "npm:@typescript-eslint/utils@5.62.0": [
+      {
+        "source": "npm:@typescript-eslint/utils@5.62.0",
+        "target": "npm:eslint",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/utils@5.62.0",
+        "target": "npm:@eslint-community/eslint-utils",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/utils@5.62.0",
+        "target": "npm:@types/json-schema",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/utils@5.62.0",
+        "target": "npm:@types/semver",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/utils@5.62.0",
+        "target": "npm:@typescript-eslint/scope-manager@5.62.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/utils@5.62.0",
+        "target": "npm:@typescript-eslint/types@5.62.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/utils@5.62.0",
+        "target": "npm:@typescript-eslint/typescript-estree@5.62.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/utils@5.62.0",
+        "target": "npm:eslint-scope",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/utils@5.62.0",
+        "target": "npm:semver@7.6.0",
+        "type": "static"
+      }
+    ],
+    "npm:@typescript-eslint/visitor-keys@5.62.0": [
+      {
+        "source": "npm:@typescript-eslint/visitor-keys@5.62.0",
+        "target": "npm:@typescript-eslint/types@5.62.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/visitor-keys@5.62.0",
+        "target": "npm:eslint-visitor-keys",
+        "type": "static"
+      }
+    ],
+    "npm:@nx/jest": [
+      {
+        "source": "npm:@nx/jest",
+        "target": "npm:@jest/reporters",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/jest",
+        "target": "npm:@jest/test-result",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/jest",
+        "target": "npm:@nrwl/jest",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/jest",
+        "target": "npm:@nx/devkit",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/jest",
+        "target": "npm:@nx/js",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/jest",
+        "target": "npm:@phenomnomnominal/tsquery",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/jest",
+        "target": "npm:chalk",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/jest",
+        "target": "npm:dotenv",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/jest",
+        "target": "npm:identity-obj-proxy",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/jest",
+        "target": "npm:jest-config",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/jest",
+        "target": "npm:jest-resolve",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/jest",
+        "target": "npm:jest-util",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/jest",
+        "target": "npm:resolve.exports",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/jest",
+        "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "npm:@nx/js": [
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:@babel/core",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:@babel/plugin-proposal-class-properties",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:@babel/plugin-proposal-decorators",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:@babel/plugin-transform-runtime",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:@babel/preset-env",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:@babel/preset-typescript",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:@babel/runtime",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:@nrwl/js",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:@nx/devkit",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:@nx/workspace",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:@phenomnomnominal/tsquery",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:babel-plugin-const-enum",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:babel-plugin-macros",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:babel-plugin-transform-typescript-metadata",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:chalk",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:fast-glob",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:fs-extra@11.2.0",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:ignore",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:js-tokens",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
+        "target": "npm:minimatch@3.0.5",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/js",
         "target": "npm:source-map-support@0.5.19",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
+        "source": "npm:@nx/js",
         "target": "npm:tree-kill",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/js",
+        "source": "npm:@nx/js",
         "target": "npm:tslib",
         "type": "static"
       }
@@ -45319,245 +45560,246 @@
         "type": "static"
       }
     ],
-    "npm:@nrwl/linter": [
+    "npm:@nx/linter": [
       {
-        "source": "npm:@nrwl/linter",
+        "source": "npm:@nx/linter",
         "target": "npm:eslint",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/linter",
-        "target": "npm:@nrwl/devkit@15.9.7",
+        "source": "npm:@nx/linter",
+        "target": "npm:@nrwl/linter",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/linter",
-        "target": "npm:@nrwl/js",
+        "source": "npm:@nx/linter",
+        "target": "npm:@nx/devkit",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/linter",
+        "source": "npm:@nx/linter",
+        "target": "npm:@nx/js",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/linter",
         "target": "npm:@phenomnomnominal/tsquery",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/linter",
+        "source": "npm:@nx/linter",
         "target": "npm:tmp",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/linter",
+        "source": "npm:@nx/linter",
         "target": "npm:tslib",
         "type": "static"
       }
     ],
-    "npm:@nrwl/nx-cloud": [
+    "npm:@nx/webpack": [
       {
-        "source": "npm:@nrwl/nx-cloud",
-        "target": "npm:nx-cloud",
-        "type": "static"
-      }
-    ],
-    "npm:@nrwl/tao": [
-      {
-        "source": "npm:@nrwl/tao",
-        "target": "npm:nx",
-        "type": "static"
-      }
-    ],
-    "npm:@nrwl/webpack": [
-      {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:@babel/core",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
-        "target": "npm:@nrwl/devkit@15.9.7",
+        "source": "npm:@nx/webpack",
+        "target": "npm:@nrwl/webpack",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
-        "target": "npm:@nrwl/js",
+        "source": "npm:@nx/webpack",
+        "target": "npm:@nx/devkit",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
-        "target": "npm:@nrwl/workspace",
+        "source": "npm:@nx/webpack",
+        "target": "npm:@nx/js",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:autoprefixer",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:babel-loader@9.1.3",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:chalk",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
+        "target": "npm:chokidar",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/webpack",
         "target": "npm:copy-webpack-plugin@10.2.4",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:css-loader",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:css-minimizer-webpack-plugin",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:dotenv",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:file-loader",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:fork-ts-checker-webpack-plugin@7.2.13",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
+        "target": "npm:ignore",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/webpack",
         "target": "npm:less",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:less-loader",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:license-webpack-plugin",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:loader-utils",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:mini-css-extract-plugin@2.4.7",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:parse5@4.0.0",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:postcss",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:postcss-import",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:postcss-loader",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:rxjs@6.6.7",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:sass",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:sass-loader@12.6.0",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:source-map-loader@3.0.2",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:style-loader",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:stylus",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:stylus-loader",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:terser-webpack-plugin",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:ts-loader",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:ts-node",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:tsconfig-paths@4.2.0",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:tsconfig-paths-webpack-plugin@4.0.0",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:tslib",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:webpack",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:webpack-dev-server",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:webpack-node-externals",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/webpack",
+        "source": "npm:@nx/webpack",
         "target": "npm:webpack-subresource-integrity",
         "type": "static"
       }
@@ -45713,7 +45955,7 @@
       },
       {
         "source": "npm:fork-ts-checker-webpack-plugin@7.2.13",
-        "target": "npm:semver@7.5.4",
+        "target": "npm:semver@7.6.0",
         "type": "static"
       },
       {
@@ -45889,166 +46131,105 @@
         "type": "static"
       }
     ],
-    "npm:@nrwl/workspace": [
+    "npm:@nx/workspace": [
       {
-        "source": "npm:@nrwl/workspace",
-        "target": "npm:@nrwl/devkit@15.9.7",
+        "source": "npm:@nx/workspace",
+        "target": "npm:@nrwl/workspace",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
+        "target": "npm:@nx/devkit",
+        "type": "static"
+      },
+      {
+        "source": "npm:@nx/workspace",
         "target": "npm:@parcel/watcher",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
         "target": "npm:chalk",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
         "target": "npm:chokidar",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
         "target": "npm:cli-cursor",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
         "target": "npm:cli-spinners",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
         "target": "npm:dotenv",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
         "target": "npm:figures",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
         "target": "npm:flat",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
-        "target": "npm:glob",
-        "type": "static"
-      },
-      {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
         "target": "npm:ignore",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
         "target": "npm:minimatch@3.0.5",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
         "target": "npm:npm-run-path",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
         "target": "npm:nx",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
         "target": "npm:open",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
         "target": "npm:rxjs@6.6.7",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
         "target": "npm:tmp",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
         "target": "npm:tslib",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
-        "target": "npm:yargs@17.7.2",
+        "source": "npm:@nx/workspace",
+        "target": "npm:yargs",
         "type": "static"
       },
       {
-        "source": "npm:@nrwl/workspace",
+        "source": "npm:@nx/workspace",
         "target": "npm:yargs-parser",
-        "type": "static"
-      }
-    ],
-    "npm:cliui@8.0.1": [
-      {
-        "source": "npm:cliui@8.0.1",
-        "target": "npm:string-width",
-        "type": "static"
-      },
-      {
-        "source": "npm:cliui@8.0.1",
-        "target": "npm:strip-ansi",
-        "type": "static"
-      },
-      {
-        "source": "npm:cliui@8.0.1",
-        "target": "npm:wrap-ansi",
-        "type": "static"
-      }
-    ],
-    "npm:yargs@17.7.2": [
-      {
-        "source": "npm:yargs@17.7.2",
-        "target": "npm:cliui@8.0.1",
-        "type": "static"
-      },
-      {
-        "source": "npm:yargs@17.7.2",
-        "target": "npm:escalade",
-        "type": "static"
-      },
-      {
-        "source": "npm:yargs@17.7.2",
-        "target": "npm:get-caller-file",
-        "type": "static"
-      },
-      {
-        "source": "npm:yargs@17.7.2",
-        "target": "npm:require-directory",
-        "type": "static"
-      },
-      {
-        "source": "npm:yargs@17.7.2",
-        "target": "npm:string-width",
-        "type": "static"
-      },
-      {
-        "source": "npm:yargs@17.7.2",
-        "target": "npm:y18n",
-        "type": "static"
-      },
-      {
-        "source": "npm:yargs@17.7.2",
-        "target": "npm:yargs-parser",
-        "type": "static"
-      }
-    ],
-    "npm:@nx-plus/docusaurus": [
-      {
-        "source": "npm:@nx-plus/docusaurus",
-        "target": "npm:@nrwl/devkit",
         "type": "static"
       }
     ],
@@ -46913,17 +47094,22 @@
       },
       {
         "source": "npm:@typescript-eslint/eslint-plugin",
+        "target": "npm:@eslint-community/regexpp",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/eslint-plugin",
         "target": "npm:@typescript-eslint/scope-manager",
         "type": "static"
       },
       {
         "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:@typescript-eslint/type-utils@5.36.1",
+        "target": "npm:@typescript-eslint/type-utils@5.58.0",
         "type": "static"
       },
       {
         "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:@typescript-eslint/utils@5.36.1",
+        "target": "npm:@typescript-eslint/utils@5.58.0",
         "type": "static"
       },
       {
@@ -46933,7 +47119,7 @@
       },
       {
         "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:functional-red-black-tree",
+        "target": "npm:grapheme-splitter",
         "type": "static"
       },
       {
@@ -46943,7 +47129,7 @@
       },
       {
         "source": "npm:@typescript-eslint/eslint-plugin",
-        "target": "npm:regexpp",
+        "target": "npm:natural-compare-lite",
         "type": "static"
       },
       {
@@ -46957,67 +47143,77 @@
         "type": "static"
       }
     ],
-    "npm:@typescript-eslint/type-utils@5.36.1": [
+    "npm:@typescript-eslint/type-utils@5.58.0": [
       {
-        "source": "npm:@typescript-eslint/type-utils@5.36.1",
+        "source": "npm:@typescript-eslint/type-utils@5.58.0",
         "target": "npm:eslint",
         "type": "static"
       },
       {
-        "source": "npm:@typescript-eslint/type-utils@5.36.1",
+        "source": "npm:@typescript-eslint/type-utils@5.58.0",
         "target": "npm:@typescript-eslint/typescript-estree",
         "type": "static"
       },
       {
-        "source": "npm:@typescript-eslint/type-utils@5.36.1",
-        "target": "npm:@typescript-eslint/utils@5.36.1",
+        "source": "npm:@typescript-eslint/type-utils@5.58.0",
+        "target": "npm:@typescript-eslint/utils@5.58.0",
         "type": "static"
       },
       {
-        "source": "npm:@typescript-eslint/type-utils@5.36.1",
+        "source": "npm:@typescript-eslint/type-utils@5.58.0",
         "target": "npm:debug",
         "type": "static"
       },
       {
-        "source": "npm:@typescript-eslint/type-utils@5.36.1",
+        "source": "npm:@typescript-eslint/type-utils@5.58.0",
         "target": "npm:tsutils",
         "type": "static"
       }
     ],
-    "npm:@typescript-eslint/utils@5.36.1": [
+    "npm:@typescript-eslint/utils@5.58.0": [
       {
-        "source": "npm:@typescript-eslint/utils@5.36.1",
+        "source": "npm:@typescript-eslint/utils@5.58.0",
         "target": "npm:eslint",
         "type": "static"
       },
       {
-        "source": "npm:@typescript-eslint/utils@5.36.1",
+        "source": "npm:@typescript-eslint/utils@5.58.0",
+        "target": "npm:@eslint-community/eslint-utils",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/utils@5.58.0",
         "target": "npm:@types/json-schema",
         "type": "static"
       },
       {
-        "source": "npm:@typescript-eslint/utils@5.36.1",
+        "source": "npm:@typescript-eslint/utils@5.58.0",
+        "target": "npm:@types/semver",
+        "type": "static"
+      },
+      {
+        "source": "npm:@typescript-eslint/utils@5.58.0",
         "target": "npm:@typescript-eslint/scope-manager",
         "type": "static"
       },
       {
-        "source": "npm:@typescript-eslint/utils@5.36.1",
+        "source": "npm:@typescript-eslint/utils@5.58.0",
         "target": "npm:@typescript-eslint/types",
         "type": "static"
       },
       {
-        "source": "npm:@typescript-eslint/utils@5.36.1",
+        "source": "npm:@typescript-eslint/utils@5.58.0",
         "target": "npm:@typescript-eslint/typescript-estree",
         "type": "static"
       },
       {
-        "source": "npm:@typescript-eslint/utils@5.36.1",
+        "source": "npm:@typescript-eslint/utils@5.58.0",
         "target": "npm:eslint-scope",
         "type": "static"
       },
       {
-        "source": "npm:@typescript-eslint/utils@5.36.1",
-        "target": "npm:eslint-utils",
+        "source": "npm:@typescript-eslint/utils@5.58.0",
+        "target": "npm:semver@7.3.7",
         "type": "static"
       }
     ],
@@ -47164,19 +47360,12 @@
       },
       {
         "source": "npm:@typescript-eslint/typescript-estree",
-        "target": "npm:semver@7.3.8",
+        "target": "npm:semver@7.6.0",
         "type": "static"
       },
       {
         "source": "npm:@typescript-eslint/typescript-estree",
         "target": "npm:tsutils",
-        "type": "static"
-      }
-    ],
-    "npm:semver@7.3.8": [
-      {
-        "source": "npm:semver@7.3.8",
-        "target": "npm:lru-cache",
         "type": "static"
       }
     ],
@@ -47826,6 +48015,13 @@
       {
         "source": "npm:app-builder-lib",
         "target": "npm:temp-file",
+        "type": "static"
+      }
+    ],
+    "npm:semver@7.3.8": [
+      {
+        "source": "npm:semver@7.3.8",
+        "target": "npm:lru-cache",
         "type": "static"
       }
     ],
@@ -56413,11 +56609,6 @@
     "npm:nx": [
       {
         "source": "npm:nx",
-        "target": "npm:@nrwl/cli",
-        "type": "static"
-      },
-      {
-        "source": "npm:nx",
         "target": "npm:@nrwl/tao",
         "type": "static"
       },
@@ -56538,7 +56729,7 @@
       },
       {
         "source": "npm:nx",
-        "target": "npm:semver@7.5.4",
+        "target": "npm:semver",
         "type": "static"
       },
       {
@@ -56588,47 +56779,47 @@
       },
       {
         "source": "npm:nx",
-        "target": "npm:@nrwl/nx-darwin-arm64",
+        "target": "npm:@nx/nx-darwin-arm64",
         "type": "static"
       },
       {
         "source": "npm:nx",
-        "target": "npm:@nrwl/nx-darwin-x64",
+        "target": "npm:@nx/nx-darwin-x64",
         "type": "static"
       },
       {
         "source": "npm:nx",
-        "target": "npm:@nrwl/nx-linux-arm-gnueabihf",
+        "target": "npm:@nx/nx-linux-arm-gnueabihf",
         "type": "static"
       },
       {
         "source": "npm:nx",
-        "target": "npm:@nrwl/nx-linux-arm64-gnu",
+        "target": "npm:@nx/nx-linux-arm64-gnu",
         "type": "static"
       },
       {
         "source": "npm:nx",
-        "target": "npm:@nrwl/nx-linux-arm64-musl",
+        "target": "npm:@nx/nx-linux-arm64-musl",
         "type": "static"
       },
       {
         "source": "npm:nx",
-        "target": "npm:@nrwl/nx-linux-x64-gnu",
+        "target": "npm:@nx/nx-linux-x64-gnu",
         "type": "static"
       },
       {
         "source": "npm:nx",
-        "target": "npm:@nrwl/nx-linux-x64-musl",
+        "target": "npm:@nx/nx-linux-x64-musl",
         "type": "static"
       },
       {
         "source": "npm:nx",
-        "target": "npm:@nrwl/nx-win32-arm64-msvc",
+        "target": "npm:@nx/nx-win32-arm64-msvc",
         "type": "static"
       },
       {
         "source": "npm:nx",
-        "target": "npm:@nrwl/nx-win32-x64-msvc",
+        "target": "npm:@nx/nx-win32-x64-msvc",
         "type": "static"
       }
     ],
@@ -56819,6 +57010,60 @@
       {
         "source": "npm:axios@1.6.8",
         "target": "npm:proxy-from-env@1.1.0",
+        "type": "static"
+      }
+    ],
+    "npm:yargs@17.7.2": [
+      {
+        "source": "npm:yargs@17.7.2",
+        "target": "npm:cliui@8.0.1",
+        "type": "static"
+      },
+      {
+        "source": "npm:yargs@17.7.2",
+        "target": "npm:escalade",
+        "type": "static"
+      },
+      {
+        "source": "npm:yargs@17.7.2",
+        "target": "npm:get-caller-file",
+        "type": "static"
+      },
+      {
+        "source": "npm:yargs@17.7.2",
+        "target": "npm:require-directory",
+        "type": "static"
+      },
+      {
+        "source": "npm:yargs@17.7.2",
+        "target": "npm:string-width",
+        "type": "static"
+      },
+      {
+        "source": "npm:yargs@17.7.2",
+        "target": "npm:y18n",
+        "type": "static"
+      },
+      {
+        "source": "npm:yargs@17.7.2",
+        "target": "npm:yargs-parser",
+        "type": "static"
+      }
+    ],
+    "npm:cliui@8.0.1": [
+      {
+        "source": "npm:cliui@8.0.1",
+        "target": "npm:string-width",
+        "type": "static"
+      },
+      {
+        "source": "npm:cliui@8.0.1",
+        "target": "npm:strip-ansi",
+        "type": "static"
+      },
+      {
+        "source": "npm:cliui@8.0.1",
+        "target": "npm:wrap-ansi",
         "type": "static"
       }
     ],
@@ -62034,6 +62279,118 @@
       {
         "source": "npm:zone.js",
         "target": "npm:tslib",
+        "type": "static"
+      }
+    ],
+    "shared-angular-ui-tfx-show-if-truncated": [
+      {
+        "source": "shared-angular-ui-tfx-show-if-truncated",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "shared-angular-ui-tfx-show-if-truncated",
+        "target": "npm:@angular/material",
+        "type": "static"
+      },
+      {
+        "source": "shared-angular-ui-tfx-show-if-truncated",
+        "target": "npm:@angular/common",
+        "type": "static"
+      }
+    ],
+    "shared-angular-ui-tfx-icon-button": [
+      {
+        "source": "shared-angular-ui-tfx-icon-button",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "shared-angular-ui-tfx-icon-button",
+        "target": "npm:@angular/common",
+        "type": "static"
+      }
+    ],
+    "shared-angular-ui-tfx-menu": [
+      {
+        "source": "shared-angular-ui-tfx-menu",
+        "target": "npm:xstate",
+        "type": "static"
+      },
+      {
+        "source": "shared-angular-ui-tfx-menu",
+        "target": "npm:nanoid",
+        "type": "static"
+      },
+      {
+        "source": "shared-angular-ui-tfx-menu",
+        "target": "npm:rxjs",
+        "type": "static"
+      },
+      {
+        "source": "shared-angular-ui-tfx-menu",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "shared-angular-ui-tfx-menu",
+        "target": "npm:@angular/cdk",
+        "type": "static"
+      },
+      {
+        "source": "shared-angular-ui-tfx-menu",
+        "target": "npm:@angular/common",
+        "type": "static"
+      }
+    ],
+    "diagram-util-app-tokens": [
+      {
+        "source": "diagram-util-app-tokens",
+        "target": "npm:@angular/core",
+        "type": "static"
+      }
+    ],
+    "diagram-ui-material": [
+      {
+        "source": "diagram-ui-material",
+        "target": "npm:@angular/common",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-material",
+        "target": "npm:@angular/core",
+        "type": "static"
+      },
+      {
+        "source": "diagram-ui-material",
+        "target": "npm:@angular/material",
+        "type": "static"
+      }
+    ],
+    "diagram-docs": [
+      {
+        "source": "diagram-docs",
+        "target": "npm:prism-react-renderer",
+        "type": "static"
+      },
+      {
+        "source": "diagram-docs",
+        "target": "npm:remark-math",
+        "type": "static"
+      },
+      {
+        "source": "diagram-docs",
+        "target": "npm:rehype-katex",
+        "type": "static"
+      },
+      {
+        "source": "diagram-docs",
+        "target": "npm:react",
+        "type": "static"
+      },
+      {
+        "source": "diagram-docs",
+        "target": "npm:clsx",
         "type": "static"
       }
     ]
