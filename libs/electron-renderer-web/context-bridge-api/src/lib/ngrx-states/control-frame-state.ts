@@ -4,6 +4,13 @@ import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 
 export const controlFrameFeatureKey = 'controlFrame';
 
+export type DragType =
+  | 'none'
+  | 'selection-box'
+  | 'single-selection'
+  | 'multi-selection'
+  | 'handle';
+
 export interface ControlFrameState {
   highlightedShapeId: string;
   highlightFrameStart: string;

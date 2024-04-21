@@ -48,7 +48,7 @@ export const controlFrameReducer = createReducer(
         ...newState,
         dragType: 'selection-box',
         selectionBoxAnchor: { ...mousePagePos },
-      };
+      } as ControlFrameState;
     }
   ),
   on(ControlFrameEffectsActions.dragMoveSelectionBox, (state, { selectionBox }) => {
@@ -66,7 +66,7 @@ export const controlFrameReducer = createReducer(
       return {
         ...newState,
         dragType: 'none',
-      };
+      } as ControlFrameState;
     }
   ),
   on(
@@ -77,7 +77,7 @@ export const controlFrameReducer = createReducer(
         ...newState,
         dragType: 'single-selection',
         dragOffset,
-      };
+      } as ControlFrameState;
     }
   ),
   on(ControlFrameEffectsActions.dragMoveSingleSelection, (state, { controlShapes }) => {
@@ -97,7 +97,7 @@ export const controlFrameReducer = createReducer(
       return {
         ...newState,
         dragType: 'none',
-      };
+      } as ControlFrameState;
     }
   ),
   on(ControlFrameEffectsActions.dragStartMultiSelection, (state, { dragOffset }) => {
@@ -105,7 +105,7 @@ export const controlFrameReducer = createReducer(
       ...state,
       dragType: 'multi-selection',
       dragOffset,
-    };
+    } as ControlFrameState;
   }),
   on(ControlFrameEffectsActions.dragMoveMultiSelection, (state, { controlShapes }) => {
     const movedControlShapes = new Map<string, Shape>(state.controlShapes);
@@ -133,7 +133,7 @@ export const controlFrameReducer = createReducer(
     return {
       ...state,
       dragType: 'none',
-    };
+    } as ControlFrameState;
   }),
   on(
     ControlFrameEffectsActions.dragStartHandle,
@@ -145,7 +145,7 @@ export const controlFrameReducer = createReducer(
         dragOffset,
         controlShapes: updatedControlShapes,
         connectionHook,
-      };
+      } as ControlFrameState;
     }
   ),
   on(ControlFrameEffectsActions.dragEndHandle, (state, { controlShapes }) => {
@@ -155,7 +155,7 @@ export const controlFrameReducer = createReducer(
       dragType: 'none',
       controlShapes: updatedControlShapes,
       connectionHook: null,
-    };
+    } as ControlFrameState;
   }),
   on(
     SketchbookViewComponentActions.currentPageChange,

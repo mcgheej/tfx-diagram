@@ -33,13 +33,13 @@ export const sketchbookReducer = createReducer(
       ...state,
       status: 'creating',
       dialogOpen: true,
-    };
+    } as SketchbookState;
   }),
   on(FileMenuActions.newSketchbookCancel, (state) => {
     return {
       ...state,
       status: 'closed',
-    };
+    } as SketchbookState;
   }),
   on(FileMenuActions.newSketchbookCreate, (state, { sketchbookTitle }) => {
     return {
@@ -47,25 +47,25 @@ export const sketchbookReducer = createReducer(
       title: sketchbookTitle,
       path: '',
       status: 'modified',
-    };
+    } as SketchbookState;
   }),
   on(FileMenuActions.openSketchbookClick, (state) => {
     return {
       ...state,
       status: 'loading',
-    };
+    } as SketchbookState;
   }),
   on(SketchbookEffectsActions.openCancel, SketchbookEffectsActions.openError, (state) => {
     return {
       ...state,
       status: 'closed',
-    };
+    } as SketchbookState;
   }),
   on(FileMenuActions.exportSketchbookClick, (state) => {
     return {
       ...state,
       exportStatus: 'requested',
-    };
+    } as SketchbookState;
   }),
   on(ShellComponentActions.exportJpegClick, (state) => {
     return {
@@ -78,7 +78,7 @@ export const sketchbookReducer = createReducer(
       ...state,
       dialogOpen: false,
       exportStatus: 'exporting',
-    };
+    } as SketchbookState;
   }),
   on(
     ShellComponentActions.exportJpegCancel,
@@ -89,7 +89,7 @@ export const sketchbookReducer = createReducer(
         ...state,
         dialogOpen: false,
         exportStatus: 'quiescent',
-      };
+      } as SketchbookState;
     }
   ),
   on(
@@ -134,7 +134,7 @@ export const sketchbookReducer = createReducer(
     return {
       ...state,
       status: 'modified',
-    };
+    } as SketchbookState;
   }),
   on(
     FileMenuActions.saveSketchbookClick,
@@ -144,7 +144,7 @@ export const sketchbookReducer = createReducer(
       return {
         ...state,
         status: 'saving',
-      };
+      } as SketchbookState;
     }
   ),
   on(SketchbookEffectsActions.saveSuccess, (state, { result }) => {
@@ -153,7 +153,7 @@ export const sketchbookReducer = createReducer(
       title: result.title,
       path: result.path,
       status: 'saved',
-    };
+    } as SketchbookState;
   }),
   on(
     SketchbookEffectsActions.saveCancel,
@@ -174,14 +174,14 @@ export const sketchbookReducer = createReducer(
       return {
         ...state,
         status: 'modified',
-      };
+      } as SketchbookState;
     }
   ),
   on(SaveCloseMachineActions.closeStart, SaveCloseMachineActions.discardClick, (state) => {
     return {
       ...state,
       status: 'closing',
-    };
+    } as SketchbookState;
   }),
   on(PagesEffectsActions.sketchbookClose, () => {
     return { ...initialState };
@@ -190,30 +190,30 @@ export const sketchbookReducer = createReducer(
     return {
       ...fileData.sketchbook,
       status: 'saved',
-    };
+    } as SketchbookState;
   }),
   on(SketchbookViewComponentActions.deletePageClick, (state) => {
     return {
       ...state,
       status: 'modified',
-    };
+    } as SketchbookState;
   }),
   on(SketchbookViewComponentActions.zoomChange, (state) => {
     return {
       ...state,
       status: 'modified',
-    };
+    } as SketchbookState;
   }),
   on(SketchbookViewComponentActions.currentPageChange, (state) => {
     return {
       ...state,
       status: 'modified',
-    };
+    } as SketchbookState;
   }),
   on(SketchbookViewComponentActions.pageOrderChange, (state) => {
     return {
       ...state,
       status: 'modified',
-    };
+    } as SketchbookState;
   })
 );

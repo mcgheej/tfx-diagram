@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { selectStatus } from '@tfx-diagram/diagram-data-access-store-features-sketchbook';
 import { SketchbookStatus } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Observable, ReplaySubject, Subscription } from 'rxjs';
-import { createMachine, interpret, MachineOptions } from 'xstate';
+import { MachineOptions, createMachine, interpret } from 'xstate';
 import { openDialog, startClose } from './actions';
 import { saveCloseConfig } from './save-close.config';
 import { Closed, Closing, Modified, SaveCloseEvents, Saved } from './save-close.events';
@@ -39,7 +39,7 @@ export class SaveCloseMachineService {
 
     this.cleanSubscriptions();
     this.statusSubscription = this.store.select(selectStatus).subscribe((status) => {
-      this.sendStatusEvent(status);
+      this.sendStatusEvent(status as SketchbookStatus);
     });
     if (this.result$) {
       this.result$.complete();
