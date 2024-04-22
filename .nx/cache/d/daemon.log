@@ -6864,3 +6864,416 @@ fatal: no path specified
 [NX Daemon Server] - 2024-04-21T18:18:54.984Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2024-04-21T18:18:55.100Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2024-04-21T18:18:58.840Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:18:59.802Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:19:04.004Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:19:04.104Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:19:12.978Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:19:44.013Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-21T18:19:44.022Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-21T18:19:44.068Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:20:53.342Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:29:48.750Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:29:48.757Z - [WATCHER]: package.json was modified
+[NX Daemon Server] - 2024-04-21T18:29:49.468Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-21T18:29:49.469Z - [REQUEST]: package.json
+[NX Daemon Server] - 2024-04-21T18:29:49.469Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-21T18:29:49.635Z - Time taken for 'hash changed files from watcher' 213.86909997463226ms
+[NX Daemon Server] - 2024-04-21T18:29:49.668Z - [WATCHER]: Processing file changes in outputs
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+
+> NX runtime error [3merr[0m[2m=[0mcannot send event from fs watcher: sending into a full channel
+
+[NX Daemon Server] - 2024-04-21T18:32:23.532Z - [WATCHER]: .nx/cache/d/server-process.json was deleted
+[NX Daemon Server] - 2024-04-21T18:32:23.534Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:32:23.534Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:32:23.650Z - [WATCHER]: Stopping the watcher for D:\web-nx-17\tfx-diagram (sources)
+[NX Daemon Server] - 2024-04-21T18:32:23.650Z - [WATCHER]: Stopping the watcher for D:\web-nx-17\tfx-diagram (sources)
+[NX Daemon Server] - 2024-04-21T18:32:23.650Z - [WATCHER]: Stopping the watcher for D:\web-nx-17\tfx-diagram (outputs)
+[NX Daemon Server] - 2024-04-21T18:32:23.650Z - Server stopped because: "Lock file changed"
+[NX Daemon Server] - 2024-04-21T18:33:20.738Z - Started listening on: \\.\pipe\nx\C:\Users\John\AppData\Local\Temp\977e3b578c0d1256c63f\d.sock
+[NX Daemon Server] - 2024-04-21T18:33:20.743Z - [WATCHER]: Subscribed to changes within: D:\web-nx-17\tfx-diagram (native)
+[NX Daemon Server] - 2024-04-21T18:33:20.747Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-21T18:33:20.750Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-21T18:33:20.750Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-21T18:33:20.754Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-21T18:33:22.694Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-21T18:33:22.694Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-21T18:33:22.694Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-21T18:33:23.013Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-21T18:33:23.017Z - Time taken for 'total for creating and serializing project graph' 2259.338700056076ms
+[NX Daemon Server] - 2024-04-21T18:33:23.018Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-21T18:33:23.018Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 2259. Response time: 5.
+[NX Daemon Server] - 2024-04-21T18:33:23.027Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:33:23.445Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-04-21T18:33:23.446Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-04-21T18:33:23.446Z - Handled HASH_TASKS. Handling time: 116. Response time: 1.
+[NX Daemon Server] - 2024-04-21T18:33:23.968Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:33:24.554Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-21T18:33:24.555Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-21T18:33:24.555Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-21T18:33:24.606Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-21T18:33:24.606Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-21T18:33:24.611Z - Time taken for 'total for creating and serializing project graph' 0.4812999963760376ms
+[NX Daemon Server] - 2024-04-21T18:33:24.611Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-21T18:33:24.612Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 6.
+[NX Daemon Server] - 2024-04-21T18:33:54.535Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:33:54.600Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:33:54.748Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:33:54.834Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:33:55.048Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:33:55.116Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:33:55.726Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:33:57.149Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:33:57.283Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:34:17.614Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:34:20.822Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:34:20.936Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:34:21.155Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:34:21.264Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:34:22.968Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-04-21T18:34:22.968Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-21T18:34:22.970Z - Established a connection. Number of open connections: 3
+[NX Daemon Server] - 2024-04-21T18:34:22.975Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-21T18:34:22.976Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-21T18:34:22.980Z - Time taken for 'total for creating and serializing project graph' 0.539099931716919ms
+[NX Daemon Server] - 2024-04-21T18:34:22.980Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-21T18:34:22.981Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 5.
+[NX Daemon Server] - 2024-04-21T18:34:23.194Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-04-21T18:34:23.194Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-04-21T18:34:23.194Z - Handled HASH_TASKS. Handling time: 3. Response time: 0.
+[NX Daemon Server] - 2024-04-21T18:34:23.705Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:34:38.883Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:36:34.286Z - Closed a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-21T18:36:34.339Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:36:37.057Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-21T18:36:37.064Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-21T18:36:37.114Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:37:06.497Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-21T18:37:06.497Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-21T18:37:06.498Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-21T18:37:06.503Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-21T18:37:06.503Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-21T18:37:06.508Z - Time taken for 'total for creating and serializing project graph' 0.4615999460220337ms
+[NX Daemon Server] - 2024-04-21T18:37:06.508Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-21T18:37:06.508Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 5.
+[NX Daemon Server] - 2024-04-21T18:37:06.528Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-21T18:44:06.783Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:44:06.788Z - [WATCHER]: libs/shared-angular/ui/tfx-icon-button/project.json was modified
+[NX Daemon Server] - 2024-04-21T18:44:07.313Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-21T18:44:07.313Z - [REQUEST]: libs/shared-angular/ui/tfx-icon-button/project.json
+[NX Daemon Server] - 2024-04-21T18:44:07.313Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-21T18:44:07.902Z - Time taken for 'hash changed files from watcher' 138.93250000476837ms
+[NX Daemon Server] - 2024-04-21T18:44:07.930Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:44:12.503Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-21T18:44:12.504Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-21T18:44:12.504Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-21T18:44:12.509Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-21T18:44:12.510Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-21T18:44:12.514Z - Time taken for 'total for creating and serializing project graph' 0.5528000593185425ms
+[NX Daemon Server] - 2024-04-21T18:44:12.514Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-21T18:44:12.514Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 4.
+[NX Daemon Server] - 2024-04-21T18:44:12.535Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-21T18:44:50.717Z - [WATCHER]: libs/diagram/shell/project.json was modified
+[NX Daemon Server] - 2024-04-21T18:44:50.719Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:44:50.972Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-21T18:44:50.972Z - [REQUEST]: libs/diagram/shell/project.json
+[NX Daemon Server] - 2024-04-21T18:44:50.972Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-21T18:44:51.211Z - Time taken for 'hash changed files from watcher' 105.53980004787445ms
+[NX Daemon Server] - 2024-04-21T18:44:51.262Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:45:38.263Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:45:38.267Z - [WATCHER]: libs/electron/file-operations/project.json was modified
+[NX Daemon Server] - 2024-04-21T18:45:38.625Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-21T18:45:38.625Z - [REQUEST]: libs/electron/file-operations/project.json
+[NX Daemon Server] - 2024-04-21T18:45:38.625Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-21T18:45:38.866Z - Time taken for 'hash changed files from watcher' 113.09039998054504ms
+[NX Daemon Server] - 2024-04-21T18:45:38.904Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:46:56.071Z - [WATCHER]: 0 file(s) created or restored, 3 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-21T18:46:56.072Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:46:56.676Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-21T18:46:56.676Z - [REQUEST]: libs/electron-renderer-web/ngrx-state-colors/project.json,libs/electron-renderer-web/shared-types/project.json,libs/electron-renderer-web/context-bridge-api/project.json
+[NX Daemon Server] - 2024-04-21T18:46:56.676Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-21T18:46:56.899Z - Time taken for 'hash changed files from watcher' 149.2186999320984ms
+[NX Daemon Server] - 2024-04-21T18:46:56.936Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:48:59.260Z - [WATCHER]: 0 file(s) created or restored, 3 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-21T18:48:59.261Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:48:59.314Z - [WATCHER]: 0 file(s) created or restored, 5 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-21T18:48:59.315Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:49:00.240Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-21T18:49:00.241Z - [REQUEST]: libs/diagram/data-access/shape-classes/project.json,libs/diagram/data-access/text-classes/project.json,libs/diagram/data-access/shape-base-class/project.json,libs/diagram/data-access/color-classes/project.json,libs/diagram/data-access/endpoint-classes/project.json
+[NX Daemon Server] - 2024-04-21T18:49:00.241Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-21T18:49:00.492Z - Time taken for 'hash changed files from watcher' 137.160600066185ms
+[NX Daemon Server] - 2024-04-21T18:49:00.529Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:51:15.297Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:51:15.304Z - [WATCHER]: 0 file(s) created or restored, 3 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-21T18:51:15.360Z - [WATCHER]: 0 file(s) created or restored, 4 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-21T18:51:15.361Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:51:17.100Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-21T18:51:17.100Z - [REQUEST]: libs/diagram/ui/mouse-position/project.json,libs/diagram/ui/material/project.json,libs/diagram/ui/dialogs/project.json,libs/diagram/ui/file-save-close-xstate/project.json,libs/diagram/ui/page-ribbon/project.json,libs/diagram/ui/diagram-app-menu/project.json
+[NX Daemon Server] - 2024-04-21T18:51:17.100Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-21T18:51:17.311Z - Time taken for 'hash changed files from watcher' 135.41149997711182ms
+[NX Daemon Server] - 2024-04-21T18:51:17.351Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:52:30.854Z - [WATCHER]: 0 file(s) created or restored, 3 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-21T18:52:30.865Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:52:30.923Z - [WATCHER]: 0 file(s) created or restored, 4 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-21T18:52:30.924Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:52:30.975Z - [WATCHER]: libs/diagram/ui/page-viewport/project.json was modified
+[NX Daemon Server] - 2024-04-21T18:52:30.976Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:52:34.268Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-21T18:52:34.268Z - [REQUEST]: libs/diagram/ui/shape-inspector/project.json,libs/diagram/ui/rulers/project.json,libs/diagram/ui/zoom-control/project.json,libs/diagram/ui/page-viewport/project.json,libs/diagram/ui/page-selector/project.json
+[NX Daemon Server] - 2024-04-21T18:52:34.268Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-21T18:52:34.495Z - Time taken for 'hash changed files from watcher' 163.25409996509552ms
+[NX Daemon Server] - 2024-04-21T18:52:34.532Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:53:50.273Z - [WATCHER]: 0 file(s) created or restored, 2 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-21T18:53:50.282Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:53:50.337Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:53:50.342Z - [WATCHER]: 0 file(s) created or restored, 3 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-21T18:53:56.920Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-21T18:53:56.920Z - [REQUEST]: libs/diagram/util/mouse-wheel/project.json,libs/diagram/util/keyboard-state/project.json,libs/diagram/util/app-tokens/project.json,libs/diagram/util/misc-functions/project.json
+[NX Daemon Server] - 2024-04-21T18:53:56.920Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-21T18:53:57.121Z - Time taken for 'hash changed files from watcher' 186.11530005931854ms
+[NX Daemon Server] - 2024-04-21T18:53:57.170Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:55:26.874Z - [WATCHER]: 0 file(s) created or restored, 4 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-21T18:55:26.875Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:55:26.929Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:55:26.932Z - [WATCHER]: 0 file(s) created or restored, 2 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-21T18:55:33.495Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-21T18:55:33.495Z - [REQUEST]: libs/shared-angular/ui/tfx-resize-observer/project.json,libs/shared-angular/ui/tfx-show-if-truncated/project.json,libs/shared-angular/ui/tfx-scrollbar/project.json,libs/shared-angular/ui/tfx-menu/project.json,libs/shared-angular/ui/tfx-app-bar/project.json,libs/shared-angular/ui/tfx-color-picker/project.json
+[NX Daemon Server] - 2024-04-21T18:55:33.495Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-21T18:55:33.736Z - Time taken for 'hash changed files from watcher' 170.76429998874664ms
+[NX Daemon Server] - 2024-04-21T18:55:33.779Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:56:07.165Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:56:07.168Z - [WATCHER]: libs/shared-angular/utils/shared-types/project.json was modified
+[NX Daemon Server] - 2024-04-21T18:56:13.783Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-21T18:56:13.783Z - [REQUEST]: libs/shared-angular/utils/shared-types/project.json
+[NX Daemon Server] - 2024-04-21T18:56:13.783Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-21T18:56:13.988Z - Time taken for 'hash changed files from watcher' 168.31270003318787ms
+[NX Daemon Server] - 2024-04-21T18:56:14.024Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:56:45.807Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:56:45.815Z - [WATCHER]: 0 file(s) created or restored, 2 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-21T18:56:45.870Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T18:56:45.874Z - [WATCHER]: libs/diagram/data-access/store/actions/project.json was modified
+[NX Daemon Server] - 2024-04-21T18:56:52.429Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-21T18:56:52.429Z - [REQUEST]: libs/diagram/data-access/store/actions/project.json,libs/diagram/data-access/store/undo-redo/project.json
+[NX Daemon Server] - 2024-04-21T18:56:52.429Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-21T18:56:52.662Z - Time taken for 'hash changed files from watcher' 164.6313999891281ms
+[NX Daemon Server] - 2024-04-21T18:56:52.702Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-21T21:56:49.144Z - [WATCHER]: Stopping the watcher for D:\web-nx-17\tfx-diagram (sources)
+[NX Daemon Server] - 2024-04-21T21:56:49.160Z - [WATCHER]: Stopping the watcher for D:\web-nx-17\tfx-diagram (outputs)
+[NX Daemon Server] - 2024-04-21T21:56:49.160Z - Server stopped because: "10800000ms of inactivity"
+[NX Daemon Server] - 2024-04-22T10:37:18.536Z - Started listening on: \\.\pipe\nx\C:\Users\John\AppData\Local\Temp\977e3b578c0d1256c63f\d.sock
+[NX Daemon Server] - 2024-04-22T10:37:18.764Z - [WATCHER]: Subscribed to changes within: D:\web-nx-17\tfx-diagram (native)
+[NX Daemon Server] - 2024-04-22T10:37:18.770Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-22T10:37:18.775Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-22T10:37:18.783Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-22T10:37:18.793Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-22T10:37:24.824Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-22T10:37:24.824Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-22T10:37:24.824Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-22T10:37:26.110Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-22T10:37:26.115Z - Time taken for 'total for creating and serializing project graph' 7317.206200003624ms
+[NX Daemon Server] - 2024-04-22T10:37:26.121Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-22T10:37:26.126Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 7318. Response time: 16.
+[NX Daemon Server] - 2024-04-22T10:37:26.358Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-22T10:37:31.961Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-04-22T10:37:31.966Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-04-22T10:37:31.967Z - Handled HASH_TASKS. Handling time: 130. Response time: 5.
+[NX Daemon Server] - 2024-04-22T10:37:34.975Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-22T10:37:41.517Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-22T10:37:41.518Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-22T10:37:41.518Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-22T10:37:41.521Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-22T10:37:41.522Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-22T10:37:41.525Z - Time taken for 'total for creating and serializing project graph' 0.36969995498657227ms
+[NX Daemon Server] - 2024-04-22T10:37:41.525Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-22T10:37:41.525Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 3.
