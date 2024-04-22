@@ -11,13 +11,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/diagram/data-access/store/features/settings/src/**/*.ts",
-          "libs/diagram/data-access/store/features/settings/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": []

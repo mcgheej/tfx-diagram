@@ -19,7 +19,7 @@ import { webApi } from './wep-api';
     // StoreModule.forRoot({}, { metaReducers: [undoRedoMetaReducer] }),
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({ maxAge: 25 }),
+    StoreDevtoolsModule.instrument({ maxAge: 25 , connectInZone: true}),
     EffectsModule.forRoot([]),
     HotkeyModule.forRoot(),
     ShellModule,

@@ -7277,3 +7277,40 @@ fatal: no path specified
 [NX Daemon Server] - 2024-04-22T10:37:41.525Z - Time taken for 'total for creating and serializing project graph' 0.36969995498657227ms
 [NX Daemon Server] - 2024-04-22T10:37:41.525Z - Done responding to the client project-graph
 [NX Daemon Server] - 2024-04-22T10:37:41.525Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 3.
+[NX Daemon Server] - 2024-04-22T20:10:19.890Z - Started listening on: \\.\pipe\nx\C:\Users\John\AppData\Local\Temp\977e3b578c0d1256c63f\d.sock
+[NX Daemon Server] - 2024-04-22T20:10:19.896Z - [WATCHER]: Subscribed to changes within: D:\web-nx-17\tfx-diagram (native)
+[NX Daemon Server] - 2024-04-22T20:10:19.901Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-22T20:10:19.907Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-22T20:10:19.908Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-22T20:10:19.913Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-22T20:10:20.093Z - [REQUEST]: Updated file-hasher based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-22T20:10:20.094Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-22T20:10:20.094Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-22T20:10:20.758Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-22T20:10:20.761Z - Time taken for 'total for creating and serializing project graph' 845.0507ms
+[NX Daemon Server] - 2024-04-22T20:10:20.761Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-22T20:10:20.762Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-22T20:10:20.762Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 845. Response time: 5.
+[NX Daemon Server] - 2024-04-22T20:10:20.768Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-22T20:10:20.983Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-04-22T20:10:20.985Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-04-22T20:10:20.985Z - Handled HASH_TASKS. Handling time: 98. Response time: 2.
+[NX Daemon Server] - 2024-04-22T20:10:21.511Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-22T20:10:29.597Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-22T20:10:29.597Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-22T20:10:29.598Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-22T20:10:29.602Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-22T20:10:29.602Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-22T20:10:29.604Z - Time taken for 'total for creating and serializing project graph' 0.43479999999908614ms
+[NX Daemon Server] - 2024-04-22T20:10:29.604Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-22T20:10:29.604Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 2.
+[NX Daemon Server] - 2024-04-22T20:12:03.992Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-22T20:12:04.211Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-22T20:12:09.217Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-22T20:12:09.341Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-22T20:12:09.893Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-22T20:12:10.192Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-22T20:12:10.342Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-22T20:14:46.733Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-22T20:14:46.736Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-22T20:14:46.786Z - [WATCHER]: Processing file changes in outputs

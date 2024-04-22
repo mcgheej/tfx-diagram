@@ -11,12 +11,7 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": [
-          "libs/diagram/data-access/store/selectors/select-mouse-and-position-format/**/*.ts"
-        ]
-      }
+      "outputs": ["{options.outputFile}"]
     }
   },
   "tags": []

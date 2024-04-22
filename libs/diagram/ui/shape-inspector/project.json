@@ -11,13 +11,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/diagram/ui/shape-inspector/src/**/*.ts",
-          "libs/diagram/ui/shape-inspector/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": []

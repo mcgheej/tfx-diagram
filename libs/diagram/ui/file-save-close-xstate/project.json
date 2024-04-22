@@ -11,13 +11,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/diagram/ui/file-save-close-xstate/src/**/*.ts",
-          "libs/diagram/ui/file-save-close-xstate/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": []

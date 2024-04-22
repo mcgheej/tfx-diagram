@@ -11,13 +11,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": [
-          "libs/diagram/util/keyboard-state/src/**/*.ts",
-          "libs/diagram/util/keyboard-state/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": []

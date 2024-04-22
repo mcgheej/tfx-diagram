@@ -18,7 +18,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     StoreModule.forRoot({}),
     // StoreModule.forRoot({}, { metaReducers: [undoRedoMetaReducer] }),
-    StoreDevtoolsModule.instrument({ maxAge: 25 }),
+    StoreDevtoolsModule.instrument({ maxAge: 25 , connectInZone: true}),
     EffectsModule.forRoot([]),
     HotkeyModule.forRoot(),
     FileSaveCloseXstateModule,

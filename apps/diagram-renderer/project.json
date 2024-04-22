@@ -17,7 +17,7 @@
         "inlineStyleLanguage": "scss",
         "assets": ["apps/diagram-renderer/src/favicon.ico", "apps/diagram-renderer/src/assets"],
         "styles": [
-          "./node_modules/@angular/material/legacy-prebuilt-themes/legacy-indigo-pink.css",
+          "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
           "apps/diagram-renderer/src/styles.scss"
         ],
         "scripts": []
@@ -59,10 +59,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "browserTarget": "diagram-renderer:build:production"
+          "buildTarget": "diagram-renderer:build:production"
         },
         "development": {
-          "browserTarget": "diagram-renderer:build:development"
+          "buildTarget": "diagram-renderer:build:development"
         }
       },
       "defaultConfiguration": "development",
@@ -73,17 +73,11 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "diagram-renderer:build"
+        "buildTarget": "diagram-renderer:build"
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "options": {
-        "lintFilePatterns": [
-          "apps/diagram-renderer/src/**/*.ts",
-          "apps/diagram-renderer/src/**/*.html"
-        ]
-      }
+      "executor": "@nx/eslint:lint"
     }
   },
   "tags": []
