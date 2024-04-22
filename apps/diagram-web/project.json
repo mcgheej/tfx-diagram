@@ -74,7 +74,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nx/eslint:lint",
       "options": {
         "lintFilePatterns": ["apps/diagram-web/src/**/*.ts", "apps/diagram-web/src/**/*.html"]
       }

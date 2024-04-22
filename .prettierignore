@@ -2,3 +2,5 @@
 .docusaurus/
 
 /apps/diagram-docs/docs/
+
+/.nx/cache
