@@ -7855,3 +7855,945 @@ fatal: no path specified
 [NX Daemon Server] - 2024-04-23T09:16:03.247Z - [WATCHER]: Processing file changes in outputs
 [NX Daemon Server] - 2024-04-23T09:16:15.223Z - Closed a connection. Number of open connections: 1
 [NX Daemon Server] - 2024-04-23T09:16:15.311Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-23T09:17:05.259Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-23T09:17:05.262Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-23T09:17:05.266Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-23T09:17:05.285Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-23T09:17:05.286Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-23T09:17:05.290Z - Time taken for 'total for creating and serializing project graph' 0.7287000000360422ms
+[NX Daemon Server] - 2024-04-23T09:17:05.291Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-23T09:17:05.291Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 5.
+[NX Daemon Server] - 2024-04-23T09:20:49.650Z - [WATCHER]: 0 file(s) created or restored, 29 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-23T09:20:49.656Z - [WATCHER]: 0 file(s) created or restored, 15 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-23T09:20:49.659Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T09:20:49.659Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T09:20:49.711Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-23T09:20:49.733Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T09:20:49.744Z - [WATCHER]: 0 file(s) created or restored, 12 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-23T09:20:49.786Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T09:20:49.786Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html,libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/cmps/color-input.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/endpoint-buttons/endpoint-buttons.component.ts,apps/diagram-renderer/src/styles.scss,libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.scss,libs/diagram/ui/page-ribbon/src/lib/components/endpoint-buttons/endpoint-dialog/endpoint-option.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/font-controls/text-options/text-options-dialog/text-options-dialog.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/endpoint-buttons/start-endpoint-button/start-endpoint-button.component.ts,libs/diagram/ui/page-selector/src/lib/components/page-position-indicator/page-position-indicator.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/color-dialog/cmps/standard-colors.component.ts,libs/diagram/ui/page-selector/src/lib/components/page-tabs-overflow-button/page-tabs-overflow-button.component.ts,libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.ts,libs/diagram/ui/material/src/lib/material.module.ts,libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/color-dialog/cmps/color-square.component.ts,libs/diagram/ui/page-ribbon/src/lib/page-ribbon.module.ts,libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/color-dialog/cmps/custom-colors.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-button.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/color-dialog/cmps/theme-colors.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-dash-button/line-dash-button.component.ts,libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-dash-button/line-dash-dialog/dash-option.component.ts,libs/diagram/ui/shape-inspector/src/lib/shape-inspector/shape-inspector.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/color-button.component.ts,libs/diagram/shell/src/lib/shell/shell.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/color-dialog/cmps/theme-tints.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-toggle-button.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/width-option.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-buttons.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/endpoint-buttons/finish-endpoint-button/finish-endpoint-button.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/custom-color-dialog.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/color-dialog/cmps/custom-colors.service.ts,libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-family-button/font-family-button.service.ts,libs/diagram/ui/page-selector/src/lib/page-selector.module.ts,libs/diagram/ui/page-selector/src/lib/components/page-tabs-viewer/page-tabs-viewer.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-dash-button/line-dash-dialog/line-dash-dialog.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/endpoint-buttons/endpoint-dialog/endpoint-dialog.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/color-dialog/color-dialog.component.ts,libs/diagram/shell/src/lib/shell.module.ts,libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-family-button/font-family-dialog/font-family-dialog.component.ts,libs/diagram/shell/src/lib/components/sketchbook-view/sketchbook-view.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/color-buttons.service.ts,libs/diagram/ui/page-ribbon/src/lib/components/endpoint-buttons/endpoint-buttons.service.ts,libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-size-button/font-size-dialog/font-size-dialog.component.ts,libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-dash-button/line-dash-button.service.ts,libs/diagram/ui/diagram-app-menu/src/lib/diagram-app-menu.service.ts,libs/diagram/ui/diagram-app-menu/src/lib/file-menu/file-menu.ts,libs/shared-angular/ui/tfx-show-if-truncated/src/lib/show-if-truncated.directive.ts,libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-size-button/font-size-button.service.ts,libs/diagram/ui/diagram-app-menu/src/lib/file-menu/commands/new.command.ts,libs/diagram/ui/file-save-close-xstate/src/lib/+xstate/save-close-machine.service.ts,libs/diagram/ui/file-save-close-xstate/src/lib/+xstate/actions/open-dialog.action.ts,libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-button.service.ts,apps/diagram-web/src/styles.scss,libs/diagram/ui/page-ribbon/src/lib/components/font-controls/text-options/text-options.service.ts,libs/shared-angular/ui/tfx-show-if-truncated/src/lib/tfx-show-if-truncated.module.ts
+[NX Daemon Server] - 2024-04-23T09:20:49.788Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T09:20:50.088Z - Time taken for 'hash changed files from watcher' 20.61439999996219ms
+[NX Daemon Server] - 2024-04-23T09:22:35.008Z - [WATCHER]: 0 file(s) created or restored, 2 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-23T09:22:35.009Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T09:22:35.232Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T09:22:35.233Z - [REQUEST]: apps/diagram-web/project.json,apps/diagram-renderer/project.json
+[NX Daemon Server] - 2024-04-23T09:22:35.233Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T09:22:35.435Z - Time taken for 'hash changed files from watcher' 21.840599999995902ms
+[NX Daemon Server] - 2024-04-23T10:54:42.732Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:54:42.757Z - [WATCHER]: apps/diagram-renderer/src/styles.scss was modified
+[NX Daemon Server] - 2024-04-23T10:54:43.184Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T10:54:43.184Z - [REQUEST]: apps/diagram-renderer/src/styles.scss
+[NX Daemon Server] - 2024-04-23T10:54:43.184Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T10:54:43.667Z - Time taken for 'hash changed files from watcher' 10.864400000311434ms
+[NX Daemon Server] - 2024-04-23T10:55:39.005Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:55:39.012Z - [WATCHER]: apps/diagram-web/src/styles.scss was modified
+[NX Daemon Server] - 2024-04-23T10:55:39.834Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T10:55:39.835Z - [REQUEST]: apps/diagram-web/src/styles.scss
+[NX Daemon Server] - 2024-04-23T10:55:39.835Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T10:55:40.123Z - Time taken for 'hash changed files from watcher' 7.125ms
+[NX Daemon Server] - 2024-04-23T10:57:08.437Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-23T10:57:08.437Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:57:10.048Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T10:57:10.048Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.scss
+[NX Daemon Server] - 2024-04-23T10:57:10.049Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T10:57:10.262Z - Time taken for 'hash changed files from watcher' 6.79689999949187ms
+[NX Daemon Server] - 2024-04-23T10:57:52.741Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-23T10:57:52.742Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-23T10:57:52.744Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-23T10:57:52.751Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-23T10:57:52.751Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-23T10:57:52.754Z - Time taken for 'total for creating and serializing project graph' 0.6625000005587935ms
+[NX Daemon Server] - 2024-04-23T10:57:52.755Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-23T10:57:52.755Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 4.
+[NX Daemon Server] - 2024-04-23T10:57:54.013Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-04-23T10:57:54.013Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-04-23T10:57:54.013Z - Handled HASH_TASKS. Handling time: 21. Response time: 0.
+[NX Daemon Server] - 2024-04-23T10:58:00.552Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-23T10:58:00.554Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-23T10:58:00.555Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-23T10:58:00.560Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-23T10:58:00.560Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-23T10:58:00.562Z - Time taken for 'total for creating and serializing project graph' 0.4218999994918704ms
+[NX Daemon Server] - 2024-04-23T10:58:00.563Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-23T10:58:00.563Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 0. Response time: 3.
+[NX Daemon Server] - 2024-04-23T10:59:11.466Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:11.731Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:11.866Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:12.113Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:12.283Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:12.333Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:12.731Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:12.797Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:13.429Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:13.494Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:13.547Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:13.613Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:13.672Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:13.731Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:13.797Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:14.213Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:14.365Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:14.432Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:14.512Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:14.879Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:15.028Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:15.263Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:15.365Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:16.495Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:16.580Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:25.475Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:25.570Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:25.621Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:25.672Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:25.722Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:25.774Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:25.826Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:25.876Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:25.931Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:27.430Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:33.546Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:33.765Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:33.906Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:34.171Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T10:59:34.327Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:57:44.383Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:57:44.510Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-23T11:57:44.688Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T11:57:44.688Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.scss
+[NX Daemon Server] - 2024-04-23T11:57:44.688Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T11:57:48.360Z - Time taken for 'hash changed files from watcher' 54.926500000059605ms
+[NX Daemon Server] - 2024-04-23T11:57:52.980Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:58:54.235Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:58:54.286Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:58:54.347Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:58:54.397Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:58:54.458Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:58:58.525Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:58:58.576Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:58:58.626Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:58:58.693Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:58:58.744Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:58:58.794Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:58:58.848Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:58:59.201Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:59:03.535Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:59:03.589Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T11:59:03.708Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:04:50.934Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T12:04:50.935Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:04:51.140Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T12:04:51.140Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html
+[NX Daemon Server] - 2024-04-23T12:04:51.140Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T12:04:54.071Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:04:54.071Z - Time taken for 'hash changed files from watcher' 1.9748999997973442ms
+[NX Daemon Server] - 2024-04-23T12:05:36.110Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:05:36.112Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T12:05:36.527Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T12:05:36.527Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html
+[NX Daemon Server] - 2024-04-23T12:05:36.527Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T12:05:36.807Z - Time taken for 'hash changed files from watcher' 3.2153999991714954ms
+[NX Daemon Server] - 2024-04-23T12:05:36.941Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:06:37.907Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:06:38.251Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:06:38.470Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:07:06.524Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:07:06.528Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T12:07:07.332Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T12:07:07.332Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html
+[NX Daemon Server] - 2024-04-23T12:07:07.332Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T12:07:07.566Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:07:07.568Z - Time taken for 'hash changed files from watcher' 2.0859999991953373ms
+[NX Daemon Server] - 2024-04-23T12:07:51.376Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T12:07:51.377Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:07:52.996Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T12:07:52.996Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html
+[NX Daemon Server] - 2024-04-23T12:07:52.997Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T12:07:53.454Z - Time taken for 'hash changed files from watcher' 4.72690000012517ms
+[NX Daemon Server] - 2024-04-23T12:08:52.930Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:08:52.987Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:08:53.160Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:10:04.430Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:10:04.434Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T12:10:06.667Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T12:10:06.667Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:10:07.467Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:10:09.830Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T12:10:09.831Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html
+[NX Daemon Server] - 2024-04-23T12:10:09.831Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T12:10:10.149Z - Time taken for 'hash changed files from watcher' 2.0676999986171722ms
+[NX Daemon Server] - 2024-04-23T12:10:41.256Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T12:10:41.257Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:10:41.922Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:10:47.676Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T12:10:47.676Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html
+[NX Daemon Server] - 2024-04-23T12:10:47.676Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T12:10:47.900Z - Time taken for 'hash changed files from watcher' 7.3983999993652105ms
+[NX Daemon Server] - 2024-04-23T12:11:42.966Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:11:43.333Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T12:11:43.414Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:10:41.256Z - There are 2 open connections. Reset inactivity timer.
+[NX Daemon Server] - 2024-04-23T15:46:17.140Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T15:46:17.140Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:46:18.945Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:46:23.547Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T15:46:23.547Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html
+[NX Daemon Server] - 2024-04-23T15:46:23.547Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T15:46:26.110Z - Time taken for 'hash changed files from watcher' 2.073599997907877ms
+[NX Daemon Server] - 2024-04-23T15:46:34.383Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T15:46:34.383Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:46:35.214Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:46:40.805Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T15:46:40.805Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html
+[NX Daemon Server] - 2024-04-23T15:46:40.805Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T15:46:41.043Z - Time taken for 'hash changed files from watcher' 7.133499998599291ms
+[NX Daemon Server] - 2024-04-23T15:47:35.808Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:47:35.816Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T15:47:36.827Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:47:42.226Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T15:47:42.226Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.html
+[NX Daemon Server] - 2024-04-23T15:47:42.226Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T15:47:42.508Z - Time taken for 'hash changed files from watcher' 2.672800000756979ms
+[NX Daemon Server] - 2024-04-23T15:48:37.686Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:48:37.910Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:51:15.732Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:51:15.735Z - [WATCHER]: apps/diagram-web/src/styles.scss was modified
+[NX Daemon Server] - 2024-04-23T15:51:15.788Z - [WATCHER]: apps/diagram-web/src/styles.scss was modified
+[NX Daemon Server] - 2024-04-23T15:51:15.789Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:51:22.140Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T15:51:22.140Z - [REQUEST]: apps/diagram-web/src/styles.scss
+[NX Daemon Server] - 2024-04-23T15:51:22.140Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T15:51:22.419Z - Time taken for 'hash changed files from watcher' 3.6888999976217747ms
+[NX Daemon Server] - 2024-04-23T15:51:33.249Z - [WATCHER]: apps/diagram-web/src/styles.scss was modified
+[NX Daemon Server] - 2024-04-23T15:51:33.249Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:51:39.665Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T15:51:39.665Z - [REQUEST]: apps/diagram-web/src/styles.scss
+[NX Daemon Server] - 2024-04-23T15:51:39.665Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T15:51:39.893Z - Time taken for 'hash changed files from watcher' 5.169599998742342ms
+[NX Daemon Server] - 2024-04-23T15:51:50.588Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:51:50.593Z - [WATCHER]: apps/diagram-web/src/styles.scss was modified
+[NX Daemon Server] - 2024-04-23T15:51:57.011Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T15:51:57.011Z - [REQUEST]: apps/diagram-web/src/styles.scss
+[NX Daemon Server] - 2024-04-23T15:51:57.011Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T15:51:57.271Z - Time taken for 'hash changed files from watcher' 7.177500002086163ms
+[NX Daemon Server] - 2024-04-23T15:52:08.194Z - [WATCHER]: apps/diagram-web/src/styles.scss was modified
+[NX Daemon Server] - 2024-04-23T15:52:08.194Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:52:14.605Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T15:52:14.606Z - [REQUEST]: apps/diagram-web/src/styles.scss
+[NX Daemon Server] - 2024-04-23T15:52:14.606Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T15:52:14.835Z - Time taken for 'hash changed files from watcher' 7.2787999995052814ms
+[NX Daemon Server] - 2024-04-23T15:53:09.461Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:53:09.520Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:53:09.711Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:53:09.975Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:53:12.529Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:59:24.176Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T15:59:24.195Z - [WATCHER]: apps/diagram-web/src/styles.scss was modified
+[NX Daemon Server] - 2024-04-23T15:59:30.613Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T15:59:30.613Z - [REQUEST]: apps/diagram-web/src/styles.scss
+[NX Daemon Server] - 2024-04-23T15:59:30.613Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T15:59:30.869Z - Time taken for 'hash changed files from watcher' 7.696000002324581ms
+[NX Daemon Server] - 2024-04-23T16:00:25.830Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:00:26.783Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:08:02.246Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:08:02.254Z - [WATCHER]: apps/diagram-renderer/src/styles.scss was modified
+[NX Daemon Server] - 2024-04-23T16:08:08.665Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:08:08.665Z - [REQUEST]: apps/diagram-renderer/src/styles.scss
+[NX Daemon Server] - 2024-04-23T16:08:08.665Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:08:08.889Z - Time taken for 'hash changed files from watcher' 7.0614000000059605ms
+[NX Daemon Server] - 2024-04-23T16:08:12.345Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:08:12.347Z - [WATCHER]: apps/diagram-web/src/styles.scss was modified
+[NX Daemon Server] - 2024-04-23T16:08:18.759Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:08:18.759Z - [REQUEST]: apps/diagram-web/src/styles.scss
+[NX Daemon Server] - 2024-04-23T16:08:18.759Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:08:18.945Z - Time taken for 'hash changed files from watcher' 2.886099997907877ms
+[NX Daemon Server] - 2024-04-23T16:09:13.486Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:09:14.673Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:13:39.734Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-family-button/font-family-dialog/font-family-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T16:13:39.735Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:13:43.365Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:13:46.142Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:13:46.143Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-family-button/font-family-dialog/font-family-dialog.component.html
+[NX Daemon Server] - 2024-04-23T16:13:46.143Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:13:47.631Z - Time taken for 'hash changed files from watcher' 3.2613999992609024ms
+[NX Daemon Server] - 2024-04-23T16:14:45.770Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:14:46.407Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:14:46.546Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:14:46.599Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:14:48.308Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:15:53.493Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-family-button/font-family-dialog/font-family-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T16:15:53.494Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:15:54.404Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:15:59.906Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:15:59.906Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-family-button/font-family-dialog/font-family-dialog.component.html
+[NX Daemon Server] - 2024-04-23T16:15:59.907Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:16:00.135Z - Time taken for 'hash changed files from watcher' 3.7096999995410442ms
+[NX Daemon Server] - 2024-04-23T16:16:55.158Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:16:55.283Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:16:55.346Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:17:58.214Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-family-button/font-family-dialog/font-family-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T16:17:58.215Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:18:04.622Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:18:04.623Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-family-button/font-family-dialog/font-family-dialog.component.html
+[NX Daemon Server] - 2024-04-23T16:18:04.623Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:18:04.852Z - Time taken for 'hash changed files from watcher' 6.96680000051856ms
+[NX Daemon Server] - 2024-04-23T16:18:38.695Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-family-button/font-family-dialog/font-family-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T16:18:38.696Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:18:39.314Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:18:45.103Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:18:45.103Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-family-button/font-family-dialog/font-family-dialog.component.html
+[NX Daemon Server] - 2024-04-23T16:18:45.103Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:18:45.275Z - Time taken for 'hash changed files from watcher' 2.105699997395277ms
+[NX Daemon Server] - 2024-04-23T16:18:55.510Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:18:55.514Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-family-button/font-family-dialog/font-family-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T16:18:56.133Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:19:01.916Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:19:01.916Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-family-button/font-family-dialog/font-family-dialog.component.html
+[NX Daemon Server] - 2024-04-23T16:19:01.916Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:19:02.181Z - Time taken for 'hash changed files from watcher' 2.1180000007152557ms
+[NX Daemon Server] - 2024-04-23T16:19:57.405Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:19:57.460Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:19:57.550Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:20:49.627Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:20:49.630Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-size-button/font-size-dialog/font-size-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T16:20:51.193Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:20:56.045Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:20:56.046Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/font-controls/font-size-button/font-size-dialog/font-size-dialog.component.html
+[NX Daemon Server] - 2024-04-23T16:20:56.046Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:20:56.261Z - Time taken for 'hash changed files from watcher' 9.814599998295307ms
+[NX Daemon Server] - 2024-04-23T16:21:53.026Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:21:53.106Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:21:53.264Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:21:56.873Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:23:42.449Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/color-dialog/color-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T16:23:42.449Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:23:43.889Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:23:48.862Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:23:48.862Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/color-dialog/color-dialog.component.html
+[NX Daemon Server] - 2024-04-23T16:23:48.862Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:23:49.120Z - Time taken for 'hash changed files from watcher' 6.77479999884963ms
+[NX Daemon Server] - 2024-04-23T16:24:45.816Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:24:46.207Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:24:46.424Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:24:50.501Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:25:27.043Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:25:27.046Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/font-controls/text-options/text-options-dialog/text-options-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T16:25:28.547Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:25:33.466Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:25:33.466Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/font-controls/text-options/text-options-dialog/text-options-dialog.component.html
+[NX Daemon Server] - 2024-04-23T16:25:33.467Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:25:33.707Z - Time taken for 'hash changed files from watcher' 6.853000000119209ms
+[NX Daemon Server] - 2024-04-23T16:26:29.953Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:26:30.124Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:26:30.249Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:26:30.499Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:26:32.257Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:27:20.805Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:27:20.812Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T16:27:22.058Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:27:27.233Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:27:27.233Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html
+[NX Daemon Server] - 2024-04-23T16:27:27.233Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:27:27.447Z - Time taken for 'hash changed files from watcher' 6.986199997365475ms
+[NX Daemon Server] - 2024-04-23T16:27:47.335Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T16:27:47.338Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:27:53.749Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:27:53.749Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html
+[NX Daemon Server] - 2024-04-23T16:27:53.749Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:27:53.973Z - Time taken for 'hash changed files from watcher' 3.718400001525879ms
+[NX Daemon Server] - 2024-04-23T16:28:09.117Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-23T16:28:09.118Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:28:09.924Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:28:15.524Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:28:15.524Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-23T16:28:15.524Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:28:15.710Z - Time taken for 'hash changed files from watcher' 3.927200000733137ms
+[NX Daemon Server] - 2024-04-23T16:28:51.704Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T16:28:51.705Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:28:52.442Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:28:58.114Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:28:58.114Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html
+[NX Daemon Server] - 2024-04-23T16:28:58.115Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:28:58.369Z - Time taken for 'hash changed files from watcher' 6.9983999989926815ms
+[NX Daemon Server] - 2024-04-23T16:29:20.003Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T16:29:20.004Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:29:26.412Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:29:26.412Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html
+[NX Daemon Server] - 2024-04-23T16:29:26.412Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:29:26.694Z - Time taken for 'hash changed files from watcher' 7.191299997270107ms
+[NX Daemon Server] - 2024-04-23T16:29:40.248Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-23T16:29:40.248Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:29:46.656Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:29:46.656Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-23T16:29:46.656Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:29:46.861Z - Time taken for 'hash changed files from watcher' 1.8748000003397465ms
+[NX Daemon Server] - 2024-04-23T16:30:00.044Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:30:00.048Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T16:30:06.453Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:30:06.454Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html
+[NX Daemon Server] - 2024-04-23T16:30:06.454Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:30:06.710Z - Time taken for 'hash changed files from watcher' 4.067299999296665ms
+[NX Daemon Server] - 2024-04-23T16:31:03.347Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:31:03.535Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:31:03.747Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:31:03.855Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:31:07.440Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:31:49.040Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:31:49.043Z - [WATCHER]: 0 file(s) created or restored, 2 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-23T16:31:49.113Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-23T16:31:49.114Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:31:50.342Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:31:55.507Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:31:55.507Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss,libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html
+[NX Daemon Server] - 2024-04-23T16:31:55.508Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:31:55.707Z - Time taken for 'hash changed files from watcher' 55.6722999997437ms
+[NX Daemon Server] - 2024-04-23T16:32:22.956Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:32:22.998Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-23T16:32:23.639Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:32:29.413Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:32:29.414Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-23T16:32:29.414Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:32:29.632Z - Time taken for 'hash changed files from watcher' 7.31529999896884ms
+[NX Daemon Server] - 2024-04-23T16:32:41.747Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:32:41.753Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-23T16:32:48.166Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-23T16:32:48.166Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-23T16:32:48.167Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-23T16:32:48.426Z - Time taken for 'hash changed files from watcher' 2.5460999980568886ms
+[NX Daemon Server] - 2024-04-23T16:33:43.089Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-23T16:33:43.202Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T09:24:57.325Z - There are 2 open connections. Reset inactivity timer.
+[NX Daemon Server] - 2024-04-24T10:47:37.543Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:47:37.610Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-button.service.ts was modified
+[NX Daemon Server] - 2024-04-24T10:47:44.018Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T10:47:44.019Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-button.service.ts
+[NX Daemon Server] - 2024-04-24T10:47:44.019Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T10:47:51.082Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:47:51.083Z - Time taken for 'hash changed files from watcher' 4.084499999880791ms
+[NX Daemon Server] - 2024-04-24T10:47:52.573Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:47:52.690Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:47:52.756Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:47:54.239Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:47:54.303Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:47:56.088Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:47:56.148Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:47:57.396Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:47:57.570Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:47:57.698Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:47:58.013Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:48:08.844Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:48:08.905Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-button.service.ts was modified
+[NX Daemon Server] - 2024-04-24T10:48:15.325Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T10:48:15.325Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-button.service.ts
+[NX Daemon Server] - 2024-04-24T10:48:15.328Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T10:48:17.035Z - Time taken for 'hash changed files from watcher' 7.462600007653236ms
+[NX Daemon Server] - 2024-04-24T10:48:29.049Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T10:48:29.050Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:48:29.917Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:48:35.461Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T10:48:35.461Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T10:48:35.461Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T10:48:35.686Z - Time taken for 'hash changed files from watcher' 7.001900002360344ms
+[NX Daemon Server] - 2024-04-24T10:48:43.862Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T10:48:43.862Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:48:50.272Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T10:48:50.273Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T10:48:50.273Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T10:48:50.467Z - Time taken for 'hash changed files from watcher' 6.773499995470047ms
+[NX Daemon Server] - 2024-04-24T10:49:45.458Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:49:45.790Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:49:46.744Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:49:46.802Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:49:47.436Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:49:47.536Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:50:34.219Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:50:34.227Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-24T10:50:34.939Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:50:40.651Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T10:50:40.652Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html
+[NX Daemon Server] - 2024-04-24T10:50:40.652Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T10:50:40.882Z - Time taken for 'hash changed files from watcher' 6.9722999930381775ms
+[NX Daemon Server] - 2024-04-24T10:51:01.646Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T10:51:01.646Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:51:02.777Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:51:08.054Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T10:51:08.054Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T10:51:08.054Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T10:51:08.258Z - Time taken for 'hash changed files from watcher' 2.586699992418289ms
+[NX Daemon Server] - 2024-04-24T10:52:03.601Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:52:03.758Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:52:03.817Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:52:52.611Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-24T10:52:52.612Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:52:52.661Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-24T10:52:52.661Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:52:53.458Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:52:59.019Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T10:52:59.020Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html
+[NX Daemon Server] - 2024-04-24T10:52:59.020Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T10:52:59.247Z - Time taken for 'hash changed files from watcher' 4.396200001239777ms
+[NX Daemon Server] - 2024-04-24T10:53:54.125Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:53:54.292Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:53:55.597Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T10:53:55.753Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T13:52:52.686Z - There are 2 open connections. Reset inactivity timer.
+[NX Daemon Server] - 2024-04-24T14:46:39.469Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:46:39.585Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T14:46:42.426Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:46:43.918Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:46:44.009Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T14:46:44.855Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:46:46.312Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T14:46:46.328Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T14:46:46.330Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T14:46:50.506Z - Time taken for 'hash changed files from watcher' 232.1110000014305ms
+[NX Daemon Server] - 2024-04-24T14:47:23.297Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T14:47:23.297Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:47:23.875Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:47:29.704Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T14:47:29.705Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T14:47:29.705Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T14:47:29.942Z - Time taken for 'hash changed files from watcher' 2.0864999890327454ms
+[NX Daemon Server] - 2024-04-24T14:48:25.062Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:48:25.185Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:48:25.435Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:48:56.136Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:48:56.139Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-24T14:48:57.046Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:49:02.543Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T14:49:02.543Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html
+[NX Daemon Server] - 2024-04-24T14:49:02.543Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T14:49:02.733Z - Time taken for 'hash changed files from watcher' 3.0656999945640564ms
+[NX Daemon Server] - 2024-04-24T14:49:57.731Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:49:57.945Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:49:59.453Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:49:59.637Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:50:23.345Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T14:50:23.346Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:50:24.213Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:50:29.760Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T14:50:29.760Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T14:50:29.761Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T14:50:29.961Z - Time taken for 'hash changed files from watcher' 3.0128999948501587ms
+[NX Daemon Server] - 2024-04-24T14:51:23.941Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:51:23.945Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T14:51:24.692Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:51:30.353Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T14:51:30.354Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T14:51:30.354Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T14:51:30.532Z - Time taken for 'hash changed files from watcher' 2.5804000049829483ms
+[NX Daemon Server] - 2024-04-24T14:52:25.411Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:52:25.638Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:52:36.345Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:52:36.350Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T14:52:37.235Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:52:42.767Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T14:52:42.768Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T14:52:42.768Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T14:52:42.967Z - Time taken for 'hash changed files from watcher' 2.799899995326996ms
+[NX Daemon Server] - 2024-04-24T14:53:14.537Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:53:14.541Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T14:53:15.191Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:53:20.956Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T14:53:20.956Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T14:53:20.956Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T14:53:21.172Z - Time taken for 'hash changed files from watcher' 3.289700001478195ms
+[NX Daemon Server] - 2024-04-24T14:53:37.836Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T14:53:37.837Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:53:38.530Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:53:44.249Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T14:53:44.249Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T14:53:44.249Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T14:53:44.598Z - Time taken for 'hash changed files from watcher' 3.427500009536743ms
+[NX Daemon Server] - 2024-04-24T14:54:14.665Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:54:14.672Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T14:54:15.337Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:54:18.222Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T14:54:18.223Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:54:18.853Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:54:21.084Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T14:54:21.084Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T14:54:21.084Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T14:54:21.307Z - Time taken for 'hash changed files from watcher' 3.1736000031232834ms
+[NX Daemon Server] - 2024-04-24T14:54:43.492Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:54:43.495Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T14:54:44.107Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:54:49.912Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T14:54:49.913Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T14:54:49.913Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T14:54:50.191Z - Time taken for 'hash changed files from watcher' 11.129699990153313ms
+[NX Daemon Server] - 2024-04-24T14:55:03.204Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:55:03.208Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T14:55:03.718Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:55:09.631Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T14:55:09.631Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T14:55:09.631Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T14:55:09.921Z - Time taken for 'hash changed files from watcher' 6.933100000023842ms
+[NX Daemon Server] - 2024-04-24T14:55:55.018Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:55:55.022Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T14:55:55.699Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:56:01.442Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T14:56:01.442Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T14:56:01.442Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T14:56:01.745Z - Time taken for 'hash changed files from watcher' 2.9117999970912933ms
+[NX Daemon Server] - 2024-04-24T14:56:56.509Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:56:56.837Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:56:56.962Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:58:09.902Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:58:09.906Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-24T14:58:10.639Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:58:16.326Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T14:58:16.326Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html
+[NX Daemon Server] - 2024-04-24T14:58:16.326Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T14:58:16.547Z - Time taken for 'hash changed files from watcher' 3.841600000858307ms
+[NX Daemon Server] - 2024-04-24T14:59:11.589Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:59:13.705Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:59:13.781Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T14:59:13.834Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:00:22.364Z - [WATCHER]: 0 file(s) created or restored, 2 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-24T15:00:22.366Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:00:23.144Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:00:24.620Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:00:28.825Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:00:28.825Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.scss,libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-width-button/line-width-dialog/line-width-dialog.component.html
+[NX Daemon Server] - 2024-04-24T15:00:28.825Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:00:29.090Z - Time taken for 'hash changed files from watcher' 50.22519999742508ms
+[NX Daemon Server] - 2024-04-24T15:01:25.291Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:01:25.455Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:02:33.745Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.ts was modified
+[NX Daemon Server] - 2024-04-24T15:02:33.749Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:02:37.619Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:02:40.158Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:02:40.159Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/new-dialog/new-dialog.component.ts
+[NX Daemon Server] - 2024-04-24T15:02:40.159Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:02:40.445Z - Time taken for 'hash changed files from watcher' 7.2810999900102615ms
+[NX Daemon Server] - 2024-04-24T15:03:41.711Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:03:41.771Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:03:41.821Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:03:41.874Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:03:41.936Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:03:41.990Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:03:42.038Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:03:42.093Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:03:42.145Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:03:45.512Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:04:58.766Z - [WATCHER]: 0 file(s) created or restored, 2 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-24T15:04:58.766Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:05:01.095Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:05:05.246Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:05:05.246Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-dash-button/line-dash-dialog/line-dash-dialog.component.scss,libs/diagram/ui/page-ribbon/src/lib/components/line-buttons/line-dash-button/line-dash-dialog/line-dash-dialog.component.html
+[NX Daemon Server] - 2024-04-24T15:05:05.246Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:05:08.001Z - Time taken for 'hash changed files from watcher' 76.47560000419617ms
+[NX Daemon Server] - 2024-04-24T15:06:02.580Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:06:03.158Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:06:03.345Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:06:03.580Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:06:03.673Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:06:03.783Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:06:04.064Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:06:07.175Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:07:25.360Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/endpoint-buttons/endpoint-dialog/endpoint-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T15:07:25.363Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:07:25.408Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/endpoint-buttons/endpoint-dialog/endpoint-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T15:07:25.408Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:07:27.669Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:07:31.773Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:07:31.773Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/endpoint-buttons/endpoint-dialog/endpoint-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T15:07:31.773Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:07:32.196Z - Time taken for 'hash changed files from watcher' 5.30179999768734ms
+[NX Daemon Server] - 2024-04-24T15:08:29.015Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:08:30.519Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:08:30.800Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:08:33.631Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:08:33.733Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:18:34.655Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:18:34.658Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/custom-color-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T15:18:37.056Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:18:37.075Z - [WATCHER]: 0 file(s) created or restored, 2 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-24T15:18:37.116Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:18:37.121Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/custom-color-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-24T15:18:41.876Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:18:43.457Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:18:43.457Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/custom-color-dialog.component.scss,libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/custom-color-dialog.component.html
+[NX Daemon Server] - 2024-04-24T15:18:43.458Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:18:46.276Z - Time taken for 'hash changed files from watcher' 49.197300001978874ms
+[NX Daemon Server] - 2024-04-24T15:19:43.381Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:19:43.438Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:19:43.488Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:19:43.539Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:19:43.589Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:19:43.644Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:19:44.784Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:19:44.836Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:19:44.892Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:19:45.014Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:19:45.092Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:19:45.555Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:19:45.695Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:19:49.009Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:21:02.239Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:21:02.247Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/custom-color-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T15:21:02.680Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/custom-color-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T15:21:02.680Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:21:03.445Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:21:09.037Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:21:09.037Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/custom-color-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T15:21:09.037Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:21:09.268Z - Time taken for 'hash changed files from watcher' 2.2766000032424927ms
+[NX Daemon Server] - 2024-04-24T15:21:50.887Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/custom-color-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T15:21:50.978Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:21:51.041Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/custom-color-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T15:21:51.042Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:21:51.703Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:21:57.389Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:21:57.389Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/custom-color-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T15:21:57.389Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:21:57.602Z - Time taken for 'hash changed files from watcher' 1.8779000043869019ms
+[NX Daemon Server] - 2024-04-24T15:22:52.913Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:22:54.778Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:22:54.962Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:24:46.630Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/custom-color-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T15:24:48.988Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:24:49.054Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/custom-color-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T15:24:49.057Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:24:50.388Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:24:55.399Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:24:55.400Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/custom-color-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T15:24:55.400Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:24:55.619Z - Time taken for 'hash changed files from watcher' 3.5252000093460083ms
+[NX Daemon Server] - 2024-04-24T15:25:37.290Z - [WATCHER]: libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/custom-color-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T15:25:37.292Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:25:37.985Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:25:43.695Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:25:43.695Z - [REQUEST]: libs/diagram/ui/page-ribbon/src/lib/components/color-buttons/custom-color-dialog/custom-color-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T15:25:43.695Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:25:43.896Z - Time taken for 'hash changed files from watcher' 2.1255000084638596ms
+[NX Daemon Server] - 2024-04-24T15:26:38.860Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:26:41.210Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:26:41.366Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:35:39.543Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T15:35:39.543Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:35:41.910Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:35:45.959Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:35:45.959Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T15:35:45.959Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:35:46.155Z - Time taken for 'hash changed files from watcher' 2.2314999997615814ms
+[NX Daemon Server] - 2024-04-24T15:36:16.284Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:36:16.289Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-24T15:36:16.942Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:36:22.697Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:36:22.697Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html
+[NX Daemon Server] - 2024-04-24T15:36:22.697Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:36:22.918Z - Time taken for 'hash changed files from watcher' 5.210400000214577ms
+[NX Daemon Server] - 2024-04-24T15:37:07.194Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-24T15:37:07.195Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:37:07.932Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:37:13.605Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:37:13.606Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html
+[NX Daemon Server] - 2024-04-24T15:37:13.606Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:37:13.842Z - Time taken for 'hash changed files from watcher' 7.348000004887581ms
+[NX Daemon Server] - 2024-04-24T15:37:45.157Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:37:45.160Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-24T15:37:45.949Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:37:51.567Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:37:51.567Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html
+[NX Daemon Server] - 2024-04-24T15:37:51.567Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:37:51.886Z - Time taken for 'hash changed files from watcher' 2.164700001478195ms
+[NX Daemon Server] - 2024-04-24T15:38:47.371Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:38:49.732Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:38:49.846Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:38:49.962Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:38:50.290Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:38:52.707Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:40:28.037Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T15:40:28.419Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:40:28.487Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T15:40:28.487Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:40:29.722Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:40:34.831Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:40:34.831Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T15:40:34.831Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:40:35.027Z - Time taken for 'hash changed files from watcher' 2.2950000017881393ms
+[NX Daemon Server] - 2024-04-24T15:40:47.622Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-24T15:40:47.622Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:40:48.244Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:40:54.037Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:40:54.037Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html
+[NX Daemon Server] - 2024-04-24T15:40:54.037Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:40:54.317Z - Time taken for 'hash changed files from watcher' 2.104000002145767ms
+[NX Daemon Server] - 2024-04-24T15:41:49.061Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:41:49.354Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:41:49.404Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:41:49.455Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:41:49.505Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:41:49.558Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:46:20.163Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:46:20.166Z - [WATCHER]: 0 file(s) created or restored, 2 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-24T15:46:21.815Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:46:26.633Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:46:26.634Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html,libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T15:46:26.634Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:46:26.883Z - Time taken for 'hash changed files from watcher' 51.11199998855591ms
+[NX Daemon Server] - 2024-04-24T15:47:14.970Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:47:15.011Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T15:47:15.706Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:47:15.844Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:47:21.425Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:47:21.425Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T15:47:21.425Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:47:21.880Z - Time taken for 'hash changed files from watcher' 4.39580000936985ms
+[NX Daemon Server] - 2024-04-24T15:47:32.147Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:47:32.151Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.scss was modified
+[NX Daemon Server] - 2024-04-24T15:47:33.035Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:47:38.572Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:47:38.573Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.scss
+[NX Daemon Server] - 2024-04-24T15:47:38.573Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:47:38.835Z - Time taken for 'hash changed files from watcher' 5.138699993491173ms
+[NX Daemon Server] - 2024-04-24T15:48:34.117Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:48:34.306Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:51:27.160Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-24T15:51:27.161Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:51:27.246Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:51:27.251Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.ts was modified
+[NX Daemon Server] - 2024-04-24T15:51:28.209Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:51:31.022Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:51:33.583Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-24T15:51:33.584Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html,libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.ts
+[NX Daemon Server] - 2024-04-24T15:51:33.584Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-24T15:51:33.853Z - Time taken for 'hash changed files from watcher' 8.135299995541573ms
+[NX Daemon Server] - 2024-04-24T15:52:31.646Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:52:32.664Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:52:32.756Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:52:32.863Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:52:32.939Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:52:35.289Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-24T15:52:36.632Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:06:44.392Z - There are 2 open connections. Reset inactivity timer.
+[NX Daemon Server] - 2024-04-25T08:09:22.469Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:09:22.572Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/dialogs.module.ts was modified
+[NX Daemon Server] - 2024-04-25T08:09:26.030Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:09:29.003Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-25T08:09:29.004Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/dialogs.module.ts
+[NX Daemon Server] - 2024-04-25T08:09:29.004Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-25T08:09:32.075Z - Time taken for 'hash changed files from watcher' 4.19200000166893ms
+[NX Daemon Server] - 2024-04-25T08:10:28.128Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:10:33.020Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:10:34.373Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:10:34.733Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:10:34.827Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:10:34.890Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:10:36.130Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:10:39.930Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:10:40.011Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:10:40.066Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:12:08.932Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:12:09.053Z - [WATCHER]: 0 file(s) created or restored, 2 file(s) modified, 0 file(s) deleted
+[NX Daemon Server] - 2024-04-25T08:12:10.484Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:12:13.194Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:12:15.498Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-25T08:12:15.498Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html,libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.ts
+[NX Daemon Server] - 2024-04-25T08:12:15.498Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-25T08:12:18.488Z - Time taken for 'hash changed files from watcher' 33.405099987983704ms
+[NX Daemon Server] - 2024-04-25T08:12:53.952Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:12:53.955Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.ts was modified
+[NX Daemon Server] - 2024-04-25T08:12:54.800Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:13:00.361Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-25T08:13:00.361Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.ts
+[NX Daemon Server] - 2024-04-25T08:13:00.361Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-25T08:13:00.652Z - Time taken for 'hash changed files from watcher' 2.112899988889694ms
+[NX Daemon Server] - 2024-04-25T08:13:55.682Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:13:55.972Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:13:56.111Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:14:40.834Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:14:40.844Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-25T08:14:42.251Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:14:42.315Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:14:47.266Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-25T08:14:47.266Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html
+[NX Daemon Server] - 2024-04-25T08:14:47.266Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-25T08:14:47.718Z - Time taken for 'hash changed files from watcher' 5.228400021791458ms
+[NX Daemon Server] - 2024-04-25T08:15:13.301Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:15:13.307Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.ts was modified
+[NX Daemon Server] - 2024-04-25T08:15:15.418Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:15:19.726Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-25T08:15:19.726Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.ts
+[NX Daemon Server] - 2024-04-25T08:15:19.726Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-25T08:15:19.979Z - Time taken for 'hash changed files from watcher' 3.166900008916855ms
+[NX Daemon Server] - 2024-04-25T08:16:16.211Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:16:16.383Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:16:17.662Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:23:09.957Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html was modified
+[NX Daemon Server] - 2024-04-25T08:23:09.994Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:23:12.317Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:23:16.586Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-25T08:23:16.587Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.html
+[NX Daemon Server] - 2024-04-25T08:23:16.588Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-25T08:23:20.401Z - Time taken for 'hash changed files from watcher' 141.60339999198914ms
+[NX Daemon Server] - 2024-04-25T08:24:14.159Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:24:14.362Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:24:15.154Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:31:46.957Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:31:47.009Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.ts was modified
+[NX Daemon Server] - 2024-04-25T08:31:49.089Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:31:53.415Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-25T08:31:53.416Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.ts
+[NX Daemon Server] - 2024-04-25T08:31:53.416Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-25T08:31:53.890Z - Time taken for 'hash changed files from watcher' 2.579499989748001ms
+[NX Daemon Server] - 2024-04-25T08:32:50.385Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:32:50.683Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:32:50.853Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:33:41.633Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.ts was modified
+[NX Daemon Server] - 2024-04-25T08:33:41.634Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:33:42.516Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:33:48.039Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-25T08:33:48.039Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.ts
+[NX Daemon Server] - 2024-04-25T08:33:48.040Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-25T08:33:48.235Z - Time taken for 'hash changed files from watcher' 2.318800002336502ms
+[NX Daemon Server] - 2024-04-25T08:34:43.553Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:34:43.855Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:34:43.994Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:34:44.216Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:34:44.221Z - [WATCHER]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.ts was modified
+[NX Daemon Server] - 2024-04-25T08:34:45.025Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:34:50.630Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-25T08:34:50.631Z - [REQUEST]: libs/diagram/ui/dialogs/src/lib/jpeg-dialog/jpeg-dialog.component.ts
+[NX Daemon Server] - 2024-04-25T08:34:50.631Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-25T08:34:50.872Z - Time taken for 'hash changed files from watcher' 7.296600013971329ms
+[NX Daemon Server] - 2024-04-25T08:35:45.706Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:35:46.002Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:57:55.818Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T08:57:55.894Z - [WATCHER]: package.json was modified
+[NX Daemon Server] - 2024-04-25T08:57:59.155Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-25T08:57:59.743Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2024-04-25T08:58:02.312Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-25T08:58:02.312Z - [REQUEST]: package.json
+[NX Daemon Server] - 2024-04-25T08:58:02.312Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-25T08:58:03.043Z - Time taken for 'hash changed files from watcher' 3.6832999885082245ms
+[NX Daemon Server] - 2024-04-25T09:00:36.810Z - [WATCHER]: Processing file changes in outputs
+[NX Daemon Server] - 2024-04-25T09:00:36.834Z - [WATCHER]: Stopping the watcher for D:\web-nx-17\tfx-diagram (sources)
+[NX Daemon Server] - 2024-04-25T09:00:36.834Z - [WATCHER]: Stopping the watcher for D:\web-nx-17\tfx-diagram (outputs)
+[NX Daemon Server] - 2024-04-25T09:00:36.834Z - Server stopped because: "Lock file changed"
+[NX Daemon Server] - 2024-04-25T09:02:29.725Z - Started listening on: \\.\pipe\nx\C:\Users\John\AppData\Local\Temp\977e3b578c0d1256c63f\d.sock
+[NX Daemon Server] - 2024-04-25T09:02:29.777Z - [WATCHER]: Subscribed to changes within: D:\web-nx-17\tfx-diagram (native)
+[NX Daemon Server] - 2024-04-25T09:02:29.782Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-25T09:02:29.788Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-25T09:02:29.798Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-25T09:02:29.810Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-25T09:02:30.159Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2024-04-25T09:02:30.160Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-25T09:02:30.161Z - [REQUEST]: 
+[NX Daemon Server] - 2024-04-25T09:02:31.589Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-25T09:02:31.591Z - Time taken for 'total for creating and serializing project graph' 1779.0881ms
+[NX Daemon Server] - 2024-04-25T09:02:31.591Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-25T09:02:31.592Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1780. Response time: 3.
+[NX Daemon Server] - 2024-04-25T09:02:35.193Z - [REQUEST]: Responding to the client. handleHashTasks
+[NX Daemon Server] - 2024-04-25T09:02:35.194Z - Done responding to the client handleHashTasks
+[NX Daemon Server] - 2024-04-25T09:02:35.195Z - Handled HASH_TASKS. Handling time: 351. Response time: 2.
+[NX Daemon Server] - 2024-04-25T09:02:50.944Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-25T09:02:50.950Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2024-04-25T09:02:50.953Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2024-04-25T09:02:50.965Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2024-04-25T09:02:50.966Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2024-04-25T09:02:50.969Z - Time taken for 'total for creating and serializing project graph' 0.8330999999998312ms
+[NX Daemon Server] - 2024-04-25T09:02:50.972Z - Done responding to the client project-graph
+[NX Daemon Server] - 2024-04-25T09:02:50.973Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 7.
