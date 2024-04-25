@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig, MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
+import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { LineDashButtonServiceActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import { LineDashDialogComponent } from './line-dash-dialog/line-dash-dialog.component';

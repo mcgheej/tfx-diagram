@@ -24,15 +24,15 @@ import { ColorRow, standardSquareFromColor } from '../color-dialog.types';
   `,
   styles: [
     `
-      .title {
-        margin: 10px 0 10px 0;
-        width: 100%;
-        border-top: 1px solid #e2e4e7;
-        font-size: 10pt;
-        font-weight: 500;
-        padding: 8px 0 0px 0;
-      }
-    `,
+           .title {
+             margin: 10px 0 10px 0;
+             width: 100%;
+             border-top: 1px solid #e2e4e7;
+             font-size: 10pt;
+             font-weight: 500;
+             padding: 8px 0 0px 0;
+           }
+         `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

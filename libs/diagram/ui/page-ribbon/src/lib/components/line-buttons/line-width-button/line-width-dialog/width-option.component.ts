@@ -18,26 +18,26 @@ import { Size } from '@tfx-diagram/electron-renderer-web/shared-types';
   `,
   styles: [
     `
-      :host {
-        height: 100%;
-        width: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-      }
-
-      .canvas-container {
-        grid-area: 1 / 1 / 2 / 2;
-        position: relative;
-      }
-
-      .canvas {
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        cursor: pointer;
-      }
-    `,
+           :host {
+             height: 100%;
+             width: 100%;
+             display: grid;
+             grid-template-columns: 1fr;
+             grid-template-rows: 1fr;
+           }
+     
+           .canvas-container {
+             grid-area: 1 / 1 / 2 / 2;
+             position: relative;
+           }
+     
+           .canvas {
+             position: absolute;
+             height: 100%;
+             width: 100%;
+             cursor: pointer;
+           }
+         `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

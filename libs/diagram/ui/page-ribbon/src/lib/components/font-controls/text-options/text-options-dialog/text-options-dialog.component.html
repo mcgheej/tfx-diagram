@@ -1,84 +1,86 @@
-<div class="options-container">
-  <div>
-    <div class="title">Alignment</div>
-    <div class="alignment-buttons">
-      <tfx-font-toggle-button
-        *ngFor="let config of buttonConfigs; let i = index"
-        [iconName]="config.iconName"
-        [svg]="config.svg"
-        [tooltip]="config.description"
-        [highlighted]="activeIndex === i"
-        (buttonClick)="onAlignmentButtonClick(config.alignment)"
-      ></tfx-font-toggle-button>
-    </div>
-  </div>
-  <div>
-    <div class="title">Indents (mm)</div>
-    <div class="padding-options">
-      <div class="padding-option">
-        <mat-icon
-          svgIcon="svg_left_padding"
-          matTooltip="left"
-          matTooltipShowDelay="2000"
-        ></mat-icon>
-        <div class="input">
-          <input
-            #leftInput
-            type="text"
-            (keydown)="onKeydown($event)"
-            (input)="onInput('left', $event, leftInput)"
-          />
-        </div>
-      </div>
-      <div class="padding-option">
-        <mat-icon
-          svgIcon="svg_right_padding"
-          matTooltip="right"
-          matTooltipShowDelay="2000"
-        ></mat-icon>
-        <div class="input">
-          <input
-            #rightInput
-            type="text"
-            (keydown)="onKeydown($event)"
-            (input)="onInput('right', $event, rightInput)"
-          />
-        </div>
-      </div>
-      <div class="padding-option">
-        <mat-icon
-          svgIcon="svg_top_padding"
-          matTooltip="top"
-          matTooltipShowDelay="2000"
-        ></mat-icon>
-        <div class="input">
-          <input
-            #topInput
-            type="text"
-            (keydown)="onKeydown($event)"
-            (input)="onInput('top', $event, topInput)"
-          />
-        </div>
-      </div>
-      <div class="padding-option">
-        <mat-icon
-          svgIcon="svg_bottom_padding"
-          matTooltip="bottom"
-          matTooltipShowDelay="2000"
-        ></mat-icon>
-        <div class="input">
-          <input
-            #bottomInput
-            type="text"
-            (keydown)="onKeydown($event)"
-            (input)="onInput('bottom', $event, bottomInput)"
-          />
-        </div>
+<div [style.padding.px]="24">
+  <div class="options-container">
+    <div>
+      <div class="title">Alignment</div>
+      <div class="alignment-buttons">
+        <tfx-font-toggle-button
+          *ngFor="let config of buttonConfigs; let i = index"
+          [iconName]="config.iconName"
+          [svg]="config.svg"
+          [tooltip]="config.description"
+          [highlighted]="activeIndex === i"
+          (buttonClick)="onAlignmentButtonClick(config.alignment)"
+        ></tfx-font-toggle-button>
       </div>
     </div>
+    <div>
+      <div class="title">Indents (mm)</div>
+      <div class="padding-options">
+        <div class="padding-option">
+          <mat-icon
+            svgIcon="svg_left_padding"
+            matTooltip="left"
+            matTooltipShowDelay="2000"
+          ></mat-icon>
+          <div class="input">
+            <input
+              #leftInput
+              type="text"
+              (keydown)="onKeydown($event)"
+              (input)="onInput('left', $event, leftInput)"
+            />
+          </div>
+        </div>
+        <div class="padding-option">
+          <mat-icon
+            svgIcon="svg_right_padding"
+            matTooltip="right"
+            matTooltipShowDelay="2000"
+          ></mat-icon>
+          <div class="input">
+            <input
+              #rightInput
+              type="text"
+              (keydown)="onKeydown($event)"
+              (input)="onInput('right', $event, rightInput)"
+            />
+          </div>
+        </div>
+        <div class="padding-option">
+          <mat-icon
+            svgIcon="svg_top_padding"
+            matTooltip="top"
+            matTooltipShowDelay="2000"
+          ></mat-icon>
+          <div class="input">
+            <input
+              #topInput
+              type="text"
+              (keydown)="onKeydown($event)"
+              (input)="onInput('top', $event, topInput)"
+            />
+          </div>
+        </div>
+        <div class="padding-option">
+          <mat-icon
+            svgIcon="svg_bottom_padding"
+            matTooltip="bottom"
+            matTooltipShowDelay="2000"
+          ></mat-icon>
+          <div class="input">
+            <input
+              #bottomInput
+              type="text"
+              (keydown)="onKeydown($event)"
+              (input)="onInput('bottom', $event, bottomInput)"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+  <div class="save-button">
+    <button mat-button (click)="onSaveClick()">Save</button>
+  </div>
+  <!-- <mat-icon [style.color]="'red'" svgIcon="svg_align_center_center"></mat-icon> -->
 </div>
-<div class="save-button">
-  <button mat-button (click)="onSaveClick()">Save</button>
-</div>
-<!-- <mat-icon [style.color]="'red'" svgIcon="svg_align_center_center"></mat-icon> -->

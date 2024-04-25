@@ -59,7 +59,9 @@
   </div>
   <div class="current-color" [style.backgroundColor]="colorStyle"></div>
 </div>
-<div mat-dialog-actions>
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button (click)="onColorSelect()">Select</button>
+<div class="action-buttons-container">
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button (click)="onColorSelect()">Select</button>
+  </div>
 </div>

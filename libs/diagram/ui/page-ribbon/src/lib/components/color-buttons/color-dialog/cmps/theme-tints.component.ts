@@ -27,10 +27,10 @@ import { ColorRow, themeRow } from '../color-dialog.types';
   `,
   styles: [
     `
-      .tints {
-        margin-top: 13px;
-      }
-    `,
+           .tints {
+             margin-top: 13px;
+           }
+         `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

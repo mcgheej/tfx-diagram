@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatLegacyDialogRef as MatDialogRef, MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from '@angular/material/legacy-dialog';
-import { MatLegacyRadioChange as MatRadioChange } from '@angular/material/legacy-radio';
-import { MatLegacySelectChange as MatSelectChange } from '@angular/material/legacy-select';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MatRadioChange } from '@angular/material/radio';
+import { MatSelectChange } from '@angular/material/select';
 import {
   PageFormats,
-  pageFormats,
   PageLayout,
+  pageFormats,
   pageSizesMM,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 
@@ -46,9 +46,9 @@ export class NewDialogComponent implements OnInit {
     this.form = this.fb.group({
       title: [this.data.dialogType === 'Sketchbook' ? '' : 'Unknown', Validators.required],
       pageFormat: ['A4', Validators.required],
-      width: ['210', Validators.required],
-      height: ['297', Validators.required],
-      layout: ['Portrait'],
+      width: ['297', Validators.required],
+      height: ['210', Validators.required],
+      layout: ['Landscape'],
     });
     this.pageFormats = [...pageFormats];
   }

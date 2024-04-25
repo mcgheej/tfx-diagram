@@ -1,17 +1,15 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   ElementRef,
   Inject,
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { MatLegacyDialogRef as MatDialogRef, MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from '@angular/material/legacy-dialog';
-import { MatLegacySliderChange as MatSliderChange } from '@angular/material/legacy-slider';
-import { nextInChain, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { UntypedFormGroup } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { Shape, nextInChain } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { Page, Size, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 
 export interface JpegDialogData {
@@ -49,17 +47,12 @@ export class JpegDialogComponent implements OnInit, AfterViewInit {
   quality = 0.8;
 
   constructor(
-    private changeDetect: ChangeDetectorRef,
-    private fb: UntypedFormBuilder,
     private dialogRef: MatDialogRef<JpegDialogComponent, JpegDialogResult>,
     @Inject(MAT_DIALOG_DATA) public data: JpegDialogData
   ) {}
 
   ngOnInit(): void {
     this.quality = this.data.quality;
-    this.form = this.fb.group({
-      quality: [this.data.quality, [Validators.required, Validators.min(0), Validators.max(1)]],
-    });
     const { width: w, height: h } = this.data.page.size;
     this.imageWidth = (w / 25.4) * this.data.dpi;
     this.imageHeight = (h / 25.4) * this.data.dpi;
@@ -109,15 +102,13 @@ export class JpegDialogComponent implements OnInit, AfterViewInit {
   }
 
   close() {
-    this.dialogRef.close({ dpi: this.data.dpi, quality: this.quality });
+    this.dialogRef.close({ dpi: this.data.dpi, quality: this.data.quality });
   }
 
-  changeQuality(quality: MatSliderChange) {
-    if (quality.value) {
-      this.quality = quality.value;
-      this.changeDetect.detectChanges();
-    }
-  }
+  // changeQuality(quality: number) {
+  //   this.quality = quality;
+  //   this.changeDetect.detectChanges();
+  // }
 
   // TODO: This is copy of code in page canvas so at some point these can be
   // refactored

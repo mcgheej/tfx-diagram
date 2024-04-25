@@ -5,14 +5,14 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
   template: `<div class="tfx-indicator"></div>`,
   styles: [
     `
-      .tfx-indicator {
-        width: 0;
-        height: 0;
-        border-left: 3px solid transparent;
-        border-right: 3px solid transparent;
-        border-top: 6px solid black;
-      }
-    `,
+           .tfx-indicator {
+             width: 0;
+             height: 0;
+             border-left: 3px solid transparent;
+             border-right: 3px solid transparent;
+             border-top: 6px solid black;
+           }
+         `,
   ],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -23,26 +23,26 @@ import { ShapeInspectorService } from './shape-inspector.service';
   `,
   styles: [
     `
-      .shape-inspector {
-        height: 100%;
-        width: 325px;
-        border-right: 1px solid #dfe3e8;
-      }
-
-      .container {
-        width: 100%;
-        height: 100%;
-        display: grid;
-        grid-template-rows: auto 1fr;
-      }
-
-      .title {
-        margin: 3px 0 10px 3px;
-        font-size: 12pt;
-        font-weight: 500;
-        color: #9f9fa1;
-      }
-    `,
+           .shape-inspector {
+             height: 100%;
+             width: 325px;
+             border-right: 1px solid #dfe3e8;
+           }
+     
+           .container {
+             width: 100%;
+             height: 100%;
+             display: grid;
+             grid-template-rows: auto 1fr;
+           }
+     
+           .title {
+             margin: 3px 0 10px 3px;
+             font-size: 12pt;
+             font-weight: 500;
+             color: #9f9fa1;
+           }
+         `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [ShapeInspectorService],

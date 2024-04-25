@@ -1,5 +1,5 @@
 import { Directive, ElementRef } from '@angular/core';
-import { MatLegacyTooltip as MatTooltip } from '@angular/material/legacy-tooltip';
+import { MatTooltip } from '@angular/material/tooltip';
 
 // This directive taken from StackOverflow answer by Egor Kolesnikov -
 // answer to question "Show Tooltip only when ellipsis is active"

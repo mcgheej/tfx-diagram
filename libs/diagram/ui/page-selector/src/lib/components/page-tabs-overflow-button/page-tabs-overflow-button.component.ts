@@ -20,17 +20,17 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
   `,
   styles: [
     `
-      .container {
-        height: 90%;
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
-      .button {
-        justify-self: center;
-        align-self: end;
-      }
-    `,
+           .container {
+             height: 90%;
+             display: grid;
+             grid-template-columns: 1fr;
+           }
+     
+           .button {
+             justify-self: center;
+             align-self: end;
+           }
+         `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

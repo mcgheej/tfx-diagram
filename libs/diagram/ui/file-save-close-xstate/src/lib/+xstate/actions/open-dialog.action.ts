@@ -1,4 +1,4 @@
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { SaveCloseMachineActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import { SaveDiscardCancelDialogComponent } from '../save-discard-cancel-dialog/save-discard-cancel-dialog.component';

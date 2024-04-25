@@ -1,4 +1,4 @@
-import { MatLegacyDialog as MatDialog, MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { FileMenuActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import { NewDialogComponent, NewDialogResult } from '@tfx-diagram/diagram/ui/dialogs';

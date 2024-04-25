@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MatLegacyDialog as MatDialog, MatLegacyDialogConfig as MatDialogConfig, MatLegacyDialogRef as MatDialogRef } from '@angular/material/legacy-dialog';
+import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { Color } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Observable, Subject } from 'rxjs';
 import { CustomColorDialogComponent } from '../../custom-color-dialog/custom-color-dialog.component';

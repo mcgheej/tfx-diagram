@@ -64,6 +64,20 @@ body {
 
 // TODO - Hack to avoid Mat Tooltip bug - should be removed when bug fixed
 
-.mat-tooltip-hide {
+/* TODO(mdc-migration): The following rule targets internal classes of tooltip that may no longer apply for the MDC version. */
+.mat-mdc-tooltip-hide {
   display: none !important;
 }
+
+// ------------------------------------------------------------------------------
+// StackOverflow: https://stackoverflow.com/questions/76870535/how-do-i-remove-the-angular-material-mat-form-field-initial-background-color-and
+// Manipulate initial background color
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: white !important;
+}
+
+// Manipulate background color on hover and focus
+.mat-mdc-form-field-focus-overlay {
+  background-color: transparent !important;
+}
+// ------------------------------------------------------------------------------

@@ -27,27 +27,27 @@ import { debounceTime, Subject, takeUntil } from 'rxjs';
   `,
   styles: [
     `
-      .input-container {
-        height: 100%;
-        width: 100%;
-        display: grid;
-        grid-template-columns: 75px 50px;
-        grid-template-rows: 1fr;
-      }
-
-      .label {
-        align-self: center;
-        justify-self: right;
-        padding-right: 5px;
-      }
-
-      .input {
-        box-sizing: border-box;
-        height: 100%;
-        width: 100%;
-        text-align: right;
-      }
-    `,
+           .input-container {
+             height: 100%;
+             width: 100%;
+             display: grid;
+             grid-template-columns: 75px 50px;
+             grid-template-rows: 1fr;
+           }
+     
+           .label {
+             align-self: center;
+             justify-self: right;
+             padding-right: 5px;
+           }
+     
+           .input {
+             box-sizing: border-box;
+             height: 100%;
+             width: 100%;
+             text-align: right;
+           }
+         `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

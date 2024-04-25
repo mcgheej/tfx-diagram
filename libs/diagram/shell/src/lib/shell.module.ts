@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { MatLegacyDialogModule as MatDialogModule } from '@angular/material/legacy-dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 import { PagesModule } from '@tfx-diagram/diagram-data-access-store-features-pages';
 import { SettingsModule } from '@tfx-diagram/diagram-data-access-store-features-settings';
 import { SketchbookModule } from '@tfx-diagram/diagram-data-access-store-features-sketchbook';

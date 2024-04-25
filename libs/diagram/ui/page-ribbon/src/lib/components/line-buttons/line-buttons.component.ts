@@ -26,26 +26,26 @@ import { LineWidthButtonService } from './line-width-button/line-width-button.se
   `,
   styles: [
     `
-      .line-buttons {
-        border-right: 1px solid #dfe3e8;
-        height: 100%;
-        width: 180px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .line-style-button {
-        height: 60%;
-        width: 90%;
-        align-self: center;
-        justify-self: start;
-        border-top: 1px solid #888;
-        border-right: 1px solid #888;
-        border-bottom: 1px solid #888;
-        background-color: white;
-        border-radius: 0 4px 4px 0;
-      }
-    `,
+           .line-buttons {
+             border-right: 1px solid #dfe3e8;
+             height: 100%;
+             width: 180px;
+             display: grid;
+             grid-template-columns: 1fr 1fr;
+           }
+     
+           .line-style-button {
+             height: 60%;
+             width: 90%;
+             align-self: center;
+             justify-self: start;
+             border-top: 1px solid #888;
+             border-right: 1px solid #888;
+             border-bottom: 1px solid #888;
+             background-color: white;
+             border-radius: 0 4px 4px 0;
+           }
+         `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

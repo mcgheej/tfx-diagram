@@ -26,14 +26,14 @@ import { EndpointButtonsService } from './endpoint-buttons.service';
   `,
   styles: [
     `
-      .endpoint-buttons {
-        border-right: 1px solid #dfe3e8;
-        height: 100%;
-        width: 120px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-      }
-    `,
+           .endpoint-buttons {
+             border-right: 1px solid #dfe3e8;
+             height: 100%;
+             width: 120px;
+             display: grid;
+             grid-template-columns: 1fr 1fr;
+           }
+         `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

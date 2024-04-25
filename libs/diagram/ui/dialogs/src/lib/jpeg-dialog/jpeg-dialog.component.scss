@@ -1,3 +1,7 @@
+.top-container {
+  box-sizing: border-box;
+  padding: 0 24px;
+}
 .canvas-container {
   width: 250px;
   height: 250px;
@@ -12,4 +16,14 @@
 
 .hidden-canvas {
   display: none;
+}
+
+.label-space {
+  margin-right: 8px;
+}
+
+.action-buttons-container {
+  box-sizing: border-box;
+  padding: 0 16px;
+  margin-top: -12px;
 }

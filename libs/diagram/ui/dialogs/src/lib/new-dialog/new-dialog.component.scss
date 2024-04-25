@@ -1,3 +1,4 @@
+/* TODO(mdc-migration): The following rule targets internal classes of dialog that may no longer apply for the MDC version. */
 mat-dialog-content {
   display: grid;
   grid-template-columns: 1fr;
@@ -24,6 +25,6 @@ mat-dialog-content {
   font-size: 14px;
 }
 
-.mat-radio-button ~ .mat-radio-button {
+.mat-mdc-radio-button ~ .mat-radio-button {
   margin-left: 16px;
 }

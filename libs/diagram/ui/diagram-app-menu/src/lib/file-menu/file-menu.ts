@@ -1,4 +1,4 @@
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { SaveCloseMachineService } from '@tfx-diagram/diagram/ui/file-save-close-xstate';
 import {

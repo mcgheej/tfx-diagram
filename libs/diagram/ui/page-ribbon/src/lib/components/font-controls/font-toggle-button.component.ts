@@ -27,32 +27,32 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
   `,
   styles: [
     `
-      .button-container {
-        height: 100%;
-        width: 100%;
-        display: grid;
-      }
-
-      .button {
-        height: 90%;
-        width: 80%;
-        align-self: center;
-        justify-self: center;
-        border-radius: 4px;
-        font-size: 18px;
-      }
-
-      .svg-button {
-        display: grid;
-        height: 100%;
-        width: 100%;
-      }
-
-      .svg-mat-icon {
-        align-self: center;
-        justify-self: center;
-      }
-    `,
+           .button-container {
+             height: 100%;
+             width: 100%;
+             display: grid;
+           }
+     
+           .button {
+             height: 90%;
+             width: 80%;
+             align-self: center;
+             justify-self: center;
+             border-radius: 4px;
+             font-size: 18px;
+           }
+     
+           .svg-button {
+             display: grid;
+             height: 100%;
+             width: 100%;
+           }
+     
+           .svg-mat-icon {
+             align-self: center;
+             justify-self: center;
+           }
+         `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
