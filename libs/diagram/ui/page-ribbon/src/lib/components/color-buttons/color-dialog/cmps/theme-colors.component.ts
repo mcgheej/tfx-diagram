@@ -30,12 +30,12 @@ import { ColorRow, themeRow } from '../color-dialog.types';
   `,
   styles: [
     `
-           .title {
-             margin: 3px 0 10px 0;
-             font-size: 10pt;
-             font-weight: 500;
-           }
-         `,
+      .title {
+        margin: 3px 0 10px 0;
+        font-size: 10pt;
+        font-weight: 500;
+      }
+    `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

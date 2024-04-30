@@ -12,7 +12,7 @@ export class LineDashButtonService {
   openLineDashDialog(el: HTMLElement, lineDash: number[]) {
     let config: MatDialogConfig<LineDashDialogData> = {
       data: { lineDash },
-      width: '350px',
+      width: '366px',
       height: '300px',
       backdropClass: 'tfx-dialog-backdrop-transparent',
     };

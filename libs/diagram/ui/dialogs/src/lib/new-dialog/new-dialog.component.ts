@@ -32,6 +32,9 @@ export class NewDialogComponent implements OnInit {
   form!: UntypedFormGroup;
   pageFormats: string[] = [];
   dialogTitle = 'New Sketchbook';
+  width = 297;
+  height = 210;
+  layout = 'Landscape';
 
   constructor(
     private fb: UntypedFormBuilder,
@@ -46,20 +49,17 @@ export class NewDialogComponent implements OnInit {
     this.form = this.fb.group({
       title: [this.data.dialogType === 'Sketchbook' ? '' : 'Unknown', Validators.required],
       pageFormat: ['A4', Validators.required],
-      width: ['297', Validators.required],
-      height: ['210', Validators.required],
-      layout: ['Landscape'],
+      layout: [this.layout],
     });
     this.pageFormats = [...pageFormats];
   }
 
   create() {
-    // this.dialogRef.close(this.form.value);
     this.dialogRef.close({
       title: this.form.get('title')?.value as string,
       pageFormat: this.form.get('pageFormat')?.value as PageFormats,
-      width: +this.form.get('width')?.value as number,
-      height: +this.form.get('height')?.value as number,
+      width: this.width,
+      height: this.height,
       layout: this.form.get('layout')?.value as PageLayout,
     } as NewDialogResult);
   }
@@ -85,11 +85,11 @@ export class NewDialogComponent implements OnInit {
 
   private updateSize(pageFormat: PageFormats, layout: PageLayout) {
     if (layout === 'Portrait') {
-      this.form.get('width')?.setValue(pageSizesMM[pageFormat].width);
-      this.form.get('height')?.setValue(pageSizesMM[pageFormat].height);
+      this.width = pageSizesMM[pageFormat].width;
+      this.height = pageSizesMM[pageFormat].height;
     } else {
-      this.form.get('width')?.setValue(pageSizesMM[pageFormat].height);
-      this.form.get('height')?.setValue(pageSizesMM[pageFormat].width);
+      this.width = pageSizesMM[pageFormat].height;
+      this.height = pageSizesMM[pageFormat].width;
     }
   }
 }

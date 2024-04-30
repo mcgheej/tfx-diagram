@@ -6,8 +6,12 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { Color, ColorHSL } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { hsl2rgb, rgb2hsl } from '../misc-functions';
+import {
+  Color,
+  ColorHSL,
+  hsl2rgb,
+  rgb2hsl,
+} from '@tfx-diagram/shared-angular/utils/shared-types';
 
 @Component({
   selector: 'tfx-color-picker',

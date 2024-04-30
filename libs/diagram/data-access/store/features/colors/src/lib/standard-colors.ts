@@ -1,6 +1,5 @@
 import { getHexByte } from '@tfx-diagram/diagram/util/misc-functions';
-import { rgb2hsl } from '@tfx-diagram/shared-angular/ui/tfx-color-picker';
-import { Color } from '@tfx-diagram/shared-angular/utils/shared-types';
+import { Color, rgb2hsl } from '@tfx-diagram/shared-angular/utils/shared-types';
 
 export const standardColors = (): Color[] => {
   const colors: Color[] = [];

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { ColorDialogComponentActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import {
@@ -10,7 +10,7 @@ import {
 } from '@tfx-diagram/diagram/data-access/store/features/colors';
 import { ColorRef, ColorTheme } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Color } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { map, Observable, withLatestFrom } from 'rxjs';
+import { Observable, map, withLatestFrom } from 'rxjs';
 import { ColorDialogData } from './color-dialog.types';
 
 @Component({
@@ -21,6 +21,7 @@ import { ColorDialogData } from './color-dialog.types';
 export class ColorDialogComponent implements OnInit {
   highlightedColor: ColorRef | null = null;
   selectedColorRef!: ColorRef;
+  dialogTitle = 'Colour Selection';
 
   store!: Store;
   themeColors$!: Observable<ColorTheme>;
@@ -48,13 +49,15 @@ export class ColorDialogComponent implements OnInit {
         return result;
       })
     );
-    // this.customColors$ = this.store.select(selectCustomColors);
 
     if (this.data.dialogType === 'Fill Color') {
+      this.dialogTitle = 'Fill Colour';
       this.selectedColorRef = this.data.selectedColors.fillColor as ColorRef;
     } else if (this.data.dialogType === 'Line Color') {
+      this.dialogTitle = 'Line Colour';
       this.selectedColorRef = this.data.selectedColors.lineColor as ColorRef;
     } else {
+      this.dialogTitle = 'Text Colour';
       this.selectedColorRef = this.data.selectedColors.textColor as ColorRef;
     }
   }

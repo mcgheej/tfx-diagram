@@ -40,27 +40,27 @@ import { CustomColorsService } from './custom-colors.service';
   `,
   styles: [
     `
-           .title {
-             margin: 10px 0 10px 0;
-             width: 100%;
-             border-top: 1px solid #e2e4e7;
-             font-size: 10pt;
-             font-weight: 500;
-             padding: 8px 0 0px 0;
-           }
-     
-           .custom-colors-container {
-             display: grid;
-             grid-template-columns: 24px 1fr;
-             grid-template-rows: 34px;
-             column-gap: 14px;
-           }
-     
-           .center-center {
-             justify-self: center;
-             align-self: center;
-           }
-         `,
+      .title {
+        margin: 10px 0 10px 0;
+        width: 100%;
+        border-top: 1px solid #e2e4e7;
+        font-size: 10pt;
+        font-weight: 500;
+        padding: 8px 0 0px 0;
+      }
+
+      .custom-colors-container {
+        display: grid;
+        grid-template-columns: 24px 1fr;
+        grid-template-rows: 34px;
+        column-gap: 14px;
+      }
+
+      .center-center {
+        justify-self: center;
+        align-self: center;
+      }
+    `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -96,7 +96,10 @@ export class CustomColorsComponent implements OnInit, OnChanges {
   }
 
   onAddClick() {
-    const selectedColor = ColorMapRef.resolveColor(this.selectedColorRef);
+    const selectedColor =
+      this.selectedColorRef.colorSet === 'empty'
+        ? ColorMapRef.resolveColor({ colorSet: 'theme', ref: 'text1-0' })
+        : ColorMapRef.resolveColor(this.selectedColorRef);
     if (selectedColor) {
       this.customColorService.openCustomColorDialog(selectedColor).subscribe((result) => {
         if (result) {
@@ -114,7 +117,7 @@ export class CustomColorsComponent implements OnInit, OnChanges {
     });
     this.addButtonConfig = {
       iconName: 'control_point',
-      disabled: this.customColorSquares.length === 16,
+      disabled: this.customColorSquares.length > 15,
     };
   }
 }

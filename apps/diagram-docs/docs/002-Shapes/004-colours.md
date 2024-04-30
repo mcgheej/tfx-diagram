@@ -5,7 +5,7 @@ custom_edit_url: null
 
 # Colours
 
-All colours eventually boil down to an RGB value that is used to colour a pixel. Organising colours ad selecting colours, however, is a bit more complicated.
+All colours eventually boil down to an RGB value that is used to colour a pixel. Organising colours and selecting colours, however, is a bit more complicated.
 
 ## Colour Categories
 

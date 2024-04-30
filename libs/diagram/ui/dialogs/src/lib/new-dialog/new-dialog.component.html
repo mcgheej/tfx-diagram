@@ -1,38 +1,42 @@
-<h2 mat-dialog-title>{{ dialogTitle }}</h2>
-<mat-dialog-content
-  [style.height.px]="data.dialogType === 'Page' ? 218 : 300"
-  [formGroup]="form"
->
-  <mat-form-field *ngIf="data.dialogType === 'Sketchbook'">
-    <mat-label>Title</mat-label>
-    <input matInput formControlName="title" autocomplete="off" />
-  </mat-form-field>
-  <!-- <div *ngIf="data.dialogType === 'Page'" class="filler"></div> -->
-  <mat-form-field>
-    <mat-label>Page Size</mat-label>
-    <mat-select formControlName="pageFormat" (selectionChange)="onPageFormatChange($event)">
-      <mat-option *ngFor="let format of pageFormats" [value]="format">{{ format }}</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <div class="width-height">
-    <mat-form-field appearance="outline" class="readonly-background">
-      <input matInput placeholder="Width" formControlName="width" readonly />
-    </mat-form-field>
-    <div class="units">mm</div>
-    <div></div>
-    <div class="by">X</div>
-    <div></div>
-    <mat-form-field appearance="outline" class="readonly-background">
-      <input matInput placeholder="Height" formControlName="height" readonly />
-    </mat-form-field>
-    <div class="units">mm</div>
+<div class="container">
+  <div class="content-container">
+    <div class="dialog-title">{{ dialogTitle }}</div>
+    <div class="form-container">
+      <div class="form" [formGroup]="form">
+        <mat-form-field
+          *ngIf="data.dialogType === 'Sketchbook'"
+          class="full-field"
+          appearance="outline"
+        >
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title" autocomplete="off" />
+          @if (form.controls['title'].invalid && form.controls['title'].touched) {
+          <mat-error>Title is required</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="full-field">
+          <mat-label>Page Size</mat-label>
+          <mat-select
+            formControlName="pageFormat"
+            (selectionChange)="onPageFormatChange($event)"
+          >
+            @for (format of pageFormats; track format) {
+            <mat-option [value]="format">{{ format }}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <div class="page-size">{{ width }}mm x {{ height }}mm</div>
+        <div class="radio-group">
+          <mat-radio-group formControlName="layout" (change)="onLayoutChange($event)">
+            <mat-radio-button value="Portrait">Portrait</mat-radio-button>
+            <mat-radio-button value="Landscape">Landscape</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <button mat-stroked-button (click)="close()">Cancel</button>
+      <button mat-stroked-button [disabled]="!form.valid" (click)="create()">Create</button>
+    </div>
   </div>
-  <mat-radio-group formControlName="layout" (change)="onLayoutChange($event)">
-    <mat-radio-button value="Portrait">Portrait</mat-radio-button>
-    <mat-radio-button value="Landscape">Landscape</mat-radio-button>
-  </mat-radio-group>
-</mat-dialog-content>
-<mat-dialog-actions [style.padding]="'0 24px'">
-  <button mat-stroked-button (click)="close()">Cancel</button>
-  <button mat-stroked-button [disabled]="!form.valid" (click)="create()">Create</button>
-</mat-dialog-actions>
+</div>

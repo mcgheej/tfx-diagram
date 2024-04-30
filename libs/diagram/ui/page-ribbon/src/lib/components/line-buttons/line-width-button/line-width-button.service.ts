@@ -12,7 +12,7 @@ export class LineWidthButtonService {
   openLineWidthDialog(el: HTMLElement, lineWidth: number) {
     let config: MatDialogConfig<LineWidthDialogData> = {
       data: { lineWidth },
-      width: '275px',
+      width: '291px',
       height: '300px',
       backdropClass: 'tfx-dialog-backdrop-transparent',
     };

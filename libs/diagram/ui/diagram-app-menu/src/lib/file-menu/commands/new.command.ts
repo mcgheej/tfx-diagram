@@ -34,7 +34,7 @@ export class NewCommand {
             NewDialogComponent,
             {
               autoFocus: true,
-              height: '450px',
+              // height: '450px',
               data: {
                 dialogType: 'Sketchbook',
               },

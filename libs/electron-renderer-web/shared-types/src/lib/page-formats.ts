@@ -24,4 +24,8 @@ export const pageSizesMM: { [key: string]: { width: number; height: number } } =
     width: 148,
     height: 210,
   },
+  ['Custom']: {
+    width: 210,
+    height: 297,
+  },
 };

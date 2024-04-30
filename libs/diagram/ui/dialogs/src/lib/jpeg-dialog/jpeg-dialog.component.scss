@@ -1,7 +1,26 @@
-.top-container {
-  box-sizing: border-box;
-  padding: 0 24px;
+.container {
+  display: flex;
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.87);
 }
+
+.content-container {
+  width: 300px;
+  height: auto;
+  padding: 24px 32px;
+}
+
+.dialog-title {
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+}
+
+.hidden-canvas {
+  display: none;
+}
+
 .canvas-container {
   width: 250px;
   height: 250px;
@@ -14,16 +33,13 @@
   outline: 1px solid grey;
 }
 
-.hidden-canvas {
-  display: none;
-}
-
 .label-space {
   margin-right: 8px;
 }
 
-.action-buttons-container {
-  box-sizing: border-box;
-  padding: 0 16px;
-  margin-top: -12px;
+.buttons {
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  column-gap: 8px;
 }

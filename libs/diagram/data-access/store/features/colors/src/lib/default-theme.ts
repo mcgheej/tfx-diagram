@@ -1,7 +1,6 @@
 import { getHexByte } from '@tfx-diagram/diagram/util/misc-functions';
 import { ColorTheme } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { rgb2hsl } from '@tfx-diagram/shared-angular/ui/tfx-color-picker';
-import { Color } from '@tfx-diagram/shared-angular/utils/shared-types';
+import { Color, rgb2hsl } from '@tfx-diagram/shared-angular/utils/shared-types';
 
 const defaultRGBs = [
   {

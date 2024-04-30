@@ -10,8 +10,8 @@ import {
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatIconRegistry } from '@angular/material/icon';
 import {
-  MatTooltipDefaultOptions,
   MAT_TOOLTIP_DEFAULT_OPTIONS,
+  MatTooltipDefaultOptions,
 } from '@angular/material/tooltip';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Store } from '@ngrx/store';
@@ -26,13 +26,9 @@ import {
 } from '@tfx-diagram/diagram-data-access-store-features-sketchbook';
 import { selectShapes } from '@tfx-diagram/diagram/data-access/store/features/shapes';
 import { DiagramAppMenuService } from '@tfx-diagram/diagram/ui/diagram-app-menu';
-import {
-  dialogWidth,
-  JpegDialogComponent,
-  JpegDialogResult,
-} from '@tfx-diagram/diagram/ui/dialogs';
+import { JpegDialogComponent, JpegDialogResult } from '@tfx-diagram/diagram/ui/dialogs';
 import { IconButtonConfig } from '@tfx-diagram/shared-angular/ui/tfx-icon-button';
-import { combineLatest, map, Subject, takeUntil, withLatestFrom } from 'rxjs';
+import { Subject, combineLatest, map, takeUntil, withLatestFrom } from 'rxjs';
 import { svgAlignBottomCenterLiteral } from './svg-icons/align-bottom-center_black_24dp';
 import { svgAlignBottomLeftLiteral } from './svg-icons/align-bottom-left_black_24dp';
 import { svgAlignBottomRightLiteral } from './svg-icons/align-bottom-right_black_24dp';
@@ -49,7 +45,7 @@ import { svgTopPaddingLiteral } from './svg-icons/top-padding_black_24dp';
 
 // Do not want Mat Tooltip interactivity behaviour (doesn't hide tooltip when
 // user moves mouse over tooltip). Set up own custom default and inject - as Shell
-// at top of component tree everything below shoud inherit behaviour
+// at top of component tree everything below should inherit behaviour
 export const myCustomTooltipDefaults: Partial<MatTooltipDefaultOptions> = {
   disableTooltipInteractivity: true,
 };
@@ -144,8 +140,6 @@ export class ShellComponent implements OnInit, OnDestroy {
           const dialogRef: MatDialogRef<JpegDialogComponent, JpegDialogResult> =
             this.dialog.open(JpegDialogComponent, {
               autoFocus: true,
-              width: `${dialogWidth}px`,
-              height: '520px',
               data: {
                 dpi: 300,
                 quality,

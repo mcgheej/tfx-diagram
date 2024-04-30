@@ -1,46 +1,52 @@
-<div [style.padding.px]="24">
-  <tfx-theme-colors
-    *ngIf="themeColors$ | async as themeColors"
-    [themeColors]="themeColors"
-    [selectedColorRef]="selectedColorRef"
-    [highlightedColor]="highlightedColor"
-    (highlightedColorChange)="onHighlightedColorChange($event)"
-    (colorSelect)="onClick($event)"
-  ></tfx-theme-colors>
-  <tfx-standard-colors
-    *ngIf="standardColors$ | async as standardColors"
-    [standardColors]="standardColors"
-    [selectedColorRef]="selectedColorRef"
-    [highlightedColor]="highlightedColor"
-    (highlightedColorChange)="onHighlightedColorChange($event)"
-    (colorSelect)="onClick($event)"
-  ></tfx-standard-colors>
-  <tfx-custom-colors
-    *ngIf="customColors$ | async as customColors"
-    [customColors]="customColors"
-    [selectedColorRef]="selectedColorRef"
-    [highlightedColor]="highlightedColor"
-    (highlightedColorChange)="onHighlightedColorChange($event)"
-    (colorSelect)="onClick($event)"
-    (colorAdd)="onColorAdd($event)"
-  ></tfx-custom-colors>
-  <div class="no-fill-separator"></div>
-  <div class="no-fill">
-    <div class="no-fill-square">
-      <tfx-color-square
-        [color]="selectedColorRef.ref === '' ? '' : 'white'"
-        [showTopBorder]="true"
-        [showBottomBorder]="true"
-        [highlighted]="
-          (highlightedColor && highlightedColor.ref === '') || selectedColorRef.ref === ''
-            ? true
-            : false
-        "
-        (mouseenter)="onMouseEnter({ colorSet: 'empty', ref: '' })"
-        (mouseleave)="onMouseLeave()"
-        (click)="onClick({ colorSet: 'empty', ref: '' })"
-      ></tfx-color-square>
+<div class="container">
+  <div class="content-container">
+    <div class="dialog-title">{{ dialogTitle }}</div>
+    <tfx-theme-colors
+      class="theme-colors"
+      *ngIf="themeColors$ | async as themeColors"
+      [themeColors]="themeColors"
+      [selectedColorRef]="selectedColorRef"
+      [highlightedColor]="highlightedColor"
+      (highlightedColorChange)="onHighlightedColorChange($event)"
+      (colorSelect)="onClick($event)"
+    ></tfx-theme-colors>
+    <tfx-standard-colors
+      class="theme-colors"
+      *ngIf="standardColors$ | async as standardColors"
+      [standardColors]="standardColors"
+      [selectedColorRef]="selectedColorRef"
+      [highlightedColor]="highlightedColor"
+      (highlightedColorChange)="onHighlightedColorChange($event)"
+      (colorSelect)="onClick($event)"
+    ></tfx-standard-colors>
+    <tfx-custom-colors
+      class="theme-colors"
+      *ngIf="customColors$ | async as customColors"
+      [customColors]="customColors"
+      [selectedColorRef]="selectedColorRef"
+      [highlightedColor]="highlightedColor"
+      (highlightedColorChange)="onHighlightedColorChange($event)"
+      (colorSelect)="onClick($event)"
+      (colorAdd)="onColorAdd($event)"
+    ></tfx-custom-colors>
+    <div class="no-fill-separator"></div>
+    <div class="no-fill">
+      <div class="no-fill-square">
+        <tfx-color-square
+          [color]="selectedColorRef.ref === '' ? '' : 'white'"
+          [showTopBorder]="true"
+          [showBottomBorder]="true"
+          [highlighted]="
+            (highlightedColor && highlightedColor.ref === '') || selectedColorRef.ref === ''
+              ? true
+              : false
+          "
+          (mouseenter)="onMouseEnter({ colorSet: 'empty', ref: '' })"
+          (mouseleave)="onMouseLeave()"
+          (click)="onClick({ colorSet: 'empty', ref: '' })"
+        ></tfx-color-square>
+      </div>
+      <div class="no-fill-label">No Colour</div>
     </div>
-    <div class="no-fill-label">No Colour</div>
   </div>
 </div>

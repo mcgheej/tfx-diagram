@@ -14,8 +14,8 @@ export class CustomColorsService {
       data: {
         selectedColor,
       },
-      width: '334px',
-      height: '550px',
+      // width: '334px',
+      // height: '550px',
       backdropClass: 'tfx-dialog-backdrop-transparent',
     };
     const result$ = new Subject<Color | undefined>();

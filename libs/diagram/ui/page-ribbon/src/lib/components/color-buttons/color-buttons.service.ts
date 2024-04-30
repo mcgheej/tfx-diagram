@@ -21,8 +21,8 @@ export class ColorButtonsService {
         selectedColors,
         store: this.store,
       },
-      width: '234px',
-      height: '450px',
+      // width: '234px',
+      // height: '450px',
       backdropClass: 'tfx-dialog-backdrop-transparent',
     };
     if (el) {

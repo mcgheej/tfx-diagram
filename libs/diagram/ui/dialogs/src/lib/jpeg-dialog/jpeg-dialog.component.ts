@@ -25,8 +25,6 @@ export interface JpegDialogResult {
   data?: string;
 }
 
-export const dialogWidth = 298;
-
 @Component({
   selector: 'tfx-jpeg-dialog',
   templateUrl: './jpeg-dialog.component.html',
@@ -104,11 +102,6 @@ export class JpegDialogComponent implements OnInit, AfterViewInit {
   close() {
     this.dialogRef.close({ dpi: this.data.dpi, quality: this.data.quality });
   }
-
-  // changeQuality(quality: number) {
-  //   this.quality = quality;
-  //   this.changeDetect.detectChanges();
-  // }
 
   // TODO: This is copy of code in page canvas so at some point these can be
   // refactored
