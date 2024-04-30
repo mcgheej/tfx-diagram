@@ -33,7 +33,7 @@ export class DiagramAppMenuService implements OnDestroy {
   private viewMenu = new ViewMenu(this.mb, this.store, this.hotkeysService, this.zoomService);
   private insertMenu = new InsertMenu(this.mb, this.store);
   private arrangeMenu = new ArrangeMenu(this.mb, this.store, this.hotkeysService);
-  private helpMenu = new HelpMenu(this.mb);
+  private helpMenu = new HelpMenu(this.mb, this.store, this.dialog);
 
   private appMenu = this.mb.appMenu(
     {

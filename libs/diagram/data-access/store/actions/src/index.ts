@@ -9,6 +9,7 @@ export * as FileMenuActions from './lib/file-menu.actions';
 export * as FontControlsComponentActions from './lib/font-controls-component.actions';
 export * as FontFamilyButtonServiceActions from './lib/font-family-button-service.actions';
 export * as FontSizeButtonServiceActions from './lib/font-size-button-service.actions';
+export * as HelpMenuActions from './lib/help-menu.actions';
 export * as InsertMenuActions from './lib/insert-menu.actions';
 export * as KeyboardStateServiceActions from './lib/keyboard-state-service.actions';
 export * as LineDashButtonServiceActions from './lib/line-dash-button-service.actions';

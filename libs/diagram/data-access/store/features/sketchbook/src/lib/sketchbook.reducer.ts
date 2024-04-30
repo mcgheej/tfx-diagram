@@ -6,6 +6,7 @@ import {
   FileMenuActions,
   FontFamilyButtonServiceActions,
   FontSizeButtonServiceActions,
+  HelpMenuActions,
   LineDashButtonServiceActions,
   LineWidthButtonServiceActions,
   PagesEffectsActions,
@@ -102,6 +103,7 @@ export const sketchbookReducer = createReducer(
     FontSizeButtonServiceActions.fontSizeDialogOpening,
     FontFamilyButtonServiceActions.fontFamilyDialogOpening,
     TextOptionsServiceActions.textOptionsDialogOpening,
+    HelpMenuActions.aboutClick,
     (state) => {
       return {
         ...state,
@@ -123,6 +125,7 @@ export const sketchbookReducer = createReducer(
     FontSizeButtonServiceActions.fontSizeDialogClosed,
     FontFamilyButtonServiceActions.FontFamilyDialogClosed,
     TextOptionsServiceActions.textOptionsDialogClosed,
+    HelpMenuActions.aboutDialogClosed,
     (state) => {
       return {
         ...state,
