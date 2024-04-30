@@ -1,7 +1,4 @@
 {
-  "affected": {
-    "defaultBase": "main"
-  },
   "generators": {
     "@nx/angular:application": {
       "style": "scss",
@@ -35,5 +32,6 @@
     "sharedGlobals": [],
     "production": ["default"]
   },
-  "nxCloudAccessToken": "OTIwOWZhMzQtZmE1MS00MGJjLTg4NzQtZWNiYzQyZTcwZjY5fHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "OTIwOWZhMzQtZmE1MS00MGJjLTg4NzQtZWNiYzQyZTcwZjY5fHJlYWQtd3JpdGU=",
+  "defaultBase": "main"
 }
