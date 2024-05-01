@@ -5,6 +5,7 @@ export * from './lib/control-shapes/group';
 export * from './lib/control-shapes/handle';
 export * from './lib/control-shapes/rectangle-outline';
 export * from './lib/misc-functions';
+export * from './lib/standard-shapes/arc/arc';
 export * from './lib/standard-shapes/circle/circle';
 export * from './lib/standard-shapes/curve/curve';
 export * from './lib/standard-shapes/line/line';

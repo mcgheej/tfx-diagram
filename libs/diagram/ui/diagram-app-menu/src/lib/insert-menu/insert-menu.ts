@@ -6,6 +6,7 @@ import {
   MenuItemGroup,
 } from '@tfx-diagram/shared-angular/ui/tfx-menu';
 import { map } from 'rxjs';
+import { InsertArcCommand } from './commands/insert-arc.command';
 import { InsertCircleCommand } from './commands/insert-circle.command';
 import { InsertCurveCommand } from './commands/insert-curve.command';
 import { InsertLineCommand } from './commands/insert-line.command';
@@ -17,6 +18,7 @@ import { InsertTriangleCommand } from './commands/insert-triangle.command';
 export class InsertMenu {
   private insertCircle = new InsertCircleCommand(this.mb, this.store);
   private insertRectangle = new InsertRectangleCommand(this.mb, this.store);
+  private insertArc = new InsertArcCommand(this.mb, this.store);
   private insertCurve = new InsertCurveCommand(this.mb, this.store);
   private insertLine = new InsertLineCommand(this.mb, this.store);
   private insertTriangle = new InsertTriangleCommand(this.mb, this.store);
@@ -41,6 +43,7 @@ export class InsertMenu {
   cleanup() {
     this.insertCircle.cleanup();
     this.insertRectangle.cleanup();
+    this.insertArc.cleanup();
     this.insertCurve.cleanup();
     this.insertLine.cleanup();
     this.insertTriangle.cleanup();
@@ -53,6 +56,7 @@ export class InsertMenu {
       this.mb.menuItemGroup([
         this.insertCircle.getItem(),
         this.insertRectangle.getItem(),
+        this.insertArc.getItem(),
         this.insertCurve.getItem(),
         this.insertLine.getItem(),
         this.insertTriangle.getItem(),

@@ -47,3 +47,13 @@ Next create a new class in the Shape class hierarchy. This is implemented in the
 ### Add Menu Command
 
 Need to add a command menu item to the Insert menu to add a new arc to the page.
+This also needs an `InsertArc` action to be added to the Insert Menu actions.
+
+### Hook up action
+
+The `InsertArc` action needs to be handled in the `insertShape` effect (insert-shape.effect.ts). Add to list of other insert shape actions. This effect handler will dispatch a `ShapesEffectsActions.anotherShapeOnPage` action if there already shapes on the page or a `ShapesEffectsActions.firstShapeOnPage` action if
+the arc is the first shape on the page.
+
+### Handle new shape on opening saved files
+
+In the shapes reducer the `SketchbookEffectsActions.openSuccess` action adds shapes from a saved file to the draw chain. This logic needs to create a shape of the correct type and there is a switch on `Shape.shapeType` to create the correct objects in the draw chain. Add code to handle Arc shapes here.

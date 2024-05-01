@@ -10,15 +10,16 @@ import {
   ShapesEffectsActions,
   SketchbookEffectsActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
-import { createEndpoint, Endpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
+import { Endpoint, createEndpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
 import {
+  Arc,
+  ArcConfig,
   Circle,
   CircleConfig,
   CircleConnection,
   CircleConnectionProps,
   Curve,
   CurveConfig,
-  getAllShapesInSelection,
   Group,
   GroupConfig,
   Line,
@@ -31,6 +32,7 @@ import {
   TriangleConfig,
   TriangleConnection,
   TriangleConnectionProps,
+  getAllShapesInSelection,
 } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { ShapesState } from '@tfx-diagram/electron-renderer-web-context-bridge-api';
 import {
@@ -419,6 +421,10 @@ export const shapesReducer = createReducer(
         }
         case 'rectangle': {
           newShapes.set(shapeObject.id, new Rectangle(shapeObject as RectangleConfig));
+          break;
+        }
+        case 'arc': {
+          newShapes.set(shapeObject.id, new Arc(shapeObject as ArcConfig));
           break;
         }
         case 'curve': {

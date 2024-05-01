@@ -24,6 +24,7 @@ export const insertShape = (actions$: Actions<Action>, store: Store) => {
       ofType(
         InsertMenuActions.insertCircle,
         InsertMenuActions.insertRectangle,
+        InsertMenuActions.insertArc,
         InsertMenuActions.insertCurve,
         InsertMenuActions.insertLine,
         InsertMenuActions.insertTriangle

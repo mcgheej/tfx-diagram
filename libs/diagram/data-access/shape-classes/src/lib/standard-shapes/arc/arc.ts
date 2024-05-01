@@ -244,7 +244,6 @@ export class Arc extends Shape implements ArcProps {
   private drawArc(c: CanvasRenderingContext2D, params: DrawingParams, t: Transform) {
     const { x, y } = params;
     let { lineWidth, radius } = params;
-    lineWidth = lineWidth * 2;
     lineWidth = Math.max(lineWidth, 2);
     radius = Math.max(radius, 3);
     const s = ((1 + this.lineWidth / 0.25) / 2) * t.scaleFactor;
@@ -254,7 +253,7 @@ export class Arc extends Shape implements ArcProps {
     });
 
     const fillColor = ColorMapRef.resolve(this.fillStyle);
-    if (fillColor) {
+    if (fillColor && this.circleSegment) {
       c.fillStyle = fillColor;
       c.beginPath();
       c.arc(x, y, radius, (this.sAngle * Math.PI) / 180, (this.eAngle * Math.PI) / 180);
@@ -263,10 +262,6 @@ export class Arc extends Shape implements ArcProps {
 
     const strokeColor = ColorMapRef.resolve(this.strokeStyle);
     if (strokeColor) {
-      c.beginPath();
-      c.lineWidth = 1;
-      c.arc(x, y, radius + 1, 0, 2 * Math.PI);
-      c.clip();
       c.strokeStyle = strokeColor;
       c.lineWidth = lineWidth;
       c.setLineDash(scaledLineDash);
