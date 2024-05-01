@@ -4,6 +4,7 @@ export type ShapeTypes =
   | 'circle'
   | 'rectangle'
   | 'triangle'
+  | 'arc'
   | 'handle'
   | 'lineOutline'
   | 'rectangleOutline'

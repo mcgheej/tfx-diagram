@@ -146,11 +146,11 @@ export class Circle extends Shape implements CircleProps {
     return this.copy({ fillStyle: fillColor });
   }
 
-  changeLineDash(lineDash: number[]): Shape | undefined {
+  changeLineDash(lineDash: number[]): Circle {
     return this.copy({ lineDash });
   }
 
-  changeLineWidth(lineWidth: number): Shape | undefined {
+  changeLineWidth(lineWidth: number): Circle {
     return this.copy({ lineWidth });
   }
 
@@ -162,7 +162,7 @@ export class Circle extends Shape implements CircleProps {
     return undefined;
   }
 
-  changeTextConfig(textConfig: TextBoxConfig): Shape | undefined {
+  changeTextConfig(textConfig: TextBoxConfig): Circle {
     const amendedTextConfig = { ...this.textConfig, ...textConfig };
     return this.copy({ textConfig: amendedTextConfig });
   }
