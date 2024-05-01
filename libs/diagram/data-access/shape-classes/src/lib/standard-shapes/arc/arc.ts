@@ -256,18 +256,28 @@ export class Arc extends Shape implements ArcProps {
     if (fillColor && this.circleSegment) {
       c.fillStyle = fillColor;
       c.beginPath();
+      c.moveTo(x, y);
       c.arc(x, y, radius, (this.sAngle * Math.PI) / 180, (this.eAngle * Math.PI) / 180);
+      c.lineTo(x, y);
       c.fill();
     }
-
     const strokeColor = ColorMapRef.resolve(this.strokeStyle);
     if (strokeColor) {
       c.strokeStyle = strokeColor;
       c.lineWidth = lineWidth;
       c.setLineDash(scaledLineDash);
-      c.beginPath();
-      c.arc(x, y, radius, (this.sAngle * Math.PI) / 180, (this.eAngle * Math.PI) / 180);
-      c.stroke();
+      if (this.circleSegment) {
+        c.beginPath();
+        c.moveTo(x, y);
+        c.arc(x, y, radius, (this.sAngle * Math.PI) / 180, (this.eAngle * Math.PI) / 180);
+        c.lineTo(x, y);
+        c.arc(x, y, radius, (this.sAngle * Math.PI) / 180, (this.eAngle * Math.PI) / 180);
+        c.stroke();
+      } else {
+        c.beginPath();
+        c.arc(x, y, radius, (this.sAngle * Math.PI) / 180, (this.eAngle * Math.PI) / 180);
+        c.stroke();
+      }
     }
   }
 
