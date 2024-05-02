@@ -52,10 +52,13 @@ export class InsertArcCommand {
                 x,
                 y,
                 radius: 15,
+                sAngle: 10,
+                eAngle: 230,
                 strokeStyle: lineColor,
                 fillStyle: fillColor,
                 lineDash,
                 lineWidth,
+                circleSegment: true,
               }),
             })
           );

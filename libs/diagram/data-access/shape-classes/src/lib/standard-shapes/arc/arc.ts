@@ -3,6 +3,7 @@ import {
   Connection,
   Shape,
   ShapeProps,
+  linkShapeArray,
 } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
 import {
@@ -14,6 +15,9 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
+import { Group } from '../../control-shapes/group';
+import { Handle } from '../../control-shapes/handle';
+import { NopReshaper } from '../../reshaper';
 
 export interface ArcProps extends ShapeProps {
   x: number;
@@ -173,9 +177,14 @@ export class Arc extends Shape implements ArcProps {
     c.restore();
   }
 
-  // TODO: Need to implement this
   drawShadow(s: CanvasRenderingContext2D, t: Transform): void {
-    return;
+    if (!this.visible) {
+      return;
+    }
+    const params = this.getParams(t);
+    s.save();
+    this.drawArcShadow(s, params, t);
+    s.restore();
   }
 
   getProps(): ArcProps {
@@ -200,9 +209,11 @@ export class Arc extends Shape implements ArcProps {
     } as ArcProps;
   }
 
-  // TODO: Need to implement this
   highLightFrame(shapes: Map<string, Shape>): Shape[] {
-    return [];
+    if (this.groupId && shapes) {
+      return Group.highlightTopFrame(this.groupId, shapes);
+    }
+    return this.arcHighlightHandles();
   }
 
   inspectorViewData(): ShapeInspectorData[] {
@@ -281,6 +292,29 @@ export class Arc extends Shape implements ArcProps {
     }
   }
 
+  private drawArcShadow(c: CanvasRenderingContext2D, params: DrawingParams, t: Transform) {
+    const { x, y } = params;
+    let { lineWidth, radius } = params;
+    lineWidth = Math.max(lineWidth, 2);
+    lineWidth += 5;
+    radius = Math.max(radius, 3);
+    const color = '#' + (+this.id).toString(16);
+    if (this.circleSegment) {
+      c.fillStyle = color;
+      c.beginPath();
+      c.moveTo(x, y);
+      c.arc(x, y, radius, (this.sAngle * Math.PI) / 180, (this.eAngle * Math.PI) / 180);
+      c.lineTo(x, y);
+      c.fill();
+    } else {
+      c.strokeStyle = color;
+      c.lineWidth = lineWidth;
+      c.beginPath();
+      c.arc(x, y, radius, (this.sAngle * Math.PI) / 180, (this.eAngle * Math.PI) / 180);
+      c.stroke();
+    }
+  }
+
   /**
    *
    * @param t - Current Page Window to Page Viewport transformation
@@ -293,5 +327,47 @@ export class Arc extends Shape implements ArcProps {
       radius: t.scaleFactor * this.radius,
       lineWidth: t.scaleFactor * this.lineWidth,
     };
+  }
+
+  private arcHighlightHandles(): Shape[] {
+    const aX = this.radius * Math.cos((this.sAngle * Math.PI) / 180) + this.x;
+    const aY = this.radius * Math.sin((this.sAngle * Math.PI) / 180) + this.y;
+    const bX = this.radius * Math.cos((this.eAngle * Math.PI) / 180) + this.x;
+    const bY = this.radius * Math.sin((this.eAngle * Math.PI) / 180) + this.y;
+    let controlFrame: Shape[] = [
+      new Handle({
+        id: Shape.generateId(),
+        x: aX,
+        y: aY,
+        fillStyle: { colorSet: 'standard', ref: '1' },
+        pxWidth: 9,
+        associatedShapeId: this.id,
+        reshaper: new NopReshaper(),
+      }),
+      new Handle({
+        id: Shape.generateId(),
+        x: bX,
+        y: bY,
+        fillStyle: { colorSet: 'standard', ref: '1' },
+        pxWidth: 9,
+        associatedShapeId: this.id,
+        reshaper: new NopReshaper(),
+      }),
+    ];
+    if (this.circleSegment) {
+      controlFrame.push(
+        new Handle({
+          id: Shape.generateId(),
+          x: this.x,
+          y: this.y,
+          fillStyle: { colorSet: 'standard', ref: '1' },
+          pxWidth: 9,
+          associatedShapeId: this.id,
+          reshaper: new NopReshaper(),
+        })
+      );
+    }
+    controlFrame = linkShapeArray(controlFrame);
+    return controlFrame;
   }
 }
