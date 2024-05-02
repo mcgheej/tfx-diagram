@@ -94,3 +94,29 @@ export const getRectSize = (r: Rect): Size => {
     height: r.height,
   };
 };
+
+/**
+ *
+ * @param r - source rectangle
+ * @param angle - angle to rotate clockwise
+ * @param origin - point to rotate around
+ * @returns
+ */
+export const rectRotate = (r: Rect, angle: number, origin: Point): Rect => {
+  if (angle === 0) {
+    return r;
+  }
+  const p1: Point = { x: r.x - origin.x, y: r.y - origin.y };
+  const p2: Point = { x: r.x + r.width - origin.x, y: r.y + r.height - origin.y };
+  const a = (angle * Math.PI) / 180;
+  return rectNormalised(
+    {
+      x: p1.x * Math.cos(a) - p1.y * Math.sin(a) + origin.x,
+      y: p1.y * Math.cos(a) + p1.x * Math.sin(a) + origin.y,
+    },
+    {
+      x: p2.x * Math.cos(a) - p2.y * Math.sin(a) + origin.x,
+      y: p2.y * Math.cos(a) + p2.x * Math.sin(a) + origin.y,
+    }
+  );
+};

@@ -57,3 +57,13 @@ the arc is the first shape on the page.
 ### Handle new shape on opening saved files
 
 In the shapes reducer the `SketchbookEffectsActions.openSuccess` action adds shapes from a saved file to the draw chain. This logic needs to create a shape of the correct type and there is a switch on `Shape.shapeType` to create the correct objects in the draw chain. Add code to handle Arc shapes here.
+
+### Add highlight arc
+
+When the user moves the mouse pointer over an unseleced arc shape then highlight the shape using non-interactive handles. If the arc has `circleSegment` enabled then this will show three circular handles at the end points of the arc and the centre of the arc circle. If `circleSegment` isn't enabled then circular handles are only displayed at the arc end points.
+
+### Add outline shape to arc
+
+The shape outline is used when the shape forms part of a multi-selection and when the shape is being moved (not reshaped). In this case the arc outline is the bounding rectangle for the arc. If the arc `circleSegment` property is true then the bounding box will include the whole segment, otherwise the bounding box simply contains the arc section itself.
+
+In order to calculate the arc bounding box some helper functions were added to the point helper functions set and the rect helper functions set.

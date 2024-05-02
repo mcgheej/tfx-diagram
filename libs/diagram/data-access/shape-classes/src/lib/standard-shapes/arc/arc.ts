@@ -17,7 +17,10 @@ import {
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Group } from '../../control-shapes/group';
 import { Handle } from '../../control-shapes/handle';
+import { LineOutline } from '../../control-shapes/line-outline';
+import { RectangleOutline } from '../../control-shapes/rectangle-outline';
 import { NopReshaper } from '../../reshaper';
+import { calcArcBoundingBox, getArcEndpoints } from './calc-arc-bounding-box';
 
 export interface ArcProps extends ShapeProps {
   x: number;
@@ -96,12 +99,7 @@ export class Arc extends Shape implements ArcProps {
    * @returns
    */
   boundingBox(): Rect {
-    return {
-      x: this.x - this.radius,
-      y: this.y - this.radius,
-      width: this.radius * 2,
-      height: this.radius * 2,
-    } as Rect;
+    return calcArcBoundingBox(this);
   }
 
   changeLineColor(lineColor: ColorRef): Arc {
@@ -231,9 +229,18 @@ export class Arc extends Shape implements ArcProps {
     });
   }
 
-  // TODO: Need to implement this
   outlineShapes(): Shape[] {
-    return [];
+    // return this.endpointHandles();
+    const b = calcArcBoundingBox(this);
+    return [
+      new RectangleOutline({
+        id: Shape.generateId(),
+        x: b.x,
+        y: b.y,
+        width: b.width,
+        height: b.height,
+      }),
+    ];
   }
 
   // TODO: Need to implement this
@@ -330,15 +337,12 @@ export class Arc extends Shape implements ArcProps {
   }
 
   private arcHighlightHandles(): Shape[] {
-    const aX = this.radius * Math.cos((this.sAngle * Math.PI) / 180) + this.x;
-    const aY = this.radius * Math.sin((this.sAngle * Math.PI) / 180) + this.y;
-    const bX = this.radius * Math.cos((this.eAngle * Math.PI) / 180) + this.x;
-    const bY = this.radius * Math.sin((this.eAngle * Math.PI) / 180) + this.y;
+    const { a, b } = getArcEndpoints(this.x, this.y, this.radius, this.sAngle, this.eAngle);
     let controlFrame: Shape[] = [
       new Handle({
         id: Shape.generateId(),
-        x: aX,
-        y: aY,
+        x: a.x,
+        y: a.y,
         fillStyle: { colorSet: 'standard', ref: '1' },
         pxWidth: 9,
         associatedShapeId: this.id,
@@ -346,8 +350,8 @@ export class Arc extends Shape implements ArcProps {
       }),
       new Handle({
         id: Shape.generateId(),
-        x: bX,
-        y: bY,
+        x: b.x,
+        y: b.y,
         fillStyle: { colorSet: 'standard', ref: '1' },
         pxWidth: 9,
         associatedShapeId: this.id,
@@ -364,6 +368,56 @@ export class Arc extends Shape implements ArcProps {
           pxWidth: 9,
           associatedShapeId: this.id,
           reshaper: new NopReshaper(),
+        })
+      );
+    }
+    controlFrame = linkShapeArray(controlFrame);
+    return controlFrame;
+  }
+
+  private endpointHandles(): Shape[] {
+    const { a, b } = getArcEndpoints(this.x, this.y, this.radius, this.sAngle, this.eAngle);
+    let controlFrame: Shape[] = [
+      new Handle({
+        id: Shape.generateId(),
+        x: a.x,
+        y: a.y,
+        pxWidth: 9,
+        handleStyle: 'square',
+        associatedShapeId: this.id,
+        solid: true,
+        reshaper: new NopReshaper(),
+      }),
+      new Handle({
+        id: Shape.generateId(),
+        x: b.x,
+        y: b.y,
+        pxWidth: 9,
+        handleStyle: 'square',
+        associatedShapeId: this.id,
+        solid: true,
+        reshaper: new NopReshaper(),
+      }),
+    ];
+    if (this.circleSegment) {
+      controlFrame.push(
+        new Handle({
+          id: Shape.generateId(),
+          x: this.x,
+          y: this.y,
+          pxWidth: 9,
+          handleStyle: 'square',
+          associatedShapeId: this.id,
+          solid: true,
+          reshaper: new NopReshaper(),
+        }),
+        new LineOutline({
+          id: Shape.generateId(),
+          controlPoints: [
+            { x: a.x, y: a.y },
+            { x: this.x, y: this.y },
+            { x: b.x, y: b.y },
+          ],
         })
       );
     }

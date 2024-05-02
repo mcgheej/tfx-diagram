@@ -1,5 +1,6 @@
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
+import { EMPTY_RECT } from './rect-functions';
 
 export function pointAdd(a: Point, b: Point): Point {
   return {
@@ -50,4 +51,34 @@ export function pointConsole(p: Point, msg: string) {
   } else {
     console.log(`x: ${p.x}, y: ${p.y}`);
   }
+}
+
+export function pointsBoundingBox(points: Point[]): Rect {
+  if (points.length < 1) {
+    return EMPTY_RECT;
+  }
+  let minx = points[0].x;
+  let maxx = minx;
+  let miny = points[0].y;
+  let maxy = miny;
+  points.map((p) => {
+    if (p.x < minx) {
+      minx = p.x;
+    }
+    if (p.x > maxx) {
+      maxx = p.x;
+    }
+    if (p.y < miny) {
+      miny = p.y;
+    }
+    if (p.y > maxy) {
+      maxy = p.y;
+    }
+  });
+  return {
+    x: minx,
+    y: miny,
+    width: maxx - minx,
+    height: maxy - miny,
+  };
 }
