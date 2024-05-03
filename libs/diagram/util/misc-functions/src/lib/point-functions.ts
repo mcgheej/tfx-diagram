@@ -2,6 +2,13 @@ import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-type
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { EMPTY_RECT } from './rect-functions';
 
+export function pointFromPolarCoords(r: number, a: number): Point {
+  return {
+    x: r * Math.cos((a * Math.PI) / 180),
+    y: r * Math.sin((a * Math.PI) / 180),
+  };
+}
+
 export function pointAdd(a: Point, b: Point): Point {
   return {
     x: a.x + b.x,

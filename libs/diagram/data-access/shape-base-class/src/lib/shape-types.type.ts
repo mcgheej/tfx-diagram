@@ -7,5 +7,6 @@ export type ShapeTypes =
   | 'arc'
   | 'handle'
   | 'lineOutline'
+  | 'arcOutline'
   | 'rectangleOutline'
   | 'group';

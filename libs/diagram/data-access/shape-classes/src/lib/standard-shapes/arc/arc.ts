@@ -15,9 +15,9 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
+import { arcSelectFrame } from '../../control-shapes/frames/arc-select-frame';
 import { Group } from '../../control-shapes/group';
 import { Handle } from '../../control-shapes/handle';
-import { LineOutline } from '../../control-shapes/line-outline';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline';
 import { NopReshaper } from '../../reshaper';
 import { calcArcBoundingBox, getArcEndpoints } from './calc-arc-bounding-box';
@@ -37,7 +37,7 @@ export interface ArcProps extends ShapeProps {
 
 export type ArcConfig = PartPartial<Omit<ArcProps, 'shapeType'>, 'id'>;
 
-const arcDefaults: Omit<ArcProps, keyof ShapeProps> = {
+export const arcDefaults: Omit<ArcProps, keyof ShapeProps> = {
   x: 50,
   y: 50,
   radius: 25,
@@ -69,8 +69,8 @@ export class Arc extends Shape implements ArcProps {
     this.x = config.x ?? arcDefaults.x;
     this.y = config.y ?? arcDefaults.y;
     this.radius = config.radius ?? arcDefaults.radius;
-    this.sAngle = config.sAngle ?? arcDefaults.sAngle;
-    this.eAngle = config.eAngle ?? arcDefaults.eAngle;
+    this.sAngle = (config.sAngle ?? arcDefaults.sAngle) % 360;
+    this.eAngle = (config.eAngle ?? arcDefaults.eAngle) % 360;
     this.circleSegment = config.circleSegment ?? arcDefaults.circleSegment;
     this.lineDash = config.lineDash ?? arcDefaults.lineDash;
     this.lineWidth = config.lineWidth ?? arcDefaults.lineWidth;
@@ -93,11 +93,6 @@ export class Arc extends Shape implements ArcProps {
     return undefined;
   }
 
-  /**
-   * TODO: Implement algorithm to get bounding box for circle segment
-   *
-   * @returns
-   */
   boundingBox(): Rect {
     return calcArcBoundingBox(this);
   }
@@ -150,8 +145,8 @@ export class Arc extends Shape implements ArcProps {
       x: a.x ?? this.x,
       y: a.y ?? this.y,
       radius: a.radius ?? this.radius,
-      sAngle: a.sAngle ?? this.sAngle,
-      eAngle: a.eAngle ?? this.eAngle,
+      sAngle: (a.sAngle ?? this.sAngle) % 360,
+      eAngle: (a.eAngle ?? this.eAngle) % 360,
       circleSegment: a.circleSegment ?? this.circleSegment,
       strokeStyle: a.strokeStyle ?? this.strokeStyle,
       fillStyle: a.fillStyle ?? this.fillStyle,
@@ -248,16 +243,16 @@ export class Arc extends Shape implements ArcProps {
     return this.copy({});
   }
 
-  // TODO: Need to implement this
   selectFrame(shapes: Map<string, Shape>): Shape[] {
-    return [];
+    if (this.groupId && shapes) {
+      return Group.selectTopFrame(this.groupId, shapes);
+    }
+    return arcSelectFrame(this);
   }
 
   text(): string {
     return '';
   }
-
-  // abstract text(): string;
 
   private drawArc(c: CanvasRenderingContext2D, params: DrawingParams, t: Transform) {
     const { x, y } = params;
@@ -368,56 +363,6 @@ export class Arc extends Shape implements ArcProps {
           pxWidth: 9,
           associatedShapeId: this.id,
           reshaper: new NopReshaper(),
-        })
-      );
-    }
-    controlFrame = linkShapeArray(controlFrame);
-    return controlFrame;
-  }
-
-  private endpointHandles(): Shape[] {
-    const { a, b } = getArcEndpoints(this.x, this.y, this.radius, this.sAngle, this.eAngle);
-    let controlFrame: Shape[] = [
-      new Handle({
-        id: Shape.generateId(),
-        x: a.x,
-        y: a.y,
-        pxWidth: 9,
-        handleStyle: 'square',
-        associatedShapeId: this.id,
-        solid: true,
-        reshaper: new NopReshaper(),
-      }),
-      new Handle({
-        id: Shape.generateId(),
-        x: b.x,
-        y: b.y,
-        pxWidth: 9,
-        handleStyle: 'square',
-        associatedShapeId: this.id,
-        solid: true,
-        reshaper: new NopReshaper(),
-      }),
-    ];
-    if (this.circleSegment) {
-      controlFrame.push(
-        new Handle({
-          id: Shape.generateId(),
-          x: this.x,
-          y: this.y,
-          pxWidth: 9,
-          handleStyle: 'square',
-          associatedShapeId: this.id,
-          solid: true,
-          reshaper: new NopReshaper(),
-        }),
-        new LineOutline({
-          id: Shape.generateId(),
-          controlPoints: [
-            { x: a.x, y: a.y },
-            { x: this.x, y: this.y },
-            { x: b.x, y: b.y },
-          ],
         })
       );
     }

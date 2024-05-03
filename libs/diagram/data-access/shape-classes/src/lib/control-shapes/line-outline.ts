@@ -7,6 +7,7 @@ import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
 import { Endpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
 import {
   pointAdd,
+  pointTransform,
   rectInflate,
   rectNormalised,
   rectUnionArray,
@@ -18,7 +19,7 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { LineConfig, lineDefaults, LineProps } from '../standard-shapes/line/line';
+import { LineConfig, LineProps, lineDefaults } from '../standard-shapes/line/line';
 import { DEFAULT_OUTLINE_COLOUR } from '../types';
 
 type DrawingParams = Pick<LineProps, 'controlPoints'>;
@@ -32,7 +33,7 @@ export class LineOutline extends ControlShape implements LineProps {
   finishEndpoint: Endpoint | null;
 
   constructor(config: LineConfig) {
-    super({ ...config, shapeType: 'line', cursor: 'move' });
+    super({ ...config, shapeType: 'lineOutline', cursor: 'move' });
     this.controlPoints = this.validateControlPoints(config);
     this.lineWidth = 0;
     this.lineDash = [];
@@ -157,9 +158,7 @@ export class LineOutline extends ControlShape implements LineProps {
 
   move(shiftDelta: Point): Shape {
     const cp = this.controlPoints.map((p) => pointAdd(p, shiftDelta));
-    return this.copy({
-      controlPoints: cp,
-    });
+    return this.copy({ controlPoints: cp });
   }
 
   outlineShapes(): Shape[] {
@@ -202,10 +201,7 @@ export class LineOutline extends ControlShape implements LineProps {
 
   private getParams(t: Transform): DrawingParams {
     const cp = this.controlPoints.map((p) => {
-      return {
-        x: t.scaleFactor * (p.x + t.transX),
-        y: t.scaleFactor * (p.y + t.transY),
-      };
+      return pointTransform(p, t);
     });
     return {
       controlPoints: cp,

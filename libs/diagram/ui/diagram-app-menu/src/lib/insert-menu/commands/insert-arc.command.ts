@@ -58,7 +58,7 @@ export class InsertArcCommand {
                 fillStyle: fillColor,
                 lineDash,
                 lineWidth,
-                circleSegment: true,
+                // circleSegment: true,
               }),
             })
           );
