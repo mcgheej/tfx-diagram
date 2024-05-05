@@ -49,6 +49,6 @@ export abstract class ArcReshaper extends Reshaper {
   }
 
   modifiedFrameForDrag(controlFrame: Shape[]): Shape[] {
-    return controlFrame.map((shape) => shape.copy({ visible: false }));
+    return controlFrame;
   }
 }
