@@ -9,3 +9,5 @@ export const MIN_CIRCLE_RADIUS = 5;
 export const MIN_RECTANGLE_DIMENSION = 5;
 
 export const PX_BOUNDARY_DETECTION_THRESHOLD = 25;
+
+export const ARC_HANDLE_LENGTH = 5;

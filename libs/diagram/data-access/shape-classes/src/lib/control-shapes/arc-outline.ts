@@ -110,6 +110,7 @@ export class ArcOutline extends ControlShape implements ArcProps {
       fillStyle: this.fillStyle,
       lineDash: this.lineDash,
       lineWidth: this.lineWidth,
+      visible: a.visible ?? this.visible,
     } as ArcProps);
     return s;
   }
@@ -119,6 +120,9 @@ export class ArcOutline extends ControlShape implements ArcProps {
   }
 
   draw(c: CanvasRenderingContext2D, t: Transform): void {
+    if (!this.visible) {
+      return;
+    }
     const params = this.getParams(t);
     c.save();
     this.drawArc(c, params, t);

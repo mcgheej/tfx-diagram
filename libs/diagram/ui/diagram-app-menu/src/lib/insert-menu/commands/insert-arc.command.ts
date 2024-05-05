@@ -45,50 +45,50 @@ export class InsertArcCommand {
           const w = pageWindow as Rect;
           const x = Math.round((w.x + w.width / 2) / 5) * 5;
           const y = Math.round((w.y + w.height / 2) / 5) * 5;
-          this.store.dispatch(
-            InsertMenuActions.insertArc({
-              shape: new Arc({
-                id: Shape.generateId(),
-                x,
-                y,
-                radius: 15,
-                sAngle: 30,
-                eAngle: 15,
-                strokeStyle: lineColor,
-                fillStyle: fillColor,
-                lineDash,
-                lineWidth,
-                // circleSegment: true,
-              }),
-            })
-          );
-          //   const a = [30, 30, 30, 30, 60];
-          //   const b = [60, 120, 200, 310, 20];
-          //   let q = 25;
-          //   for (let i = 0; i < 4; i++) {
-          //     let p = 25;
-          //     for (let j = 0; j < 5; j++) {
-          //       this.store.dispatch(
-          //         InsertMenuActions.insertArc({
-          //           shape: new Arc({
-          //             id: Shape.generateId(),
-          //             x: p,
-          //             y: q,
-          //             radius: 15,
-          //             sAngle: a[j] + 90 * i,
-          //             eAngle: b[j] + 90 * i,
-          //             strokeStyle: lineColor,
-          //             fillStyle: fillColor,
-          //             lineDash,
-          //             lineWidth,
-          //             // circleSegment: true,
-          //           }),
-          //         })
-          //       );
-          //       p += 35;
-          //     }
-          //     q += 35;
-          //   }
+          // this.store.dispatch(
+          //   InsertMenuActions.insertArc({
+          //     shape: new Arc({
+          //       id: Shape.generateId(),
+          //       x,
+          //       y,
+          //       radius: 15,
+          //       sAngle: 30,
+          //       eAngle: 15,
+          //       strokeStyle: lineColor,
+          //       fillStyle: fillColor,
+          //       lineDash,
+          //       lineWidth,
+          //       // circleSegment: true,
+          //     }),
+          //   })
+          // );
+          const a = [30, 30, 30, 30, 60];
+          const b = [60, 120, 200, 310, 20];
+          let q = 25;
+          for (let i = 0; i < 4; i++) {
+            let p = 25;
+            for (let j = 0; j < 5; j++) {
+              this.store.dispatch(
+                InsertMenuActions.insertArc({
+                  shape: new Arc({
+                    id: Shape.generateId(),
+                    x: p,
+                    y: q,
+                    radius: 15,
+                    sAngle: a[j] + 90 * i,
+                    eAngle: b[j] + 90 * i,
+                    strokeStyle: lineColor,
+                    fillStyle: fillColor,
+                    lineDash,
+                    lineWidth,
+                    circleSegment: true,
+                  }),
+                })
+              );
+              p += 35;
+            }
+            q += 35;
+          }
         });
     };
   }

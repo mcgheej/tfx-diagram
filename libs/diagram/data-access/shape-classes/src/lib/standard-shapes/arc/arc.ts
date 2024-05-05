@@ -214,6 +214,8 @@ export class Arc extends Shape implements ArcProps {
       { propName: 'x', value: this.x.toFixed(2) },
       { propName: 'y', value: this.y.toFixed(2) },
       { propName: 'radius', value: this.radius.toFixed(2) },
+      { propName: 'sAngle', value: this.sAngle.toFixed(2) },
+      { propName: 'eAngle', value: this.eAngle.toFixed(2) },
     ];
   }
 

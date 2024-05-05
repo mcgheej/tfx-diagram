@@ -1,11 +1,28 @@
-import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
+import { Point, PolarPoint, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { EMPTY_RECT } from './rect-functions';
 
-export function pointFromPolarCoords(r: number, a: number): Point {
+export function pointFromPolarPoint({ r, a }: PolarPoint): Point {
   return {
     x: r * Math.cos((a * Math.PI) / 180),
     y: r * Math.sin((a * Math.PI) / 180),
+  };
+}
+
+/**
+ *
+ * @param param0 - cartesian coords point
+ * @returns - polar coords point
+ *
+ * The Math.atan2 function returns an angle between 180 <= a > -180
+ * where 180 degrees is at 12 o'clock and decreases clockwise. We
+ * want the polar angle a to range clockwise from 0 <= a < 360 and
+ * increases clockwise.
+ */
+export function polarPointFromPoint({ x, y }: Point): PolarPoint {
+  return {
+    r: Math.sqrt(x ** 2 + y ** 2),
+    a: (810 - (Math.atan2(x, y) * 180) / Math.PI) % 360,
   };
 }
 
@@ -88,4 +105,17 @@ export function pointsBoundingBox(points: Point[]): Rect {
     width: maxx - minx,
     height: maxy - miny,
   };
+}
+
+/**
+ * Calculate the distance between two points
+ */
+export function pointsDistance(p1: Point, p2: Point): number {
+  if (p1.x === p2.x) {
+    return Math.abs(p1.y - p2.y);
+  }
+  if (p1.y === p2.y) {
+    return Math.abs(p1.x - p2.x);
+  }
+  return Math.sqrt((p1.x - p2.x) ** 2 + (p1.y - p2.y) ** 2);
 }

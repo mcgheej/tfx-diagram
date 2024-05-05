@@ -1,7 +1,7 @@
 import {
   EMPTY_RECT,
   pointAdd,
-  pointFromPolarCoords,
+  pointFromPolarPoint,
   pointsBoundingBox,
   rectRotate,
 } from '@tfx-diagram/diagram/util/misc-functions';
@@ -91,7 +91,7 @@ export function getArcEndpoints(
   eAngle: number
 ): { a: Point; b: Point } {
   return {
-    a: pointAdd({ x, y }, pointFromPolarCoords(radius, sAngle)),
-    b: pointAdd({ x, y }, pointFromPolarCoords(radius, eAngle)),
+    a: pointAdd({ x, y }, pointFromPolarPoint({ r: radius, a: sAngle })),
+    b: pointAdd({ x, y }, pointFromPolarPoint({ r: radius, a: eAngle })),
   };
 }

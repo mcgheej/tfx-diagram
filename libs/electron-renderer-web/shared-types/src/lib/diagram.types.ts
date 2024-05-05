@@ -51,6 +51,18 @@ export interface Point {
   y: number;
 }
 
+/**
+ * Defines a 2D point using polar coordinates.
+ *
+ * r - distance from origin to point
+ * a - angle of line connecting origin to point in
+ *     degress, clockwise from 3 o'clock
+ */
+export interface PolarPoint {
+  r: number;
+  a: number;
+}
+
 export interface Size {
   width: number;
   height: number;
