@@ -1,8 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
-import {
-  MatDialog,
-  MatDialogRef,
-} from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { SketchbookViewComponentActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import {
@@ -22,11 +19,11 @@ import { ZoomControlService, ZoomSelectType } from '@tfx-diagram/diagram/ui/zoom
 import { MouseWheelService } from '@tfx-diagram/diagram/util/mouse-wheel';
 import { INITIAL_ZOOM_FACTOR, Page } from '@tfx-diagram/electron-renderer-web/shared-types';
 import {
+  Observable,
+  Subject,
   combineLatest,
   filter,
   map,
-  Observable,
-  Subject,
   takeUntil,
   withLatestFrom,
 } from 'rxjs';
@@ -52,7 +49,7 @@ export class SketchbookViewComponent implements OnInit, OnDestroy {
         status,
         showRulers,
         showMousePosition,
-        { coords: mousePosition, format },
+        { coords: mousePosition, format, units },
         page,
         pageData,
         showShapeInspector,
@@ -62,6 +59,7 @@ export class SketchbookViewComponent implements OnInit, OnDestroy {
           showMousePosition,
           mousePosition,
           format,
+          units,
           showControls: status === 'modified' || status === 'saved',
           zoomFactor: page ? page.zoomFactor : INITIAL_ZOOM_FACTOR,
           pageData,

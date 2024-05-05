@@ -15,11 +15,13 @@ export const selectMousePositionAndFormat = createSelector(
       return {
         coords: inverseTransform(viewportCoords, transform),
         format: '1.1-1',
+        units: 'mm',
       };
     }
     return {
       coords: viewportCoords,
       format: '1.0-0',
+      units: 'px',
     };
   }
 );

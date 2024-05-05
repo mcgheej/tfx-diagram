@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="coords">
-    ({{ coords.x | number: coordsFormat }}, {{ coords.y | number: coordsFormat }})
+  <div class="coords no-text-select" (click)="openContextMenu()" #mousePosition>
+    ({{ coords.x | number: coordsFormat }}, {{ coords.y | number: coordsFormat }}) {{ units }}
   </div>
 </div>
