@@ -18,6 +18,9 @@
       "@tfx-diagram/diagram-data-access-shape-base-class": [
         "libs/diagram/data-access/shape-base-class/src/index.ts"
       ],
+      "@tfx-diagram/diagram-data-access-shape-props": [
+        "libs/diagram/data-access/shape-props/src/index.ts"
+      ],
       "@tfx-diagram/diagram-data-access-store-actions": [
         "libs/diagram/data-access/store/actions/src/index.ts"
       ],
