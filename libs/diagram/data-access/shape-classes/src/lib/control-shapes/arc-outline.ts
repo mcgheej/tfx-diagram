@@ -1,15 +1,6 @@
-import {
-  Connection,
-  ControlShape,
-  Shape,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { ControlShape, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
-import {
-  ColorRef,
-  Point,
-  ShapeInspectorData,
-  Transform,
-} from '@tfx-diagram/electron-renderer-web/shared-types';
+import { ColorRef, Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { ArcConfig, ArcProps, arcDefaults } from '../standard-shapes/arc/arc';
 import { calcArcBoundingBox } from '../standard-shapes/arc/calc-arc-bounding-box';
@@ -50,40 +41,8 @@ export class ArcOutline extends ControlShape implements ArcProps {
     };
   }
 
-  attachBoundary(): Connection | undefined {
-    return undefined;
-  }
-
   boundingBox(): Rect {
     return calcArcBoundingBox(this);
-  }
-
-  changeLineColor(): undefined {
-    return undefined;
-  }
-
-  changeFillColor(): undefined {
-    return undefined;
-  }
-
-  changeLineDash(): Shape | undefined {
-    return undefined;
-  }
-
-  changeLineWidth(): Shape | undefined {
-    return undefined;
-  }
-
-  changeStartEndpoint(): Shape | undefined {
-    return undefined;
-  }
-
-  changeFinishEndpoint(): Shape | undefined {
-    return undefined;
-  }
-
-  changeTextConfig(): Shape | undefined {
-    return undefined;
   }
 
   colors(): { lineColor: ColorRef; fillColor: ColorRef } {
@@ -125,12 +84,9 @@ export class ArcOutline extends ControlShape implements ArcProps {
     }
     const params = this.getParams(t);
     c.save();
-    this.drawArc(c, params, t);
+    this.drawArc(c, params);
     c.restore();
   }
-
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  drawShadow(): void {}
 
   getProps(): ArcProps {
     return {
@@ -154,14 +110,6 @@ export class ArcOutline extends ControlShape implements ArcProps {
     } as ArcProps;
   }
 
-  highLightFrame(): Shape[] {
-    return [];
-  }
-
-  inspectorViewData(): ShapeInspectorData[] {
-    return [];
-  }
-
   move(shiftDelta: Point): Shape {
     return this.copy({
       x: this.x + shiftDelta.x,
@@ -169,19 +117,7 @@ export class ArcOutline extends ControlShape implements ArcProps {
     });
   }
 
-  outlineShapes(): Shape[] {
-    return [];
-  }
-
-  selectFrame(): Shape[] {
-    return [];
-  }
-
-  text(): string {
-    return '';
-  }
-
-  private drawArc(c: CanvasRenderingContext2D, params: DrawingParams, t: Transform) {
+  private drawArc(c: CanvasRenderingContext2D, params: DrawingParams) {
     const { x, y } = params;
     let { radius } = params;
     radius = Math.max(radius, 3);

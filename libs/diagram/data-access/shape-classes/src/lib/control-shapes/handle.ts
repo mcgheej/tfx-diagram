@@ -1,5 +1,4 @@
 import {
-  Connection,
   ControlShape,
   Shape,
   ShapeProps,
@@ -9,7 +8,6 @@ import {
   ColorRef,
   PartPartial,
   Point,
-  ShapeInspectorData,
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
@@ -86,10 +84,6 @@ export class Handle extends ControlShape implements HandleProps {
     };
   }
 
-  attachBoundary(): Connection | undefined {
-    return undefined;
-  }
-
   boundingBox(): Rect {
     return {
       x: this.x - this.pxWidth / 2,
@@ -97,34 +91,6 @@ export class Handle extends ControlShape implements HandleProps {
       width: this.pxWidth,
       height: this.pxWidth,
     };
-  }
-
-  changeLineColor(): undefined {
-    return undefined;
-  }
-
-  changeFillColor(): undefined {
-    return undefined;
-  }
-
-  changeLineDash(): Shape | undefined {
-    return undefined;
-  }
-
-  changeLineWidth(): Shape | undefined {
-    return undefined;
-  }
-
-  changeStartEndpoint(): Shape | undefined {
-    return undefined;
-  }
-
-  changeFinishEndpoint(): Shape | undefined {
-    return undefined;
-  }
-
-  changeTextConfig(): Shape | undefined {
-    return undefined;
   }
 
   colors(): { lineColor: ColorRef; fillColor: ColorRef } {
@@ -178,7 +144,7 @@ export class Handle extends ControlShape implements HandleProps {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-empty-function
-  drawShadow(s: CanvasRenderingContext2D, t: Transform): void {
+  override drawShadow(s: CanvasRenderingContext2D, t: Transform): void {
     if (!this.visible) {
       return;
     }
@@ -214,31 +180,11 @@ export class Handle extends ControlShape implements HandleProps {
     };
   }
 
-  highLightFrame(): Shape[] {
-    return [];
-  }
-
-  inspectorViewData(): ShapeInspectorData[] {
-    return [];
-  }
-
   move(shiftDelta: Point): Shape {
     return this.copy({
       x: this.x + shiftDelta.x,
       y: this.y + shiftDelta.y,
     });
-  }
-
-  outlineShapes(): Shape[] {
-    return [];
-  }
-
-  selectFrame(): Shape[] {
-    return [];
-  }
-
-  text(): string {
-    return '';
   }
 
   private drawSquareHandle(c: CanvasRenderingContext2D, { x, y }: DrawingParams) {

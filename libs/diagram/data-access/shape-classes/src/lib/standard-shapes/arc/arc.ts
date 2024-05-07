@@ -20,6 +20,7 @@ import { Group } from '../../control-shapes/group';
 import { Handle } from '../../control-shapes/handle';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline';
 import { NopReshaper } from '../../reshaper';
+import { AllTypes, SharedProperties } from '../../types/all-shapes';
 import { calcArcBoundingBox, getArcEndpoints } from './calc-arc-bounding-box';
 
 export interface ArcProps extends ShapeProps {
@@ -132,8 +133,8 @@ export class Arc extends Shape implements ArcProps {
     };
   }
 
-  copy(amendments: Partial<ArcProps>): Arc {
-    const a = amendments;
+  copy(amendments: Partial<AllTypes>): Arc {
+    const a = amendments as Partial<SharedProperties<ArcProps, AllTypes>>;
     const s = new Arc({
       id: a.id ?? this.id,
       prevShapeId: a.prevShapeId ?? this.prevShapeId,
@@ -155,6 +156,29 @@ export class Arc extends Shape implements ArcProps {
     } as ArcProps);
     return s;
   }
+  // copy(amendments: Partial<ArcProps>): Arc {
+  //   const a = amendments;
+  //   const s = new Arc({
+  //     id: a.id ?? this.id,
+  //     prevShapeId: a.prevShapeId ?? this.prevShapeId,
+  //     nextShapeId: a.nextShapeId ?? this.nextShapeId,
+  //     cursor: a.cursor ?? this.cursor,
+  //     groupId: a.groupId ?? this.groupId,
+  //     selectable: a.selectable ?? this.selectable,
+  //     visible: a.visible ?? this.visible,
+  //     x: a.x ?? this.x,
+  //     y: a.y ?? this.y,
+  //     radius: a.radius ?? this.radius,
+  //     sAngle: (a.sAngle ?? this.sAngle) % 360,
+  //     eAngle: (a.eAngle ?? this.eAngle) % 360,
+  //     circleSegment: a.circleSegment ?? this.circleSegment,
+  //     strokeStyle: a.strokeStyle ?? this.strokeStyle,
+  //     fillStyle: a.fillStyle ?? this.fillStyle,
+  //     lineDash: a.lineDash ?? this.lineDash,
+  //     lineWidth: a.lineWidth ?? this.lineWidth,
+  //   } as ArcProps);
+  //   return s;
+  // }
 
   dragOffset(mousePagePos: Point): Point {
     return {
@@ -241,7 +265,7 @@ export class Arc extends Shape implements ArcProps {
     ];
   }
 
-  // TODO: Need to implement this
+  // Makes no sense to resize an arc to a box so leave unchanged.
   resizeToBox(r: Rect, resizeOption: ShapeResizeOptions): Arc {
     return this.copy({});
   }

@@ -1,16 +1,11 @@
 import {
-  Connection,
+  ControlShape,
   getShapesArrayFromIdArray,
   Shape,
   ShapeProps,
 } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { rectUnionArray } from '@tfx-diagram/diagram/util/misc-functions';
-import {
-  ColorRef,
-  PartPartial,
-  Point,
-  ShapeInspectorData,
-} from '@tfx-diagram/electron-renderer-web/shared-types';
+import { ColorRef, PartPartial, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { groupHighlightFrame } from './frames/group-highlight-frame';
 import { groupSelectFrame } from './frames/group-select-frame';
@@ -25,7 +20,7 @@ const groupDefaults: Omit<GroupProps, keyof ShapeProps> = {
   groupMemberIds: [],
 };
 
-export class Group extends Shape implements GroupProps {
+export class Group extends ControlShape implements GroupProps {
   // static members
 
   static highlightTopFrame(id: string, shapes: Map<string, Shape>): Shape[] {
@@ -84,39 +79,18 @@ export class Group extends Shape implements GroupProps {
     }
     return { x: 0, y: 0 };
   }
-  attachBoundary(): Connection | undefined {
-    return undefined;
-  }
+
   boundingBox(shapes: Map<string, Shape> = new Map()): Rect {
     return getGroupBoundingRect(this, shapes);
   }
-  changeLineColor(): Shape | undefined {
-    return undefined;
-  }
-  changeFillColor(): Shape | undefined {
-    return undefined;
-  }
-  changeLineDash(): Shape | undefined {
-    return undefined;
-  }
-  changeLineWidth(): Shape | undefined {
-    return undefined;
-  }
-  changeStartEndpoint(): Shape | undefined {
-    return undefined;
-  }
-  changeFinishEndpoint(): Shape | undefined {
-    return undefined;
-  }
-  changeTextConfig(): Shape | undefined {
-    return undefined;
-  }
+
   colors(): { lineColor: ColorRef; fillColor: ColorRef } {
     return {
       lineColor: { colorSet: 'empty', ref: '' },
       fillColor: { colorSet: 'empty', ref: '' },
     };
   }
+
   copy(amendments: Partial<GroupProps>): Group {
     const a = amendments;
     const g = new Group({
@@ -131,6 +105,7 @@ export class Group extends Shape implements GroupProps {
     });
     return g;
   }
+
   dragOffset(mousePagePos: Point, shapes: Map<string, Shape>): Point {
     const drawableShapes = getDrawableShapes(this, shapes);
     if (drawableShapes.length > 1) {
@@ -138,12 +113,11 @@ export class Group extends Shape implements GroupProps {
     }
     return { x: mousePagePos.x, y: mousePagePos.y };
   }
+
   draw(): void {
     return;
   }
-  drawShadow(): void {
-    return;
-  }
+
   getProps(): GroupProps {
     return {
       id: this.id,
@@ -158,32 +132,24 @@ export class Group extends Shape implements GroupProps {
     };
   }
 
-  highLightFrame(shapes: Map<string, Shape>): Shape[] {
+  override highLightFrame(shapes: Map<string, Shape>): Shape[] {
     return groupHighlightFrame(this, shapes, this.boundingBox(shapes));
-  }
-
-  inspectorViewData(): ShapeInspectorData[] {
-    return [];
   }
 
   move(): Shape {
     return this;
   }
-  outlineShapes(shapes: Map<string, Shape>): Shape[] {
+
+  override outlineShapes(shapes: Map<string, Shape>): Shape[] {
     return this.highLightFrame(shapes);
   }
-  resizeToBox(): Shape {
-    return this;
-  }
-  selectFrame(shapes: Map<string, Shape>): Shape[] {
+
+  override selectFrame(shapes: Map<string, Shape>): Shape[] {
     const g = getTopLevelGroup(this, shapes);
     if (g) {
       return groupSelectFrame(g.boundingBox(shapes));
     }
     return [];
-  }
-  text(): string {
-    return '';
   }
 }
 

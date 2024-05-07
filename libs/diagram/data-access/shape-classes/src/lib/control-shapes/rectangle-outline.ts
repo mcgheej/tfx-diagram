@@ -1,21 +1,16 @@
-import {
-  Connection,
-  ControlShape,
-  Shape,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { ControlShape, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
 import {
   ColorRef,
   Point,
-  ShapeInspectorData,
   TextBoxConfig,
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import {
   RectangleConfig,
-  rectangleDefaults,
   RectangleProps,
+  rectangleDefaults,
 } from '../standard-shapes/rectangle/rectangle';
 import { DEFAULT_OUTLINE_COLOUR } from '../types';
 
@@ -52,10 +47,6 @@ export class RectangleOutline extends ControlShape implements RectangleProps {
     };
   }
 
-  attachBoundary(): Connection | undefined {
-    return undefined;
-  }
-
   boundingBox(): Rect {
     return {
       x: this.x,
@@ -63,34 +54,6 @@ export class RectangleOutline extends ControlShape implements RectangleProps {
       width: this.width,
       height: this.height,
     } as Rect;
-  }
-
-  changeLineColor(): undefined {
-    return undefined;
-  }
-
-  changeFillColor(): undefined {
-    return undefined;
-  }
-
-  changeLineDash(): Shape | undefined {
-    return undefined;
-  }
-
-  changeLineWidth(): Shape | undefined {
-    return undefined;
-  }
-
-  changeStartEndpoint(): Shape | undefined {
-    return undefined;
-  }
-
-  changeFinishEndpoint(): Shape | undefined {
-    return undefined;
-  }
-
-  changeTextConfig(): Shape | undefined {
-    return undefined;
   }
 
   colors(): { lineColor: ColorRef; fillColor: ColorRef } {
@@ -136,9 +99,6 @@ export class RectangleOutline extends ControlShape implements RectangleProps {
     c.restore();
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  drawShadow(): void {}
-
   getProps(): RectangleProps {
     return {
       id: this.id,
@@ -161,31 +121,11 @@ export class RectangleOutline extends ControlShape implements RectangleProps {
     };
   }
 
-  highLightFrame(): Shape[] {
-    return [];
-  }
-
-  inspectorViewData(): ShapeInspectorData[] {
-    return [];
-  }
-
   move(shiftDelta: Point): Shape {
     return this.copy({
       x: this.x + shiftDelta.x,
       y: this.y + shiftDelta.y,
     });
-  }
-
-  outlineShapes(): Shape[] {
-    return [];
-  }
-
-  selectFrame(): Shape[] {
-    return [];
-  }
-
-  text(): string {
-    return '';
   }
 
   private drawRectangle(c: CanvasRenderingContext2D, params: DrawingParams) {

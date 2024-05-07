@@ -1,8 +1,4 @@
-import {
-  Connection,
-  ControlShape,
-  Shape,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { ControlShape, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
 import { Endpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
 import {
@@ -12,12 +8,7 @@ import {
   rectNormalised,
   rectUnionArray,
 } from '@tfx-diagram/diagram/util/misc-functions';
-import {
-  ColorRef,
-  Point,
-  ShapeInspectorData,
-  Transform,
-} from '@tfx-diagram/electron-renderer-web/shared-types';
+import { ColorRef, Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { LineConfig, LineProps, lineDefaults } from '../standard-shapes/line/line';
 import { DEFAULT_OUTLINE_COLOUR } from '../types';
@@ -50,40 +41,8 @@ export class LineOutline extends ControlShape implements LineProps {
     };
   }
 
-  attachBoundary(): Connection | undefined {
-    return undefined;
-  }
-
   boundingBox(): Rect {
     return rectInflate(this.calcBoundingBox(this.controlPoints), this.lineWidth / 2);
-  }
-
-  changeLineColor(): undefined {
-    return undefined;
-  }
-
-  changeFillColor(): undefined {
-    return undefined;
-  }
-
-  changeLineDash(): Shape | undefined {
-    return undefined;
-  }
-
-  changeLineWidth(): Shape | undefined {
-    return undefined;
-  }
-
-  changeStartEndpoint(): Shape | undefined {
-    return undefined;
-  }
-
-  changeFinishEndpoint(): Shape | undefined {
-    return undefined;
-  }
-
-  changeTextConfig(): Shape | undefined {
-    return undefined;
   }
 
   colors(): { lineColor: ColorRef; fillColor: ColorRef } {
@@ -126,9 +85,6 @@ export class LineOutline extends ControlShape implements LineProps {
     c.restore();
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  drawShadow(): void {}
-
   getProps(): LineProps {
     return {
       id: this.id,
@@ -148,29 +104,9 @@ export class LineOutline extends ControlShape implements LineProps {
     };
   }
 
-  highLightFrame(): Shape[] {
-    return [];
-  }
-
-  inspectorViewData(): ShapeInspectorData[] {
-    return [];
-  }
-
   move(shiftDelta: Point): Shape {
     const cp = this.controlPoints.map((p) => pointAdd(p, shiftDelta));
     return this.copy({ controlPoints: cp });
-  }
-
-  outlineShapes(): Shape[] {
-    return [];
-  }
-
-  selectFrame(): Shape[] {
-    return [];
-  }
-
-  text(): string {
-    return '';
   }
 
   private drawLine(c: CanvasRenderingContext2D, params: DrawingParams) {
