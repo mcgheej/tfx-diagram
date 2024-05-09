@@ -7,34 +7,6 @@ export abstract class ControlShape extends Shape {
     return undefined;
   }
 
-  changeLineColor(): undefined {
-    return undefined;
-  }
-
-  changeFillColor(): undefined {
-    return undefined;
-  }
-
-  changeLineDash(): Shape | undefined {
-    return undefined;
-  }
-
-  changeLineWidth(): Shape | undefined {
-    return undefined;
-  }
-
-  changeStartEndpoint(): Shape | undefined {
-    return undefined;
-  }
-
-  changeFinishEndpoint(): Shape | undefined {
-    return undefined;
-  }
-
-  changeTextConfig(): Shape | undefined {
-    return undefined;
-  }
-
   // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
   drawShadow(s: CanvasRenderingContext2D, t: Transform): void {}
 

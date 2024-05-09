@@ -1,9 +1,15 @@
 import { createReducer, on } from '@ngrx/store';
+import { Connection, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
-  Connection,
-  Shape,
+  ArcConfig,
+  CircleConfig,
+  CurveConfig,
+  GroupConfig,
+  LineConfig,
+  RectangleConfig,
   ShapeProps,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
+  TriangleConfig,
+} from '@tfx-diagram/diagram-data-access-shape-props';
 import {
   ControlFrameEffectsActions,
   EditMenuActions,
@@ -13,23 +19,16 @@ import {
 import { Endpoint, createEndpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
 import {
   Arc,
-  ArcConfig,
   Circle,
-  CircleConfig,
   CircleConnection,
   CircleConnectionProps,
   Curve,
-  CurveConfig,
   Group,
-  GroupConfig,
   Line,
-  LineConfig,
   Rectangle,
-  RectangleConfig,
   RectangleConnection,
   RectangleConnectionProps,
   Triangle,
-  TriangleConfig,
   TriangleConnection,
   TriangleConnectionProps,
   getAllShapesInSelection,
@@ -297,7 +296,7 @@ export const shapesReducer = createReducer(
     (state, { shapeId, textConfig }) => {
       const shape = state.shapes.get(shapeId);
       if (shape) {
-        const newShape = shape.changeTextConfig(textConfig);
+        const newShape = shape.copy({ textConfig });
         if (newShape) {
           const newShapes = new Map<string, Shape>(state.shapes);
           newShapes.set(newShape.id, newShape);
@@ -519,8 +518,6 @@ export const shapesReducer = createReducer(
   })
 );
 
-// updateSelectedColors(state, selectedShapeIds, shape.changeLineColor
-
 const updateSelectedColors = (
   state: ShapesState,
   selectedShapeIds: string[],
@@ -536,9 +533,9 @@ const updateSelectedColors = (
     let shape = newShapes.get(shapeId);
     if (shape) {
       if (lineOrFill === 'lineColor') {
-        shape = shape.changeLineColor(color);
+        shape = shape.copy({ strokeStyle: color });
       } else {
-        shape = shape.changeFillColor(color);
+        shape = shape.copy({ fillStyle: color });
       }
       if (shape) {
         newShapes.set(shape.id, shape);
@@ -568,7 +565,7 @@ const updateSelectedLineDash = (
   for (const shapeId of selectedShapeIds) {
     let shape = newShapes.get(shapeId);
     if (shape) {
-      shape = shape.changeLineDash(lineDash);
+      shape = shape.copy({ lineDash });
       if (shape) {
         newShapes.set(shape.id, shape);
         shapesChanged = true;
@@ -597,7 +594,7 @@ const updateSelectedLineWidths = (
   for (const shapeId of selectedShapeIds) {
     let shape = newShapes.get(shapeId);
     if (shape) {
-      shape = shape.changeLineWidth(lineWidth);
+      shape = shape.copy({ lineWidth });
       if (shape) {
         newShapes.set(shape.id, shape);
         shapesChanged = true;
@@ -626,7 +623,7 @@ const updateSelectedStartEndpoints = (
   for (const shapeId of selectedShapeIds) {
     let shape = newShapes.get(shapeId);
     if (shape) {
-      shape = shape.changeStartEndpoint(endpoint);
+      shape = shape.copy({ startEndpoint: endpoint });
       if (shape) {
         newShapes.set(shape.id, shape);
         shapesChanged = true;
@@ -655,7 +652,7 @@ const updateSelectedFinishEndpoints = (
   for (const shapeId of selectedShapeIds) {
     let shape = newShapes.get(shapeId);
     if (shape) {
-      shape = shape.changeFinishEndpoint(endpoint);
+      shape = shape.copy({ finishEndpoint: endpoint });
       if (shape) {
         newShapes.set(shape.id, shape);
         shapesChanged = true;
@@ -684,7 +681,7 @@ const updateSelectedFontProps = (
   for (const shapeId of selectedShapeIds) {
     let shape = newShapes.get(shapeId);
     if (shape) {
-      shape = shape.changeTextConfig(fontProps);
+      shape = shape.copy({ textConfig: fontProps });
       if (shape) {
         newShapes.set(shape.id, shape);
         shapesChanged = true;

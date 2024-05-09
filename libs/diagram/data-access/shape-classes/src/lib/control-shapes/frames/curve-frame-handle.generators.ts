@@ -1,6 +1,11 @@
-import { Shape, ShapeCursors } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import {
+  HandleProps,
+  HandleTypes,
+  ShapeCursors,
+} from '@tfx-diagram/diagram-data-access-shape-props';
+import { NopReshaper, Reshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { NopReshaper, Reshaper } from '../../reshaper';
 import { CurveFinalReshaper } from '../../standard-shapes/curve/reshapers/curve-final-reshaper';
 import { CurveFree1Reshaper } from '../../standard-shapes/curve/reshapers/curve-free1-reshaper';
 import { CurveFree2Reshaper } from '../../standard-shapes/curve/reshapers/curve-free2-reshaper';
@@ -9,7 +14,7 @@ import { CurveMidPointReshaper } from '../../standard-shapes/curve/reshapers/cur
 import { CurvePostlinkReshaper } from '../../standard-shapes/curve/reshapers/curve-postlink-reshaper';
 import { CurvePrelinkReshaper } from '../../standard-shapes/curve/reshapers/curve-prelink-reshaper';
 import { CurveStartReshaper } from '../../standard-shapes/curve/reshapers/curve-start-reshaper';
-import { Handle, HandleProps, HandleTypes } from '../handle';
+import { Handle } from '../handle';
 
 type PartHandleProps = Pick<
   HandleProps,

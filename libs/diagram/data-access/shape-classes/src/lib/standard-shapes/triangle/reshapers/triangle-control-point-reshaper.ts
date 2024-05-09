@@ -1,9 +1,9 @@
 import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Reshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Handle } from '../../../control-shapes/handle';
 import { LineOutline } from '../../../control-shapes/line-outline';
 import { gridSnapPoint } from '../../../misc-functions';
-import { Reshaper } from '../../../reshaper';
 import { Triangle } from '../triangle';
 
 export class TriangleControlPointReshaper extends Reshaper {

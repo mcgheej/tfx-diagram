@@ -1,5 +1,5 @@
 import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
-import { Reshaper } from '../../../reshaper';
+import { Reshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
 
 export abstract class CurveNonEndpointReshaper extends Reshaper {
   modifiedFrameForDrag(controlFrame: Shape[]): Shape[] {

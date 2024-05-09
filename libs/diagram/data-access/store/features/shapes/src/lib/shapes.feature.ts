@@ -1,5 +1,6 @@
 import { createFeature, createSelector } from '@ngrx/store';
-import { ConnectionProps, ShapeProps } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { ConnectionProps } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { ShapeProps } from '@tfx-diagram/diagram-data-access-shape-props';
 import { shapesFeatureKey } from '@tfx-diagram/electron-renderer-web-context-bridge-api';
 import { shapesReducer } from './shapes.reducer';
 

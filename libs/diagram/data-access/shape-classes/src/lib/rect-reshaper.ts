@@ -1,8 +1,8 @@
 import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Reshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Handle } from './control-shapes/handle';
 import { RectangleOutline } from './control-shapes/rectangle-outline';
-import { Reshaper } from './reshaper';
 import { Circle } from './standard-shapes/circle/circle';
 import { Rectangle } from './standard-shapes/rectangle/rectangle';
 

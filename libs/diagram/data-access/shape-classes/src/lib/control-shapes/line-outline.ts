@@ -1,4 +1,10 @@
 import { ControlShape, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import {
+  AllShapeProps,
+  LineConfig,
+  LineProps,
+  SharedProperties,
+} from '@tfx-diagram/diagram-data-access-shape-props';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
 import { Endpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
 import {
@@ -10,7 +16,7 @@ import {
 } from '@tfx-diagram/diagram/util/misc-functions';
 import { ColorRef, Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { LineConfig, LineProps, lineDefaults } from '../standard-shapes/line/line';
+import { lineDefaults } from '../standard-shapes/line/line';
 import { DEFAULT_OUTLINE_COLOUR } from '../types';
 
 type DrawingParams = Pick<LineProps, 'controlPoints'>;
@@ -52,8 +58,8 @@ export class LineOutline extends ControlShape implements LineProps {
     };
   }
 
-  copy(amendments: Partial<LineProps>): LineOutline {
-    const a = amendments;
+  copy(amendments: Partial<AllShapeProps>): LineOutline {
+    const a = amendments as Partial<SharedProperties<LineProps, AllShapeProps>>;
     const l = new LineOutline({
       id: this.id,
       prevShapeId: a.prevShapeId ?? this.prevShapeId,

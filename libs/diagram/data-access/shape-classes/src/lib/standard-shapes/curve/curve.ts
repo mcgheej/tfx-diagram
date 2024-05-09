@@ -4,8 +4,15 @@ import {
   ConnectorEndTypes,
   linkShapeArray,
   Shape,
-  ShapeProps,
 } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import {
+  AllShapeProps,
+  CurveConfig,
+  CurveProps,
+  ShapeProps,
+  SharedProperties,
+} from '@tfx-diagram/diagram-data-access-shape-props';
+import { NopReshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
 import { Endpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
 import {
@@ -16,7 +23,6 @@ import {
 } from '@tfx-diagram/diagram/util/misc-functions';
 import {
   ColorRef,
-  PartPartial,
   Point,
   Range,
   ShapeInspectorData,
@@ -28,20 +34,8 @@ import { curveSelectFrame } from '../../control-shapes/frames/curve-select-frame
 import { Group } from '../../control-shapes/group';
 import { Handle } from '../../control-shapes/handle';
 import { calcBezierValue } from '../../misc-functions';
-import { NopReshaper } from '../../reshaper';
 import { CurveFinalReshaper } from './reshapers/curve-final-reshaper';
 import { CurveStartReshaper } from './reshapers/curve-start-reshaper';
-
-export interface CurveProps extends ShapeProps {
-  controlPoints: Point[];
-  lineDash: number[];
-  lineWidth: number;
-  strokeStyle: ColorRef;
-  startEndpoint: Endpoint | null;
-  finishEndpoint: Endpoint | null;
-}
-
-export type CurveConfig = PartPartial<Omit<CurveProps, 'shapeType'>, 'id'>;
 export const curveDefaults: Omit<CurveProps, keyof ShapeProps> = {
   controlPoints: [
     { x: 10, y: 10 },
@@ -104,34 +98,6 @@ export class Curve extends Connector implements CurveProps {
     return rectInflate(this.calcBoundingBox(this.controlPoints), this.lineWidth / 2);
   }
 
-  changeLineColor(lineColor: ColorRef): Curve {
-    return this.copy({ strokeStyle: lineColor });
-  }
-
-  changeFillColor(): undefined {
-    return undefined;
-  }
-
-  changeLineDash(lineDash: number[]): Shape | undefined {
-    return this.copy({ lineDash });
-  }
-
-  changeLineWidth(lineWidth: number): Shape | undefined {
-    return this.copy({ lineWidth });
-  }
-
-  changeStartEndpoint(endpoint: Endpoint | null): Shape | undefined {
-    return this.copy({ startEndpoint: endpoint });
-  }
-
-  changeFinishEndpoint(endpoint: Endpoint | null): Shape | undefined {
-    return this.copy({ finishEndpoint: endpoint });
-  }
-
-  changeTextConfig(): Shape | undefined {
-    return undefined;
-  }
-
   colors(): { lineColor: ColorRef; fillColor: ColorRef } {
     return {
       lineColor: this.strokeStyle,
@@ -139,8 +105,8 @@ export class Curve extends Connector implements CurveProps {
     };
   }
 
-  copy(amendments: Partial<CurveProps>): Curve {
-    const a = amendments;
+  copy(amendments: Partial<AllShapeProps>): Curve {
+    const a = amendments as Partial<SharedProperties<CurveProps, AllShapeProps>>;
     const c = new Curve({
       id: a.id ?? this.id,
       prevShapeId: a.prevShapeId ?? this.prevShapeId,

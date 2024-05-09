@@ -1,8 +1,11 @@
+import { Connection, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
-  Connection,
-  Shape,
+  AllShapeProps,
+  CircleConfig,
+  CircleProps,
   ShapeProps,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
+  SharedProperties,
+} from '@tfx-diagram/diagram-data-access-shape-props';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
 import { TextBox } from '@tfx-diagram/diagram/data-access/text-classes';
 import {
@@ -12,7 +15,6 @@ import {
 } from '@tfx-diagram/diagram/util/misc-functions';
 import {
   ColorRef,
-  PartPartial,
   Point,
   ShapeInspectorData,
   ShapeResizeOptions,
@@ -27,19 +29,6 @@ import { Group } from '../../control-shapes/group';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline';
 import { PX_BOUNDARY_DETECTION_THRESHOLD } from '../../types';
 import { circleReshapersConfig } from './circle-reshapers-config';
-
-export interface CircleProps extends ShapeProps {
-  x: number;
-  y: number;
-  radius: number;
-  lineDash: number[];
-  lineWidth: number;
-  strokeStyle: ColorRef;
-  fillStyle: ColorRef;
-  textConfig: TextBoxConfig;
-}
-
-export type CircleConfig = PartPartial<Omit<CircleProps, 'shapeType'>, 'id'>;
 
 const circleDefaults: Omit<CircleProps, keyof ShapeProps> = {
   x: 50,
@@ -138,35 +127,6 @@ export class Circle extends Shape implements CircleProps {
     } as Rect;
   }
 
-  changeLineColor(lineColor: ColorRef): Circle {
-    return this.copy({ strokeStyle: lineColor });
-  }
-
-  changeFillColor(fillColor: ColorRef): Circle {
-    return this.copy({ fillStyle: fillColor });
-  }
-
-  changeLineDash(lineDash: number[]): Circle {
-    return this.copy({ lineDash });
-  }
-
-  changeLineWidth(lineWidth: number): Circle {
-    return this.copy({ lineWidth });
-  }
-
-  changeStartEndpoint(): Shape | undefined {
-    return undefined;
-  }
-
-  changeFinishEndpoint(): Shape | undefined {
-    return undefined;
-  }
-
-  changeTextConfig(textConfig: TextBoxConfig): Circle {
-    const amendedTextConfig = { ...this.textConfig, ...textConfig };
-    return this.copy({ textConfig: amendedTextConfig });
-  }
-
   colors(): { lineColor: ColorRef; fillColor: ColorRef } {
     return {
       lineColor: this.strokeStyle,
@@ -174,8 +134,11 @@ export class Circle extends Shape implements CircleProps {
     };
   }
 
-  copy(amendments: Partial<CircleProps>): Circle {
-    const a = amendments;
+  copy(amendments: Partial<AllShapeProps>): Circle {
+    const a = amendments as Partial<SharedProperties<CircleProps, AllShapeProps>>;
+    const aTextConfig = a.textConfig
+      ? { ...this.textConfig, ...a.textConfig }
+      : this.textConfig;
     const c = new Circle({
       id: a.id ?? this.id,
       prevShapeId: a.prevShapeId ?? this.prevShapeId,
@@ -191,7 +154,7 @@ export class Circle extends Shape implements CircleProps {
       fillStyle: a.fillStyle ?? this.fillStyle,
       lineDash: a.lineDash ?? this.lineDash,
       lineWidth: a.lineWidth ?? this.lineWidth,
-      textConfig: a.textConfig ?? this.textConfig,
+      textConfig: aTextConfig,
     } as CircleProps);
     return c;
   }

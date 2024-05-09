@@ -1,38 +1,18 @@
+import { ControlShape, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
-  ControlShape,
-  Shape,
+  AllShapeProps,
+  HandleConfig,
+  HandleProps,
+  HandleStyle,
+  HandleTypes,
   ShapeProps,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
+  SharedProperties,
+} from '@tfx-diagram/diagram-data-access-shape-props';
+import { Reshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
-import {
-  ColorRef,
-  PartPartial,
-  Point,
-  Transform,
-} from '@tfx-diagram/electron-renderer-web/shared-types';
+import { ColorRef, Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { Reshaper } from '../reshaper';
-import { DEFAULT_OUTLINE_COLOUR, HandleStyle } from '../types';
-
-export type HandleTypes = 'notConnectorEnd' | 'connectorStart' | 'connectorFinish';
-
-export interface HandleProps extends ShapeProps {
-  x: number;
-  y: number;
-  pxWidth: number;
-  fillStyle: ColorRef;
-  solid: boolean;
-  handleStyle: HandleStyle;
-  highlightOn: boolean;
-  associatedShapeId: string;
-  reshaper: Reshaper;
-  handleType: HandleTypes;
-}
-
-export type HandleConfig = PartPartial<
-  Omit<HandleProps, 'shapeType'>,
-  'id' | 'x' | 'y' | 'reshaper'
->;
+import { DEFAULT_OUTLINE_COLOUR } from '../types';
 
 const handleDefaults: Omit<HandleProps, keyof ShapeProps | 'x' | 'y' | 'reshaper'> = {
   pxWidth: 11,
@@ -100,8 +80,8 @@ export class Handle extends ControlShape implements HandleProps {
     };
   }
 
-  copy(amendments: Partial<HandleProps>): Handle {
-    const a = amendments;
+  copy(amendments: Partial<AllShapeProps>): Handle {
+    const a = amendments as Partial<SharedProperties<HandleProps, AllShapeProps>>;
     const h = new Handle({
       id: this.id,
       prevShapeId: a.prevShapeId ?? this.prevShapeId,

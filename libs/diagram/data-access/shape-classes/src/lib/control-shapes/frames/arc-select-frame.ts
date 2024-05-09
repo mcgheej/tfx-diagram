@@ -1,7 +1,7 @@
 import { Shape, linkShapeArray } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Reshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
 import { pointAdd, pointFromPolarPoint } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { Reshaper } from '../../reshaper';
 import { Arc } from '../../standard-shapes/arc/arc';
 import { ArcEangleReshaper } from '../../standard-shapes/arc/reshapers/arc-eangle-reshaper';
 import { ArcRadiusReshaper } from '../../standard-shapes/arc/reshapers/arc-radius-reshaper';

@@ -2,13 +2,19 @@
 import {
   Connection,
   Shape,
-  ShapeProps,
   linkShapeArray,
 } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import {
+  AllShapeProps,
+  ArcConfig,
+  ArcProps,
+  ShapeProps,
+  SharedProperties,
+} from '@tfx-diagram/diagram-data-access-shape-props';
+import { NopReshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
 import {
   ColorRef,
-  PartPartial,
   Point,
   ShapeInspectorData,
   ShapeResizeOptions,
@@ -19,24 +25,7 @@ import { arcSelectFrame } from '../../control-shapes/frames/arc-select-frame';
 import { Group } from '../../control-shapes/group';
 import { Handle } from '../../control-shapes/handle';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline';
-import { NopReshaper } from '../../reshaper';
-import { AllTypes, SharedProperties } from '../../types/all-shapes';
 import { calcArcBoundingBox, getArcEndpoints } from './calc-arc-bounding-box';
-
-export interface ArcProps extends ShapeProps {
-  x: number;
-  y: number;
-  radius: number;
-  sAngle: number;
-  eAngle: number;
-  circleSegment: boolean;
-  lineDash: number[];
-  lineWidth: number;
-  strokeStyle: ColorRef;
-  fillStyle: ColorRef;
-}
-
-export type ArcConfig = PartPartial<Omit<ArcProps, 'shapeType'>, 'id'>;
 
 export const arcDefaults: Omit<ArcProps, keyof ShapeProps> = {
   x: 50,
@@ -98,34 +87,6 @@ export class Arc extends Shape implements ArcProps {
     return calcArcBoundingBox(this);
   }
 
-  changeLineColor(lineColor: ColorRef): Arc {
-    return this.copy({ strokeStyle: lineColor });
-  }
-
-  changeFillColor(fillColor: ColorRef): Arc {
-    return this.copy({ fillStyle: fillColor });
-  }
-
-  changeLineDash(lineDash: number[]): Arc {
-    return this.copy({ lineDash });
-  }
-
-  changeLineWidth(lineWidth: number): Arc {
-    return this.copy({ lineWidth });
-  }
-
-  changeStartEndpoint(): Shape | undefined {
-    return undefined;
-  }
-
-  changeFinishEndpoint(): Shape | undefined {
-    return undefined;
-  }
-
-  changeTextConfig(): Shape | undefined {
-    return undefined;
-  }
-
   colors(): { lineColor: ColorRef; fillColor: ColorRef } {
     return {
       lineColor: this.strokeStyle,
@@ -133,8 +94,8 @@ export class Arc extends Shape implements ArcProps {
     };
   }
 
-  copy(amendments: Partial<AllTypes>): Arc {
-    const a = amendments as Partial<SharedProperties<ArcProps, AllTypes>>;
+  copy(amendments: Partial<AllShapeProps>): Arc {
+    const a = amendments as Partial<SharedProperties<ArcProps, AllShapeProps>>;
     const s = new Arc({
       id: a.id ?? this.id,
       prevShapeId: a.prevShapeId ?? this.prevShapeId,

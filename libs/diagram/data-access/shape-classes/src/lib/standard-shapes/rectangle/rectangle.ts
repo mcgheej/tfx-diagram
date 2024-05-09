@@ -1,19 +1,20 @@
+import { Connection, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
-  Connection,
-  Shape,
+  AllShapeProps,
+  RectangleConfig,
+  RectangleProps,
   ShapeProps,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
+  SharedProperties,
+} from '@tfx-diagram/diagram-data-access-shape-props';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
 import { TextBox } from '@tfx-diagram/diagram/data-access/text-classes';
 import { inverseTransform, rectInflate } from '@tfx-diagram/diagram/util/misc-functions';
 import {
   ColorRef,
-  PartPartial,
   Point,
   ShapeInspectorData,
   ShapeResizeOptions,
   TextBoxConfig,
-  TextBoxProps,
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
@@ -22,23 +23,9 @@ import { rectHighlightHandles } from '../../control-shapes/frames/rect-highlight
 import { rectSelectFrame } from '../../control-shapes/frames/rect-select-frame';
 import { Group } from '../../control-shapes/group';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline';
-import { checkLine, LineAttachParams } from '../line-segment-attach-functions';
+import { LineAttachParams, checkLine } from '../line-segment-attach-functions';
 import { outsideDetectionRect } from './rectangle-attach-functions';
 import { rectangleReshapersConfig } from './rectangle-reshapers-config';
-
-export interface RectangleProps extends ShapeProps {
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  lineDash: number[];
-  lineWidth: number;
-  strokeStyle: ColorRef;
-  fillStyle: ColorRef;
-  textConfig: TextBoxConfig;
-}
-
-export type RectangleConfig = PartPartial<Omit<RectangleProps, 'shapeType'>, 'id'>;
 
 const DEFAULT_X = 50;
 const DEFAULT_Y = 50;
@@ -156,35 +143,6 @@ export class Rectangle extends Shape implements RectangleProps {
     return { x, y, width, height };
   }
 
-  changeLineColor(lineColor: ColorRef): Rectangle {
-    return this.copy({ strokeStyle: lineColor });
-  }
-
-  changeFillColor(fillColor: ColorRef): Rectangle {
-    return this.copy({ fillStyle: fillColor });
-  }
-
-  changeLineDash(lineDash: number[]): Shape | undefined {
-    return this.copy({ lineDash });
-  }
-
-  changeLineWidth(lineWidth: number): Shape | undefined {
-    return this.copy({ lineWidth });
-  }
-
-  changeStartEndpoint(): Shape | undefined {
-    return undefined;
-  }
-
-  changeFinishEndpoint(): Shape | undefined {
-    return undefined;
-  }
-
-  changeTextConfig(textConfig: Partial<TextBoxProps>): Shape | undefined {
-    const amendedTextConfig = { ...this.textConfig, ...textConfig };
-    return this.copy({ textConfig: amendedTextConfig });
-  }
-
   colors(): { lineColor: ColorRef; fillColor: ColorRef } {
     return {
       lineColor: this.strokeStyle,
@@ -192,8 +150,11 @@ export class Rectangle extends Shape implements RectangleProps {
     };
   }
 
-  copy(amendments: Partial<RectangleProps>): Rectangle {
-    const a = amendments;
+  copy(amendments: Partial<AllShapeProps>): Rectangle {
+    const a = amendments as Partial<SharedProperties<RectangleProps, AllShapeProps>>;
+    const aTextConfig = a.textConfig
+      ? { ...this.textConfig, ...a.textConfig }
+      : this.textConfig;
     const r = new Rectangle({
       id: a.id ?? this.id,
       prevShapeId: a.prevShapeId ?? this.prevShapeId,
@@ -210,7 +171,7 @@ export class Rectangle extends Shape implements RectangleProps {
       lineWidth: a.lineWidth ?? this.lineWidth,
       strokeStyle: a.strokeStyle ?? this.strokeStyle,
       fillStyle: a.fillStyle ?? this.fillStyle,
-      textConfig: a.textConfig ?? this.textConfig,
+      textConfig: aTextConfig,
     } as RectangleProps);
     return r;
   }

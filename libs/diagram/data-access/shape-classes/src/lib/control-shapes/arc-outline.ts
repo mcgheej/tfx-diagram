@@ -1,8 +1,14 @@
 import { ControlShape, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import {
+  AllShapeProps,
+  ArcConfig,
+  ArcProps,
+  SharedProperties,
+} from '@tfx-diagram/diagram-data-access-shape-props';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
 import { ColorRef, Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { ArcConfig, ArcProps, arcDefaults } from '../standard-shapes/arc/arc';
+import { arcDefaults } from '../standard-shapes/arc/arc';
 import { calcArcBoundingBox } from '../standard-shapes/arc/calc-arc-bounding-box';
 import { DEFAULT_OUTLINE_COLOUR } from '../types';
 
@@ -52,8 +58,8 @@ export class ArcOutline extends ControlShape implements ArcProps {
     };
   }
 
-  copy(amendments: Partial<ArcProps>): ArcOutline {
-    const a = amendments;
+  copy(amendments: Partial<AllShapeProps>): ArcOutline {
+    const a = amendments as Partial<SharedProperties<ArcProps, AllShapeProps>>;
     const s = new ArcOutline({
       id: this.id,
       prevShapeId: a.prevShapeId ?? this.prevShapeId,

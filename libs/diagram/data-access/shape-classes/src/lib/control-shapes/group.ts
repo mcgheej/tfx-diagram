@@ -2,19 +2,19 @@ import {
   ControlShape,
   getShapesArrayFromIdArray,
   Shape,
-  ShapeProps,
 } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import {
+  AllShapeProps,
+  GroupConfig,
+  GroupProps,
+  ShapeProps,
+  SharedProperties,
+} from '@tfx-diagram/diagram-data-access-shape-props';
 import { rectUnionArray } from '@tfx-diagram/diagram/util/misc-functions';
-import { ColorRef, PartPartial, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
+import { ColorRef, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { groupHighlightFrame } from './frames/group-highlight-frame';
 import { groupSelectFrame } from './frames/group-select-frame';
-
-export interface GroupProps extends ShapeProps {
-  groupMemberIds: string[];
-}
-
-export type GroupConfig = PartPartial<Omit<GroupProps, 'shapeType'>, 'id'>;
 
 const groupDefaults: Omit<GroupProps, keyof ShapeProps> = {
   groupMemberIds: [],
@@ -91,8 +91,8 @@ export class Group extends ControlShape implements GroupProps {
     };
   }
 
-  copy(amendments: Partial<GroupProps>): Group {
-    const a = amendments;
+  copy(amendments: Partial<AllShapeProps>): Group {
+    const a = amendments as Partial<SharedProperties<GroupProps, AllShapeProps>>;
     const g = new Group({
       id: a.id ?? this.id,
       prevShapeId: a.prevShapeId ?? this.prevShapeId,

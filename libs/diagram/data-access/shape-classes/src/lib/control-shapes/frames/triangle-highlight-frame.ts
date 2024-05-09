@@ -1,6 +1,6 @@
 import { linkShapeArray, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { NopReshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { NopReshaper } from '../../reshaper';
 import { Handle } from '../handle';
 
 export const triangleHighlightFrame = (

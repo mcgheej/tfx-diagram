@@ -1,9 +1,9 @@
 import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Reshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
 import { pointAdd, pointFromPolarPoint } from '@tfx-diagram/diagram/util/misc-functions';
 import { ArcOutline } from '../../../control-shapes/arc-outline';
 import { Handle } from '../../../control-shapes/handle';
 import { LineOutline } from '../../../control-shapes/line-outline';
-import { Reshaper } from '../../../reshaper';
 import { ARC_HANDLE_LENGTH } from '../../../types/constants';
 import { Arc } from '../arc';
 

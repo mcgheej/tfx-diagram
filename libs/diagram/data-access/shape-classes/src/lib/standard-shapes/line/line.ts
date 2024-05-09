@@ -4,8 +4,15 @@ import {
   ConnectorEndTypes,
   linkShapeArray,
   Shape,
-  ShapeProps,
 } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import {
+  AllShapeProps,
+  LineConfig,
+  LineProps,
+  ShapeProps,
+  SharedProperties,
+} from '@tfx-diagram/diagram-data-access-shape-props';
+import { NopReshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
 import { Endpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
 import {
@@ -17,7 +24,6 @@ import {
 } from '@tfx-diagram/diagram/util/misc-functions';
 import {
   ColorRef,
-  PartPartial,
   Point,
   ShapeInspectorData,
   ShapeResizeOptions,
@@ -27,19 +33,8 @@ import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { lineSelectFrame } from '../../control-shapes/frames/line-select-frame';
 import { Group } from '../../control-shapes/group';
 import { Handle } from '../../control-shapes/handle';
-import { NopReshaper } from '../../reshaper';
 import { LineControlPointReshaper } from './reshapers/line-control-point-reshaper';
 
-export interface LineProps extends ShapeProps {
-  controlPoints: Point[];
-  lineDash: number[];
-  lineWidth: number;
-  strokeStyle: ColorRef;
-  startEndpoint: Endpoint | null;
-  finishEndpoint: Endpoint | null;
-}
-
-export type LineConfig = PartPartial<Omit<LineProps, 'shapeType'>, 'id'>;
 export const lineDefaults: Omit<LineProps, keyof ShapeProps> = {
   controlPoints: [
     { x: 10, y: 10 },
@@ -94,34 +89,6 @@ export class Line extends Connector implements LineProps {
     return rectInflate(this.calcBoundingBox(this.controlPoints), this.lineWidth / 2);
   }
 
-  changeLineColor(lineColor: ColorRef): Line {
-    return this.copy({ strokeStyle: lineColor });
-  }
-
-  changeFillColor(): undefined {
-    return undefined;
-  }
-
-  changeStartEndpoint(endpoint: Endpoint | null): Shape | undefined {
-    return this.copy({ startEndpoint: endpoint });
-  }
-
-  changeFinishEndpoint(endpoint: Endpoint | null): Shape | undefined {
-    return this.copy({ finishEndpoint: endpoint });
-  }
-
-  changeLineDash(lineDash: number[]): Shape | undefined {
-    return this.copy({ lineDash });
-  }
-
-  changeLineWidth(lineWidth: number): Shape | undefined {
-    return this.copy({ lineWidth });
-  }
-
-  changeTextConfig(): Shape | undefined {
-    return undefined;
-  }
-
   colors(): { lineColor: ColorRef; fillColor: ColorRef } {
     return {
       lineColor: this.strokeStyle,
@@ -129,8 +96,8 @@ export class Line extends Connector implements LineProps {
     };
   }
 
-  copy(amendments: Partial<LineProps>): Line {
-    const a = amendments;
+  copy(amendments: Partial<AllShapeProps>): Line {
+    const a = amendments as Partial<SharedProperties<LineProps, AllShapeProps>>;
     const l = new Line({
       id: a.id ?? this.id,
       prevShapeId: a.prevShapeId ?? this.prevShapeId,

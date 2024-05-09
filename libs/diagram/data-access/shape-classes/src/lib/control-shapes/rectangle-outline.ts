@@ -1,4 +1,10 @@
 import { ControlShape, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import {
+  AllShapeProps,
+  RectangleConfig,
+  RectangleProps,
+  SharedProperties,
+} from '@tfx-diagram/diagram-data-access-shape-props';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
 import {
   ColorRef,
@@ -7,11 +13,7 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import {
-  RectangleConfig,
-  RectangleProps,
-  rectangleDefaults,
-} from '../standard-shapes/rectangle/rectangle';
+import { rectangleDefaults } from '../standard-shapes/rectangle/rectangle';
 import { DEFAULT_OUTLINE_COLOUR } from '../types';
 
 type DrawingParams = Pick<RectangleProps, 'x' | 'y' | 'width' | 'height'>;
@@ -63,8 +65,8 @@ export class RectangleOutline extends ControlShape implements RectangleProps {
     };
   }
 
-  copy(amendments: Partial<RectangleProps>): RectangleOutline {
-    const a = amendments;
+  copy(amendments: Partial<AllShapeProps>): RectangleOutline {
+    const a = amendments as Partial<SharedProperties<RectangleProps, AllShapeProps>>;
     const r = new RectangleOutline({
       id: this.id,
       prevShapeId: a.prevShapeId ?? this.prevShapeId,

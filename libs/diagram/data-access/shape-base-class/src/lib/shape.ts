@@ -1,40 +1,20 @@
-import { Endpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
+import {
+  AllShapeProps,
+  ShapeConfig,
+  ShapeCursors,
+  ShapeProps,
+  ShapeTypes,
+} from '@tfx-diagram/diagram-data-access-shape-props';
 import { randomNumber } from '@tfx-diagram/diagram/util/misc-functions';
 import {
   ColorRef,
-  PartPartial,
   Point,
   ShapeInspectorData,
   ShapeResizeOptions,
-  TextBoxConfig,
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Connection } from './connection';
-import { ShapeCursors } from './shape-cursors.type';
-import { ShapeTypes } from './shape-types.type';
-
-/**
- * Base properties for all shape instances
- */
-export interface ShapeProps {
-  id: string;
-  prevShapeId: string;
-  nextShapeId: string;
-  groupId: string;
-  shapeType: ShapeTypes;
-  cursor: ShapeCursors;
-  selectable: boolean;
-  visible: boolean;
-}
-
-/**
- * The ShapeConfig type is derived from the ShapeProps interface.
- * All objects of type ShapeConfig must contain properties for
- * 'id', 'shapeType' and 'cursor'. All other properties derived
- * from ShapeProps are optional.
- */
-export type ShapeConfig = PartPartial<ShapeProps, 'id' | 'shapeType' | 'cursor'>;
 
 /**
  * Default values used for ShapeProps properties if the properties
@@ -144,15 +124,8 @@ export abstract class Shape implements ShapeProps {
     connectionHook: Connection
   ): Connection | undefined;
   abstract boundingBox(): Rect;
-  abstract changeLineColor(lineColor: ColorRef): Shape | undefined;
-  abstract changeFillColor(fillColor: ColorRef): Shape | undefined;
-  abstract changeLineDash(lineDash: number[]): Shape | undefined;
-  abstract changeLineWidth(lineWidth: number): Shape | undefined;
-  abstract changeStartEndpoint(endpoint: Endpoint | null): Shape | undefined;
-  abstract changeFinishEndpoint(endpoint: Endpoint | null): Shape | undefined;
-  abstract changeTextConfig(textConfig: TextBoxConfig): Shape | undefined;
   abstract colors(): { lineColor: ColorRef; fillColor: ColorRef };
-  abstract copy(amendments: Partial<ShapeProps>): Shape;
+  abstract copy(amendments: Partial<AllShapeProps>): Shape;
   abstract dragOffset(mousePagePos: Point, shapes?: Map<string, Shape>): Point;
   abstract draw(c: CanvasRenderingContext2D, t: Transform): void;
   abstract drawShadow(s: CanvasRenderingContext2D, t: Transform): void;
