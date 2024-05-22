@@ -14,15 +14,6 @@ import { selectPageIds, selectPages } from './pages.feature';
 
 @Injectable()
 export class PagesEffects {
-  // newPageReady$ = createEffect(() => {
-  //   return this.actions$.pipe(
-  //     ofType(SketchbookEffectsActions.newPageReady),
-  //     switchMap(({ page }) => {
-  //       return of(PagesEffectsActions.pageAdded({ page }));
-  //     })
-  //   );
-  // });
-
   addNewPage$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(SketchbookViewComponentActions.addPageConfirmed),

@@ -21,6 +21,7 @@ As shown in the action sequence below this action simply results in the Sketchbo
 FileMenuActions.newSketchbookClick
 |
  - sketchbookReducer -> status = 'creating'
+                        dialogOpen = true
 ```
 
 ## newSketchbookCancel
@@ -41,6 +42,7 @@ The action sequence is:
 FileMenuActions.newSketchbookCancel
 |
  - sketchbookReducer -> status = 'closed'
+                        dialogOpen = false
 ```
 
 As shown the action simply results in the Sketchbook state property *status* being set to 'closed'.
@@ -64,39 +66,43 @@ The props values are recovered from the dialog result. The action sequence initi
 ```text
 FileMenuActions.newSketchbookCreate
 |
- - sketchbookReducer -> title, path = '', pageIds = [],
-   |                       currentPage = ''
+ - sketchbookReducer -> title = {supplied title}
+|                    path = ''
+|                    status = 'modified'
+|                    dialogOpen = true
+|
+ - SketchbookEffects
+   newSketchbook$ -> dispatch SketchbookEffectsActions.newPageReady
    |
-    - SketchbookEffects
-      newSketchbook$ -> dispatch SketchbookEffectsActions.newPageReady
+    - pagesReducer -> pages = (add new page object)
+   |                  pageIds = (add new page id)
+   |                  currentPageId = (id of new page)
+   |
+    - PagesEffects
+      newPageReady$ -> dispatch PagesEffectsActions.pageAdded
       |
-       - pagesReducer -> pages = (add new page object)
+       - sketchbookReducer -> pageIds = (add new page id),
+      |                       currentPageId = (id of new page)
+      |                       status = 'modified'
       |
-       - PagesEffects
-         newPageReady$ -> dispatch PagesEffectsActions.pageAdded
+       - SketchbookEffects
+         currentPageChange$ -> dispatch
+         |                     SketchbookEffectsActions.currentPageChange
          |
-          - sketchbookReducer -> pageIds = (add new page id),
-         |                       currentPageId = (id of new page)
-         |                       status = 'modified'
-         |
-          - SketchbookEffects
+          - TransformEffects
             currentPageChange$ -> dispatch
-            |                     SketchbookEffectsActions.currentPageChange
+            |                     TransformEffectsActions.pageWindowChange
+            |
+             - pagesReducer -> pages = (update windowCentre property
+            |                  of current page object)
+            |
+             - transformReducer => pageWindow, pageSize
             |
              - TransformEffects
-               currentPageChange$ -> dispatch
-               |                     TransformEffectsActions.pageWindowChange
+               pageWindowChange$ -> dispatch
+               |                    TransformEffectsActions.transformChange
                |
-                - pagesReducer -> pages = (update windowCentre property
-               |                  of current page object)
-               |
-                - transformReducer => pageWindow, pageSize
-               |
-                - TransformEffects
-                  pageWindowChange$ -> dispatch
-                  |                    TransformEffectsActions.transformChange
-                  |
-                   - transform.reducer -> transform
+                - transform.reducer -> transform
 ```
 
 This is a fairly long action sequence but the end effect is to have updated the state to incorporate the new sketchbook with a single new page.
