@@ -1,50 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { assign, createMachine, interpret, MachineOptions } from 'xstate';
-import {
-  textCursorMachineConfig,
-  textCursorMachineContext,
-} from './text-cursor-machine.config';
-import { TextCursorMachineEvents } from './text-cursor-machine.events';
-import { TextCursorMachineContext } from './text-cursor-machine.schema';
+import { Actor, createActor } from 'xstate5';
+import { TextCursorEvents } from './text-cursor.events';
+import { textCursorMachine } from './text-cursor.machine';
 
 @Injectable()
 export class TextCursorMachineService {
   private cursorStateSubject$ = new Subject<'visible' | 'hidden'>();
   cursorState$ = this.cursorStateSubject$.asObservable();
 
-  private textCursorMachineOptions: Partial<
-    MachineOptions<TextCursorMachineContext, TextCursorMachineEvents>
-  > = {
-    actions: {
-      showCursor: assign<TextCursorMachineContext, TextCursorMachineEvents>(() => {
-        return {
-          showCursor: true,
-        };
-      }),
-      hideCursor: assign<TextCursorMachineContext, TextCursorMachineEvents>(() => {
-        return {
-          showCursor: false,
-        };
-      }),
-    },
-  };
-
-  private textCursorMachine = createMachine<TextCursorMachineContext, TextCursorMachineEvents>(
-    textCursorMachineConfig()
-  )
-    .withConfig(this.textCursorMachineOptions)
-    .withContext(textCursorMachineContext);
-
-  private interpreter = interpret(this.textCursorMachine);
+  private textCursorActor: Actor<typeof textCursorMachine> | undefined;
 
   start() {
-    if (this.interpreter.initialized) {
-      this.interpreter.stop();
+    if (this.textCursorActor) {
+      this.stop();
     }
-    this.interpreter.start();
-    this.interpreter.onChange((context) => {
-      if (context.showCursor) {
+
+    this.textCursorActor = createActor(textCursorMachine, {
+      input: {
+        showCursor: true,
+      },
+    });
+    this.textCursorActor.start();
+    this.textCursorActor.subscribe((snapshot) => {
+      if (snapshot.context.showCursor) {
         this.cursorStateSubject$.next('visible');
       } else {
         this.cursorStateSubject$.next('hidden');
@@ -53,10 +32,16 @@ export class TextCursorMachineService {
   }
 
   stop() {
-    this.interpreter.stop();
+    this.cursorStateSubject$.complete();
+    if (this.textCursorActor) {
+      this.textCursorActor.stop();
+      this.textCursorActor = undefined;
+    }
   }
 
-  send(event: TextCursorMachineEvents) {
-    this.interpreter.send(event);
+  send(event: TextCursorEvents) {
+    if (this.textCursorActor) {
+      this.textCursorActor.send(event);
+    }
   }
 }

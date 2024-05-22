@@ -2,8 +2,7 @@ import { Directive, ElementRef, HostBinding, Input, OnDestroy, OnInit } from '@a
 import { Store } from '@ngrx/store';
 import { selectTextCursorPosition } from '@tfx-diagram/diagram/data-access/store/features/control-frame';
 import { TextEdit } from '@tfx-diagram/diagram/data-access/text-classes';
-import { distinctUntilChanged, Subject, takeUntil } from 'rxjs';
-import { CursorMoved } from '../+xstate/text-cursor-machine/text-cursor-machine.events';
+import { Subject, distinctUntilChanged, takeUntil } from 'rxjs';
 import { TextCursorMachineService } from '../+xstate/text-cursor-machine/text-cursor-machine.service';
 
 @Directive({
@@ -64,7 +63,7 @@ export class TextCursorCanvasDirective implements OnInit, OnDestroy {
               textBlock.lines[0].fontBoundingBoxAscent +
               textBlock.lines[0].fontBoundingBoxDescent;
             canvasEl.height = this.height;
-            this.textCursorMachine.send(new CursorMoved());
+            this.textCursorMachine.send({ type: 'cursor.moved' });
           }
         });
     }
