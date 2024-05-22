@@ -23,11 +23,13 @@ export class ExitCommand {
 
   private doExit(cmds$: Subject<string>): (commandItem: CommandItem) => void {
     return () => {
-      this.saveCloseMachine.start().subscribe((result) => {
-        this.saveCloseMachine.stop();
-        if (result === 'closed') {
-          cmds$.next('file-exit');
-        }
+      this.saveCloseMachine.start().subscribe({
+        next: (result) => {
+          if (result === 'closed') {
+            cmds$.next('file-exit');
+          }
+        },
+        complete: () => this.saveCloseMachine.stop(),
       });
     };
   }

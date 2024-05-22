@@ -24,10 +24,13 @@ export class OpenCommand {
 
   private doOpen(): (commandItem: CommandItem) => void {
     return () => {
-      this.saveCloseMachine.start().subscribe((result) => {
-        if (result === 'closed') {
-          this.store.dispatch(FileMenuActions.openSketchbookClick());
-        }
+      this.saveCloseMachine.start().subscribe({
+        next: (result) => {
+          if (result === 'closed') {
+            this.store.dispatch(FileMenuActions.openSketchbookClick());
+          }
+        },
+        complete: () => this.saveCloseMachine.stop(),
       });
     };
   }

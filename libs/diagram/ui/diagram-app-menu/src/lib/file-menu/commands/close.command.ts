@@ -32,8 +32,10 @@ export class CloseCommand {
 
   private doClose(): (commandItem: CommandItem) => void {
     return () => {
-      this.saveCloseMachine.start().subscribe(() => {
-        this.saveCloseMachine.stop();
+      this.saveCloseMachine.start().subscribe({
+        complete: () => {
+          this.saveCloseMachine.stop();
+        },
       });
     };
   }

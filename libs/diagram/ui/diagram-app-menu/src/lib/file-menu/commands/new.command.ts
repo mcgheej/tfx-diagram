@@ -27,40 +27,41 @@ export class NewCommand {
 
   private doNew(): (commandItem: CommandItem) => void {
     return () => {
-      this.saveCloseMachine.start().subscribe((result) => {
-        if (result === 'closed') {
-          this.store.dispatch(FileMenuActions.newSketchbookClick());
-          const dialogRef: MatDialogRef<NewDialogComponent, NewDialogResult> = this.dialog.open(
-            NewDialogComponent,
-            {
-              autoFocus: true,
-              // height: '450px',
-              data: {
-                dialogType: 'Sketchbook',
-              },
-            }
-          );
-          dialogRef.afterClosed().subscribe((result) => {
-            if (result) {
-              this.store.dispatch(
-                FileMenuActions.newSketchbookCreate({
-                  sketchbookTitle: result.title,
-                  page: {
-                    title: 'Page 1',
-                    size: {
-                      width: result.width,
-                      height: result.height,
+      this.saveCloseMachine.start().subscribe({
+        next: (result) => {
+          if (result === 'closed') {
+            this.store.dispatch(FileMenuActions.newSketchbookClick());
+            const dialogRef: MatDialogRef<NewDialogComponent, NewDialogResult> =
+              this.dialog.open(NewDialogComponent, {
+                autoFocus: true,
+                // height: '450px',
+                data: {
+                  dialogType: 'Sketchbook',
+                },
+              });
+            dialogRef.afterClosed().subscribe((result) => {
+              if (result) {
+                this.store.dispatch(
+                  FileMenuActions.newSketchbookCreate({
+                    sketchbookTitle: result.title,
+                    page: {
+                      title: 'Page 1',
+                      size: {
+                        width: result.width,
+                        height: result.height,
+                      },
+                      format: result.pageFormat,
+                      layout: result.layout,
                     },
-                    format: result.pageFormat,
-                    layout: result.layout,
-                  },
-                })
-              );
-            } else {
-              this.store.dispatch(FileMenuActions.newSketchbookCancel());
-            }
-          });
-        }
+                  })
+                );
+              } else {
+                this.store.dispatch(FileMenuActions.newSketchbookCancel());
+              }
+            });
+          }
+        },
+        complete: () => this.saveCloseMachine.stop(),
       });
     };
   }

@@ -4,66 +4,62 @@ import { Store } from '@ngrx/store';
 import { selectStatus } from '@tfx-diagram/diagram-data-access-store-features-sketchbook';
 import { SketchbookStatus } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Observable, ReplaySubject, Subscription } from 'rxjs';
-import { MachineOptions, createMachine, interpret } from 'xstate';
-import { openDialog, startClose } from './actions';
-import { saveCloseConfig } from './save-close.config';
-import { Closed, Closing, Modified, SaveCloseEvents, Saved } from './save-close.events';
-import { SaveCloseContext } from './save-close.schema';
+import { Actor, createActor } from 'xstate5';
+import { saveCloseMachine } from './save-close.machine';
 
 export type SaveCloseResult = 'closed' | 'cancelled';
 
 @Injectable({ providedIn: 'root' })
 export class SaveCloseMachineService {
-  private saveCloseOptions: Partial<MachineOptions<SaveCloseContext, SaveCloseEvents>> = {
-    actions: {
-      startClose: startClose(this.store),
-      openDialog: openDialog(this.store, this.dialog),
-    },
-  };
-
-  private saveCloseMachine = createMachine<SaveCloseContext, SaveCloseEvents>(
-    saveCloseConfig()
-  ).withConfig(this.saveCloseOptions);
-
-  private interpreter = interpret(this.saveCloseMachine);
+  private saveCloseActor: Actor<typeof saveCloseMachine> | undefined;
   private statusSubscription: Subscription | null = null;
   private result$: ReplaySubject<SaveCloseResult> | null = null;
 
   constructor(private store: Store, private dialog: MatDialog) {}
 
   start(): Observable<SaveCloseResult> {
-    if (this.interpreter.initialized) {
-      this.interpreter.stop();
+    if (this.saveCloseActor) {
+      this.stop();
     }
-    this.interpreter.start();
 
-    this.cleanSubscriptions();
-    this.statusSubscription = this.store.select(selectStatus).subscribe((status) => {
-      this.sendStatusEvent(status as SketchbookStatus);
-    });
-    if (this.result$) {
-      this.result$.complete();
-      this.result$ = null;
-    }
     this.result$ = new ReplaySubject<SaveCloseResult>(1);
 
-    this.interpreter.onTransition((state) => {
-      if (state.changed && this.result$) {
-        if (state.matches('closed')) {
+    this.saveCloseActor = createActor(saveCloseMachine, {
+      input: {
+        store: this.store,
+        dialog: this.dialog,
+      },
+    });
+    this.saveCloseActor.start();
+
+    this.saveCloseActor.subscribe((snapshot) => {
+      if (this.result$) {
+        if (snapshot.matches('closed')) {
           this.result$.next('closed');
           this.result$.complete();
-        } else if (state.matches('cancelled')) {
+        } else if (snapshot.matches('cancelled')) {
           this.result$.next('cancelled');
           this.result$.complete();
         }
       }
     });
+    this.cleanSubscriptions();
+    this.statusSubscription = this.store.select(selectStatus).subscribe((status) => {
+      this.sendStatusEvent(status as SketchbookStatus);
+    });
+
     return this.result$.asObservable();
   }
 
   stop() {
     this.cleanSubscriptions();
-    this.interpreter.stop();
+    if (this.saveCloseActor) {
+      this.saveCloseActor.stop();
+    }
+    if (this.result$) {
+      this.result$.complete();
+      this.result$ = null;
+    }
   }
 
   private cleanSubscriptions() {
@@ -74,22 +70,24 @@ export class SaveCloseMachineService {
   }
 
   private sendStatusEvent(status: SketchbookStatus) {
-    switch (status) {
-      case 'closed': {
-        this.interpreter.send(new Closed());
-        break;
-      }
-      case 'closing': {
-        this.interpreter.send(new Closing());
-        break;
-      }
-      case 'modified': {
-        this.interpreter.send(new Modified());
-        break;
-      }
-      case 'saved': {
-        this.interpreter.send(new Saved());
-        break;
+    if (this.saveCloseActor) {
+      switch (status) {
+        case 'closed': {
+          this.saveCloseActor.send({ type: 'closed' });
+          break;
+        }
+        case 'closing': {
+          this.saveCloseActor.send({ type: 'closing' });
+          break;
+        }
+        case 'modified': {
+          this.saveCloseActor.send({ type: 'modified' });
+          break;
+        }
+        case 'saved': {
+          this.saveCloseActor.send({ type: 'saved' });
+          break;
+        }
       }
     }
   }

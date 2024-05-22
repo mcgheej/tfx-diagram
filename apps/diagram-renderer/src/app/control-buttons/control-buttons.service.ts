@@ -12,15 +12,10 @@ export class ControlButtonsService {
    * changing window state.
    */
   private buttonConfigs: IconButtonConfig[] = [];
-  private buttonConfigsSubject$ = new BehaviorSubject<IconButtonConfig[]>(
-    this.buttonConfigs
-  );
+  private buttonConfigsSubject$ = new BehaviorSubject<IconButtonConfig[]>(this.buttonConfigs);
   buttonConfigs$ = this.buttonConfigsSubject$.asObservable();
 
-  constructor(
-    private zone: NgZone,
-    private saveCloseMachine: SaveCloseMachineService
-  ) {
+  constructor(private zone: NgZone, private saveCloseMachine: SaveCloseMachineService) {
     // Listen for the window maximize event from the electron main
     // process and update buttons as required. Need to run handler in
     // NgZone to ensure change detection continues to function.
@@ -71,11 +66,13 @@ export class ControlButtonsService {
   }
 
   processCloseButton() {
-    this.saveCloseMachine.start().subscribe((result) => {
-      this.saveCloseMachine.stop();
-      if (result === 'closed') {
-        window.electronApi.closeWindow();
-      }
+    this.saveCloseMachine.start().subscribe({
+      next: (result) => {
+        if (result === 'closed') {
+          window.electronApi.closeWindow();
+        }
+      },
+      complete: () => this.saveCloseMachine.stop(),
     });
   }
 
