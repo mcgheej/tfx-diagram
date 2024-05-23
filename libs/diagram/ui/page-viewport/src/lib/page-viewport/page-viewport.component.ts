@@ -7,10 +7,10 @@ import {
 } from '@angular/core';
 import { Size } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect, TfxResizeEvent } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { fromEvent, Subject, takeUntil } from 'rxjs';
+import { Subject, fromEvent, takeUntil } from 'rxjs';
 import {
-  CtrlLeftButtonDown,
-  DoubleClick,
+  LeftButtonCtrlDown,
+  LeftButtonDoubleClick,
   LeftButtonDown,
   LeftButtonUp,
   MouseMove,
@@ -44,7 +44,7 @@ export class PageViewportComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.mouseup$.pipe(takeUntil(this.destroy$)).subscribe((ev: MouseEvent) => {
       if (ev.button === 0) {
-        this.mouseMachine.send(new LeftButtonUp());
+        this.mouseMachine.send({ type: 'leftButton.up' } as LeftButtonUp);
       }
     });
     this.service.start();
@@ -102,7 +102,12 @@ export class PageViewportComponent implements OnInit, OnDestroy {
   }
 
   onMouseMove(ev: ShadowMouseMoveEvent) {
-    this.mouseMachine.send(new MouseMove(ev.x, ev.y, ev.shapeIdUnderMouse));
+    this.mouseMachine.send({
+      type: 'mouse.move',
+      x: ev.x,
+      y: ev.y,
+      shapeIdUnderMouse: ev.shapeIdUnderMouse,
+    } as MouseMove);
   }
 
   onMouseDown(ev: MouseEvent) {
@@ -110,16 +115,20 @@ export class PageViewportComponent implements OnInit, OnDestroy {
       return;
     }
     if (ev.ctrlKey) {
-      this.mouseMachine.send(new CtrlLeftButtonDown());
+      this.mouseMachine.send({ type: 'leftButton.ctrlDown' } as LeftButtonCtrlDown);
     } else {
-      this.mouseMachine.send(new LeftButtonDown(ev.offsetX, ev.offsetY));
+      this.mouseMachine.send({
+        type: 'leftButton.down',
+        x: ev.offsetX,
+        y: ev.offsetY,
+      } as LeftButtonDown);
     }
     ev.stopPropagation();
     ev.preventDefault();
   }
 
   onDoubleClick() {
-    this.mouseMachine.send(new DoubleClick());
+    this.mouseMachine.send({ type: 'leftButton.doubleClick' } as LeftButtonDoubleClick);
   }
 
   onKeydown(ev: KeyboardEvent) {
