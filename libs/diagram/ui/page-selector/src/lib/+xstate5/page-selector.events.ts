@@ -13,6 +13,7 @@ export type XMoveStartDelay = { type: 'move.startDelay' };
 export type XMoveCancel = { type: 'move.cancel' };
 export type XMoveMouse = { type: 'move.mouse'; x: number };
 export type XMoveComplete = { type: 'move.complete' };
+export type XMoveDone = { type: 'move.done' };
 export type XMoveScrollLeft = { type: 'move.scrollLeft' };
 export type XMoveScrollRight = { type: 'move.scrollRight' };
 export type XMoveScroll = { type: 'move.scroll'; scrollIndexDelta: number };
@@ -31,6 +32,7 @@ export type PageSelectorEvents =
   | XMoveCancel
   | XMoveMouse
   | XMoveComplete
+  | XMoveDone
   | XMoveScrollLeft
   | XMoveScrollRight
   | XMoveScroll

@@ -9,7 +9,6 @@ export class TextCursorMachineService {
   private cursorStateSubject$ = new Subject<'visible' | 'hidden'>();
   cursorState$ = this.cursorStateSubject$.asObservable();
 
-  // private textCursorActor: Actor<typeof textCursorMachine> | undefined;
   private textCursorActor: Actor<typeof textCursorMachine> = createActor(textCursorMachine, {
     input: {
       showCursor: true,
@@ -30,7 +29,6 @@ export class TextCursorMachineService {
   stop() {
     this.cursorStateSubject$.complete();
     this.textCursorActor.stop();
-    console.log(this.textCursorActor.getSnapshot());
   }
 
   send(event: TextCursorEvents) {

@@ -160,6 +160,7 @@ export const pageSelectorMachine = setup({
     insertPointIndex: -1,
     tabViewerOverflow: false,
     stateMachineService: input.stateMachineService,
+    moveComplete: false,
   }),
   id: 'page-selector',
   type: 'parallel',
@@ -329,6 +330,11 @@ export const pageSelectorMachine = setup({
             'move.cancel': 'idle',
           },
         },
+        doMove: {
+          on: {
+            'move.done': 'idle',
+          },
+        },
         tracking: {
           exit: ({ context }) => context.stateMachineService.hideIndicator(),
           initial: 'active',
@@ -389,7 +395,7 @@ export const pageSelectorMachine = setup({
             },
           },
           on: {
-            'move.complete': 'idle',
+            'move.complete': 'doMove',
             'move.insertPointChange': {
               actions: [
                 ({ context, event }) => {
