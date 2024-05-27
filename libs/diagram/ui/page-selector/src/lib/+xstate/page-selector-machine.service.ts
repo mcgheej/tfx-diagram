@@ -70,7 +70,7 @@ export class PageSelectorMachineService implements IStateMachineService {
     });
   private service = interpret(this.pageSelectorMachine).start();
 
-  state$ = from(this.service);
+  private state$ = from(this.service);
   trackingState$: Observable<boolean> = this.state$.pipe(
     map((state) => state.matches('moving.tracking')),
     distinctUntilChanged()

@@ -9,18 +9,14 @@ export class TextCursorMachineService {
   private cursorStateSubject$ = new Subject<'visible' | 'hidden'>();
   cursorState$ = this.cursorStateSubject$.asObservable();
 
-  private textCursorActor: Actor<typeof textCursorMachine> | undefined;
+  // private textCursorActor: Actor<typeof textCursorMachine> | undefined;
+  private textCursorActor: Actor<typeof textCursorMachine> = createActor(textCursorMachine, {
+    input: {
+      showCursor: true,
+    },
+  });
 
   start() {
-    if (this.textCursorActor) {
-      this.stop();
-    }
-
-    this.textCursorActor = createActor(textCursorMachine, {
-      input: {
-        showCursor: true,
-      },
-    });
     this.textCursorActor.start();
     this.textCursorActor.subscribe((snapshot) => {
       if (snapshot.context.showCursor) {
@@ -33,15 +29,11 @@ export class TextCursorMachineService {
 
   stop() {
     this.cursorStateSubject$.complete();
-    if (this.textCursorActor) {
-      this.textCursorActor.stop();
-      this.textCursorActor = undefined;
-    }
+    this.textCursorActor.stop();
+    console.log(this.textCursorActor.getSnapshot());
   }
 
   send(event: TextCursorEvents) {
-    if (this.textCursorActor) {
-      this.textCursorActor.send(event);
-    }
+    this.textCursorActor.send(event);
   }
 }
