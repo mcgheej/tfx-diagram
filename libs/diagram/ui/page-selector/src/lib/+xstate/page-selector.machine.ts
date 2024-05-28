@@ -12,6 +12,7 @@ import {
   XMoveScroll,
   XMoveScrollLeft,
   XMoveScrollRight,
+  XNop,
   XPagePagesChange,
   XPageSelectedPageChange,
   XTabViewerOverflowChange,
@@ -71,14 +72,11 @@ export const pageSelectorMachine = setup({
             const mouseX = v[0] as number;
             const insertPoints = v[1] as TfxPoint[];
             if (mouseX < insertPoints[0].x) {
-              // return new MoveScrollLeftEvent();
               return { type: 'move.scrollLeft' } as XMoveScrollLeft;
             }
             if (mouseX >= insertPoints[insertPoints.length - 1].x) {
-              // return new MoveScrollRightEvent();
               return { type: 'move.scrollRight' } as XMoveScrollRight;
             }
-            // return new MoveMouseMoveEvent(0);
             return { type: 'move.mouse', x: 0 } as XMoveMouse;
           }
         })
@@ -342,12 +340,45 @@ export const pageSelectorMachine = setup({
             {
               src: 'trackMouseMove',
               input: ({ context }) => ({ context }),
+              onSnapshot: {
+                actions: raise(({ event }) => {
+                  if (event.snapshot.context) {
+                    return event.snapshot.context;
+                  }
+                  return { type: 'nop' } as XNop;
+                }),
+              },
             },
             {
               src: 'insertPointChange',
               input: ({ context }) => ({ context }),
+              onSnapshot: {
+                actions: raise(({ event }) => {
+                  if (event.snapshot.context) {
+                    return event.snapshot.context;
+                  }
+                  return { type: 'nop' } as XNop;
+                }),
+              },
             },
           ],
+          on: {
+            'move.complete': 'doMove',
+            'move.insertPointChange': {
+              actions: [
+                ({ context, event }) => {
+                  const ev = event as XMoveInsertPointChange;
+                  console.log(ev);
+                  context.stateMachineService.showIndicator(ev.newInsertPoint);
+                },
+                assign({
+                  insertPointIndex: ({ event }) => {
+                    return event.newInsertPointIndex;
+                  },
+                }),
+              ],
+            },
+          },
           states: {
             active: {
               on: {
@@ -392,22 +423,6 @@ export const pageSelectorMachine = setup({
                 },
                 'move.mouse': 'active',
               },
-            },
-          },
-          on: {
-            'move.complete': 'doMove',
-            'move.insertPointChange': {
-              actions: [
-                ({ context, event }) => {
-                  const ev = event as XMoveInsertPointChange;
-                  context.stateMachineService.showIndicator(ev.newInsertPoint);
-                },
-                assign({
-                  insertPointIndex: ({ event }) => {
-                    return event.newInsertPointIndex;
-                  },
-                }),
-              ],
             },
           },
         },

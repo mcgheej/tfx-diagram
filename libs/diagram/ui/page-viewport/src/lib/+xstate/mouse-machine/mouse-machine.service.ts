@@ -15,7 +15,6 @@ export class MouseMachineService {
   constructor(private store: Store) {}
 
   start() {
-    this.mouseActor.subscribe((snapshot) => console.log(snapshot));
     this.mouseActor.start();
   }
 

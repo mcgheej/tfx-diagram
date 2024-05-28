@@ -87,7 +87,9 @@ export class PageSelectorComponent implements OnInit, OnChanges, AfterViewInit, 
 
     this.stateMachine.moveResult$.pipe(takeUntil(this.destroy$)).subscribe((moveResult) => {
       this.pageMove.emit(moveResult);
+      this.stateMachine.moveDone();
     });
+    this.stateMachine.start();
   }
 
   ngAfterViewInit() {

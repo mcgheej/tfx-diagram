@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, distinctUntilChanged, filter, from, map, Observable } from 'rxjs';
-import { createMachine, interpret, MachineOptions } from 'xstate';
+import { BehaviorSubject, Observable, distinctUntilChanged, filter, from, map } from 'rxjs';
+import { Actor, createActor } from 'xstate5';
 import { PagePositionIndicatorRef } from '../components/page-position-indicator/page-position-indicator-ref';
 import {
   INDICATOR_X_OFFSET,
@@ -8,31 +8,14 @@ import {
 } from '../components/page-position-indicator/page-position-indicator.config';
 import { PagePositionIndicatorService } from '../components/page-position-indicator/page-position-indicator.service';
 import { MoveResult, ScrollData, TfxPoint } from '../page-selector.types';
-import {
-  pagesChangeAction,
-  selectedPageChangedAction,
-  tabViewerOverflowChangedAction,
-  tabViewerScrollAction,
-} from './page-selector.actions';
-import { pageSelectorConfig, pageSelectorContext } from './page-selector.config';
-import {
-  MoveCancelEvent,
-  MoveStartDelayEvent,
-  PagesChangeEvent,
-  PageSelectorEvents,
-  SelectedPageChangeEvent,
-  TabViewerOverflowChangeEvent,
-  TabViewerScrollEvent,
-} from './page-selector.events';
-import {
-  multiplePagesGuard,
-  noTabViewerOverflowGuard,
-  singlePageGuard,
-  tabViewerNotScrolledGuard,
-  tabViewerOverflowGuard,
-  tabViewerScrolledGuard,
-} from './page-selector.guards';
-import { IStateMachineService, PageSelectorContext } from './page-selector.schema';
+import { PageSelectorEvents } from './page-selector.events';
+import { pageSelectorMachine } from './page-selector.machine';
+
+export interface IStateMachineService {
+  insertPoints$: Observable<TfxPoint[]>;
+  showIndicator(indicatorPosition: TfxPoint): void;
+  hideIndicator(): void;
+}
 
 @Injectable()
 export class PageSelectorMachineService implements IStateMachineService {
@@ -42,63 +25,49 @@ export class PageSelectorMachineService implements IStateMachineService {
 
   private indicatorRef: PagePositionIndicatorRef | null = null;
 
-  pageSelectorMachineOptions: Partial<MachineOptions<PageSelectorContext, PageSelectorEvents>> =
+  private pageSelectorActor: Actor<typeof pageSelectorMachine> = createActor(
+    pageSelectorMachine,
     {
-      actions: {
-        pagesChangeAction,
-        selectedPageChangedAction,
-        tabViewerOverflowChangedAction,
-        tabViewerScrollAction,
+      input: {
+        stateMachineService: this,
       },
-      guards: {
-        singlePageGuard,
-        multiplePagesGuard,
-        noTabViewerOverflowGuard,
-        tabViewerOverflowGuard,
-        tabViewerNotScrolledGuard,
-        tabViewerScrolledGuard,
-      },
-    };
+    }
+  );
 
-  private pageSelectorMachine = createMachine<PageSelectorContext, PageSelectorEvents>(
-    pageSelectorConfig()
-  )
-    .withConfig(this.pageSelectorMachineOptions)
-    .withContext({
-      ...pageSelectorContext,
-      stateMachineService: this as IStateMachineService,
-    });
-  private service = interpret(this.pageSelectorMachine).start();
-
-  private state$ = from(this.service);
-  trackingState$: Observable<boolean> = this.state$.pipe(
-    map((state) => state.matches('moving.tracking')),
+  private stateSnapshot$ = from(this.pageSelectorActor);
+  trackingState$: Observable<boolean> = this.stateSnapshot$.pipe(
+    map((snapshot) => snapshot.matches({ moving: 'tracking' })),
     distinctUntilChanged()
   );
-  scrollData$: Observable<ScrollData> = this.state$.pipe(
+  scrollData$: Observable<ScrollData> = this.stateSnapshot$.pipe(
     map((state) => {
       return {
-        leftDisabled: !state.matches('viewing.multiplePages.leftTabViewSide.clipped'),
-        rightDisabled: !state.matches('viewing.multiplePages.rightTabViewSide.clipped'),
+        leftDisabled: !state.matches({
+          viewing: { multiplePages: { leftTabViewSide: 'clipped' } },
+        }),
+        rightDisabled: !state.matches({
+          viewing: { multiplePages: { rightTabViewSide: 'clipped' } },
+        }),
         scrollIndex: state.context.scrollIndex,
       };
     })
   );
-  moveResult$: Observable<MoveResult> = this.state$.pipe(
-    filter((state) => {
-      if (state.event.type !== 'MOVE_COMPLETE_EVENT') {
+  moveResult$: Observable<MoveResult> = this.stateSnapshot$.pipe(
+    filter((snapshot) => {
+      if (!snapshot.matches({ moving: 'doMove' })) {
         return false;
       }
-      const insertIndex = state.context.insertPointIndex + state.context.scrollIndex;
-      const selectedPageIndex = state.context.selectedPageIndex;
+      const context = snapshot.context;
+      const insertIndex = context.insertPointIndex + context.scrollIndex;
+      const selectedPageIndex = context.selectedPageIndex;
       if (insertIndex === selectedPageIndex || insertIndex === selectedPageIndex + 1) {
         return false;
       }
       return true;
     }),
-    map((state) => {
-      const currentPageIndex = state.context.selectedPageIndex;
-      const insertIndex = state.context.insertPointIndex + state.context.scrollIndex;
+    map(({ context }) => {
+      const currentPageIndex = context.selectedPageIndex;
+      const insertIndex = context.insertPointIndex + context.scrollIndex;
       const newPageIndex = insertIndex < currentPageIndex ? insertIndex : insertIndex - 1;
       return {
         currentPageIndex,
@@ -109,18 +78,24 @@ export class PageSelectorMachineService implements IStateMachineService {
 
   constructor(private indicatorService: PagePositionIndicatorService) {}
 
-  send(event: PageSelectorEvents) {
-    this.service.send(event);
+  start() {
+    // this.pageSelectorActor.subscribe((snapshot) => console.log(snapshot.value));
+    this.pageSelectorActor.start();
   }
 
   stop() {
-    this.service.stop();
+    this.pageSelectorActor.stop();
+  }
+
+  send(event: PageSelectorEvents) {
+    this.pageSelectorActor.send(event);
   }
 
   // IStateMachineService Methods
   // --------------------------------------------------------------------------
 
   public showIndicator(indicatorPosition: TfxPoint) {
+    console.log(indicatorPosition);
     if (this.indicatorRef) {
       this.indicatorRef.updatePosition({
         left: `${indicatorPosition.x - INDICATOR_X_OFFSET}px`,
@@ -154,34 +129,30 @@ export class PageSelectorMachineService implements IStateMachineService {
   // --------------------------------------------------------------------------
 
   public tabViewerOverflowChanged(overflow: boolean) {
-    this.service.send(new TabViewerOverflowChangeEvent(overflow));
+    this.pageSelectorActor.send({ type: 'tabViewer.overflowChange', overflow });
   }
 
-  // public sendTabViewerInsertPointsChanged(insertPoints: TfxPoint[]) {
-  //   this.service.send('x.tabViewer.insertPointsChanged', { insertPoints });
-  // }
-
   public pagesChanged(pages: string[]) {
-    this.service.send(new PagesChangeEvent(pages));
+    this.pageSelectorActor.send({ type: 'page.pagesChange', pages });
   }
 
   public selectedPageChanged(selectedPageIndex: number) {
-    this.service.send(new SelectedPageChangeEvent(selectedPageIndex));
+    this.pageSelectorActor.send({ type: 'page.selectedPageChange', selectedPageIndex });
   }
 
   public sendTabViewerScroll(scrollIndexDelta: number) {
-    this.service.send(new TabViewerScrollEvent(scrollIndexDelta));
+    this.pageSelectorActor.send({ type: 'tabViewer.scroll', scrollIndexDelta });
   }
 
-  // public tabViewerScrollLeft() {}
-
-  // public tabViewerScrollRight() {}
-
   public moveStartDelay() {
-    this.service.send(new MoveStartDelayEvent());
+    this.pageSelectorActor.send({ type: 'move.startDelay' });
   }
 
   public moveCancel() {
-    this.service.send(new MoveCancelEvent());
+    this.pageSelectorActor.send({ type: 'move.cancel' });
+  }
+
+  public moveDone() {
+    this.pageSelectorActor.send({ type: 'move.done' });
   }
 }
