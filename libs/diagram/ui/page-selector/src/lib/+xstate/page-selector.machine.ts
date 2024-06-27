@@ -368,7 +368,6 @@ export const pageSelectorMachine = setup({
               actions: [
                 ({ context, event }) => {
                   const ev = event as XMoveInsertPointChange;
-                  console.log(ev);
                   context.stateMachineService.showIndicator(ev.newInsertPoint);
                 },
                 assign({

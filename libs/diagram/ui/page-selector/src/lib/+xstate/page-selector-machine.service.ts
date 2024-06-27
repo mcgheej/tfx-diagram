@@ -95,7 +95,6 @@ export class PageSelectorMachineService implements IStateMachineService {
   // --------------------------------------------------------------------------
 
   public showIndicator(indicatorPosition: TfxPoint) {
-    console.log(indicatorPosition);
     if (this.indicatorRef) {
       this.indicatorRef.updatePosition({
         left: `${indicatorPosition.x - INDICATOR_X_OFFSET}px`,
