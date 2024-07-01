@@ -89,7 +89,6 @@ export class SketchbookViewService implements OnDestroy {
   }
 
   zoomChange(zoomSelected: ZoomSelectType) {
-    console.log('zoom selected');
     this.store.dispatch(SketchbookViewComponentActions.zoomChange({ zoomSelected }));
   }
 

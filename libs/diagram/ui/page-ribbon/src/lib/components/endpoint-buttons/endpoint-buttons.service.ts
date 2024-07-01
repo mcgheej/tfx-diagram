@@ -3,9 +3,9 @@ import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dial
 import { Store } from '@ngrx/store';
 import { EndpointButtonsServiceActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import {
-  createEndpoint,
   Endpoint,
   EndpointStyles,
+  createEndpoint,
 } from '@tfx-diagram/diagram/data-access/endpoint-classes';
 import { EndpointDialogComponent } from './endpoint-dialog/endpoint-dialog.component';
 import { EndpointDialogData } from './endpoint-dialog/endpoint-dialog.types';
@@ -17,7 +17,7 @@ export class EndpointButtonsService {
   openEndpointDialog(el: HTMLElement, endpoint: Endpoint | null, end: 'start' | 'finish') {
     let config: MatDialogConfig<EndpointDialogData> = {
       data: { endpoint, end },
-      width: '120px',
+      width: '180px',
       height: '120px',
       backdropClass: 'tfx-dialog-backdrop-transparent',
     };

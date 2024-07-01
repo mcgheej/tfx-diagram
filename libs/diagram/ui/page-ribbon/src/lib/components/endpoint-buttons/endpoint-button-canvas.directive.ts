@@ -26,7 +26,7 @@ export class EndpointButtonCanvasDirective implements OnInit, OnChanges, OnDestr
   @Output() canvasSize = new EventEmitter<Size>();
 
   private ctx: CanvasRenderingContext2D | null = null;
-  private sbd = 0;
+  private spd = 96;
   private width = 300;
   private height = 300;
 
@@ -47,13 +47,13 @@ export class EndpointButtonCanvasDirective implements OnInit, OnChanges, OnDestr
       .select(selectScreenPixelDensity)
       .pipe(takeUntil(this.destroy$))
       .subscribe((sbd) => {
-        this.sbd = sbd;
+        this.spd = sbd;
         this.draw();
       });
   }
 
   ngOnChanges(): void {
-    if (this.sbd !== 0) {
+    if (this.spd !== 0) {
       this.draw();
     }
   }
@@ -75,19 +75,28 @@ export class EndpointButtonCanvasDirective implements OnInit, OnChanges, OnDestr
     if (this.ctx) {
       const c = this.ctx;
       c.clearRect(0, 0, this.width, this.height);
-      const y = this.height / 2;
-      const x1 = 14;
-      const x2 = this.width - 6;
-      const x3 = (this.width - x1) / 2;
-      c.fillStyle = '#2a2b2d';
+
+      // Calculate height and width of canvas in mm
+      const scaleFactor = this.spd / 25.4;
+      const transX = 0;
+      const transY = 0;
+      const mmWidth = this.width / scaleFactor;
+      const mmHeight = this.height / scaleFactor;
+
+      // Calculate coords of line endpoints and no endpoint label (x3)
+      const mmY = mmHeight / 2;
+      const mmX1 = this.end === 'finish' ? 1 : 3;
+      const mmX2 = this.end === 'finish' ? mmWidth - 3 : mmWidth - 1;
+      const pxX3 = ((mmX2 - mmX1) * scaleFactor) / 2;
+
       if (this.endpoint) {
         const line = new Line({
           id: 'temp',
           controlPoints: [
-            { x: x1, y },
-            { x: x2, y },
+            { x: mmX1, y: mmY },
+            { x: mmX2, y: mmY },
           ],
-          lineWidth: 2,
+          lineWidth: 0.25,
           strokeStyle: { colorSet: 'rgb', ref: '#2a2b2d' },
         });
         if (this.end === 'start') {
@@ -95,12 +104,13 @@ export class EndpointButtonCanvasDirective implements OnInit, OnChanges, OnDestr
         } else {
           line.finishEndpoint = this.endpoint;
         }
-        line.draw(c, { scaleFactor: 1, transX: 0, transY: 0 });
+        line.draw(c, { scaleFactor, transX, transY });
       } else {
+        c.fillStyle = '#2a2b2d';
         c.font = '12px Roboto, sans serif';
         c.textAlign = 'center';
         c.textBaseline = 'middle';
-        c.fillText('None', x3, y);
+        c.fillText('None', pxX3, this.height / 2);
       }
       if (this.selected) {
         c.fillRect(0, 0, 4, this.height);
@@ -112,18 +122,28 @@ export class EndpointButtonCanvasDirective implements OnInit, OnChanges, OnDestr
     if (this.ctx) {
       const c = this.ctx;
       c.clearRect(0, 0, this.width, this.height);
-      const y = this.height / 2;
-      const x1 = 6;
-      const x2 = this.width;
+
+      // Calculate height and width of canvas in mm
+      const scaleFactor = this.spd / 25.4;
+      const transX = 0;
+      const transY = 0;
+      const mmWidth = this.width / scaleFactor;
+      const mmHeight = this.height / scaleFactor;
+
+      // Calculate coords of line endpoints and no endpoint label (x3)
+      const mmY = mmHeight / 2;
+      const mmX1 = this.end === 'finish' ? 1 : 3;
+      const mmX2 = this.end === 'finish' ? mmWidth - 3 : mmWidth - 1;
+      const pxX3 = ((mmX2 - mmX1) * scaleFactor) / 2;
 
       if (this.endpoint) {
         const line = new Line({
           id: 'temp',
           controlPoints: [
-            { x: x1, y },
-            { x: x2, y },
+            { x: mmX1, y: mmY },
+            { x: mmX2, y: mmY },
           ],
-          lineWidth: 2,
+          lineWidth: 0.25,
           strokeStyle: { colorSet: 'rgb', ref: '#2a2b2d' },
         });
         if (this.end === 'start') {
@@ -131,13 +151,13 @@ export class EndpointButtonCanvasDirective implements OnInit, OnChanges, OnDestr
         } else {
           line.finishEndpoint = this.endpoint;
         }
-        line.draw(c, { scaleFactor: 1, transX: 0, transY: 0 });
+        line.draw(c, { scaleFactor, transX, transY });
       } else {
         c.fillStyle = '#2a2b2d';
         c.font = '12px Roboto, sans serif';
         c.textAlign = 'start';
         c.textBaseline = 'middle';
-        c.fillText('None', 6, y);
+        c.fillText('None', pxX3, this.height / 2);
       }
     }
   }
