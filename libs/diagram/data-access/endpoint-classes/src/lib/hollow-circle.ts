@@ -5,8 +5,7 @@ import {
 } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Endpoint } from './endpoint';
-import { EndpointSizes } from './endpoint-styles';
-import { mmBaseLineWidth, mmRadii } from './endpoint.constants';
+import { EndpointSizes, mmBaseLineWidth, mmRadii } from './endpoint-styles';
 
 export class HollowCircle extends Endpoint {
   static readonly availableSizesHollowCircle: EndpointSizes[] = ['small', 'medium', 'large'];
@@ -71,6 +70,7 @@ export class HollowCircle extends Endpoint {
 
     c.strokeStyle = strokeStyle;
     c.lineWidth = 1;
+    c.beginPath();
     c.arc(x, y, pxRadius, 0, 2 * Math.PI);
     c.clip();
 

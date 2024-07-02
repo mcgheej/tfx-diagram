@@ -1,5 +1,6 @@
 import { Endpoint } from './endpoint';
 import { EndpointSizes, EndpointStyles } from './endpoint-styles';
+import { HollowArrow } from './hollow-arrow';
 import { HollowCircle } from './hollow-circle';
 import { SolidCircle } from './solid-circle';
 import { StandardArrow } from './standard-arrow';
@@ -31,6 +32,11 @@ export const createEndpoint = (
           size ? size : StandardArrow.modalStartSize,
           StandardArrow.availableSizesStandardArrow
         )
+      );
+    }
+    case 'hollow-arrow': {
+      return new HollowArrow(
+        getSize(size ? size : HollowArrow.modalStartSize, HollowArrow.availableSizesHollowArrow)
       );
     }
     case 'solid-circle': {

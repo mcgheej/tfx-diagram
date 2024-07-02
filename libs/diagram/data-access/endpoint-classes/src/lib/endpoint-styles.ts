@@ -1,8 +1,36 @@
+// Types
+export type EndpointStyles =
+  | 'none'
+  | 'standard-arrow'
+  | 'hollow-arrow'
+  | 'solid-circle'
+  | 'hollow-circle';
+export type EndpointSizes = 'small' | 'medium' | 'large';
+
+// Array of supported styles
 export const ENDPOINT_STYLES: EndpointStyles[] = [
   'none',
   'standard-arrow',
+  'hollow-arrow',
   'solid-circle',
   'hollow-circle',
 ];
-export type EndpointStyles = 'none' | 'standard-arrow' | 'solid-circle' | 'hollow-circle';
-export type EndpointSizes = 'small' | 'medium' | 'large';
+
+export const mmBaseLineWidth = 0.25;
+
+// Arrow head ratios
+export const arrowRatioHeight = 5;
+export const arrowRatioLength = 16;
+
+// Arrow head lengths for supported sizes
+export const mmArrowLengths = {
+  medium: 3,
+  large: 5,
+};
+
+// Circle radii for supported sizes
+export const mmRadii = {
+  small: 0.75,
+  medium: 1,
+  large: 1.5,
+};

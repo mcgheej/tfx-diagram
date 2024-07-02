@@ -5,8 +5,7 @@ import {
 } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Endpoint } from './endpoint';
-import { EndpointSizes } from './endpoint-styles';
-import { mmBaseLineWidth, mmRadii } from './endpoint.constants';
+import { EndpointSizes, mmBaseLineWidth, mmRadii } from './endpoint-styles';
 
 export class SolidCircle extends Endpoint {
   static readonly availableSizesSolidCircle: EndpointSizes[] = ['small', 'medium', 'large'];

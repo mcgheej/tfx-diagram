@@ -14,28 +14,28 @@ import {
   mmBaseLineWidth,
 } from './endpoint-styles';
 
-export class StandardArrow extends Endpoint {
-  static readonly availableSizesStandardArrow: EndpointSizes[] = ['medium', 'large'];
+export class HollowArrow extends Endpoint {
+  static readonly availableSizesHollowArrow: EndpointSizes[] = ['medium', 'large'];
   static modalStartSize: EndpointSizes = 'medium';
   static modalFinishSize: EndpointSizes = 'medium';
 
   get modalStartSize(): EndpointSizes {
-    return StandardArrow.modalStartSize;
+    return HollowArrow.modalStartSize;
   }
 
   set modalStartSize(size: EndpointSizes) {
-    if (StandardArrow.availableSizesStandardArrow.includes(size)) {
-      StandardArrow.modalStartSize = size;
+    if (HollowArrow.availableSizesHollowArrow.includes(size)) {
+      HollowArrow.modalStartSize = size;
     }
   }
 
   get modalFinishSize(): EndpointSizes {
-    return StandardArrow.modalFinishSize;
+    return HollowArrow.modalFinishSize;
   }
 
   set modalFinishSize(size: EndpointSizes) {
-    if (StandardArrow.availableSizesStandardArrow.includes(size)) {
-      StandardArrow.modalFinishSize = size;
+    if (HollowArrow.availableSizesHollowArrow.includes(size)) {
+      HollowArrow.modalFinishSize = size;
     }
   }
 
@@ -44,12 +44,12 @@ export class StandardArrow extends Endpoint {
   private arrowBase: Point[];
 
   constructor(size: EndpointSizes = 'medium') {
-    if (StandardArrow.availableSizesStandardArrow.includes(size)) {
-      super(size, StandardArrow.availableSizesStandardArrow);
+    if (HollowArrow.availableSizesHollowArrow.includes(size)) {
+      super(size, HollowArrow.availableSizesHollowArrow);
     } else {
-      super('medium', StandardArrow.availableSizesStandardArrow);
+      super('medium', HollowArrow.availableSizesHollowArrow);
     }
-    this.endpointType = 'standard-arrow';
+    this.endpointType = 'hollow-arrow';
     this.mmLength = mmArrowLengths[size as 'medium' | 'large'];
     this.mmHeight = (2 * this.mmLength * arrowRatioHeight) / arrowRatioLength;
     this.arrowBase = [
@@ -59,8 +59,8 @@ export class StandardArrow extends Endpoint {
     ];
   }
 
-  copy(): StandardArrow {
-    return new StandardArrow(this.size);
+  copy(): HollowArrow {
+    return new HollowArrow(this.size);
   }
 
   /**
@@ -92,12 +92,34 @@ export class StandardArrow extends Endpoint {
     c.save();
     c.strokeStyle = strokeStyle;
     c.lineWidth = 1;
-    c.fillStyle = strokeStyle;
+    c.fillStyle = 'white';
     c.beginPath();
     c.moveTo(a[0].x, a[0].y);
     c.lineTo(a[1].x, a[1].y);
     c.lineTo(a[2].x, a[2].y);
     c.fill();
+
+    c.lineWidth = 1;
+    c.beginPath();
+    c.moveTo(a[0].x, a[0].y);
+    c.lineTo(a[1].x, a[1].y);
+    c.lineTo(a[2].x, a[2].y);
+    c.lineTo(a[0].x, a[0].y);
+    c.clip();
+
+    let pxLineWidth = mmLineWidth * t.scaleFactor * 2;
+    if (pxLineWidth < 2) {
+      pxLineWidth = 2;
+    }
+    c.lineWidth = pxLineWidth;
+    c.setLineDash([]);
+    c.beginPath();
+    c.moveTo(a[0].x, a[0].y);
+    c.lineTo(a[1].x, a[1].y);
+    c.lineTo(a[2].x, a[2].y);
+    c.lineTo(a[0].x, a[0].y);
+    c.stroke();
+
     c.restore();
   }
 }
