@@ -4,7 +4,8 @@ import { Endpoint } from './endpoint';
 import { EndpointSizes } from './endpoint-styles';
 
 const mmBaseLineWidth = 0.25;
-const radii = {
+
+const mmRadii = {
   small: 0.75,
   medium: 1,
   large: 1.5,
@@ -38,9 +39,13 @@ export class SolidCircle extends Endpoint {
   private mmCircleRadius: number;
 
   constructor(size: EndpointSizes) {
-    super(size, SolidCircle.availableSizesSolidCircle);
+    if (SolidCircle.availableSizesSolidCircle.includes(size)) {
+      super(size, SolidCircle.availableSizesSolidCircle);
+    } else {
+      super('medium', SolidCircle.availableSizesSolidCircle);
+    }
     this.endpointType = 'solid-circle';
-    this.mmCircleRadius = radii[size];
+    this.mmCircleRadius = mmRadii[size];
   }
 
   copy(): SolidCircle {

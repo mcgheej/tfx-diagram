@@ -13,16 +13,21 @@ const arrowRatioLength = 16;
 const mmBaseLineWidth = 0.25;
 
 // Baseline arrow head
-const mmLength = 3;
-const mmHeight = (2 * mmLength * arrowRatioHeight) / arrowRatioLength;
-const arrowBase: Point[] = [
-  { x: 0, y: 0 },
-  { x: mmLength, y: -mmHeight / 2 },
-  { x: mmLength, y: mmHeight / 2 },
-];
+const mmLengths = {
+  medium: 3,
+  large: 5,
+};
+
+// const mmLength = 3;
+// const mmHeight = (2 * mmLength * arrowRatioHeight) / arrowRatioLength;
+// const arrowBase: Point[] = [
+//   { x: 0, y: 0 },
+//   { x: mmLength, y: -mmHeight / 2 },
+//   { x: mmLength, y: mmHeight / 2 },
+// ];
 
 export class StandardArrow extends Endpoint {
-  static readonly availableSizesStandardArrow: EndpointSizes[] = ['medium'];
+  static readonly availableSizesStandardArrow: EndpointSizes[] = ['medium', 'large'];
   static modalStartSize: EndpointSizes = 'medium';
   static modalFinishSize: EndpointSizes = 'medium';
 
@@ -46,13 +51,28 @@ export class StandardArrow extends Endpoint {
     }
   }
 
+  private mmLength: number;
+  private mmHeight: number;
+  private arrowBase: Point[];
+
   constructor(size: EndpointSizes = 'medium') {
-    super(size, StandardArrow.availableSizesStandardArrow);
+    if (StandardArrow.availableSizesStandardArrow.includes(size)) {
+      super(size, StandardArrow.availableSizesStandardArrow);
+    } else {
+      super('medium', StandardArrow.availableSizesStandardArrow);
+    }
     this.endpointType = 'standard-arrow';
+    this.mmLength = mmLengths[size as 'medium' | 'large'];
+    this.mmHeight = (2 * this.mmLength * arrowRatioHeight) / arrowRatioLength;
+    this.arrowBase = [
+      { x: 0, y: 0 },
+      { x: this.mmLength, y: -this.mmHeight / 2 },
+      { x: this.mmLength, y: this.mmHeight / 2 },
+    ];
   }
 
   copy(): StandardArrow {
-    return new StandardArrow();
+    return new StandardArrow(this.size);
   }
 
   draw(
@@ -67,9 +87,9 @@ export class StandardArrow extends Endpoint {
     const s = (1 + mmLineWidth / mmBaseLineWidth) / 2;
 
     const a: Point[] = [
-      pointTransform(pointAdd(arrowBase[0], p), t),
-      pointTransform(pointAdd(pointRotate(pointScale(arrowBase[1], s), angle), p), t),
-      pointTransform(pointAdd(pointRotate(pointScale(arrowBase[2], s), angle), p), t),
+      pointTransform(pointAdd(this.arrowBase[0], p), t),
+      pointTransform(pointAdd(pointRotate(pointScale(this.arrowBase[1], s), angle), p), t),
+      pointTransform(pointAdd(pointRotate(pointScale(this.arrowBase[2], s), angle), p), t),
     ];
 
     c.save();
