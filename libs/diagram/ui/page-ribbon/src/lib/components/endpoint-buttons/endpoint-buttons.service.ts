@@ -2,12 +2,11 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { EndpointButtonsServiceActions } from '@tfx-diagram/diagram-data-access-store-actions';
+import { Endpoint, createEndpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
 import {
-  Endpoint,
-  EndpointStyles,
-  createEndpoint,
-} from '@tfx-diagram/diagram/data-access/endpoint-classes';
-import { EndpointDialogComponent } from './endpoint-dialog/endpoint-dialog.component';
+  EndpointDialogComponent,
+  EndpointDialogResult,
+} from './endpoint-dialog/endpoint-dialog.component';
 import { EndpointDialogData } from './endpoint-dialog/endpoint-dialog.types';
 
 @Injectable({ providedIn: 'root' })
@@ -18,7 +17,7 @@ export class EndpointButtonsService {
     let config: MatDialogConfig<EndpointDialogData> = {
       data: { endpoint, end },
       width: '180px',
-      height: '120px',
+      height: '144px',
       backdropClass: 'tfx-dialog-backdrop-transparent',
     };
     if (el) {
@@ -32,25 +31,23 @@ export class EndpointButtonsService {
       };
     }
     this.store.dispatch(EndpointButtonsServiceActions.endpointDialogOpening());
-    const dialogRef: MatDialogRef<EndpointDialogComponent, EndpointStyles> = this.dialog.open(
-      EndpointDialogComponent,
-      config
-    );
-    dialogRef.afterClosed().subscribe((selectedEndpointStyle) => {
+    const dialogRef: MatDialogRef<EndpointDialogComponent, EndpointDialogResult> =
+      this.dialog.open(EndpointDialogComponent, config);
+    dialogRef.afterClosed().subscribe((result) => {
       this.store.dispatch(EndpointButtonsServiceActions.endpointDialogClosed());
-      if (selectedEndpointStyle) {
+      if (result) {
         if (end === 'start') {
-          this.store.dispatch(
-            EndpointButtonsServiceActions.startEndpointChange({
-              endpoint: createEndpoint(selectedEndpointStyle),
-            })
-          );
+          const endpoint = createEndpoint(result.endpointType, result.size);
+          if (endpoint) {
+            endpoint.modalStartSize = result.size;
+          }
+          this.store.dispatch(EndpointButtonsServiceActions.startEndpointChange({ endpoint }));
         } else {
-          this.store.dispatch(
-            EndpointButtonsServiceActions.finishEndpointChange({
-              endpoint: createEndpoint(selectedEndpointStyle),
-            })
-          );
+          const endpoint = createEndpoint(result.endpointType, result.size);
+          if (endpoint) {
+            endpoint.modalFinishSize = result.size;
+          }
+          this.store.dispatch(EndpointButtonsServiceActions.finishEndpointChange({ endpoint }));
         }
       }
     });

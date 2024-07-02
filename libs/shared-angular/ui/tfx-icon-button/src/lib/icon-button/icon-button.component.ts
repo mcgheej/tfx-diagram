@@ -6,11 +6,7 @@ import {
   OnChanges,
   Output,
 } from '@angular/core';
-import {
-  HighlightColours,
-  IconButtonConfig,
-  IconButtonOptions,
-} from '../icon-button.types';
+import { HighlightColours, IconButtonConfig, IconButtonOptions } from '../icon-button.types';
 
 const iconButtonDefaults: IconButtonOptions = {
   id: '',
@@ -72,11 +68,9 @@ export class IconButtonComponent implements OnChanges {
       }
     } else if (!this.config.highlightDisabled && !this.config.disabled) {
       if (this.config.highlightBehaviour === 'lighten') {
-        this.iconAreaStyles['boxShadow'] =
-          'inset 0 0 100px 100px rgba(255, 255, 255, 0.1)';
+        this.iconAreaStyles['boxShadow'] = 'inset 0 0 100px 100px rgba(255, 255, 255, 0.1)';
       } else if (this.config.highlightBehaviour === 'darken') {
-        this.iconAreaStyles['boxShadow'] =
-          'inset 0 0 100px 100px rgba(0, 0, 0, 0.1)';
+        this.iconAreaStyles['boxShadow'] = 'inset 0 0 100px 100px rgba(0, 0, 0, 0.1)';
       } else if ((this.config.highlightBehaviour as HighlightColours).colour) {
         this.iconAreaStyles['color'] = (
           this.config.highlightBehaviour as HighlightColours

@@ -5,15 +5,23 @@ import {
   Inject,
   OnInit,
 } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {
-  createEndpoint,
-  Endpoint,
-  EndpointStyles,
   ENDPOINT_STYLES,
+  Endpoint,
+  EndpointSizes,
+  EndpointStyles,
+  createEndpoint,
+  createFinishEndpoint,
+  createStartEndpoint,
 } from '@tfx-diagram/diagram/data-access/endpoint-classes';
 import { Size } from 'electron';
 import { EndpointDialogData } from './endpoint-dialog.types';
+
+export interface EndpointDialogResult {
+  endpointType: EndpointStyles;
+  size: EndpointSizes;
+}
 
 @Component({
   templateUrl: './endpoint-dialog.component.html',
@@ -25,13 +33,16 @@ export class EndpointDialogComponent implements OnInit {
 
   constructor(
     private changeDetect: ChangeDetectorRef,
-    private dialogRef: MatDialogRef<EndpointDialogComponent, EndpointStyles>,
+    private dialogRef: MatDialogRef<EndpointDialogComponent, EndpointDialogResult>,
     @Inject(MAT_DIALOG_DATA) public data: EndpointDialogData
   ) {}
 
   ngOnInit(): void {
     for (let i = 0; i < ENDPOINT_STYLES.length; i++) {
-      this.endpoints.push(createEndpoint(ENDPOINT_STYLES[i]));
+      const style = ENDPOINT_STYLES[i];
+      this.endpoints.push(
+        this.data.end === 'start' ? createStartEndpoint(style) : createFinishEndpoint(style)
+      );
     }
   }
 
@@ -43,9 +54,29 @@ export class EndpointDialogComponent implements OnInit {
 
   onEndpointClick(endpoint: Endpoint | null) {
     if (endpoint) {
-      this.dialogRef.close(endpoint.endpointType);
+      this.dialogRef.close({
+        endpointType: endpoint.endpointType,
+        size: endpoint.size,
+      } as EndpointDialogResult);
     } else {
-      this.dialogRef.close('none');
+      this.dialogRef.close({
+        endpointType: 'none',
+        size: 'medium',
+      } as EndpointDialogResult);
+    }
+  }
+
+  onSizeChangeClick(i: number) {
+    if (this.endpoints[i]) {
+      const endpoint = this.endpoints[i] as Endpoint;
+      const currentSizeIndex = endpoint.availableSizes.findIndex(
+        (size) => size === endpoint.size
+      );
+      if (currentSizeIndex >= 0) {
+        const nAvailableSizes = endpoint.availableSizes.length;
+        const newSize = endpoint.availableSizes[(currentSizeIndex + 1) % nAvailableSizes];
+        this.endpoints[i] = createEndpoint(endpoint.endpointType, newSize);
+      }
     }
   }
 }

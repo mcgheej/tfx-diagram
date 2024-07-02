@@ -1,25 +1,52 @@
 import { Endpoint } from './endpoint';
-import { EndpointStyles } from './endpoint-styles';
-import { SolidLargeCircle } from './solid-l-circle';
-import { SolidMediumCircle } from './solid-m-circle';
-import { SolidSmallCircle } from './solid-s-circle';
+import { EndpointSizes, EndpointStyles } from './endpoint-styles';
+import { SolidCircle } from './solid-circle';
 import { StandardArrow } from './standard-arrow';
 
-export const createEndpoint = (endpointStyle: EndpointStyles): Endpoint | null => {
+export const createStartEndpoint = (endpointStyle: EndpointStyles): Endpoint | null => {
+  const endpoint = createEndpoint(endpointStyle);
+  if (endpoint) {
+    return createEndpoint(endpointStyle, endpoint.modalStartSize);
+  }
+  return endpoint;
+};
+
+export const createFinishEndpoint = (endpointStyle: EndpointStyles): Endpoint | null => {
+  const endpoint = createEndpoint(endpointStyle);
+  if (endpoint) {
+    return createEndpoint(endpointStyle, endpoint.modalFinishSize);
+  }
+  return endpoint;
+};
+
+export const createEndpoint = (
+  endpointStyle: EndpointStyles,
+  size?: EndpointSizes
+): Endpoint | null => {
   switch (endpointStyle) {
     case 'standard-arrow': {
-      return new StandardArrow();
+      return new StandardArrow(
+        getSize(
+          size ? size : StandardArrow.modalStartSize,
+          StandardArrow.availableSizesStandardArrow
+        )
+      );
     }
-    case 'solid-s-circle': {
-      return new SolidSmallCircle();
-    }
-    case 'solid-m-circle': {
-      return new SolidMediumCircle();
-    }
-    case 'solid-l-circle': {
-      return new SolidLargeCircle();
+    case 'solid-circle': {
+      return new SolidCircle(
+        getSize(size ? size : SolidCircle.modalStartSize, SolidCircle.availableSizesSolidCircle)
+      );
     }
   }
 
   return null;
 };
+
+function getSize(size: EndpointSizes, availableSizes: EndpointSizes[]): EndpointSizes {
+  if (availableSizes.includes(size)) {
+    return size;
+  } else if (availableSizes.length > 0) {
+    return availableSizes[Math.trunc(availableSizes.length / 2)];
+  }
+  return 'medium';
+}

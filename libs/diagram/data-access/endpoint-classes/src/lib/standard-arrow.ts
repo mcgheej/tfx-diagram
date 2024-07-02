@@ -6,6 +6,7 @@ import {
 } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Endpoint } from './endpoint';
+import { EndpointSizes } from './endpoint-styles';
 
 const arrowRatioHeight = 5;
 const arrowRatioLength = 16;
@@ -21,8 +22,32 @@ const arrowBase: Point[] = [
 ];
 
 export class StandardArrow extends Endpoint {
-  constructor() {
-    super();
+  static readonly availableSizesStandardArrow: EndpointSizes[] = ['medium'];
+  static modalStartSize: EndpointSizes = 'medium';
+  static modalFinishSize: EndpointSizes = 'medium';
+
+  get modalStartSize(): EndpointSizes {
+    return StandardArrow.modalStartSize;
+  }
+
+  set modalStartSize(size: EndpointSizes) {
+    if (StandardArrow.availableSizesStandardArrow.includes(size)) {
+      StandardArrow.modalStartSize = size;
+    }
+  }
+
+  get modalFinishSize(): EndpointSizes {
+    return StandardArrow.modalFinishSize;
+  }
+
+  set modalFinishSize(size: EndpointSizes) {
+    if (StandardArrow.availableSizesStandardArrow.includes(size)) {
+      StandardArrow.modalFinishSize = size;
+    }
+  }
+
+  constructor(size: EndpointSizes = 'medium') {
+    super(size, StandardArrow.availableSizesStandardArrow);
     this.endpointType = 'standard-arrow';
   }
 

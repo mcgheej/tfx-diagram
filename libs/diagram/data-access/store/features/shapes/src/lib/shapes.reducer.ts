@@ -431,10 +431,10 @@ export const shapesReducer = createReducer(
           const curveConfig: CurveConfig = {
             ...s,
             startEndpoint: s.startEndpoint
-              ? createEndpoint(s.startEndpoint.endpointType)
+              ? createEndpoint(s.startEndpoint.endpointType, s.startEndpoint.size)
               : null,
             finishEndpoint: s.finishEndpoint
-              ? createEndpoint(s.finishEndpoint.endpointType)
+              ? createEndpoint(s.finishEndpoint.endpointType, s.finishEndpoint.size)
               : null,
           };
           newShapes.set(shapeObject.id, new Curve(curveConfig));
@@ -445,10 +445,10 @@ export const shapesReducer = createReducer(
           const lineConfig: LineConfig = {
             ...s,
             startEndpoint: s.startEndpoint
-              ? createEndpoint(s.startEndpoint.endpointType)
+              ? createEndpoint(s.startEndpoint.endpointType, s.startEndpoint.size)
               : null,
             finishEndpoint: s.finishEndpoint
-              ? createEndpoint(s.finishEndpoint.endpointType)
+              ? createEndpoint(s.finishEndpoint.endpointType, s.finishEndpoint.size)
               : null,
           };
           newShapes.set(shapeObject.id, new Line(lineConfig));

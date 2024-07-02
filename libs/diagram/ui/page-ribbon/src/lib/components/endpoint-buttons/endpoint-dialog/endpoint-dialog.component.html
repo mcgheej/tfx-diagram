@@ -1,6 +1,6 @@
 <div class="container">
   <tfx-endpoint-option
-    *ngFor="let endpoint of endpoints"
+    *ngFor="let endpoint of endpoints; let i = index"
     [endpoint]="endpoint"
     [selected]="
       (endpoint === null && data.endpoint === null) ||
@@ -8,6 +8,7 @@
     "
     [end]="data.end"
     class="endpoint-option"
-    (click)="onEndpointClick(endpoint)"
+    (clickEndpoint)="onEndpointClick(endpoint)"
+    (clickSizeChange)="onSizeChangeClick(i)"
   ></tfx-endpoint-option>
 </div>

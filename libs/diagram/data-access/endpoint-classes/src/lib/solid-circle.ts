@@ -1,12 +1,50 @@
 import { pointTransform } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Endpoint } from './endpoint';
+import { EndpointSizes } from './endpoint-styles';
 
 const mmBaseLineWidth = 0.25;
+const radii = {
+  small: 0.75,
+  medium: 1,
+  large: 1.5,
+};
 
-export abstract class SolidCircle extends Endpoint {
-  constructor(private mmCircleRadius: number) {
-    super();
+export class SolidCircle extends Endpoint {
+  static readonly availableSizesSolidCircle: EndpointSizes[] = ['small', 'medium', 'large'];
+  static modalStartSize: EndpointSizes = 'medium';
+  static modalFinishSize: EndpointSizes = 'medium';
+
+  get modalStartSize(): EndpointSizes {
+    return SolidCircle.modalStartSize;
+  }
+
+  set modalStartSize(size: EndpointSizes) {
+    if (SolidCircle.availableSizesSolidCircle.includes(size)) {
+      SolidCircle.modalStartSize = size;
+    }
+  }
+
+  get modalFinishSize(): EndpointSizes {
+    return SolidCircle.modalFinishSize;
+  }
+
+  set modalFinishSize(size: EndpointSizes) {
+    if (SolidCircle.availableSizesSolidCircle.includes(size)) {
+      SolidCircle.modalFinishSize = size;
+    }
+  }
+
+  private mmCircleRadius: number;
+
+  constructor(size: EndpointSizes) {
+    super(size, SolidCircle.availableSizesSolidCircle);
+    this.endpointType = 'solid-circle';
+    this.mmCircleRadius = radii[size];
+  }
+
+  copy(): SolidCircle {
+    return new SolidCircle(this.size);
   }
 
   draw(
