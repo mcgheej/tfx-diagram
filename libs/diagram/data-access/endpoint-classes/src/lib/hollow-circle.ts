@@ -8,45 +8,45 @@ import { Endpoint } from './endpoint';
 import { EndpointSizes } from './endpoint-styles';
 import { mmBaseLineWidth, mmRadii } from './endpoint.constants';
 
-export class SolidCircle extends Endpoint {
-  static readonly availableSizesSolidCircle: EndpointSizes[] = ['small', 'medium', 'large'];
+export class HollowCircle extends Endpoint {
+  static readonly availableSizesHollowCircle: EndpointSizes[] = ['small', 'medium', 'large'];
   static modalStartSize: EndpointSizes = 'medium';
   static modalFinishSize: EndpointSizes = 'medium';
 
   get modalStartSize(): EndpointSizes {
-    return SolidCircle.modalStartSize;
+    return HollowCircle.modalStartSize;
   }
 
   set modalStartSize(size: EndpointSizes) {
-    if (SolidCircle.availableSizesSolidCircle.includes(size)) {
-      SolidCircle.modalStartSize = size;
+    if (HollowCircle.availableSizesHollowCircle.includes(size)) {
+      HollowCircle.modalStartSize = size;
     }
   }
 
   get modalFinishSize(): EndpointSizes {
-    return SolidCircle.modalFinishSize;
+    return HollowCircle.modalFinishSize;
   }
 
   set modalFinishSize(size: EndpointSizes) {
-    if (SolidCircle.availableSizesSolidCircle.includes(size)) {
-      SolidCircle.modalFinishSize = size;
+    if (HollowCircle.availableSizesHollowCircle.includes(size)) {
+      HollowCircle.modalFinishSize = size;
     }
   }
 
   private mmCircleRadius: number;
 
   constructor(size: EndpointSizes) {
-    if (SolidCircle.availableSizesSolidCircle.includes(size)) {
-      super(size, SolidCircle.availableSizesSolidCircle);
+    if (HollowCircle.availableSizesHollowCircle.includes(size)) {
+      super(size, HollowCircle.availableSizesHollowCircle);
     } else {
-      super('medium', SolidCircle.availableSizesSolidCircle);
+      super('medium', HollowCircle.availableSizesHollowCircle);
     }
-    this.endpointType = 'solid-circle';
+    this.endpointType = 'hollow-circle';
     this.mmCircleRadius = mmRadii[size];
   }
 
-  copy(): SolidCircle {
-    return new SolidCircle(this.size);
+  copy(): HollowCircle {
+    return new HollowCircle(this.size);
   }
 
   draw(
@@ -64,10 +64,25 @@ export class SolidCircle extends Endpoint {
     const { x, y } = pointAdd(pointRotate({ x: pxRadius, y: 0 }, angle), pxE);
 
     c.save();
-    c.fillStyle = strokeStyle;
+    c.fillStyle = 'white';
     c.beginPath();
     c.arc(x, y, pxRadius, 0, 2 * Math.PI);
     c.fill();
+
+    c.strokeStyle = strokeStyle;
+    c.lineWidth = 1;
+    c.arc(x, y, pxRadius, 0, 2 * Math.PI);
+    c.clip();
+
+    let pxLineWidth = mmLineWidth * t.scaleFactor * 2;
+    if (pxLineWidth < 2) {
+      pxLineWidth = 2;
+    }
+    c.lineWidth = pxLineWidth;
+    c.setLineDash([]);
+    c.beginPath();
+    c.arc(x, y, pxRadius, 0, 2 * Math.PI);
+    c.stroke();
     c.restore();
   }
 }

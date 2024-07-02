@@ -131,6 +131,7 @@ export class Line extends Connector implements LineProps {
     }
     c.save();
     const strokeColor = ColorMapRef.resolve(this.strokeStyle);
+    this.drawLine(c, params, lineWidth, strokeColor, t);
     if (this.startEndpoint) {
       const cp = this.controlPoints.slice(0, 2);
       this.startEndpoint.draw(
@@ -154,7 +155,6 @@ export class Line extends Connector implements LineProps {
         t
       );
     }
-    this.drawLine(c, params, lineWidth, strokeColor, t);
     c.restore();
   }
 

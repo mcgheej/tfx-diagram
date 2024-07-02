@@ -143,6 +143,7 @@ export class Curve extends Connector implements CurveProps {
       this.drawFrame(c, params);
     }
     const strokeColor = ColorMapRef.resolve(this.strokeStyle);
+    this.drawCurve(c, params, lineWidth, strokeColor, t);
     if (this.startEndpoint) {
       const cp = this.controlPoints.slice(0, 2);
       this.startEndpoint.draw(
@@ -166,7 +167,6 @@ export class Curve extends Connector implements CurveProps {
         t
       );
     }
-    this.drawCurve(c, params, lineWidth, strokeColor, t);
     if (this.showFrame) {
       this.drawCrosses(c, params);
       this.drawLabels(c, params);
