@@ -76,6 +76,11 @@ export class EndpointDialogComponent implements OnInit {
         const nAvailableSizes = endpoint.availableSizes.length;
         const newSize = endpoint.availableSizes[(currentSizeIndex + 1) % nAvailableSizes];
         this.endpoints[i] = createEndpoint(endpoint.endpointType, newSize);
+        if (this.data.end === 'start') {
+          endpoint.modalStartSize = newSize;
+        } else {
+          endpoint.modalFinishSize = newSize;
+        }
       }
     }
   }

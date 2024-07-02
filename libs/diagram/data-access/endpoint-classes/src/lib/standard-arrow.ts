@@ -75,6 +75,15 @@ export class StandardArrow extends Endpoint {
     return new StandardArrow(this.size);
   }
 
+  /**
+   *
+   * @param p  - position of connector end
+   * @param angle - angle in radians from x axis clockwise
+   * @param strokeStyle
+   * @param mmLineWidth
+   * @param c
+   * @param t
+   */
   draw(
     p: Point,
     angle: number,

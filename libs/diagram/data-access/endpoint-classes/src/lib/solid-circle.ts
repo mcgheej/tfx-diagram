@@ -1,4 +1,8 @@
-import { pointTransform } from '@tfx-diagram/diagram/util/misc-functions';
+import {
+  pointAdd,
+  pointRotate,
+  pointTransform,
+} from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Endpoint } from './endpoint';
 import { EndpointSizes } from './endpoint-styles';
@@ -63,7 +67,8 @@ export class SolidCircle extends Endpoint {
     // Scale for line width
     const s = (1 + mmLineWidth / mmBaseLineWidth) / 2;
     const pxRadius = this.mmCircleRadius * s * t.scaleFactor;
-    const { x, y } = pointTransform(p, t);
+    const pxE = pointTransform(p, t);
+    const { x, y } = pointAdd(pointRotate({ x: pxRadius, y: 0 }, angle), pxE);
 
     c.save();
     c.fillStyle = strokeStyle;
