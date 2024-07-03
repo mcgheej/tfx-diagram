@@ -1,10 +1,3 @@
-import {
-  AllShapeProps,
-  ShapeConfig,
-  ShapeCursors,
-  ShapeProps,
-  ShapeTypes,
-} from '@tfx-diagram/diagram-data-access-shape-props';
 import { randomNumber } from '@tfx-diagram/diagram/util/misc-functions';
 import {
   ColorRef,
@@ -15,6 +8,7 @@ import {
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Connection } from './connection';
+import { AllShapeProps, ShapeConfig, ShapeCursors, ShapeProps, ShapeTypes } from './props';
 
 /**
  * Default values used for ShapeProps properties if the properties

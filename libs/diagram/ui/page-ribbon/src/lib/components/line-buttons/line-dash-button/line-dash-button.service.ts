@@ -37,7 +37,6 @@ export class LineDashButtonService {
         this.store.dispatch(
           LineDashButtonServiceActions.lineDashChange({ lineDash: selectedLineDash })
         );
-        console.log(lineDash);
       }
     });
   }

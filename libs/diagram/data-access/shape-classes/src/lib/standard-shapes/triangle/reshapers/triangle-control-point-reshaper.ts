@@ -1,5 +1,4 @@
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
-import { Reshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
+import { Reshaper, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Handle } from '../../../control-shapes/handle';
 import { LineOutline } from '../../../control-shapes/line-outline';

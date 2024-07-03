@@ -1,22 +1,24 @@
 import { createReducer, on } from '@ngrx/store';
-import { Connection, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   ArcConfig,
   CircleConfig,
+  Connection,
   CurveConfig,
+  Endpoint,
   GroupConfig,
   LineConfig,
   RectangleConfig,
+  Shape,
   ShapeProps,
   TriangleConfig,
-} from '@tfx-diagram/diagram-data-access-shape-props';
+} from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   ControlFrameEffectsActions,
   EditMenuActions,
   ShapesEffectsActions,
   SketchbookEffectsActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
-import { Endpoint, createEndpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
+import { createEndpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
 import {
   Arc,
   Circle,

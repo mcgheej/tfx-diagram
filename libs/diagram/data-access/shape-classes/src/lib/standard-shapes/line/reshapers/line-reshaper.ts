@@ -1,5 +1,4 @@
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
-import { Reshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
+import { Reshaper, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 
 export abstract class LineReshaper extends Reshaper {
   modifiedFrameForDrag(controlFrame: Shape[]): Shape[] {

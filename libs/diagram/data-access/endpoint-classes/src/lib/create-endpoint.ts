@@ -1,5 +1,8 @@
-import { Endpoint } from './endpoint';
-import { EndpointSizes, EndpointStyles } from './endpoint-styles';
+import {
+  Endpoint,
+  EndpointSizes,
+  EndpointStyles,
+} from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { HollowArrow } from './hollow-arrow';
 import { HollowCircle } from './hollow-circle';
 import { SolidCircle } from './solid-circle';

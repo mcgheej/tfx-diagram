@@ -11,6 +11,8 @@ import {
   Endpoint,
   EndpointSizes,
   EndpointStyles,
+} from '@tfx-diagram/diagram-data-access-shape-base-class';
+import {
   createEndpoint,
   createFinishEndpoint,
   createStartEndpoint,

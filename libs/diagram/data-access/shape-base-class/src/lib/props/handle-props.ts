@@ -1,8 +1,8 @@
-import { Reshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
 import { ColorRef, PartPartial } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { HandleStyle } from './handle-style.type';
 import { HandleTypes } from './handle-types.type';
 import { ShapeProps } from './shape-props';
+import { Reshaper } from '../reshaper/reshaper';
 
 export interface HandleProps extends ShapeProps {
   x: number;

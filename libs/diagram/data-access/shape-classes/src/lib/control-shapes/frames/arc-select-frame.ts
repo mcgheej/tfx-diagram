@@ -1,5 +1,8 @@
-import { Shape, linkShapeArray } from '@tfx-diagram/diagram-data-access-shape-base-class';
-import { Reshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
+import {
+  Reshaper,
+  Shape,
+  linkShapeArray,
+} from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { pointAdd, pointFromPolarPoint } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Arc } from '../../standard-shapes/arc/arc';

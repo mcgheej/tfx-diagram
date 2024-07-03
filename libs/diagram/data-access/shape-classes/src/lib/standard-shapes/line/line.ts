@@ -1,20 +1,18 @@
 import {
+  AllShapeProps,
   Connection,
   Connector,
   ConnectorEndTypes,
-  linkShapeArray,
-  Shape,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
-import {
-  AllShapeProps,
+  Endpoint,
   LineConfig,
   LineProps,
+  linkShapeArray,
+  NopReshaper,
+  Shape,
   ShapeProps,
   SharedProperties,
-} from '@tfx-diagram/diagram-data-access-shape-props';
-import { NopReshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
+} from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
-import { Endpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
 import {
   pointAdd,
   pointTransform,

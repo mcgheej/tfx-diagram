@@ -1,3 +1,4 @@
+import { Endpoint, EndpointSizes } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   pointAdd,
   pointRotate,
@@ -5,9 +6,7 @@ import {
   pointTransform,
 } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { Endpoint } from './endpoint';
 import {
-  EndpointSizes,
   arrowRatioHeight,
   arrowRatioLength,
   mmArrowLengths,

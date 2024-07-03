@@ -1,5 +1,4 @@
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
-import { Reshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
+import { Reshaper, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Handle } from './control-shapes/handle';
 import { RectangleOutline } from './control-shapes/rectangle-outline';

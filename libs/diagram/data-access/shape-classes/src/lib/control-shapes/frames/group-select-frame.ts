@@ -1,5 +1,8 @@
-import { linkShapeArray, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
-import { NopReshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
+import {
+  linkShapeArray,
+  NopReshaper,
+  Shape,
+} from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { GROUP_OUTLINE_COLOR } from '../../types/constants';
 import { Handle } from '../handle';

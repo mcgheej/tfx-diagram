@@ -5,7 +5,7 @@ import {
   Inject,
   OnInit,
 } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { PRESET_LINE_WIDTHS } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Size } from 'electron';
 import { LineWidthDialogData } from './line-width-dialog.types';
@@ -40,7 +40,6 @@ export class LineWidthDialogComponent implements OnInit {
   }
 
   onCanvasSize(size: Size, el: HTMLCanvasElement) {
-    console.log(el);
     el.width = size.width;
     el.height = size.height;
     this.changeDetect.detectChanges();

@@ -5,7 +5,7 @@ import {
   Inject,
   OnInit,
 } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { PRESET_LINE_DASH_VALUES, Size } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { LineDashDialogData } from './line-dash-dialog.types';
 
@@ -39,7 +39,6 @@ export class LineDashDialogComponent implements OnInit {
   }
 
   onCanvasSize(size: Size, el: HTMLCanvasElement) {
-    console.log(el);
     el.width = size.width;
     el.height = size.height;
     this.changeDetect.detectChanges();

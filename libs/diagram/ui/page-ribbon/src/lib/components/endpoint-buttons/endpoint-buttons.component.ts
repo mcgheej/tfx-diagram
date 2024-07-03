@@ -5,7 +5,7 @@ import {
   Input,
   ViewChild,
 } from '@angular/core';
-import { Endpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
+import { Endpoint } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { EndpointButtonsService } from './endpoint-buttons.service';
 
 @Component({

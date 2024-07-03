@@ -1,5 +1,4 @@
-import { ConnectionProps } from '@tfx-diagram/diagram-data-access-shape-base-class';
-import { ShapeProps } from '@tfx-diagram/diagram-data-access-shape-props';
+import { ConnectionProps, ShapeProps } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { PagesState } from './ngrx-states/pages-state';
 import { SketchbookState } from './ngrx-states/sketchbook-state';
 

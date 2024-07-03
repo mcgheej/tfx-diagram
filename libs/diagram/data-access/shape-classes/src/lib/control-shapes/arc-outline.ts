@@ -1,10 +1,11 @@
-import { ControlShape, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   AllShapeProps,
   ArcConfig,
   ArcProps,
+  ControlShape,
+  Shape,
   SharedProperties,
-} from '@tfx-diagram/diagram-data-access-shape-props';
+} from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
 import { ColorRef, Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';

@@ -1,4 +1,4 @@
-import { Reshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
+import { Reshaper } from '@tfx-diagram/diagram-data-access-shape-base-class';
 
 export interface RectangularReshapersConfig {
   nwReshaper: Reshaper;

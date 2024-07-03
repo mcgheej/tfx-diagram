@@ -1,5 +1,4 @@
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
-import { HandleTypes } from '@tfx-diagram/diagram-data-access-shape-props';
+import { HandleTypes, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { LineControlPointReshaper } from '../../standard-shapes/line/reshapers/line-control-point-reshaper';
 import { LineMidPointReshaper } from '../../standard-shapes/line/reshapers/line-mid-point-reshaper';

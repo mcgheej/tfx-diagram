@@ -9,8 +9,8 @@ import {
   Output,
 } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Endpoint } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { selectScreenPixelDensity } from '@tfx-diagram/diagram-data-access-store-features-settings';
-import { Endpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
 import { Line } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { Size } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Subject, takeUntil } from 'rxjs';

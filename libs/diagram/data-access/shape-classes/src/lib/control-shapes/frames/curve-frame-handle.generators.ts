@@ -1,10 +1,11 @@
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   HandleProps,
   HandleTypes,
+  NopReshaper,
+  Reshaper,
+  Shape,
   ShapeCursors,
-} from '@tfx-diagram/diagram-data-access-shape-props';
-import { NopReshaper, Reshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
+} from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { CurveFinalReshaper } from '../../standard-shapes/curve/reshapers/curve-final-reshaper';
 import { CurveFree1Reshaper } from '../../standard-shapes/curve/reshapers/curve-free1-reshaper';

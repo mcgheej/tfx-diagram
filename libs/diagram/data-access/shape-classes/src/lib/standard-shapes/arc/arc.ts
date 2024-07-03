@@ -1,17 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import {
-  Connection,
-  Shape,
-  linkShapeArray,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
-import {
   AllShapeProps,
   ArcConfig,
   ArcProps,
+  Connection,
+  NopReshaper,
+  Shape,
   ShapeProps,
   SharedProperties,
-} from '@tfx-diagram/diagram-data-access-shape-props';
-import { NopReshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
+  linkShapeArray,
+} from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
 import {
   ColorRef,

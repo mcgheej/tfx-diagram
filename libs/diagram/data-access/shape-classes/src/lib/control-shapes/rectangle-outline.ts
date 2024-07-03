@@ -1,10 +1,11 @@
-import { ControlShape, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   AllShapeProps,
+  ControlShape,
   RectangleConfig,
   RectangleProps,
+  Shape,
   SharedProperties,
-} from '@tfx-diagram/diagram-data-access-shape-props';
+} from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
 import {
   ColorRef,

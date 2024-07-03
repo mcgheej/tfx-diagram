@@ -1,5 +1,6 @@
-import { Connection, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
+import { Shape } from '../shape';
+import { Connection } from '../connection';
 
 export abstract class Reshaper {
   abstract modifiedShape(

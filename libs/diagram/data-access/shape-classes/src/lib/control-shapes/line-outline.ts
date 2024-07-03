@@ -1,12 +1,13 @@
-import { ControlShape, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   AllShapeProps,
+  ControlShape,
+  Endpoint,
   LineConfig,
   LineProps,
+  Shape,
   SharedProperties,
-} from '@tfx-diagram/diagram-data-access-shape-props';
+} from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
-import { Endpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
 import {
   pointAdd,
   pointTransform,

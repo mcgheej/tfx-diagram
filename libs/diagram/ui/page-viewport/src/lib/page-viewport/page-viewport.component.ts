@@ -130,8 +130,4 @@ export class PageViewportComponent implements OnInit, OnDestroy {
   onDoubleClick() {
     this.mouseMachine.send({ type: 'leftButton.doubleClick' } as LeftButtonDoubleClick);
   }
-
-  onKeydown(ev: KeyboardEvent) {
-    console.log(ev);
-  }
 }

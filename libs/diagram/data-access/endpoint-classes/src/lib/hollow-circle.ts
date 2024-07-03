@@ -1,11 +1,11 @@
+import { Endpoint, EndpointSizes } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   pointAdd,
   pointRotate,
   pointTransform,
 } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { Endpoint } from './endpoint';
-import { EndpointSizes, mmBaseLineWidth, mmRadii } from './endpoint-styles';
+import { mmBaseLineWidth, mmRadii } from './endpoint-styles';
 
 export class HollowCircle extends Endpoint {
   static readonly availableSizesHollowCircle: EndpointSizes[] = ['small', 'medium', 'large'];

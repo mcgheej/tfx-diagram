@@ -1,5 +1,8 @@
-import { linkShapeArray, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
-import { NopReshaper } from '@tfx-diagram/diagram-data-access-shape-reshapers';
+import {
+  linkShapeArray,
+  NopReshaper,
+  Shape,
+} from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Handle } from '../handle';
 

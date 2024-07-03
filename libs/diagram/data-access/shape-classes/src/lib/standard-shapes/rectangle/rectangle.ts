@@ -1,11 +1,12 @@
-import { Connection, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   AllShapeProps,
+  Connection,
   RectangleConfig,
   RectangleProps,
+  Shape,
   ShapeProps,
   SharedProperties,
-} from '@tfx-diagram/diagram-data-access-shape-props';
+} from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
 import { TextBox } from '@tfx-diagram/diagram/data-access/text-classes';
 import { inverseTransform, rectInflate } from '@tfx-diagram/diagram/util/misc-functions';
