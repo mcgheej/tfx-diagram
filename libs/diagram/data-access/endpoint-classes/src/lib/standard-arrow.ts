@@ -45,11 +45,10 @@ export class StandardArrow extends Endpoint {
 
   constructor(size: EndpointSizes = 'medium') {
     if (StandardArrow.availableSizesStandardArrow.includes(size)) {
-      super(size, StandardArrow.availableSizesStandardArrow);
+      super('standard-arrow', size, StandardArrow.availableSizesStandardArrow);
     } else {
-      super('medium', StandardArrow.availableSizesStandardArrow);
+      super('standard-arrow', 'medium', StandardArrow.availableSizesStandardArrow);
     }
-    this.endpointType = 'standard-arrow';
     this.mmLength = mmArrowLengths[size as 'medium' | 'large'];
     this.mmHeight = (2 * this.mmLength * arrowRatioHeight) / arrowRatioLength;
     this.arrowBase = [

@@ -1,13 +1,11 @@
-import {
-  ArcProps,
-  CircleProps,
-  CurveProps,
-  GroupProps,
-  HandleProps,
-  LineProps,
-  RectangleProps,
-  TriangleProps,
-} from '@tfx-diagram/diagram-data-access-shape-props';
+import { ArcProps } from './arc-props';
+import { CircleProps } from './circle-props';
+import { CurveProps } from './curve-props';
+import { GroupProps } from './group-props';
+import { HandleProps } from './handle-props';
+import { LineProps } from './line-props';
+import { RectangleProps } from './rectangle-props';
+import { TriangleProps } from './triangle-props';
 
 export type AllShapeProps = LineProps &
   CurveProps &

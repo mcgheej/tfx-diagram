@@ -45,11 +45,10 @@ export class HollowArrow extends Endpoint {
 
   constructor(size: EndpointSizes = 'medium') {
     if (HollowArrow.availableSizesHollowArrow.includes(size)) {
-      super(size, HollowArrow.availableSizesHollowArrow);
+      super('hollow-arrow', size, HollowArrow.availableSizesHollowArrow);
     } else {
-      super('medium', HollowArrow.availableSizesHollowArrow);
+      super('hollow-arrow', 'medium', HollowArrow.availableSizesHollowArrow);
     }
-    this.endpointType = 'hollow-arrow';
     this.mmLength = mmArrowLengths[size as 'medium' | 'large'];
     this.mmHeight = (2 * this.mmLength * arrowRatioHeight) / arrowRatioLength;
     this.arrowBase = [

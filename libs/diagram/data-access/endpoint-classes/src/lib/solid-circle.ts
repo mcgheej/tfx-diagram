@@ -36,11 +36,10 @@ export class SolidCircle extends Endpoint {
 
   constructor(size: EndpointSizes) {
     if (SolidCircle.availableSizesSolidCircle.includes(size)) {
-      super(size, SolidCircle.availableSizesSolidCircle);
+      super('solid-circle', size, SolidCircle.availableSizesSolidCircle);
     } else {
-      super('medium', SolidCircle.availableSizesSolidCircle);
+      super('solid-circle', 'medium', SolidCircle.availableSizesSolidCircle);
     }
-    this.endpointType = 'solid-circle';
     this.mmCircleRadius = mmRadii[size];
   }
 

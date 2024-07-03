@@ -36,11 +36,10 @@ export class HollowCircle extends Endpoint {
 
   constructor(size: EndpointSizes) {
     if (HollowCircle.availableSizesHollowCircle.includes(size)) {
-      super(size, HollowCircle.availableSizesHollowCircle);
+      super('hollow-circle', size, HollowCircle.availableSizesHollowCircle);
     } else {
-      super('medium', HollowCircle.availableSizesHollowCircle);
+      super('hollow-circle', 'medium', HollowCircle.availableSizesHollowCircle);
     }
-    this.endpointType = 'hollow-circle';
     this.mmCircleRadius = mmRadii[size];
   }
 
