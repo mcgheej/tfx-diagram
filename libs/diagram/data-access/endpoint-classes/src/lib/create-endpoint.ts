@@ -1,14 +1,14 @@
 import {
   Endpoint,
-  EndpointSizes,
-  EndpointStyles,
+  EndpointSize,
+  EndpointStyle,
 } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { HollowArrow } from './hollow-arrow';
 import { HollowCircle } from './hollow-circle';
 import { SolidCircle } from './solid-circle';
 import { StandardArrow } from './standard-arrow';
 
-export const createStartEndpoint = (endpointStyle: EndpointStyles): Endpoint | null => {
+export const createStartEndpoint = (endpointStyle: EndpointStyle): Endpoint | null => {
   const endpoint = createEndpoint(endpointStyle);
   if (endpoint) {
     return createEndpoint(endpointStyle, endpoint.modalStartSize);
@@ -16,7 +16,7 @@ export const createStartEndpoint = (endpointStyle: EndpointStyles): Endpoint | n
   return endpoint;
 };
 
-export const createFinishEndpoint = (endpointStyle: EndpointStyles): Endpoint | null => {
+export const createFinishEndpoint = (endpointStyle: EndpointStyle): Endpoint | null => {
   const endpoint = createEndpoint(endpointStyle);
   if (endpoint) {
     return createEndpoint(endpointStyle, endpoint.modalFinishSize);
@@ -25,8 +25,8 @@ export const createFinishEndpoint = (endpointStyle: EndpointStyles): Endpoint | 
 };
 
 export const createEndpoint = (
-  endpointStyle: EndpointStyles,
-  size?: EndpointSizes
+  endpointStyle: EndpointStyle,
+  size?: EndpointSize
 ): Endpoint | null => {
   switch (endpointStyle) {
     case 'standard-arrow': {
@@ -60,7 +60,7 @@ export const createEndpoint = (
   return null;
 };
 
-function getSize(size: EndpointSizes, availableSizes: EndpointSizes[]): EndpointSizes {
+function getSize(size: EndpointSize, availableSizes: EndpointSize[]): EndpointSize {
   if (availableSizes.includes(size)) {
     return size;
   } else if (availableSizes.length > 0) {

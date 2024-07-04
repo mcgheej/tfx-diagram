@@ -1,4 +1,4 @@
-import { Endpoint, EndpointSizes } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Endpoint, EndpointSize } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   pointAdd,
   pointRotate,
@@ -11,28 +11,28 @@ import {
   arrowRatioLength,
   mmArrowLengths,
   mmBaseLineWidth,
-} from './endpoint-styles';
+} from './endpoint.constants';
 
 export class StandardArrow extends Endpoint {
-  static readonly availableSizesStandardArrow: EndpointSizes[] = ['medium', 'large'];
-  static modalStartSize: EndpointSizes = 'medium';
-  static modalFinishSize: EndpointSizes = 'medium';
+  static readonly availableSizesStandardArrow: EndpointSize[] = ['medium', 'large'];
+  static modalStartSize: EndpointSize = 'medium';
+  static modalFinishSize: EndpointSize = 'medium';
 
-  get modalStartSize(): EndpointSizes {
+  get modalStartSize(): EndpointSize {
     return StandardArrow.modalStartSize;
   }
 
-  set modalStartSize(size: EndpointSizes) {
+  set modalStartSize(size: EndpointSize) {
     if (StandardArrow.availableSizesStandardArrow.includes(size)) {
       StandardArrow.modalStartSize = size;
     }
   }
 
-  get modalFinishSize(): EndpointSizes {
+  get modalFinishSize(): EndpointSize {
     return StandardArrow.modalFinishSize;
   }
 
-  set modalFinishSize(size: EndpointSizes) {
+  set modalFinishSize(size: EndpointSize) {
     if (StandardArrow.availableSizesStandardArrow.includes(size)) {
       StandardArrow.modalFinishSize = size;
     }
@@ -42,7 +42,7 @@ export class StandardArrow extends Endpoint {
   private mmHeight: number;
   private arrowBase: Point[];
 
-  constructor(size: EndpointSizes = 'medium') {
+  constructor(size: EndpointSize = 'medium') {
     if (StandardArrow.availableSizesStandardArrow.includes(size)) {
       super('standard-arrow', size, StandardArrow.availableSizesStandardArrow);
     } else {

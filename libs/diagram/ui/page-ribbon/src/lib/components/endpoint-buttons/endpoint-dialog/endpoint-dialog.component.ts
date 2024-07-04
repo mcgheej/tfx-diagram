@@ -9,8 +9,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {
   ENDPOINT_STYLES,
   Endpoint,
-  EndpointSizes,
-  EndpointStyles,
+  EndpointSize,
+  EndpointStyle,
 } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   createEndpoint,
@@ -21,8 +21,8 @@ import { Size } from 'electron';
 import { EndpointDialogData } from './endpoint-dialog.types';
 
 export interface EndpointDialogResult {
-  endpointType: EndpointStyles;
-  size: EndpointSizes;
+  endpointType: EndpointStyle;
+  size: EndpointSize;
 }
 
 @Component({

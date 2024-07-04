@@ -1,4 +1,4 @@
-import { Endpoint, EndpointSizes } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Endpoint, EndpointSize } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   pointAdd,
   pointRotate,
@@ -11,28 +11,28 @@ import {
   arrowRatioLength,
   mmArrowLengths,
   mmBaseLineWidth,
-} from './endpoint-styles';
+} from './endpoint.constants';
 
 export class HollowArrow extends Endpoint {
-  static readonly availableSizesHollowArrow: EndpointSizes[] = ['medium', 'large'];
-  static modalStartSize: EndpointSizes = 'medium';
-  static modalFinishSize: EndpointSizes = 'medium';
+  static readonly availableSizesHollowArrow: EndpointSize[] = ['medium', 'large'];
+  static modalStartSize: EndpointSize = 'medium';
+  static modalFinishSize: EndpointSize = 'medium';
 
-  get modalStartSize(): EndpointSizes {
+  get modalStartSize(): EndpointSize {
     return HollowArrow.modalStartSize;
   }
 
-  set modalStartSize(size: EndpointSizes) {
+  set modalStartSize(size: EndpointSize) {
     if (HollowArrow.availableSizesHollowArrow.includes(size)) {
       HollowArrow.modalStartSize = size;
     }
   }
 
-  get modalFinishSize(): EndpointSizes {
+  get modalFinishSize(): EndpointSize {
     return HollowArrow.modalFinishSize;
   }
 
-  set modalFinishSize(size: EndpointSizes) {
+  set modalFinishSize(size: EndpointSize) {
     if (HollowArrow.availableSizesHollowArrow.includes(size)) {
       HollowArrow.modalFinishSize = size;
     }
@@ -42,7 +42,7 @@ export class HollowArrow extends Endpoint {
   private mmHeight: number;
   private arrowBase: Point[];
 
-  constructor(size: EndpointSizes = 'medium') {
+  constructor(size: EndpointSize = 'medium') {
     if (HollowArrow.availableSizesHollowArrow.includes(size)) {
       super('hollow-arrow', size, HollowArrow.availableSizesHollowArrow);
     } else {

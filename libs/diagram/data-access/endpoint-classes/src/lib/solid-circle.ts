@@ -1,32 +1,32 @@
-import { Endpoint, EndpointSizes } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Endpoint, EndpointSize } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   pointAdd,
   pointRotate,
   pointTransform,
 } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { mmBaseLineWidth, mmRadii } from './endpoint-styles';
+import { mmBaseLineWidth, mmRadii } from './endpoint.constants';
 
 export class SolidCircle extends Endpoint {
-  static readonly availableSizesSolidCircle: EndpointSizes[] = ['small', 'medium', 'large'];
-  static modalStartSize: EndpointSizes = 'medium';
-  static modalFinishSize: EndpointSizes = 'medium';
+  static readonly availableSizesSolidCircle: EndpointSize[] = ['small', 'medium', 'large'];
+  static modalStartSize: EndpointSize = 'medium';
+  static modalFinishSize: EndpointSize = 'medium';
 
-  get modalStartSize(): EndpointSizes {
+  get modalStartSize(): EndpointSize {
     return SolidCircle.modalStartSize;
   }
 
-  set modalStartSize(size: EndpointSizes) {
+  set modalStartSize(size: EndpointSize) {
     if (SolidCircle.availableSizesSolidCircle.includes(size)) {
       SolidCircle.modalStartSize = size;
     }
   }
 
-  get modalFinishSize(): EndpointSizes {
+  get modalFinishSize(): EndpointSize {
     return SolidCircle.modalFinishSize;
   }
 
-  set modalFinishSize(size: EndpointSizes) {
+  set modalFinishSize(size: EndpointSize) {
     if (SolidCircle.availableSizesSolidCircle.includes(size)) {
       SolidCircle.modalFinishSize = size;
     }
@@ -34,7 +34,7 @@ export class SolidCircle extends Endpoint {
 
   private mmCircleRadius: number;
 
-  constructor(size: EndpointSizes) {
+  constructor(size: EndpointSize) {
     if (SolidCircle.availableSizesSolidCircle.includes(size)) {
       super('solid-circle', size, SolidCircle.availableSizesSolidCircle);
     } else {

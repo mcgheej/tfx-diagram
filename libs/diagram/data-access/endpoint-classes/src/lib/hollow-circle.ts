@@ -1,32 +1,32 @@
-import { Endpoint, EndpointSizes } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Endpoint, EndpointSize } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   pointAdd,
   pointRotate,
   pointTransform,
 } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { mmBaseLineWidth, mmRadii } from './endpoint-styles';
+import { mmBaseLineWidth, mmRadii } from './endpoint.constants';
 
 export class HollowCircle extends Endpoint {
-  static readonly availableSizesHollowCircle: EndpointSizes[] = ['small', 'medium', 'large'];
-  static modalStartSize: EndpointSizes = 'medium';
-  static modalFinishSize: EndpointSizes = 'medium';
+  static readonly availableSizesHollowCircle: EndpointSize[] = ['small', 'medium', 'large'];
+  static modalStartSize: EndpointSize = 'medium';
+  static modalFinishSize: EndpointSize = 'medium';
 
-  get modalStartSize(): EndpointSizes {
+  get modalStartSize(): EndpointSize {
     return HollowCircle.modalStartSize;
   }
 
-  set modalStartSize(size: EndpointSizes) {
+  set modalStartSize(size: EndpointSize) {
     if (HollowCircle.availableSizesHollowCircle.includes(size)) {
       HollowCircle.modalStartSize = size;
     }
   }
 
-  get modalFinishSize(): EndpointSizes {
+  get modalFinishSize(): EndpointSize {
     return HollowCircle.modalFinishSize;
   }
 
-  set modalFinishSize(size: EndpointSizes) {
+  set modalFinishSize(size: EndpointSize) {
     if (HollowCircle.availableSizesHollowCircle.includes(size)) {
       HollowCircle.modalFinishSize = size;
     }
@@ -34,7 +34,7 @@ export class HollowCircle extends Endpoint {
 
   private mmCircleRadius: number;
 
-  constructor(size: EndpointSizes) {
+  constructor(size: EndpointSize) {
     if (HollowCircle.availableSizesHollowCircle.includes(size)) {
       super('hollow-circle', size, HollowCircle.availableSizesHollowCircle);
     } else {
