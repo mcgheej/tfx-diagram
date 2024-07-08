@@ -5,7 +5,8 @@ export type EndpointStyle =
   | 'hollow-arrow'
   | 'solid-circle'
   | 'hollow-circle'
-  | 'solid-diamond';
+  | 'solid-diamond'
+  | 'hollow-diamond';
 export type EndpointSize = 'small' | 'medium' | 'large';
 
 // Array of supported styles
@@ -16,4 +17,5 @@ export const ENDPOINT_STYLES: EndpointStyle[] = [
   'solid-circle',
   'hollow-circle',
   'solid-diamond',
+  'hollow-diamond',
 ];

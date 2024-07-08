@@ -5,6 +5,7 @@ import {
 } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { HollowArrow } from './hollow-arrow';
 import { HollowCircle } from './hollow-circle';
+import { HollowDiamond } from './hollow-diamond';
 import { SolidCircle } from './solid-circle';
 import { SolidDiamond } from './solid-diamond';
 import { StandardArrow } from './standard-arrow';
@@ -60,6 +61,14 @@ export function createEndpoint(
       return new SolidDiamond(
         getSize(
           size ? size : SolidDiamond.modalStartSize,
+          SolidDiamond.availableSizesSolidDiamond
+        )
+      );
+    }
+    case 'hollow-diamond': {
+      return new HollowDiamond(
+        getSize(
+          size ? size : HollowDiamond.modalStartSize,
           SolidDiamond.availableSizesSolidDiamond
         )
       );
