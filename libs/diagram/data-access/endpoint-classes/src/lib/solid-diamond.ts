@@ -8,28 +8,28 @@ import {
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { arrowRatio, mmArrowLengths, mmBaseLineWidth } from './endpoint.constants';
 
-export class HollowArrow extends Endpoint {
-  static readonly availableSizesHollowArrow: EndpointSize[] = ['medium', 'large'];
+export class SolidDiamond extends Endpoint {
+  static readonly availableSizesSolidDiamond: EndpointSize[] = ['medium', 'large'];
   static modalStartSize: EndpointSize = 'medium';
   static modalFinishSize: EndpointSize = 'medium';
 
   get modalStartSize(): EndpointSize {
-    return HollowArrow.modalStartSize;
+    return SolidDiamond.modalStartSize;
   }
 
   set modalStartSize(size: EndpointSize) {
-    if (HollowArrow.availableSizesHollowArrow.includes(size)) {
-      HollowArrow.modalStartSize = size;
+    if (SolidDiamond.availableSizesSolidDiamond.includes(size)) {
+      SolidDiamond.modalStartSize = size;
     }
   }
 
   get modalFinishSize(): EndpointSize {
-    return HollowArrow.modalFinishSize;
+    return SolidDiamond.modalFinishSize;
   }
 
   set modalFinishSize(size: EndpointSize) {
-    if (HollowArrow.availableSizesHollowArrow.includes(size)) {
-      HollowArrow.modalFinishSize = size;
+    if (SolidDiamond.availableSizesSolidDiamond.includes(size)) {
+      SolidDiamond.modalFinishSize = size;
     }
   }
 
@@ -38,22 +38,24 @@ export class HollowArrow extends Endpoint {
   private arrowBase: Point[];
 
   constructor(size: EndpointSize = 'medium') {
-    if (HollowArrow.availableSizesHollowArrow.includes(size)) {
-      super('hollow-arrow', size, HollowArrow.availableSizesHollowArrow);
+    if (SolidDiamond.availableSizesSolidDiamond.includes(size)) {
+      super('solid-diamond', size, SolidDiamond.availableSizesSolidDiamond);
     } else {
-      super('hollow-arrow', 'medium', HollowArrow.availableSizesHollowArrow);
+      super('solid-diamond', 'medium', SolidDiamond.availableSizesSolidDiamond);
     }
+
     this.mmLength = mmArrowLengths[this.size as 'medium' | 'large'];
     this.mmHeight = (2 * this.mmLength * arrowRatio.height) / arrowRatio.length;
     this.arrowBase = [
       { x: 0, y: 0 },
-      { x: this.mmLength, y: -this.mmHeight / 2 },
-      { x: this.mmLength, y: this.mmHeight / 2 },
+      { x: this.mmLength / 2, y: -this.mmHeight / 2 },
+      { x: this.mmLength, y: 0 },
+      { x: this.mmLength / 2, y: this.mmHeight / 2 },
     ];
   }
 
-  copy(): HollowArrow {
-    return new HollowArrow(this.size);
+  copy(): SolidDiamond {
+    return new SolidDiamond(this.size);
   }
 
   /**
@@ -74,39 +76,19 @@ export class HollowArrow extends Endpoint {
       pointTransform(pointAdd(this.arrowBase[0], p), t),
       pointTransform(pointAdd(pointRotate(pointScale(this.arrowBase[1], s), angle), p), t),
       pointTransform(pointAdd(pointRotate(pointScale(this.arrowBase[2], s), angle), p), t),
+      pointTransform(pointAdd(pointRotate(pointScale(this.arrowBase[3], s), angle), p), t),
     ];
 
     c.save();
     c.strokeStyle = strokeStyle;
     c.lineWidth = 1;
-    c.fillStyle = 'white';
+    c.fillStyle = strokeStyle;
     c.beginPath();
     c.moveTo(a[0].x, a[0].y);
     c.lineTo(a[1].x, a[1].y);
     c.lineTo(a[2].x, a[2].y);
+    c.lineTo(a[3].x, a[3].y);
     c.fill();
-
-    c.lineWidth = 1;
-    c.beginPath();
-    c.moveTo(a[0].x, a[0].y);
-    c.lineTo(a[1].x, a[1].y);
-    c.lineTo(a[2].x, a[2].y);
-    c.lineTo(a[0].x, a[0].y);
-    c.clip();
-
-    let pxLineWidth = mmLineWidth * t.scaleFactor * 2;
-    if (pxLineWidth < 2) {
-      pxLineWidth = 2;
-    }
-    c.lineWidth = pxLineWidth;
-    c.setLineDash([]);
-    c.beginPath();
-    c.moveTo(a[0].x, a[0].y);
-    c.lineTo(a[1].x, a[1].y);
-    c.lineTo(a[2].x, a[2].y);
-    c.lineTo(a[0].x, a[0].y);
-    c.stroke();
-
     c.restore();
   }
 }

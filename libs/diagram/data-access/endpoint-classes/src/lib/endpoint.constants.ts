@@ -1,8 +1,10 @@
 export const mmBaseLineWidth = 0.25;
 
 // Arrow head ratios
-export const arrowRatioHeight = 5;
-export const arrowRatioLength = 16;
+export const arrowRatio = {
+  height: 5,
+  length: 16,
+};
 
 // Arrow head lengths for supported sizes
 export const mmArrowLengths = {

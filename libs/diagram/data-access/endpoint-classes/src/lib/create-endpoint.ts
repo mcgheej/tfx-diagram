@@ -6,28 +6,29 @@ import {
 import { HollowArrow } from './hollow-arrow';
 import { HollowCircle } from './hollow-circle';
 import { SolidCircle } from './solid-circle';
+import { SolidDiamond } from './solid-diamond';
 import { StandardArrow } from './standard-arrow';
 
-export const createStartEndpoint = (endpointStyle: EndpointStyle): Endpoint | null => {
+export function createStartEndpoint(endpointStyle: EndpointStyle): Endpoint | null {
   const endpoint = createEndpoint(endpointStyle);
   if (endpoint) {
     return createEndpoint(endpointStyle, endpoint.modalStartSize);
   }
   return endpoint;
-};
+}
 
-export const createFinishEndpoint = (endpointStyle: EndpointStyle): Endpoint | null => {
+export function createFinishEndpoint(endpointStyle: EndpointStyle): Endpoint | null {
   const endpoint = createEndpoint(endpointStyle);
   if (endpoint) {
     return createEndpoint(endpointStyle, endpoint.modalFinishSize);
   }
   return endpoint;
-};
+}
 
-export const createEndpoint = (
+export function createEndpoint(
   endpointStyle: EndpointStyle,
   size?: EndpointSize
-): Endpoint | null => {
+): Endpoint | null {
   switch (endpointStyle) {
     case 'standard-arrow': {
       return new StandardArrow(
@@ -55,10 +56,18 @@ export const createEndpoint = (
         )
       );
     }
+    case 'solid-diamond': {
+      return new SolidDiamond(
+        getSize(
+          size ? size : SolidDiamond.modalStartSize,
+          SolidDiamond.availableSizesSolidDiamond
+        )
+      );
+    }
   }
 
   return null;
-};
+}
 
 function getSize(size: EndpointSize, availableSizes: EndpointSize[]): EndpointSize {
   if (availableSizes.includes(size)) {

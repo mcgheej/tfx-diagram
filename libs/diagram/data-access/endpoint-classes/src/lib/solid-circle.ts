@@ -40,13 +40,16 @@ export class SolidCircle extends Endpoint {
     } else {
       super('solid-circle', 'medium', SolidCircle.availableSizesSolidCircle);
     }
-    this.mmCircleRadius = mmRadii[size];
+    this.mmCircleRadius = mmRadii[this.size];
   }
 
   copy(): SolidCircle {
     return new SolidCircle(this.size);
   }
 
+  /**
+   * See base class (Endpoint) for parameter descriptions
+   */
   draw(
     p: Point,
     angle: number,

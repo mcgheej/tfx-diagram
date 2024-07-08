@@ -40,13 +40,16 @@ export class HollowCircle extends Endpoint {
     } else {
       super('hollow-circle', 'medium', HollowCircle.availableSizesHollowCircle);
     }
-    this.mmCircleRadius = mmRadii[size];
+    this.mmCircleRadius = mmRadii[this.size];
   }
 
   copy(): HollowCircle {
     return new HollowCircle(this.size);
   }
 
+  /**
+   * See base class (Endpoint) for parameter descriptions
+   */
   draw(
     p: Point,
     angle: number,

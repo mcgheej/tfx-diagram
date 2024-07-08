@@ -6,12 +6,7 @@ import {
   pointTransform,
 } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
-import {
-  arrowRatioHeight,
-  arrowRatioLength,
-  mmArrowLengths,
-  mmBaseLineWidth,
-} from './endpoint.constants';
+import { arrowRatio, mmArrowLengths, mmBaseLineWidth } from './endpoint.constants';
 
 export class StandardArrow extends Endpoint {
   static readonly availableSizesStandardArrow: EndpointSize[] = ['medium', 'large'];
@@ -48,8 +43,8 @@ export class StandardArrow extends Endpoint {
     } else {
       super('standard-arrow', 'medium', StandardArrow.availableSizesStandardArrow);
     }
-    this.mmLength = mmArrowLengths[size as 'medium' | 'large'];
-    this.mmHeight = (2 * this.mmLength * arrowRatioHeight) / arrowRatioLength;
+    this.mmLength = mmArrowLengths[this.size as 'medium' | 'large'];
+    this.mmHeight = (2 * this.mmLength * arrowRatio.height) / arrowRatio.length;
     this.arrowBase = [
       { x: 0, y: 0 },
       { x: this.mmLength, y: -this.mmHeight / 2 },
@@ -62,13 +57,7 @@ export class StandardArrow extends Endpoint {
   }
 
   /**
-   *
-   * @param p  - position of connector end
-   * @param angle - angle in radians from x axis clockwise
-   * @param strokeStyle
-   * @param mmLineWidth
-   * @param c
-   * @param t
+   * See base class (Endpoint) for parameter descriptions
    */
   draw(
     p: Point,
