@@ -3,6 +3,7 @@ import {
   EndpointSize,
   EndpointStyle,
 } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { HalfCircle } from './half-circle';
 import { HollowArrow } from './hollow-arrow';
 import { HollowCircle } from './hollow-circle';
 import { HollowDiamond } from './hollow-diamond';
@@ -71,6 +72,11 @@ export function createEndpoint(
           size ? size : HollowDiamond.modalStartSize,
           SolidDiamond.availableSizesSolidDiamond
         )
+      );
+    }
+    case 'half-circle': {
+      return new HalfCircle(
+        getSize(size ? size : HalfCircle.modalStartSize, HalfCircle.availableSizesHalfCircle)
       );
     }
   }
