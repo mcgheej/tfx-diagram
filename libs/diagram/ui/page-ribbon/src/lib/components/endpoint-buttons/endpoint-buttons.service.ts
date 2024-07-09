@@ -18,7 +18,7 @@ export class EndpointButtonsService {
     let config: MatDialogConfig<EndpointDialogData> = {
       data: { endpoint, end },
       width: '180px',
-      height: '208px',
+      height: '218px',
       backdropClass: 'tfx-dialog-backdrop-transparent',
     };
     if (el) {
