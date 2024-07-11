@@ -14,6 +14,8 @@ const emptyHistory: UndoRedoHistory = {
     pages: pagesInitialState,
     shapeObjects: [],
     connectionObjects: [],
+    customColors: {},
+    customColorIds: [],
   },
   future: [],
 };
@@ -64,6 +66,8 @@ const addUndo = (state: any, action: any, reducer: ActionReducer<any>) => {
         pages: newPresentState.pages,
         shapeObjects: [],
         connectionObjects: [],
+        customColors: {},
+        customColorIds: [],
       },
       future: [], // clear future
     };

@@ -23,6 +23,7 @@ import {
 import { INITIAL_ZOOM_FACTOR } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { nanoid } from 'nanoid';
 import { map, of, switchMap } from 'rxjs';
+import { selectCustomColorIds, selectCustomColors } from '../../../colors/src';
 import { selectSketchbookState } from './sketchbook.feature';
 
 @Injectable()
@@ -84,45 +85,61 @@ export class SketchbookEffects {
           this.store.select(selectPagesState),
           this.store.select(selectShapeObjects),
           this.store.select(selectConnectionObjects),
+          this.store.select(selectCustomColors),
+          this.store.select(selectCustomColorIds),
         ]),
-        map(async ([, sketchbook, pages, shapeObjects, connectionObjects]) => {
-          try {
-            if (sketchbook.path) {
-              await this.electronApi.saveFile({
-                version: currentVersion,
-                sketchbook,
-                pages,
-                shapeObjects,
-                connectionObjects,
-              });
-              this.store.dispatch(
-                SketchbookEffectsActions.saveSuccess({
-                  result: {
-                    title: sketchbook.title,
-                    path: sketchbook.path,
-                  },
-                })
-              );
-            } else {
-              const result = await this.electronApi.saveFileAs({
-                version: currentVersion,
-                sketchbook,
-                pages,
-                shapeObjects,
-                connectionObjects,
-              });
-              if (result && result.path) {
-                this.store.dispatch(SketchbookEffectsActions.saveSuccess({ result }));
+        map(
+          async ([
+            ,
+            sketchbook,
+            pages,
+            shapeObjects,
+            connectionObjects,
+            customColors,
+            customColorIds,
+          ]) => {
+            try {
+              if (sketchbook.path) {
+                await this.electronApi.saveFile({
+                  version: currentVersion,
+                  sketchbook,
+                  pages,
+                  shapeObjects,
+                  connectionObjects,
+                  customColors,
+                  customColorIds,
+                });
+                this.store.dispatch(
+                  SketchbookEffectsActions.saveSuccess({
+                    result: {
+                      title: sketchbook.title,
+                      path: sketchbook.path,
+                    },
+                  })
+                );
               } else {
-                this.store.dispatch(SketchbookEffectsActions.saveCancel());
+                const result = await this.electronApi.saveFileAs({
+                  version: currentVersion,
+                  sketchbook,
+                  pages,
+                  shapeObjects,
+                  connectionObjects,
+                  customColors,
+                  customColorIds,
+                });
+                if (result && result.path) {
+                  this.store.dispatch(SketchbookEffectsActions.saveSuccess({ result }));
+                } else {
+                  this.store.dispatch(SketchbookEffectsActions.saveCancel());
+                }
               }
+            } catch (err) {
+              // TODO: throw up toast
+              console.log(err);
+              this.store.dispatch(SketchbookEffectsActions.saveError());
             }
-          } catch (err) {
-            // TODO: throw up toast
-            console.log(err);
-            this.store.dispatch(SketchbookEffectsActions.saveError());
           }
-        })
+        )
       );
     },
     { dispatch: false }

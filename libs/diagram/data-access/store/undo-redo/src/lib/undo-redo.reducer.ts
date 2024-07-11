@@ -10,6 +10,8 @@ export const initialState: UndoRedoHistory = {
     pages: pagesInitialState,
     shapeObjects: [],
     connectionObjects: [],
+    customColors: {},
+    customColorIds: [],
   },
   future: [],
 };
