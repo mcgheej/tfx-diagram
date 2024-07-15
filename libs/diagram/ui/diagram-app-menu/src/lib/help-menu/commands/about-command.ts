@@ -42,7 +42,6 @@ export class AboutCommand {
 
   private doAbout(): (commandItem: CommandItem) => void {
     return () => {
-      console.log('Help | About clicked');
       this.store.dispatch(HelpMenuActions.aboutClick());
       const dialogRef: MatDialogRef<AboutDialogComponent> = this.dialog.open(
         AboutDialogComponent,
