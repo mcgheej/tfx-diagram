@@ -6,5 +6,5 @@ export const undoRedoFeature = createFeature({
   reducer: undoRedoReducer,
 });
 
-export const { name, reducer, selectUndoRedoState, selectPast, selectPresent, selectFuture } =
+export const { name, reducer, selectUndoRedoState, selectUndoStack, selectRedoStack } =
   undoRedoFeature;

@@ -22,4 +22,4 @@ export const dragStart = createAction(
 
 export const dragMove = createAction('[Mouse Machine] Drag Move', props<{ mousePos: Point }>());
 
-export const dragEnd = createAction('[MouseMachine] Drag End');
+export const dragEnd = createAction('[Mouse Machine] Drag End');

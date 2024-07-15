@@ -1,7 +1,6 @@
-import { SketchbookFileData } from '../electron-renderer-web-shared-types';
+import { AppState } from './app-state';
 
-export interface UndoRedoHistory {
-  past: Omit<SketchbookFileData, 'version'>[];
-  present: Omit<SketchbookFileData, 'version'>;
-  future: Omit<SketchbookFileData, 'version'>[];
+export interface UndoRedoState {
+  undoStack: AppState[];
+  redoStack: AppState[];
 }

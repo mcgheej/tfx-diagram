@@ -1,31 +1,18 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ActionReducer } from '@ngrx/store';
-import { DiagramCanvasDirectiveActions } from '@tfx-diagram/diagram-data-access-store-actions';
-import { pagesInitialState } from '@tfx-diagram/diagram-data-access-store-features-pages';
-import { sketchbookInitialState } from '@tfx-diagram/diagram-data-access-store-features-sketchbook';
-import { UndoRedoHistory } from '@tfx-diagram/electron-renderer-web-context-bridge-api';
-
-const bufferLimit = 10;
-
-const emptyHistory: UndoRedoHistory = {
-  past: [],
-  present: {
-    sketchbook: sketchbookInitialState,
-    pages: pagesInitialState,
-    shapeObjects: [],
-    connectionObjects: [],
-    customColors: {},
-    customColorIds: [],
-  },
-  future: [],
-};
-
-let history = emptyHistory;
+import {
+  ControlFrameEffectsActions,
+  DiagramCanvasDirectiveActions,
+} from '@tfx-diagram/diagram-data-access-store-actions';
 
 export const undoRedoMetaReducer = (reducer: ActionReducer<any>) => {
   return (state: any, action: any) => {
     if (action.type !== DiagramCanvasDirectiveActions.mouseMoveOnViewport.type) {
-      console.log(action);
+      // if (action.type === ControlFrameEffectsActions.selectionChange.type) {
+      if (action.type === ControlFrameEffectsActions.dragEndSelectionBox.type) {
+        console.log(action);
+        console.log(state);
+      }
     }
     return reducer(state, action);
     // switch (action.type) {
@@ -45,33 +32,4 @@ export const undoRedoMetaReducer = (reducer: ActionReducer<any>) => {
     //   }
     // }
   };
-};
-
-const addUndo = (state: any, action: any, reducer: ActionReducer<any>) => {
-  const newPresentState = reducer(state, action);
-  if (Object.keys(history.present.pages.pages).length === 0) {
-    history = {
-      past: [],
-      present: newPresentState,
-      future: [],
-    };
-  } else {
-    if (history.past.length >= bufferLimit) {
-      history.past = history.past.slice(0, -1);
-    }
-    history = {
-      past: [history.present, ...history.past],
-      present: {
-        sketchbook: newPresentState.sketchbook,
-        pages: newPresentState.pages,
-        shapeObjects: [],
-        connectionObjects: [],
-        customColors: {},
-        customColorIds: [],
-      },
-      future: [], // clear future
-    };
-  }
-  // console.log(history);
-  return newPresentState;
 };
