@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ActionReducer } from '@ngrx/store';
 import {
+  DiagramCanvasDirectiveActions,
   EditMenuActions,
   PageViewportComponentActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
@@ -48,9 +49,10 @@ export const undoRedoMetaReducer = (reducer: ActionReducer<any>) => {
       clearUndoStack();
       clearRedoStack();
     }
-    // if (action.type !== DiagramCanvasDirectiveActions.mouseMoveOnViewport.type) {
-    //   console.log(state);
-    // }
+    if (action.type !== DiagramCanvasDirectiveActions.mouseMoveOnViewport.type) {
+      console.log(action);
+      // console.log(state);
+    }
     return reducer(state, action);
     // if (action.type !== DiagramCanvasDirectiveActions.mouseMoveOnViewport.type) {
     //   // if (action.type === ControlFrameEffectsActions.selectionChange.type) {

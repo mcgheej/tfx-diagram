@@ -33,7 +33,6 @@ export const screenPixelDensityChange = createAction(
 );
 
 export const zoomChange = createAction(
-  // '[Sketchbook View Component] Zoom Change',
   '[View Menu] Zoom Change',
   props<{ zoomSelected: ZoomSelectType }>()
 );
