@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
 import {
-  PagesEffectsActions,
   PageViewportComponentActions,
+  PagesEffectsActions,
   SettingsEffectsActions,
   SketchbookEffectsActions,
   SketchbookViewComponentActions,
   TransformEffectsActions,
+  ViewMenuActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
 import {
@@ -108,7 +109,7 @@ export class TransformEffects {
 
   zoomSelected$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(SketchbookViewComponentActions.zoomChange),
+      ofType(SketchbookViewComponentActions.zoomChange, ViewMenuActions.zoomChange),
       concatLatestFrom(() => [
         this.store.select(selectCurrentPage),
         this.store.select(selectPageViewport),

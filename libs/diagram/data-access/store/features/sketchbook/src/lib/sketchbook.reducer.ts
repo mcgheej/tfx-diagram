@@ -16,6 +16,7 @@ import {
   SketchbookEffectsActions,
   SketchbookViewComponentActions,
   TextOptionsServiceActions,
+  ViewMenuActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
 import { SketchbookState } from '@tfx-diagram/electron-renderer-web-context-bridge-api';
 
@@ -201,7 +202,7 @@ export const sketchbookReducer = createReducer(
       status: 'modified',
     } as SketchbookState;
   }),
-  on(SketchbookViewComponentActions.zoomChange, (state) => {
+  on(SketchbookViewComponentActions.zoomChange, ViewMenuActions.zoomChange, (state) => {
     return {
       ...state,
       status: 'modified',
