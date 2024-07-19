@@ -25,3 +25,7 @@ export const pasteClick = createAction(
   '[Edit Menu] Paste Click',
   props<{ textEdit: TextEdit | null }>()
 );
+
+export const undoClick = createAction('[Edit Menu] Undo Click');
+
+export const redoClick = createAction('[Edit Menu] Redo Click');

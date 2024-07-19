@@ -16,8 +16,8 @@ import { RedoCommand } from './commands/redo.command';
 import { UndoCommand } from './commands/undo.command';
 
 export class EditMenu {
-  private undoCmd = new UndoCommand(this.mb);
-  private redoCmd = new RedoCommand(this.mb);
+  private undoCmd = new UndoCommand(this.mb, this.store, this.hotkeysService);
+  private redoCmd = new RedoCommand(this.mb, this.store, this.hotkeysService);
   private cutCmd = new CutCommand(this.mb, this.store, this.hotkeysService);
   private copyCmd = new CopyCommand(this.mb, this.store, this.hotkeysService);
   private pasteCmd = new PasteCommand(this.mb, this.store, this.hotkeysService);

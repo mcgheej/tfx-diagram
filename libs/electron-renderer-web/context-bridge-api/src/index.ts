@@ -1,5 +1,6 @@
 export * from './lib/context-bridge-api';
 export * from './lib/electron-renderer-web-shared-types';
+export * from './lib/ngrx-states/app-state';
 export * from './lib/ngrx-states/control-frame-state';
 export * from './lib/ngrx-states/pages-state';
 export * from './lib/ngrx-states/settings-state';
