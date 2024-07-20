@@ -61,7 +61,7 @@ export class KeyboardStateService {
     .subscribe(({ command, extendSelection }) => {
       if (command !== 'NoCommand') {
         if (command === 'Escape') {
-          this.store.dispatch(KeyboardStateServiceActions.textEditChange({ shapeId: '' }));
+          this.store.dispatch(KeyboardStateServiceActions.editTextChange({ shapeId: '' }));
         } else if (command === 'Enter') {
           this.store.dispatch(KeyboardStateServiceActions.printableCharPressed({ key: '\n' }));
         } else if (command === 'Backspace') {

@@ -6,10 +6,10 @@ export const textOptionsDialogOpening = createAction(
 );
 
 export const textOptionsDialogClosed = createAction(
-  '[TextOptionsButtonService] Text Options Dialog Closed'
+  '[TextOptionsService] Text Options Dialog Closed'
 );
 
 export const fontPropsChange = createAction(
-  '[TextOptionsButtonService] Font Props Change',
+  '[TextOptionsService] Font Props Change',
   props<{ props: Partial<FontProps> }>()
 );

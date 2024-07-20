@@ -1,6 +1,12 @@
 import {
+  ColorButtonsServiceActions,
+  ControlFrameEffectsActions,
+  FontControlsComponentActions,
+  FontFamilyButtonServiceActions,
+  FontSizeButtonServiceActions,
   InsertMenuActions,
   SketchbookViewComponentActions,
+  TextOptionsServiceActions,
   ViewMenuActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
 
@@ -25,4 +31,10 @@ export const undoableOperationTriggerActions: { [id: string]: boolean } = {
   [InsertMenuActions.insertCurve.type]: true,
   [InsertMenuActions.insertLine.type]: true,
   [InsertMenuActions.insertTriangle.type]: true,
+  [FontFamilyButtonServiceActions.fontPropsChange.type]: true,
+  [FontControlsComponentActions.fontPropsChange.type]: true,
+  [FontSizeButtonServiceActions.fontPropsChange.type]: true,
+  [ColorButtonsServiceActions.fontPropsChange.type]: true,
+  [TextOptionsServiceActions.fontPropsChange.type]: true,
+  [ControlFrameEffectsActions.editTextChange.type]: true,
 };

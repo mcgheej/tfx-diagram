@@ -27,7 +27,7 @@ export const frameChanged = (actions$: Actions<Action>) => {
         ControlFrameEffectsActions.dragEndHandle,
         ControlFrameEffectsActions.editTextChange,
         KeyboardStateServiceActions.navigateTextCursor,
-        KeyboardStateServiceActions.textEditChange,
+        KeyboardStateServiceActions.editTextChange,
         ShapesEffectsActions.textInsertPositionChange,
         FontSizeButtonServiceActions.fontPropsChange,
         FontFamilyButtonServiceActions.fontPropsChange,

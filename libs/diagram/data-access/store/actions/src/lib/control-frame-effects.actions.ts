@@ -200,7 +200,7 @@ export const selectedShapeTextConfigChange = createAction(
 );
 
 export const editTextChange = createAction(
-  '[Control Frame Effects] Text Edit Change',
+  '[Control Frame Effects] Edit Text Change',
   props<{ shapeId: string }>()
 );
 

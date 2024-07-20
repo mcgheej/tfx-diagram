@@ -171,7 +171,7 @@ export const controlFrameReducer = createReducer(
   }),
   on(
     ControlFrameEffectsActions.editTextChange,
-    KeyboardStateServiceActions.textEditChange,
+    KeyboardStateServiceActions.editTextChange,
     (state, { shapeId }) => {
       const textBlock = TextBox.textBlockCache.get(shapeId);
       const endInsertPosition = textBlock ? textBlock.parentProps.text.length : 0;

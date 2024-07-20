@@ -7,8 +7,8 @@ export const navigateTextCursor = createAction(
   props<{ command: TextCursorCommandCodes; extendSelection: boolean }>()
 );
 
-export const textEditChange = createAction(
-  '[Keyboard State Service] Text Edit Change',
+export const editTextChange = createAction(
+  '[Keyboard State Service] Edit Text Change',
   props<{ shapeId: '' }>()
 );
 

@@ -1,6 +1,6 @@
 import { Directive, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { nextInChain, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Shape, nextInChain } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { DiagramCanvasDirectiveActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
 import {
@@ -10,8 +10,8 @@ import {
 import { Group } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   selectControlShapes,
-  selectHighlightedShapeId,
   selectHighlightFrameStart,
+  selectHighlightedShapeId,
   selectSelectedShapeIds,
   selectSelectionFrameStart,
   selectTextEdit,
@@ -21,12 +21,12 @@ import { TextEdit } from '@tfx-diagram/diagram/data-access/text-classes';
 import { Page, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Size } from 'electron';
 import {
+  Subject,
   combineLatest,
   distinctUntilChanged,
   filter,
   fromEvent,
   map,
-  Subject,
   takeUntil,
   throttleTime,
   withLatestFrom,

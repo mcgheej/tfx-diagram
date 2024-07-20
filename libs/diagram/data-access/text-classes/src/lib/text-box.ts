@@ -32,6 +32,9 @@ const textBoxDefaults: TextBoxProps = {
 
 export class TextBox implements TextBoxProps {
   static textBlockCache = new Map<string, TextBlock>();
+  static flushTextBlockCache() {
+    TextBox.textBlockCache = new Map<string, TextBlock>();
+  }
 
   id: string;
   lineHeight: number;
