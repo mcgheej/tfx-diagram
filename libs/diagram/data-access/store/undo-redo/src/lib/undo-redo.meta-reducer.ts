@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ActionReducer } from '@ngrx/store';
 import {
-  DiagramCanvasDirectiveActions,
   EditMenuActions,
+  MouseMachineActions,
   PageViewportComponentActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
+import { Group } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { TextBox } from '@tfx-diagram/diagram/data-access/text-classes';
 import { LocalStorage } from '@tfx-diagram/diagram/util/misc-functions';
 import { AppState } from '@tfx-diagram/electron-renderer-web-context-bridge-api';
@@ -44,20 +45,14 @@ export const redoDisabled$ = redoDisabledSubject.asObservable();
 export const undoRedoMetaReducer = (reducer: ActionReducer<any>) => {
   return (state: any, action: any) => {
     const actionType = action.type as string;
-    if (undoableOperationTriggerActions[actionType]) {
+    if (undoableOperationTrigger(state, actionType)) {
       pushUndo(state, actionType);
       clearRedoStack();
-      console.log(`undoable action: ${actionType}`);
-      console.log(state);
     } else if (actionType === EditMenuActions.undoClick.type) {
       const poppedState = popUndo();
       if (poppedState) {
         pushRedo(state, actionType);
         saveSettingsToLocalStorage(poppedState.state);
-        console.log('UNDO');
-        console.log(state);
-        console.log('TO');
-        console.log(poppedState.state);
         TextBox.flushTextBlockCache(); // Do this to ensure font changes are applied
         return reducer(poppedState.state, action);
       }
@@ -73,10 +68,10 @@ export const undoRedoMetaReducer = (reducer: ActionReducer<any>) => {
       clearUndoStack();
       clearRedoStack();
     }
-    if (action.type !== DiagramCanvasDirectiveActions.mouseMoveOnViewport.type) {
-      console.log(actionType);
-      // console.log(state);
-    }
+    // if (action.type !== DiagramCanvasDirectiveActions.mouseMoveOnViewport.type) {
+    //   console.log(actionType);
+    //   console.log(state);
+    // }
     return reducer(state, action);
   };
 };
@@ -139,3 +134,53 @@ function saveSettingsToLocalStorage(state: AppState) {
 //   console.log(undoStack);
 //   console.log(redoStack);
 // }
+
+function undoableOperationTrigger(state: AppState, actionType: string): boolean {
+  if (undoableOperationTriggerActions[actionType]) {
+    if (actionType === MouseMachineActions.leftButtonDown.type) {
+      return doMouseMachineActionsLeftButtonDown(state);
+    }
+    if (actionType === MouseMachineActions.ctrlLeftButtonDown.type) {
+      return doMouseMachineActionsCtrlLeftButtonDown(state);
+    }
+    return true;
+  }
+  return false;
+}
+
+function doMouseMachineActionsLeftButtonDown(state: AppState): boolean {
+  // Only return true if button down on page background or on a
+  // selectable shape, other than a handle, that is not currently
+  // selected.
+  const { selectedShapeIds, highlightedShapeId } = state.controlFrame;
+  const { shapes } = state.shapes;
+  if (highlightedShapeId === '') {
+    return true;
+  }
+  if (selectedShapeIds.includes(Group.topLevelGroupIdFromId(highlightedShapeId, shapes))) {
+    return false;
+  }
+  const shape = shapes.get(highlightedShapeId);
+  if (shape && shape.selectable) {
+    return true;
+  }
+  return false;
+}
+
+function doMouseMachineActionsCtrlLeftButtonDown(state: AppState): boolean {
+  // Will return true if <ctrl><left button down> on page background or
+  // on a selectable shape, other than a handle
+  const { highlightedShapeId } = state.controlFrame;
+  const { shapes } = state.shapes;
+  if (highlightedShapeId === '') {
+    console.log('on page background - add to UNDO');
+    return true;
+  }
+  const shape = shapes.get(highlightedShapeId);
+  if (shape && shape.selectable) {
+    console.log('on selectable shape - add to UNDO');
+    return true;
+  }
+  console.log('ctrl left down - do not add to UNDO');
+  return false;
+}

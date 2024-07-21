@@ -1,4 +1,5 @@
 import {
+  ArrangeMenuActions,
   ColorButtonsServiceActions,
   ControlFrameEffectsActions,
   EndpointButtonsServiceActions,
@@ -8,6 +9,8 @@ import {
   InsertMenuActions,
   LineDashButtonServiceActions,
   LineWidthButtonServiceActions,
+  MouseMachineActions,
+  SelectionMenuActions,
   SketchbookViewComponentActions,
   TextOptionsServiceActions,
   ViewMenuActions,
@@ -46,4 +49,12 @@ export const undoableOperationTriggerActions: { [id: string]: boolean } = {
   [LineDashButtonServiceActions.lineDashChange.type]: true,
   [EndpointButtonsServiceActions.startEndpointChange.type]: true,
   [EndpointButtonsServiceActions.finishEndpointChange.type]: true,
+  [MouseMachineActions.leftButtonDown.type]: true,
+  [MouseMachineActions.ctrlLeftButtonDown.type]: true,
+  [SelectionMenuActions.selectAllClick.type]: true,
+  [SelectionMenuActions.inverseSelectionClick.type]: true,
+  [ArrangeMenuActions.bringToFrontClick.type]: true,
+  [ArrangeMenuActions.sendToBackClick.type]: true,
+  [ArrangeMenuActions.bringItemForward.type]: true,
+  [ArrangeMenuActions.sendItemBackward.type]: true,
 };
