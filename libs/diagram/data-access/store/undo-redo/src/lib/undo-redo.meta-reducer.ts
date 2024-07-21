@@ -2,7 +2,6 @@
 import { ActionReducer } from '@ngrx/store';
 import {
   ControlFrameEffectsActions,
-  DiagramCanvasDirectiveActions,
   EditMenuActions,
   MouseMachineActions,
   PageViewportComponentActions,
@@ -76,17 +75,6 @@ export const undoRedoMetaReducer = (reducer: ActionReducer<any>) => {
       clearUndoStack();
       clearRedoStack();
     }
-    if (action.type !== DiagramCanvasDirectiveActions.mouseMoveOnViewport.type) {
-      // if (
-      //   actionType === ControlFrameEffectsActions.dragStartSelectionBox.type ||
-      //   actionType === ControlFrameEffectsActions.dragEndSelectionBox.type
-      // ) {
-      //   console.log(actionType);
-      // }
-      // console.log(actionType);
-      // console.log(state);
-      console.log(undoStack);
-    }
     return reducer(state, action);
   };
 };
@@ -144,11 +132,6 @@ function saveSettingsToLocalStorage(state: AppState) {
   LocalStorage.setItem(LS_SHOW_SHAPE_INSPECTOR, s.showShapeInspector);
   LocalStorage.setItem(LS_JPEG_QUALITY, s.jpegQuality);
 }
-
-// function logStacks() {
-//   console.log(undoStack);
-//   console.log(redoStack);
-// }
 
 function undoableOperationTrigger(state: AppState, action: any): boolean {
   const actionType = action.type as string;
