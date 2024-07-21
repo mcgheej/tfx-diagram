@@ -60,4 +60,6 @@ export const undoableOperationTriggerActions: { [id: string]: boolean } = {
   [ArrangeMenuActions.groupClick.type]: true,
   [ArrangeMenuActions.ungroupClick.type]: true,
   [ArrangeMenuActions.alignObjectsClick.type]: true,
+  [ArrangeMenuActions.distributeObjectsClick.type]: true,
+  [ArrangeMenuActions.shapeResizeClick.type]: true,
 };
