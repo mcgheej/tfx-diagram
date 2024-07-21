@@ -59,4 +59,5 @@ export const undoableOperationTriggerActions: { [id: string]: boolean } = {
   [ArrangeMenuActions.sendItemBackward.type]: true,
   [ArrangeMenuActions.groupClick.type]: true,
   [ArrangeMenuActions.ungroupClick.type]: true,
+  [ArrangeMenuActions.alignObjectsClick.type]: true,
 };
