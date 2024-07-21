@@ -173,14 +173,11 @@ function doMouseMachineActionsCtrlLeftButtonDown(state: AppState): boolean {
   const { highlightedShapeId } = state.controlFrame;
   const { shapes } = state.shapes;
   if (highlightedShapeId === '') {
-    console.log('on page background - add to UNDO');
     return true;
   }
   const shape = shapes.get(highlightedShapeId);
   if (shape && shape.selectable) {
-    console.log('on selectable shape - add to UNDO');
     return true;
   }
-  console.log('ctrl left down - do not add to UNDO');
   return false;
 }

@@ -2,6 +2,7 @@ import {
   ArrangeMenuActions,
   ColorButtonsServiceActions,
   ControlFrameEffectsActions,
+  EditMenuActions,
   EndpointButtonsServiceActions,
   FontControlsComponentActions,
   FontFamilyButtonServiceActions,
@@ -62,4 +63,5 @@ export const undoableOperationTriggerActions: { [id: string]: boolean } = {
   [ArrangeMenuActions.alignObjectsClick.type]: true,
   [ArrangeMenuActions.distributeObjectsClick.type]: true,
   [ArrangeMenuActions.shapeResizeClick.type]: true,
+  [EditMenuActions.deleteClick.type]: true,
 };
