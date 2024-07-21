@@ -4,6 +4,8 @@ import {
   EditMenuActions,
   MouseMachineActions,
   PageViewportComponentActions,
+  SaveCloseMachineActions,
+  SketchbookEffectsActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
 import { Group } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { TextBox } from '@tfx-diagram/diagram/data-access/text-classes';
@@ -64,7 +66,12 @@ export const undoRedoMetaReducer = (reducer: ActionReducer<any>) => {
         TextBox.flushTextBlockCache();
         return reducer(poppedState.state, action);
       }
-    } else if (actionType === PageViewportComponentActions.viewportSizeChange.type) {
+    } else if (
+      actionType === PageViewportComponentActions.viewportSizeChange.type ||
+      actionType === SketchbookEffectsActions.saveSuccess.type ||
+      actionType === SaveCloseMachineActions.closeStart.type
+    ) {
+      console.log('clear stacks');
       clearUndoStack();
       clearRedoStack();
     }

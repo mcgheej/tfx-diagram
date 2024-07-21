@@ -12,6 +12,10 @@ import {
 } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectPagesState } from '@tfx-diagram/diagram-data-access-store-features-pages';
 import {
+  selectCustomColorIds,
+  selectCustomColors,
+} from '@tfx-diagram/diagram/data-access/store/features/colors';
+import {
   selectConnectionObjects,
   selectShapeObjects,
 } from '@tfx-diagram/diagram/data-access/store/features/shapes';
@@ -23,7 +27,6 @@ import {
 import { INITIAL_ZOOM_FACTOR } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { nanoid } from 'nanoid';
 import { map, of, switchMap } from 'rxjs';
-import { selectCustomColorIds, selectCustomColors } from '../../../colors/src';
 import { selectSketchbookState } from './sketchbook.feature';
 
 @Injectable()
