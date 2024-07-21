@@ -57,4 +57,6 @@ export const undoableOperationTriggerActions: { [id: string]: boolean } = {
   [ArrangeMenuActions.sendToBackClick.type]: true,
   [ArrangeMenuActions.bringItemForward.type]: true,
   [ArrangeMenuActions.sendItemBackward.type]: true,
+  [ArrangeMenuActions.groupClick.type]: true,
+  [ArrangeMenuActions.ungroupClick.type]: true,
 };
