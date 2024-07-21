@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { ActionReducer } from '@ngrx/store';
 import {
+  ControlFrameEffectsActions,
+  DiagramCanvasDirectiveActions,
   EditMenuActions,
   MouseMachineActions,
   PageViewportComponentActions,
@@ -47,7 +49,7 @@ export const redoDisabled$ = redoDisabledSubject.asObservable();
 export const undoRedoMetaReducer = (reducer: ActionReducer<any>) => {
   return (state: any, action: any) => {
     const actionType = action.type as string;
-    if (undoableOperationTrigger(state, actionType)) {
+    if (undoableOperationTrigger(state, action)) {
       pushUndo(state, actionType);
       clearRedoStack();
     } else if (actionType === EditMenuActions.undoClick.type) {
@@ -71,14 +73,20 @@ export const undoRedoMetaReducer = (reducer: ActionReducer<any>) => {
       actionType === SketchbookEffectsActions.saveSuccess.type ||
       actionType === SaveCloseMachineActions.closeStart.type
     ) {
-      console.log('clear stacks');
       clearUndoStack();
       clearRedoStack();
     }
-    // if (action.type !== DiagramCanvasDirectiveActions.mouseMoveOnViewport.type) {
-    //   console.log(actionType);
-    //   console.log(state);
-    // }
+    if (action.type !== DiagramCanvasDirectiveActions.mouseMoveOnViewport.type) {
+      // if (
+      //   actionType === ControlFrameEffectsActions.dragStartSelectionBox.type ||
+      //   actionType === ControlFrameEffectsActions.dragEndSelectionBox.type
+      // ) {
+      //   console.log(actionType);
+      // }
+      // console.log(actionType);
+      // console.log(state);
+      console.log(undoStack);
+    }
     return reducer(state, action);
   };
 };
@@ -142,13 +150,17 @@ function saveSettingsToLocalStorage(state: AppState) {
 //   console.log(redoStack);
 // }
 
-function undoableOperationTrigger(state: AppState, actionType: string): boolean {
+function undoableOperationTrigger(state: AppState, action: any): boolean {
+  const actionType = action.type as string;
   if (undoableOperationTriggerActions[actionType]) {
     if (actionType === MouseMachineActions.leftButtonDown.type) {
       return doMouseMachineActionsLeftButtonDown(state);
     }
     if (actionType === MouseMachineActions.ctrlLeftButtonDown.type) {
       return doMouseMachineActionsCtrlLeftButtonDown(state);
+    }
+    if (actionType === ControlFrameEffectsActions.dragEndSelectionBox.type) {
+      return doControlFrameActionsDragEndSelectionBox(action);
     }
     return true;
   }
@@ -185,6 +197,22 @@ function doMouseMachineActionsCtrlLeftButtonDown(state: AppState): boolean {
   const shape = shapes.get(highlightedShapeId);
   if (shape && shape.selectable) {
     return true;
+  }
+  return false;
+}
+
+function doControlFrameActionsDragEndSelectionBox(action: any): boolean {
+  const newSelectedShapeIds = action.selectedShapeIds as string[];
+
+  // If no shapes selected then need to remove the last element from the
+  // UNDO stack if it was a drag start selection box action trigger
+  const lastElement = undoStack.length - 1;
+  if (
+    newSelectedShapeIds.length === 0 &&
+    undoStack.length > 0 &&
+    undoStack[lastElement].actionType === ControlFrameEffectsActions.dragStartSelectionBox.type
+  ) {
+    undoStack.pop();
   }
   return false;
 }

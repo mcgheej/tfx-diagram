@@ -64,4 +64,9 @@ export const undoableOperationTriggerActions: { [id: string]: boolean } = {
   [ArrangeMenuActions.distributeObjectsClick.type]: true,
   [ArrangeMenuActions.shapeResizeClick.type]: true,
   [EditMenuActions.deleteClick.type]: true,
+  [ControlFrameEffectsActions.dragStartHandle.type]: true,
+  [ControlFrameEffectsActions.dragStartSingleSelection.type]: true,
+  [ControlFrameEffectsActions.dragStartMultiSelection.type]: true,
+  [ControlFrameEffectsActions.dragStartSelectionBox.type]: true,
+  [ControlFrameEffectsActions.dragEndSelectionBox.type]: true,
 };
