@@ -68,5 +68,4 @@ export const undoableOperationTriggerActions: { [id: string]: boolean } = {
   [ControlFrameEffectsActions.dragStartSingleSelection.type]: true,
   [ControlFrameEffectsActions.dragStartMultiSelection.type]: true,
   [ControlFrameEffectsActions.dragStartSelectionBox.type]: true,
-  [ControlFrameEffectsActions.dragEndSelectionBox.type]: true,
 };

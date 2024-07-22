@@ -7,4 +7,3 @@ export * from './lib/ngrx-states/settings-state';
 export * from './lib/ngrx-states/shapes-state';
 export * from './lib/ngrx-states/sketchbook-state';
 export * from './lib/ngrx-states/transform-state';
-export * from './lib/ngrx-states/undo-redo-state';

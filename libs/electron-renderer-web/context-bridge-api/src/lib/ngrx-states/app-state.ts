@@ -5,7 +5,6 @@ import { SettingsState } from './settings-state';
 import { ShapesState } from './shapes-state';
 import { SketchbookState } from './sketchbook-state';
 import { TransformState } from './transform-state';
-import { UndoRedoState } from './undo-redo-state';
 
 export interface AppState {
   colors: ColorsState;
@@ -15,5 +14,4 @@ export interface AppState {
   shapes: ShapesState;
   sketchbook: SketchbookState;
   transform: TransformState;
-  undoRedo: UndoRedoState;
 }
