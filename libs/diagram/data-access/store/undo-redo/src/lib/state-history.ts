@@ -6,5 +6,5 @@ export interface StateHistory {
   state: AppState;
 }
 
-export const undoStack = new Stack<StateHistory>(20, 'undo');
-export const redoStack = new Stack<StateHistory>(20, 'redo');
+export const undoStack = new Stack<StateHistory>(10, 'undo');
+export const redoStack = new Stack<StateHistory>(10, 'redo');
