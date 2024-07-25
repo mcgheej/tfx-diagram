@@ -105,6 +105,9 @@
         "libs/electron-renderer-web/shared-types/src/index.ts"
       ],
       "@tfx-diagram/electron/file-operations": ["libs/electron/file-operations/src/index.ts"],
+      "@tfx-diagram/shared-angular/tfx-page-selector": [
+        "libs/shared-angular/ui/tfx-page-selector/src/index.ts"
+      ],
       "@tfx-diagram/shared-angular/ui/tfx-app-bar": [
         "libs/shared-angular/ui/tfx-app-bar/src/index.ts"
       ],

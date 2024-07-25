@@ -1,0 +1,13 @@
+{
+  "name": "tfx-page-selector",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared-angular/ui/tfx-page-selector/src",
+  "prefix": "tfx",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  }
+}
