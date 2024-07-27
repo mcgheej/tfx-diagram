@@ -1,1 +1,18 @@
-<p>page-selector works!</p>
+<div #pageSelector class="container">
+  <tfx-icon-button
+    [config]="{ iconName: 'list', buttonType: 'rectangle' }"
+    matTooltip="Page List"
+    matTooltipShowDelay="1000"
+    (buttonClick)="onPageListClick()"
+  ></tfx-icon-button>
+  <tfx-page-tabs-overflow-button [disabled]="false"></tfx-page-tabs-overflow-button>
+  <div></div>
+  <tfx-page-tabs-overflow-button [disabled]="true"></tfx-page-tabs-overflow-button>
+  <tfx-icon-button
+    class="add-button"
+    [config]="{ iconName: 'control_point' }"
+    matTooltip="Add Page"
+    matTooltipShowDelay="1000"
+    (buttonClick)="onPageAddClick()"
+  ></tfx-icon-button>
+</div>

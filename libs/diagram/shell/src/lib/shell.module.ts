@@ -13,7 +13,7 @@ import { ShapesModule } from '@tfx-diagram/diagram/data-access/store/features/sh
 import { DiagramAppMenuModule } from '@tfx-diagram/diagram/ui/diagram-app-menu';
 import { MousePositionModule } from '@tfx-diagram/diagram/ui/mouse-position';
 import { PageRibbonModule } from '@tfx-diagram/diagram/ui/page-ribbon';
-import { PageSelectorModule } from '@tfx-diagram/diagram/ui/page-selector';
+// import { PageSelectorModule } from '@tfx-diagram/diagram/ui/page-selector';
 import { PageViewportModule } from '@tfx-diagram/diagram/ui/page-viewport';
 import { RulersModule } from '@tfx-diagram/diagram/ui/rulers';
 import { ShapeInspectorModule } from '@tfx-diagram/diagram/ui/shape-inspector';
@@ -23,6 +23,7 @@ import {
   INITIAL_ZOOM_FACTOR,
   PRESET_ZOOM_FACTORS,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
+import { PageSelectorComponent } from '@tfx-diagram/shared-angular/tfx-page-selector';
 import { TfxAppBarModule } from '@tfx-diagram/shared-angular/ui/tfx-app-bar';
 import { TfxColorPickerModule } from '@tfx-diagram/shared-angular/ui/tfx-color-picker';
 import { TfxMenuModule } from '@tfx-diagram/shared-angular/ui/tfx-menu';
@@ -47,7 +48,8 @@ import { ShellComponent } from './shell/shell.component';
     ColorsModule,
     PageViewportModule,
     RulersModule,
-    PageSelectorModule,
+    PageSelectorComponent,
+    // PageSelectorModule,
     PageRibbonModule,
     MatDialogModule,
     MousePositionModule,

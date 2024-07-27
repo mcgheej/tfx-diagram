@@ -1,0 +1,15 @@
+.container {
+  height: 100%;
+  width: 100%;
+  font-size: 14px;
+  line-height: 1;
+  display: grid;
+  grid-template-columns: 40px 35px auto 35px 24px 1fr;
+  color: #2a2b2d;
+  background-color: inherit;
+  overflow: hidden;
+}
+
+.add-button {
+  align-self: center;
+}
