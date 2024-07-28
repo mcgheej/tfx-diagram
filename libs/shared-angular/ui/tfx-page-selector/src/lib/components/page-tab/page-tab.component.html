@@ -1,0 +1,25 @@
+<div
+  #titleContainer
+  [ngClass]="{
+    container: true,
+    'not-editing': !editing,
+    highlighted: this.pageIndex() === this.selectedPageIndex() && !editing
+  }"
+  (mousedown)="onTabClick($event)"
+  (dblclick)="onDoubleClick()"
+  (contextmenu)="openMenu($event)"
+>
+  <div *ngIf="editing; then editMode; else viewMode"></div>
+  <ng-template #editMode>
+    <tfx-page-tab-input
+      [pageName]="page()"
+      (editCancel)="onEditCancel()"
+      (pageNameChange)="onEditComplete($event)"
+    ></tfx-page-tab-input>
+  </ng-template>
+  <ng-template #viewMode>
+    <div class="label no-text-select" [matTooltip]="page()" tfxShowIfTruncated>
+      {{ page() }}
+    </div>
+  </ng-template>
+</div>

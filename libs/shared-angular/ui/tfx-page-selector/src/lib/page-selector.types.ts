@@ -8,3 +8,8 @@ export interface MoveResult {
   newPageIndex: number;
   currentPageIndex: number;
 }
+
+export interface PageTabClickData {
+  pageIndex: number;
+  button: 'left' | 'right';
+}

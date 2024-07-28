@@ -25,6 +25,10 @@
       class="page-selector"
       [pages]="vm.pageNames"
       [selectedPageIndex]="vm.pageData.currentIdx"
+      (pageAddClick)="onPageAdd()"
+      (pageSelectedChange)="onPageChange($event)"
+      (pageNameChange)="onPageRename($event, vm.pageData.pages)"
+      (pageDeleteClick)="onPageDelete($event, vm.pageData.pages)"
     ></tfx-page-selector>
     <!-- <tfx-page-selector
       *ngIf="vm.showControls"
