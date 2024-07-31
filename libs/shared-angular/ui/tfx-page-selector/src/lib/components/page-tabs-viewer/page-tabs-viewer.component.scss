@@ -1,8 +1,39 @@
-.tab-group {
+.container {
+  height: 100%;
+  font-size: inherit;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+}
+
+.viewer {
   height: 100%;
   font-size: inherit;
   overflow: hidden;
   white-space: nowrap;
+  position: relative;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.tab-group {
+  height: 100%;
+  font-size: inherit;
+  white-space: nowrap;
+}
+
+.for-size {
+  visibility: hidden;
+}
+
+.align-right {
+  justify-self: end;
+}
+
+.tab-group-1 {
+  height: 100%;
+  font-size: inherit;
+  white-space: nowrap;
+  float: right;
 }
 
 .tab {

@@ -15,6 +15,7 @@ import { TfxResizeObserverModule } from '@tfx-diagram/shared-angular/ui/tfx-resi
 import { TfxResizeEvent } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { PageTabsOverflowButtonComponent } from '../components/page-tabs-overflow-button.ts/page-tabs-overflow-button.component';
 import { PageTabsViewerComponent } from '../components/page-tabs-viewer/page-tabs-viewer.component';
+import { PageTabsViewerService } from '../components/page-tabs-viewer/page-tabs-viewer.service';
 import { MoveResult, PageRenameDetails, PageTabClickData } from '../page-selector.types';
 import { PageSelectMenuService } from './page-select-menu.service';
 
@@ -32,7 +33,7 @@ import { PageSelectMenuService } from './page-select-menu.service';
   templateUrl: './page-selector.component.html',
   styleUrl: './page-selector.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PageSelectMenuService],
+  providers: [PageSelectMenuService, PageTabsViewerService],
 })
 export class PageSelectorComponent {
   // inputs
@@ -49,6 +50,7 @@ export class PageSelectorComponent {
   @ViewChild('pageSelector') pageSelectorElRef: ElementRef | null = null;
 
   // Injected services
+  viewerService = inject(PageTabsViewerService);
   private pageSelectMenu = inject(PageSelectMenuService);
   private contextMenu = inject(ContextMenuService);
 
@@ -103,6 +105,14 @@ export class PageSelectorComponent {
     this.pageDeleteClick.emit(pageIndex);
   }
 
+  onScrollRight() {
+    this.viewerService.scrollRightClick();
+  }
+
+  onScrollLeft() {
+    this.viewerService.scrollLeftClick();
+  }
+
   /**
    *
    * This function is called when the size of the Page Selector
@@ -122,8 +132,8 @@ export class PageSelectorComponent {
    * the Page Selector state machine.
    */
   onPageSelectorResize(resizeData: TfxResizeEvent) {
-    const tabsViewerMaxWidth = resizeData.newRect.width - 150;
-    // const tabsViewerMaxWidth = 400;
+    // const tabsViewerMaxWidth = resizeData.newRect.width - 150;
+    const tabsViewerMaxWidth = 160;
     if (this.tabsViewerMaxWidth !== tabsViewerMaxWidth) {
       this.tabsViewerMaxWidth = tabsViewerMaxWidth;
     }
