@@ -5,7 +5,6 @@ import {
   Component,
   ElementRef,
   OnChanges,
-  OnDestroy,
   QueryList,
   SimpleChanges,
   ViewChildren,
@@ -14,7 +13,6 @@ import {
   output,
 } from '@angular/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { Subject, takeUntil } from 'rxjs';
 import { PageRenameDetails, PageTabClickData } from '../../page-selector.types';
 import { PageTabComponent } from '../page-tab/page-tab.component';
 import { PageTabsViewerService } from './page-tabs-viewer.service';
@@ -27,7 +25,8 @@ import { PageTabsViewerService } from './page-tabs-viewer.service';
   styleUrl: './page-tabs-viewer.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PageTabsViewerComponent implements OnChanges, AfterViewInit, OnDestroy {
+export class PageTabsViewerComponent implements OnChanges, AfterViewInit {
+  // Component inputs and outputs
   maxWidth = input(300);
   pages = input<string[]>([]);
   selectedPageIndex = input(-1);
@@ -35,39 +34,39 @@ export class PageTabsViewerComponent implements OnChanges, AfterViewInit, OnDest
   pageRename = output<PageRenameDetails>();
   pageDelete = output<number>();
 
+  // QueryList containing the tab elements in the hidden tab group
+  // that contains a tab for each pages
   @ViewChildren('tab', { read: ElementRef })
   pageTabRefs!: QueryList<ElementRef> | null;
 
   // Injected services
   viewerService = inject(PageTabsViewerService);
 
-  private destroy$ = new Subject<void>();
-
+  /**
+   * If the maxWidth of the tabs viewer changes then need to recalculate the
+   * viewer data
+   */
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['maxWidth']) {
       this.viewerService.setViewerData(this.pageTabRefs, this.maxWidth());
     }
-    if (changes['pages']) {
-      console.log(this.pages());
-    }
-    if (changes['selectedPageIndex']) {
-      console.log(`selectedPageIndex: ${this.selectedPageIndex()}`);
-    }
   }
 
+  /**
+   * Subscribe to changes to the pageTabRefs QueryList. If these change
+   * then need to recalculate the viewer data. Note the setTimeout() call.
+   * This is required to get accurate position data from the tab refs (without
+   * the setTimeout() the offsetLeft values are inaccurate)
+   */
   ngAfterViewInit(): void {
     if (this.pageTabRefs) {
-      console.log(this.pageTabRefs);
       this.viewerService.setViewerData(this.pageTabRefs, this.maxWidth());
-      this.pageTabRefs.changes.pipe(takeUntil(this.destroy$)).subscribe((values) => {
-        this.viewerService.setViewerData(values, this.maxWidth());
+      this.pageTabRefs.changes.subscribe((values) => {
+        setTimeout(() => {
+          this.viewerService.setViewerData(values, this.maxWidth());
+        });
       });
     }
-  }
-
-  ngOnDestroy(): void {
-    this.destroy$.next();
-    this.destroy$.complete();
   }
 
   public onPageTabSelect(clickData: PageTabClickData) {

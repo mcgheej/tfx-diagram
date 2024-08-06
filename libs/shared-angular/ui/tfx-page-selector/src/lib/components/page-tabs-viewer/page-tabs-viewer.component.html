@@ -12,7 +12,6 @@
           [page]="page"
           [pageIndex]="i"
           [selectedPageIndex]="selectedPageIndex()"
-          [isLastPage]="isLast"
           [isOnlyPage]="pages().length === 1"
           (pageTabSelect)="onPageTabSelect($event)"
           (pageDelete)="onPageDelete($event)"
@@ -31,7 +30,6 @@
           [page]="page"
           [pageIndex]="i"
           [selectedPageIndex]="selectedPageIndex()"
-          [isLastPage]="isLast"
           [isOnlyPage]="pages().length === 1"
         ></tfx-page-tab>
       </ng-container>

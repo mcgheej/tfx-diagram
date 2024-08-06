@@ -29,7 +29,6 @@ export class PageTabComponent implements OnDestroy {
   page = input('unknown');
   pageIndex = input(-1);
   selectedPageIndex = input(-1);
-  isLastPage = input(true);
   isOnlyPage = input(true);
   pageTabSelect = output<PageTabClickData>();
   pageDelete = output<number>();

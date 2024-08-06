@@ -19,6 +19,8 @@ import { PageTabsViewerService } from '../components/page-tabs-viewer/page-tabs-
 import { MoveResult, PageRenameDetails, PageTabClickData } from '../page-selector.types';
 import { PageSelectMenuService } from './page-select-menu.service';
 
+const MAX_WIDTH_DEFAULT = 160;
+
 @Component({
   selector: 'tfx-page-selector',
   standalone: true,
@@ -54,7 +56,7 @@ export class PageSelectorComponent {
   private pageSelectMenu = inject(PageSelectMenuService);
   private contextMenu = inject(ContextMenuService);
 
-  public tabsViewerMaxWidth = 300;
+  public tabsViewerMaxWidth = MAX_WIDTH_DEFAULT;
 
   onPageListClick() {
     if (this.pageSelectorElRef) {
@@ -132,8 +134,8 @@ export class PageSelectorComponent {
    * the Page Selector state machine.
    */
   onPageSelectorResize(resizeData: TfxResizeEvent) {
-    // const tabsViewerMaxWidth = resizeData.newRect.width - 150;
-    const tabsViewerMaxWidth = 160;
+    const tabsViewerMaxWidth = resizeData.newRect.width - 150;
+    // const tabsViewerMaxWidth = MAX_WIDTH_DEFAULT;
     if (this.tabsViewerMaxWidth !== tabsViewerMaxWidth) {
       this.tabsViewerMaxWidth = tabsViewerMaxWidth;
     }
