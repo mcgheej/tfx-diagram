@@ -13,3 +13,8 @@ export interface PageTabClickData {
   pageIndex: number;
   button: 'left' | 'right';
 }
+
+export interface TfxPoint {
+  x: number;
+  y: number;
+}

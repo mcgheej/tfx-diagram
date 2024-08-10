@@ -14,6 +14,7 @@ export interface PageTabsScrollSignals {
 
 export interface PageTabData {
   x: number;
+  y: number;
   width: number;
 }
 

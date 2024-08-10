@@ -6,7 +6,8 @@ import {
   PageTabsScrollSignals,
   PageTabsViewerVM,
   TabsViewerData,
-} from './page-tabs-viewer.types';
+} from '../page-tabs-viewer.types';
+import { findForwardOverflowTabIdx, sumWidths } from './helpers';
 
 @Injectable()
 export class PageTabsViewerService implements PageTabsScrollSignals {
@@ -22,12 +23,15 @@ export class PageTabsViewerService implements PageTabsScrollSignals {
     endIdx: 0,
   });
 
-  // Local properties
-  private viewerData = this.getDefaultTabsViewerData(0);
+  viewerData = this.getDefaultTabsViewerData(0);
 
   // Public API
 
   scrollRightClick() {
+    this.scrollRight();
+  }
+
+  scrollRight() {
     // This gets called when user clicks scroll button.
     const { maxWidth, tabs } = this.viewerData;
     if (tabs.length < 2) {
@@ -54,6 +58,10 @@ export class PageTabsViewerService implements PageTabsScrollSignals {
   }
 
   scrollLeftClick() {
+    this.scrollLeft();
+  }
+
+  scrollLeft() {
     // This gets called when user clicks overflow button.
     const { maxWidth, tabs } = this.viewerData;
     if (tabs.length < 2) {
@@ -75,7 +83,7 @@ export class PageTabsViewerService implements PageTabsScrollSignals {
     // Currently aligned to left so need to change this to
     // right. Next need to find out the index of the first
     // hidden or partially hidden tab.
-    const newEnd = this.findForwardOverflowTabIdx(tabs, startIdx, maxWidth);
+    const newEnd = findForwardOverflowTabIdx(tabs, startIdx, maxWidth);
     if (newEnd < 0) {
       return;
     }
@@ -147,6 +155,7 @@ export class PageTabsViewerService implements PageTabsScrollSignals {
     tabRefs.forEach((tab) => {
       tabs.push({
         x: tab.nativeElement.offsetLeft,
+        y: tab.nativeElement.offsetTop,
         width: tab.nativeElement.offsetWidth,
       });
     });
@@ -165,38 +174,12 @@ export class PageTabsViewerService implements PageTabsScrollSignals {
     const { align, startIdx, endIdx } = vm;
     if (align === 'left') {
       this.scrolled.set(startIdx > 0);
-      this.overflowed.set(this.sumWidths(tabs, startIdx, tabs.length - 1) > maxWidth);
+      this.overflowed.set(sumWidths(tabs, startIdx, tabs.length - 1) > maxWidth);
       return;
     }
 
-    this.scrolled.set(this.sumWidths(tabs, 0, endIdx) > maxWidth);
+    this.scrolled.set(sumWidths(tabs, 0, endIdx) > maxWidth);
     this.overflowed.set(endIdx < tabs.length - 1);
-  }
-
-  private sumWidths(tabs: PageTabData[], i: number, j: number): number {
-    let w = 0;
-    if (j > i) {
-      const limit = Math.min(j, tabs.length - 1);
-      for (let k = i; k <= limit; k++) {
-        w += tabs[k].width;
-      }
-    }
-    return w;
-  }
-
-  private findForwardOverflowTabIdx(
-    tabs: PageTabData[],
-    startIdx: number,
-    maxWidth: number
-  ): number {
-    let w = 0;
-    for (let i = startIdx; i < tabs.length; i++) {
-      w += tabs[i].width;
-      if (w > maxWidth) {
-        return i;
-      }
-    }
-    return tabs.length - 1;
   }
 
   private findBackwardOverflowTabIdx(

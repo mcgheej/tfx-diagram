@@ -15,11 +15,13 @@ import { TfxResizeObserverModule } from '@tfx-diagram/shared-angular/ui/tfx-resi
 import { TfxResizeEvent } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { PageTabsOverflowButtonComponent } from '../components/page-tabs-overflow-button.ts/page-tabs-overflow-button.component';
 import { PageTabsViewerComponent } from '../components/page-tabs-viewer/page-tabs-viewer.component';
-import { PageTabsViewerService } from '../components/page-tabs-viewer/page-tabs-viewer.service';
+import { DragTabService } from '../components/page-tabs-viewer/services/drag-tab.service';
+import { PageTabsViewerService } from '../components/page-tabs-viewer/services/page-tabs-viewer.service';
+import { PageTabsViewerService2 } from '../components/page-tabs-viewer/services/page-tabs-viewer2.service';
 import { MoveResult, PageRenameDetails, PageTabClickData } from '../page-selector.types';
 import { PageSelectMenuService } from './page-select-menu.service';
 
-const MAX_WIDTH_DEFAULT = 160;
+const MAX_WIDTH_DEFAULT = 180;
 
 @Component({
   selector: 'tfx-page-selector',
@@ -35,7 +37,12 @@ const MAX_WIDTH_DEFAULT = 160;
   templateUrl: './page-selector.component.html',
   styleUrl: './page-selector.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PageSelectMenuService, PageTabsViewerService],
+  providers: [
+    PageSelectMenuService,
+    PageTabsViewerService,
+    PageTabsViewerService2,
+    DragTabService,
+  ],
 })
 export class PageSelectorComponent {
   // inputs
@@ -53,6 +60,7 @@ export class PageSelectorComponent {
 
   // Injected services
   viewerService = inject(PageTabsViewerService);
+  viewerService2 = inject(PageTabsViewerService2);
   private pageSelectMenu = inject(PageSelectMenuService);
   private contextMenu = inject(ContextMenuService);
 
@@ -109,10 +117,12 @@ export class PageSelectorComponent {
 
   onScrollRight() {
     this.viewerService.scrollRightClick();
+    this.viewerService2.scrollRight();
   }
 
   onScrollLeft() {
     this.viewerService.scrollLeftClick();
+    this.viewerService2.scrollLeft();
   }
 
   /**
@@ -134,8 +144,8 @@ export class PageSelectorComponent {
    * the Page Selector state machine.
    */
   onPageSelectorResize(resizeData: TfxResizeEvent) {
-    const tabsViewerMaxWidth = resizeData.newRect.width - 150;
-    // const tabsViewerMaxWidth = MAX_WIDTH_DEFAULT;
+    // const tabsViewerMaxWidth = resizeData.newRect.width - 150;
+    const tabsViewerMaxWidth = MAX_WIDTH_DEFAULT;
     if (this.tabsViewerMaxWidth !== tabsViewerMaxWidth) {
       this.tabsViewerMaxWidth = tabsViewerMaxWidth;
     }
