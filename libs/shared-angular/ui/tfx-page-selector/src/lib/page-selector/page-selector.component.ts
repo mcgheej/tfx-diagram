@@ -17,7 +17,6 @@ import { PageTabsOverflowButtonComponent } from '../components/page-tabs-overflo
 import { PageTabsViewerComponent } from '../components/page-tabs-viewer/page-tabs-viewer.component';
 import { DragTabService } from '../components/page-tabs-viewer/services/drag-tab.service';
 import { PageTabsViewerService } from '../components/page-tabs-viewer/services/page-tabs-viewer.service';
-import { PageTabsViewerService2 } from '../components/page-tabs-viewer/services/page-tabs-viewer2.service';
 import { MoveResult, PageRenameDetails, PageTabClickData } from '../page-selector.types';
 import { PageSelectMenuService } from './page-select-menu.service';
 
@@ -37,12 +36,7 @@ const MAX_WIDTH_DEFAULT = 180;
   templateUrl: './page-selector.component.html',
   styleUrl: './page-selector.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    PageSelectMenuService,
-    PageTabsViewerService,
-    PageTabsViewerService2,
-    DragTabService,
-  ],
+  providers: [PageSelectMenuService, PageTabsViewerService, DragTabService],
 })
 export class PageSelectorComponent {
   // inputs
@@ -60,7 +54,6 @@ export class PageSelectorComponent {
 
   // Injected services
   viewerService = inject(PageTabsViewerService);
-  viewerService2 = inject(PageTabsViewerService2);
   private pageSelectMenu = inject(PageSelectMenuService);
   private contextMenu = inject(ContextMenuService);
 
@@ -117,12 +110,10 @@ export class PageSelectorComponent {
 
   onScrollRight() {
     this.viewerService.scrollRightClick();
-    this.viewerService2.scrollRight();
   }
 
   onScrollLeft() {
     this.viewerService.scrollLeftClick();
-    this.viewerService2.scrollLeft();
   }
 
   /**

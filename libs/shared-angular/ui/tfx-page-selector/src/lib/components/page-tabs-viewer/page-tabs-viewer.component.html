@@ -4,8 +4,8 @@
       <ng-container *ngFor="let page of pages(); let i = index; let isLast = last">
         <tfx-page-tab
           *ngIf="
-            i >= viewerService.pageTabsViewerVM().startIdx &&
-            i <= viewerService.pageTabsViewerVM().endIdx
+            i >= viewerService.pageTabsViewerVM().firstVisibleIdx &&
+            i <= viewerService.pageTabsViewerVM().lastVisibleIdx
           "
           class="tab"
           [style.margin-right.px]="isLast ? 0 : 4"

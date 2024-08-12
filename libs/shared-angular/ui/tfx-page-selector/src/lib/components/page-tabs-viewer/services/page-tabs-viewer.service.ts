@@ -1,60 +1,47 @@
 import { ElementRef, Injectable, QueryList, inject, signal } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { PageRenameDetails } from '@tfx-diagram/diagram/ui/page-selector';
+import { PageRenameDetails } from '../../../page-selector.types';
 import {
-  PageTabData,
-  PageTabsScrollSignals,
+  PageTab,
   PageTabsViewerVM,
-  TabsViewerData,
+  TabVisibilityStatus,
+  ViewerAlignment,
 } from '../page-tabs-viewer.types';
-import { findForwardOverflowTabIdx, sumWidths } from './helpers';
+
+const initialPageTabsViewerVM: PageTabsViewerVM = {
+  align: 'left',
+  firstVisibleIdx: 0,
+  lastVisibleIdx: 0,
+  scrolled: false,
+  overflowed: false,
+};
 
 @Injectable()
-export class PageTabsViewerService implements PageTabsScrollSignals {
-  // Injected services
-  snackBar = inject(MatSnackBar);
+export class PageTabsViewerService {
+  // injected services
+  private snackBar = inject(MatSnackBar);
 
-  // PageTabsScrollSignals interface
-  overflowed = signal<boolean>(false);
-  scrolled = signal<boolean>(false);
-  pageTabsViewerVM = signal<PageTabsViewerVM>({
-    align: 'left',
-    startIdx: 0,
-    endIdx: 0,
-  });
+  pageTabsViewerVM = signal<PageTabsViewerVM>(initialPageTabsViewerVM);
 
-  viewerData = this.getDefaultTabsViewerData(0);
+  //
+  pageTabs: PageTab[] = [];
+  maxWidth = 300;
+  private align: ViewerAlignment = 'left';
+  private tabRefs: QueryList<ElementRef> | null = null;
+  private totalWidth = 0;
+  private firstVisibleIdx = 0;
+  private lastVisibleIdx = 0;
 
-  // Public API
-
-  scrollRightClick() {
-    this.scrollRight();
+  maxWidthChanged(maxWidth: number) {
+    this.maxWidth = maxWidth;
+    this.setPageTabs();
   }
 
-  scrollRight() {
-    // This gets called when user clicks scroll button.
-    const { maxWidth, tabs } = this.viewerData;
-    if (tabs.length < 2) {
-      return;
+  tabRefsChanged(tabRefs: QueryList<ElementRef> | null) {
+    this.tabRefs = tabRefs ?? null;
+    if (this.tabRefs) {
+      this.setPageTabs();
     }
-
-    // If already aligned left then simply decrease startIdx by 1
-    const { align, startIdx, endIdx } = this.pageTabsViewerVM();
-    if (align === 'left') {
-      if (startIdx === 0) {
-        return;
-      }
-      this.pageTabsViewerVM.set({ align, startIdx: startIdx - 1, endIdx });
-      this.setScrolledOverflowed(this.viewerData, this.pageTabsViewerVM());
-      return;
-    }
-
-    const newStart = this.findBackwardOverflowTabIdx(tabs, endIdx, maxWidth);
-    if (newStart < 0) {
-      return;
-    }
-    this.pageTabsViewerVM.set({ align: 'left', startIdx: newStart, endIdx: tabs.length - 1 });
-    this.setScrolledOverflowed(this.viewerData, this.pageTabsViewerVM());
   }
 
   scrollLeftClick() {
@@ -62,71 +49,52 @@ export class PageTabsViewerService implements PageTabsScrollSignals {
   }
 
   scrollLeft() {
-    // This gets called when user clicks overflow button.
-    const { maxWidth, tabs } = this.viewerData;
-    if (tabs.length < 2) {
-      return;
-    }
+    if (this.pageTabs.length < 2) {
+      this.align = 'right';
+    } else if (this.align === 'right') {
+      // If already aligned right then simply need to increase
+      // endIdx by 1 unless already at end
 
-    // If already aligned right then simply need to increase
-    // endIdx by 1 unless already at end
-    const { align, startIdx, endIdx } = this.pageTabsViewerVM();
-    if (align === 'right') {
-      if (endIdx === tabs.length - 1) {
-        return;
+      if (this.lastVisibleIdx < this.pageTabs.length - 1) {
+        this.lastVisibleIdx++;
       }
-      this.pageTabsViewerVM.set({ align, startIdx, endIdx: endIdx + 1 });
-      this.setScrolledOverflowed(this.viewerData, this.pageTabsViewerVM());
-      return;
-    }
-
-    // Currently aligned to left so need to change this to
-    // right. Next need to find out the index of the first
-    // hidden or partially hidden tab.
-    const newEnd = findForwardOverflowTabIdx(tabs, startIdx, maxWidth);
-    if (newEnd < 0) {
-      return;
-    }
-    this.pageTabsViewerVM.set({ align: 'right', startIdx: 0, endIdx: newEnd });
-    this.setScrolledOverflowed(this.viewerData, this.pageTabsViewerVM());
-  }
-
-  setViewerData(tabRefs: QueryList<ElementRef> | null, maxWidth: number) {
-    if (tabRefs) {
-      const result = this.getDefaultTabsViewerData(maxWidth);
-      result.tabs = this.getTabsData(tabRefs);
-
-      // Amend width to cater for right margin on all page tabs bar the
-      // last tab (it shouldn't have any right margin). Also calculate
-      // total width
-      if (result.tabs.length > 0) {
-        for (let i = 0; i < result.tabs.length - 1; i++) {
-          result.tabs[i].width = result.tabs[i + 1].x - result.tabs[i].x;
-          result.totalWidth += result.tabs[i].width;
-        }
-        result.totalWidth += result.tabs[result.tabs.length - 1].width;
-      }
-      this.viewerData = result;
-    }
-
-    const vm = this.pageTabsViewerVM();
-    if (vm.align === 'left') {
-      this.pageTabsViewerVM.set({
-        align: 'left',
-        startIdx: vm.startIdx,
-        endIdx: this.viewerData.tabs.length - 1,
-      });
     } else {
-      this.pageTabsViewerVM.set({
-        align: 'right',
-        startIdx: 0,
-        endIdx: this.viewerData.tabs.length - 1,
-      });
+      this.align = 'right';
+      if (
+        this.pageTabs[this.lastVisibleIdx].visibilityStatus === 'visible' &&
+        this.lastVisibleIdx < this.pageTabs.length - 1
+      ) {
+        this.lastVisibleIdx++;
+      }
     }
-    this.setScrolledOverflowed(this.viewerData, this.pageTabsViewerVM());
+    this.setPageTabs();
   }
 
-  pageNameAvailable(renameDetails: PageRenameDetails, pages: string[]): boolean {
+  scrollRightClick() {
+    this.scrollRight();
+  }
+
+  scrollRight() {
+    if (this.pageTabs.length < 2) {
+      this.align = 'left';
+    } else if (this.align === 'left') {
+      // If already aligned left then simply decrease by 1
+      if (this.firstVisibleIdx > 0) {
+        this.firstVisibleIdx--;
+      }
+    } else {
+      this.align = 'left';
+      if (
+        this.pageTabs[this.firstVisibleIdx].visibilityStatus === 'visible' &&
+        this.firstVisibleIdx > 0
+      ) {
+        this.firstVisibleIdx--;
+      }
+    }
+    this.setPageTabs();
+  }
+
+  pageNameAvailable(renameDetails: PageRenameDetails, pages: string[]) {
     let i = 0;
     for (const page of pages) {
       if (page === renameDetails.newTitle) {
@@ -142,85 +110,148 @@ export class PageTabsViewerService implements PageTabsScrollSignals {
     return true;
   }
 
-  private getDefaultTabsViewerData(maxWidth: number): TabsViewerData {
-    return {
-      totalWidth: 0,
-      maxWidth,
-      tabs: [],
-    } as TabsViewerData;
-  }
+  private setPageTabs() {
+    const tabs: PageTab[] = [];
 
-  private getTabsData(tabRefs: QueryList<ElementRef>): PageTabData[] {
-    const tabs: PageTabData[] = [];
-    tabRefs.forEach((tab) => {
-      tabs.push({
-        x: tab.nativeElement.offsetLeft,
-        y: tab.nativeElement.offsetTop,
-        width: tab.nativeElement.offsetWidth,
+    // Add basic info from page tab native elements
+    if (this.tabRefs && this.tabRefs.length > 0) {
+      this.tabRefs.forEach((t) => {
+        tabs.push({
+          refX: t.nativeElement.offsetLeft,
+          refY: t.nativeElement.offsetTop,
+          width: t.nativeElement.offsetWidth,
+          left: 0,
+          visibilityStatus: 'hidden',
+        });
       });
-    });
-    return tabs;
-  }
 
-  private setScrolledOverflowed(viewerData: TabsViewerData, vm: PageTabsViewerVM) {
-    const { maxWidth, totalWidth, tabs } = viewerData;
+      // Adjust width to cater for right margin on all page tabs bar the
+      // last tab (it shouldn't have any right margin). Also calculate
+      // the total width of the page tabs
+      this.totalWidth = 0;
+      for (let i = 0; i < tabs.length - 1; i++) {
+        tabs[i].width = tabs[i + 1].refX - tabs[i].refX;
+        this.totalWidth += tabs[i].width;
+      }
+      this.totalWidth += tabs[tabs.length - 1].width;
 
-    if (totalWidth <= maxWidth) {
-      this.overflowed.set(false);
-      this.scrolled.set(false);
-      return;
-    }
+      if (this.totalWidth <= this.maxWidth) {
+        // All the page tabs fit in the max width so set up with page
+        // tabs aligned to the left of the viewer and set up the index
+        // values for the first and last visible page tabs
+        this.align = 'left';
+        this.firstVisibleIdx = 0;
+        this.lastVisibleIdx = tabs.length - 1;
 
-    const { align, startIdx, endIdx } = vm;
-    if (align === 'left') {
-      this.scrolled.set(startIdx > 0);
-      this.overflowed.set(sumWidths(tabs, startIdx, tabs.length - 1) > maxWidth);
-      return;
-    }
+        // Finally set up the display left and visibility attrivutes for
+        // each tab
+        tabs.forEach((t) => {
+          t.left = t.refX;
+          t.visibilityStatus = 'visible';
+        });
+      } else {
+        // The total width of the page tabs is wider than the maximum
+        // available width so they will be truncated. How this happens
+        // depends on the current alignment.
 
-    this.scrolled.set(sumWidths(tabs, 0, endIdx) > maxWidth);
-    this.overflowed.set(endIdx < tabs.length - 1);
-  }
+        // First check if a new page has been added ("tabs" length greater
+        // than the "pageTabs" property length)
+        if (tabs.length > this.pageTabs.length) {
+          this.align = 'right';
+          this.lastVisibleIdx = tabs.length - 1;
+        }
+        if (this.align === 'left') {
+          // The page tabs are currently aligned to the left side of the
+          // viewer and the first tab visible is given by the index value
+          // in "firstVisibleIdx". Need to calculate the index of the last
+          // visible or partially visible tab index based on the current
+          // "maxWidth" value and tab widths.
+          let w = 0;
+          for (let i = this.firstVisibleIdx; i < tabs.length; i++) {
+            w += tabs[i].width;
+            if (w >= this.maxWidth) {
+              this.lastVisibleIdx = i;
+              break;
+            }
+          }
 
-  private findBackwardOverflowTabIdx(
-    tabs: PageTabData[],
-    endIdx: number,
-    maxWidth: number
-  ): number {
-    let w = 0;
-    for (let i = endIdx; i >= 0; i--) {
-      w += tabs[i].width;
-      if (w > maxWidth) {
-        return i;
+          // Now calculate the display left edge and visibility status for
+          // each tab.
+          const baseX = tabs[0].refX;
+          const offset = tabs[this.firstVisibleIdx].refX - baseX;
+          tabs.forEach((t) => {
+            t.left = t.refX - offset;
+            t.visibilityStatus = this.visibilityStatus(t, baseX, this.maxWidth);
+          });
+        } else {
+          // The page tabs are currently aligned to the right side of the
+          // viewer. The last tab visible is given by the index value
+          // in "lastVisibleIdx". This may need modification if a tab was
+          // deleted.
+          if (this.lastVisibleIdx >= tabs.length) {
+            this.lastVisibleIdx = tabs.length - 1;
+          }
+          // Need to calculate the index of the first
+          // visible or partially visible  tab index base on the current
+          // "maxWidth" value and tab widths
+          let w = 0;
+          for (let i = this.lastVisibleIdx; i >= 0; i--) {
+            w += tabs[i].width;
+            if (w >= this.maxWidth) {
+              this.firstVisibleIdx = i;
+              break;
+            }
+          }
+
+          // Now calculate the display left edge and visibility status for
+          // each tab.
+          const baseX = tabs[0].refX;
+          const offset =
+            tabs[this.lastVisibleIdx].refX +
+            tabs[this.lastVisibleIdx].width -
+            this.maxWidth -
+            baseX;
+          tabs.forEach((t) => {
+            t.left = t.refX - offset;
+            t.visibilityStatus = this.visibilityStatus(t, baseX, this.maxWidth);
+          });
+        }
       }
     }
-    return -1;
+
+    this.pageTabs = tabs;
+    this.pageTabsViewerVM.set({
+      align: this.align,
+      firstVisibleIdx: this.firstVisibleIdx,
+      lastVisibleIdx: this.lastVisibleIdx,
+      scrolled: this.isScrolled(this.pageTabs),
+      overflowed: this.isOverflowed(this.pageTabs),
+    });
+  }
+
+  private isScrolled(tabs: PageTab[]): boolean {
+    if (tabs.length <= 0) {
+      return false;
+    }
+    return tabs[0].visibilityStatus !== 'visible';
+  }
+
+  private isOverflowed(tabs: PageTab[]): boolean {
+    if (tabs.length <= 0) {
+      return false;
+    }
+    return tabs[tabs.length - 1].visibilityStatus !== 'visible';
+  }
+
+  private visibilityStatus(t: PageTab, baseX: number, maxWidth: number): TabVisibilityStatus {
+    if (t.left + t.width <= baseX || t.left >= baseX + maxWidth) {
+      return 'hidden';
+    } else if (
+      (t.left < baseX && t.left + t.width > baseX) ||
+      (t.left < baseX + maxWidth && t.left + t.width > baseX + maxWidth)
+    ) {
+      return 'partially-visible';
+    }
+    return 'visible';
   }
 }
-
-/**
- * If we have tabs 0..n, width of tab i is W(i) and total
- * width of tabs i to j (j > i) is W(i..j) and scroll index is s
- *
- * 1. If W(0..n) is <= max width then:
- *
- *    not overflowed
- *    not scrolled
- *
- * or
- * ==
- *
- * 2. If tabs are left aligned
- *
- *    scrolled if s > 0
- *    overflowed if W(s..n) > max width
- *
- * or
- * ==
- *
- * 3. If tabs are right aligned
- *
- *  scrolled if W(0..s) > max width
- *  overflowed if s < n
- *
- */

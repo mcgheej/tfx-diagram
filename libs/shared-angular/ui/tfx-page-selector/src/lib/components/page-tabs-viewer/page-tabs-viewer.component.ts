@@ -16,8 +16,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { PageRenameDetails, PageTabClickData } from '../../page-selector.types';
 import { PageTabComponent } from '../page-tab/page-tab.component';
 import { DragTabService } from './services/drag-tab.service';
+import { mouseLeftDownOnTab } from './services/mouse-observables';
 import { PageTabsViewerService } from './services/page-tabs-viewer.service';
-import { PageTabsViewerService2 } from './services/page-tabs-viewer2.service';
 
 @Component({
   selector: 'tfx-page-tabs-viewer',
@@ -43,8 +43,7 @@ export class PageTabsViewerComponent implements OnChanges, AfterViewInit {
 
   // Injected services
   viewerService = inject(PageTabsViewerService);
-  viewerService2 = inject(PageTabsViewerService2);
-  private dragTabService = inject(DragTabService);
+  dragTabService = inject(DragTabService);
 
   /**
    * If the maxWidth of the tabs viewer changes then need to recalculate the
@@ -52,9 +51,7 @@ export class PageTabsViewerComponent implements OnChanges, AfterViewInit {
    */
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['maxWidth']) {
-      this.viewerService.setViewerData(this.pageTabRefs, this.maxWidth());
-      console.log('maxWidth changed');
-      this.viewerService2.maxWidthChanged(this.maxWidth());
+      this.viewerService.maxWidthChanged(this.maxWidth());
     }
   }
 
@@ -66,17 +63,13 @@ export class PageTabsViewerComponent implements OnChanges, AfterViewInit {
    */
   ngAfterViewInit(): void {
     if (this.pageTabRefs) {
-      this.viewerService.setViewerData(this.pageTabRefs, this.maxWidth());
-      console.log('Initial tabRefs');
-      this.viewerService2.tabRefsChanged(this.pageTabRefs);
+      this.viewerService.tabRefsChanged(this.pageTabRefs);
       this.pageTabRefs.changes.subscribe((values) => {
         setTimeout(() => {
-          this.viewerService.setViewerData(values, this.maxWidth());
-          console.log('tabRefs changed');
           if (values) {
-            this.viewerService2.tabRefsChanged(values as QueryList<ElementRef>);
+            this.viewerService.tabRefsChanged(values as QueryList<ElementRef>);
           } else {
-            this.viewerService2.tabRefsChanged(null);
+            this.viewerService.tabRefsChanged(null);
           }
         });
       });
@@ -86,7 +79,7 @@ export class PageTabsViewerComponent implements OnChanges, AfterViewInit {
   public onPageTabSelect(clickData: PageTabClickData) {
     this.pageTabSelect.emit(clickData);
     if (clickData.button === 'left') {
-      this.dragTabService.mouseLeftDownOnTab(clickData);
+      mouseLeftDownOnTab(clickData);
     }
   }
 
