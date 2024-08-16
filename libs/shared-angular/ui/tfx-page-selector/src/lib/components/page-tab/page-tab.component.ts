@@ -30,6 +30,7 @@ export class PageTabComponent implements OnDestroy {
   pageIndex = input(-1);
   selectedPageIndex = input(-1);
   isOnlyPage = input(true);
+  dragInProgress = input(false);
   pageTabSelect = output<PageTabClickData>();
   pageDelete = output<number>();
   pageRename = output<PageRenameDetails>();
@@ -52,10 +53,16 @@ export class PageTabComponent implements OnDestroy {
     }
   }
 
-  onTabClick(ev: MouseEvent) {
+  onMouseDownOnTab(ev: MouseEvent) {
+    const button = ev.button === 0 ? 'left' : 'right';
+    if (button === 'left') {
+      // Prevent default behaviour to avoid element drag when
+      // trying to move page tab with drag operation
+      ev.preventDefault();
+    }
     this.pageTabSelect.emit({
       pageIndex: this.pageIndex(),
-      button: ev.button === 0 ? 'left' : 'right',
+      button,
     });
   }
 

@@ -10,7 +10,6 @@ import {
 } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { TfxIconButtonModule } from '@tfx-diagram/shared-angular/ui/tfx-icon-button';
-import { ContextMenuService } from '@tfx-diagram/shared-angular/ui/tfx-menu';
 import { TfxResizeObserverModule } from '@tfx-diagram/shared-angular/ui/tfx-resize-observer';
 import { TfxResizeEvent } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { PageTabsOverflowButtonComponent } from '../components/page-tabs-overflow-button.ts/page-tabs-overflow-button.component';
@@ -55,28 +54,13 @@ export class PageSelectorComponent {
   // Injected services
   viewerService = inject(PageTabsViewerService);
   private pageSelectMenu = inject(PageSelectMenuService);
-  private contextMenu = inject(ContextMenuService);
 
   public tabsViewerMaxWidth = MAX_WIDTH_DEFAULT;
 
   onPageListClick() {
     if (this.pageSelectorElRef) {
-      this.contextMenu
-        .openContextMenu(
-          this.pageSelectMenu.getContextMenu(this.pages(), this.selectedPageIndex()),
-          {
-            associatedElement: this.pageSelectorElRef,
-            positions: [
-              {
-                originX: 'start',
-                originY: 'top',
-                overlayX: 'start',
-                overlayY: 'bottom',
-              },
-            ],
-          }
-        )
-        .afterClosed()
+      this.pageSelectMenu
+        .open(this.pages(), this.selectedPageIndex(), this.pageSelectorElRef)
         .subscribe((item) => {
           let i = 0;
           for (const page of this.pages()) {
@@ -108,6 +92,10 @@ export class PageSelectorComponent {
     this.pageDeleteClick.emit(pageIndex);
   }
 
+  onPageMove(moveResult: MoveResult) {
+    this.pageOrderChange.emit(moveResult);
+  }
+
   onScrollRight() {
     this.viewerService.scrollRightClick();
   }
@@ -119,7 +107,7 @@ export class PageSelectorComponent {
   /**
    *
    * This function is called when the size of the Page Selector
-   * control changes. This may because the user resizes the window
+   * control changes. This may be because the user resizes the window
    * or some additional controls are added/removed to/from the
    * Page Control Bar.
    *
@@ -135,8 +123,7 @@ export class PageSelectorComponent {
    * the Page Selector state machine.
    */
   onPageSelectorResize(resizeData: TfxResizeEvent) {
-    // const tabsViewerMaxWidth = resizeData.newRect.width - 150;
-    const tabsViewerMaxWidth = MAX_WIDTH_DEFAULT;
+    const tabsViewerMaxWidth = resizeData.newRect.width - 150;
     if (this.tabsViewerMaxWidth !== tabsViewerMaxWidth) {
       this.tabsViewerMaxWidth = tabsViewerMaxWidth;
     }

@@ -5,6 +5,8 @@ import {
   Component,
   ElementRef,
   OnChanges,
+  OnDestroy,
+  OnInit,
   QueryList,
   SimpleChanges,
   ViewChildren,
@@ -13,7 +15,8 @@ import {
   output,
 } from '@angular/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { PageRenameDetails, PageTabClickData } from '../../page-selector.types';
+import { Subject, takeUntil } from 'rxjs';
+import { MoveResult, PageRenameDetails, PageTabClickData } from '../../page-selector.types';
 import { PageTabComponent } from '../page-tab/page-tab.component';
 import { DragTabService } from './services/drag-tab.service';
 import { mouseLeftDownOnTab } from './services/mouse-observables';
@@ -27,14 +30,17 @@ import { PageTabsViewerService } from './services/page-tabs-viewer.service';
   styleUrl: './page-tabs-viewer.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PageTabsViewerComponent implements OnChanges, AfterViewInit {
-  // Component inputs and outputs
+export class PageTabsViewerComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy {
+  // inputs
   maxWidth = input(300);
   pages = input<string[]>([]);
   selectedPageIndex = input(-1);
+
+  // outputs
   pageTabSelect = output<PageTabClickData>();
   pageRename = output<PageRenameDetails>();
   pageDelete = output<number>();
+  pageMove = output<MoveResult>();
 
   // QueryList containing the tab elements in the hidden tab group
   // that contains a tab for each pages
@@ -44,6 +50,14 @@ export class PageTabsViewerComponent implements OnChanges, AfterViewInit {
   // Injected services
   viewerService = inject(PageTabsViewerService);
   dragTabService = inject(DragTabService);
+
+  private destroy$ = new Subject<void>();
+
+  ngOnInit(): void {
+    this.dragTabService.pageMove$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((moveResult) => this.pageMove.emit(moveResult));
+  }
 
   /**
    * If the maxWidth of the tabs viewer changes then need to recalculate the
@@ -76,6 +90,16 @@ export class PageTabsViewerComponent implements OnChanges, AfterViewInit {
     }
   }
 
+  // Drive unsubscribe from observables
+  ngOnDestroy(): void {
+    this.destroy$.next();
+    this.destroy$.complete();
+  }
+
+  // Handles mouse button down on a page tab. If the button
+  // depressed was the left button then also call the
+  // mouseLeftDownOnTab function to trigger a potential
+  // page tab drag/move operation
   public onPageTabSelect(clickData: PageTabClickData) {
     this.pageTabSelect.emit(clickData);
     if (clickData.button === 'left') {

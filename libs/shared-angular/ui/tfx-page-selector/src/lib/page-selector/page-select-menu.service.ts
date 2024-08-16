@@ -1,16 +1,35 @@
-import { Injectable } from '@angular/core';
+import { ElementRef, Injectable, inject } from '@angular/core';
 import {
   ContextMenu,
+  ContextMenuService,
   MenuBuilderService,
   MenuItem,
 } from '@tfx-diagram/shared-angular/ui/tfx-menu';
-import { of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable()
 export class PageSelectMenuService {
+  private contextMenu = inject(ContextMenuService);
+
   constructor(private mb: MenuBuilderService) {}
 
-  getContextMenu(pages: string[], selectedPageIndex: number): ContextMenu {
+  open(pages: string[], selectedPageIndex: number, el: ElementRef): Observable<MenuItem> {
+    return this.contextMenu
+      .openContextMenu(this.getContextMenu(pages, selectedPageIndex), {
+        associatedElement: el,
+        positions: [
+          {
+            originX: 'start',
+            originY: 'top',
+            overlayX: 'start',
+            overlayY: 'bottom',
+          },
+        ],
+      })
+      .afterClosed();
+  }
+
+  private getContextMenu(pages: string[], selectedPageIndex: number): ContextMenu {
     const items: MenuItem[] = [];
     let i = 0;
     for (const page of pages) {

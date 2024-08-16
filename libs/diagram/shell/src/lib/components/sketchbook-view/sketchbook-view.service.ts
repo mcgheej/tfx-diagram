@@ -14,10 +14,10 @@ import {
 import { selectStatus } from '@tfx-diagram/diagram-data-access-store-features-sketchbook';
 import { selectMousePositionAndFormat } from '@tfx-diagram/diagram-data-access-store-selectors-select-mouse-and-position-format';
 import { NewDialogComponent, NewDialogResult } from '@tfx-diagram/diagram/ui/dialogs';
-import { MoveResult, PageRenameDetails } from '@tfx-diagram/diagram/ui/page-selector';
 import { ZoomControlService, ZoomSelectType } from '@tfx-diagram/diagram/ui/zoom-control';
 import { MouseWheelService } from '@tfx-diagram/diagram/util/mouse-wheel';
 import { INITIAL_ZOOM_FACTOR, Page } from '@tfx-diagram/electron-renderer-web/shared-types';
+import { MoveResult, PageRenameDetails } from '@tfx-diagram/shared-angular/tfx-page-selector';
 import { Observable, Subscription, combineLatest, filter, map, withLatestFrom } from 'rxjs';
 
 @Injectable()

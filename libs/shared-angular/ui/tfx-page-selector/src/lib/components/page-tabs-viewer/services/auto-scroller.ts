@@ -6,14 +6,29 @@ export class AutoScroller {
 
   private startAutoScroll$ = new Subject<void>();
   private stopAutoScroll$ = new Subject<void>();
+  private initialAutoScroll$ = new Subject<void>();
 
-  doAutoScroll$ = this.startAutoScroll$.pipe(
-    switchMap(() => interval(1000).pipe(takeUntil(merge(leftMouseUp$, this.stopAutoScroll$))))
+  constructor(public name = 'anonymous') {}
+
+  get stopped(): boolean {
+    return !this.autoScrolling;
+  }
+
+  get running(): boolean {
+    return this.autoScrolling;
+  }
+
+  doAutoScroll$ = merge(
+    this.initialAutoScroll$,
+    this.startAutoScroll$.pipe(
+      switchMap(() => interval(1000).pipe(takeUntil(merge(leftMouseUp$, this.stopAutoScroll$))))
+    )
   );
 
   autoScroll() {
     if (!this.autoScrolling) {
       this.startAutoScroll$.next();
+      this.initialAutoScroll$.next();
       this.autoScrolling = true;
     }
   }

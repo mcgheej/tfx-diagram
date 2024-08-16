@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
-import { MoveResult } from '@tfx-diagram/diagram/ui/page-selector';
 import { ZoomSelectType } from '@tfx-diagram/diagram/ui/zoom-control';
 import { Page, PageFormats, PageLayout } from '@tfx-diagram/electron-renderer-web/shared-types';
+import { MoveResult } from '@tfx-diagram/shared-angular/tfx-page-selector';
 import { Size } from 'electron';
 
 export const zoomChange = createAction(

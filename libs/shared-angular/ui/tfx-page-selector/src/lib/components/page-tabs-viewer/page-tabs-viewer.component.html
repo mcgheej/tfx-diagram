@@ -13,6 +13,7 @@
           [pageIndex]="i"
           [selectedPageIndex]="selectedPageIndex()"
           [isOnlyPage]="pages().length === 1"
+          [dragInProgress]="dragTabService.dragInProgress()"
           (pageTabSelect)="onPageTabSelect($event)"
           (pageDelete)="onPageDelete($event)"
           (pageRename)="onPageRename($event)"

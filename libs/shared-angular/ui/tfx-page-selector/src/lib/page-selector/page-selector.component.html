@@ -16,6 +16,7 @@
     (pageDelete)="onPageDeleteClick($event)"
     (pageTabSelect)="onPageTabSelect($event)"
     (pageRename)="onPageNameChange($event)"
+    (pageMove)="onPageMove($event)"
   ></tfx-page-tabs-viewer>
   <tfx-page-tabs-overflow-button
     [disabled]="!viewerService.pageTabsViewerVM().overflowed"

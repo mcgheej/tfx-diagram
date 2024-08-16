@@ -80,7 +80,6 @@
       "@tfx-diagram/diagram/ui/material": ["libs/diagram/ui/material/src/index.ts"],
       "@tfx-diagram/diagram/ui/mouse-position": ["libs/diagram/ui/mouse-position/src/index.ts"],
       "@tfx-diagram/diagram/ui/page-ribbon": ["libs/diagram/ui/page-ribbon/src/index.ts"],
-      "@tfx-diagram/diagram/ui/page-selector": ["libs/diagram/ui/page-selector/src/index.ts"],
       "@tfx-diagram/diagram/ui/page-viewport": ["libs/diagram/ui/page-viewport/src/index.ts"],
       "@tfx-diagram/diagram/ui/rulers": ["libs/diagram/ui/rulers/src/index.ts"],
       "@tfx-diagram/diagram/ui/shape-inspector": [

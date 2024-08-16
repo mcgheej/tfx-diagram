@@ -5,7 +5,7 @@
     'not-editing': !editing,
     highlighted: this.pageIndex() === this.selectedPageIndex() && !editing
   }"
-  (mousedown)="onTabClick($event)"
+  (mousedown)="onMouseDownOnTab($event)"
   (dblclick)="onDoubleClick()"
   (contextmenu)="openMenu($event)"
 >
@@ -18,7 +18,12 @@
     ></tfx-page-tab-input>
   </ng-template>
   <ng-template #viewMode>
-    <div class="label no-text-select" [matTooltip]="page()" tfxShowIfTruncated>
+    <div
+      class="label no-text-select"
+      [matTooltip]="page()"
+      tfxShowIfTruncated
+      [overrideTruncation]="dragInProgress()"
+    >
       {{ page() }}
     </div>
   </ng-template>

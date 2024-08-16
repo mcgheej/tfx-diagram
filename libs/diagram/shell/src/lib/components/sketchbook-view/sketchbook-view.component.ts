@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { MoveResult, PageRenameDetails } from '@tfx-diagram/diagram/ui/page-selector';
 import { ZoomSelectType } from '@tfx-diagram/diagram/ui/zoom-control';
 import { Page } from '@tfx-diagram/electron-renderer-web/shared-types';
+import { MoveResult, PageRenameDetails } from '@tfx-diagram/shared-angular/tfx-page-selector';
 import { SketchbookViewService } from './sketchbook-view.service';
 
 @Component({

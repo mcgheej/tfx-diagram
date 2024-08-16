@@ -1,13 +1,18 @@
 import { ElementRef, Injectable, QueryList, inject, signal } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { PageRenameDetails } from '../../../page-selector.types';
 import {
+  PageRenameDetails,
   PageTab,
   PageTabsViewerVM,
   TabVisibilityStatus,
   ViewerAlignment,
-} from '../page-tabs-viewer.types';
+} from '../../../page-selector.types';
 
+/**
+ * Initially the Page Tab Viewer will display a single
+ * page tab, aligned to the left, not scrolled and not
+ * overflowed.
+ */
 const initialPageTabsViewerVM: PageTabsViewerVM = {
   align: 'left',
   firstVisibleIdx: 0,
@@ -32,13 +37,26 @@ export class PageTabsViewerService {
   private firstVisibleIdx = 0;
   private lastVisibleIdx = 0;
 
+  /**
+   * The PageTabViewer component calls this method whenever its maxWidth
+   * input changes. The method sets a local property to the max width value
+   * and then calls the setPageTabs private method to update pageTabs and
+   * pageTabsViewerVM properties
+   */
   maxWidthChanged(maxWidth: number) {
     this.maxWidth = maxWidth;
     this.setPageTabs();
   }
 
+  /**
+   * The PageTabViewer component calls this method when it reacts to any
+   * changes to the PageTab components displayed in the PageTabViewer
+   * component. The method sets a local property to the tabRefs QueryList
+   * passed as an argument to the method. The private method setPageTabs is
+   * then called to update pageTabs and pageTabsViewerVM properties.
+   */
   tabRefsChanged(tabRefs: QueryList<ElementRef> | null) {
-    this.tabRefs = tabRefs ?? null;
+    this.tabRefs = tabRefs;
     if (this.tabRefs) {
       this.setPageTabs();
     }

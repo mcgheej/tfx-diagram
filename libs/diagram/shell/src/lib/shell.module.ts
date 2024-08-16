@@ -13,7 +13,6 @@ import { ShapesModule } from '@tfx-diagram/diagram/data-access/store/features/sh
 import { DiagramAppMenuModule } from '@tfx-diagram/diagram/ui/diagram-app-menu';
 import { MousePositionModule } from '@tfx-diagram/diagram/ui/mouse-position';
 import { PageRibbonModule } from '@tfx-diagram/diagram/ui/page-ribbon';
-// import { PageSelectorModule } from '@tfx-diagram/diagram/ui/page-selector';
 import { PageViewportModule } from '@tfx-diagram/diagram/ui/page-viewport';
 import { RulersModule } from '@tfx-diagram/diagram/ui/rulers';
 import { ShapeInspectorModule } from '@tfx-diagram/diagram/ui/shape-inspector';
@@ -49,7 +48,6 @@ import { ShellComponent } from './shell/shell.component';
     PageViewportModule,
     RulersModule,
     PageSelectorComponent,
-    // PageSelectorModule,
     PageRibbonModule,
     MatDialogModule,
     MousePositionModule,
