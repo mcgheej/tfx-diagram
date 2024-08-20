@@ -25,21 +25,17 @@ export class AppMenuItem extends ExpandableItem {
 
   public override initialise(hostMenu: Menu) {
     super.initialise(hostMenu);
-    this.vm$ = combineLatest([
-      this.disabled$,
-      this.visible$,
-      this.hostMenu.activeItemId$,
-    ]).pipe(
-      map((result) => {
+    this.vm$ = combineLatest([this.disabled$, this.visible$, this.hostMenu.activeItemId$]).pipe(
+      map(([disabled, visible, activeItemId]) => {
         return {
-          color: result[0]
+          color: disabled
             ? this.hostMenu.options.disabledItemTextColor
             : this.hostMenu.options.itemTextColor,
           backgroundColor:
-            result[2] === this.id
+            activeItemId === this.id
               ? this.hostMenu.options.itemHighlightColor
               : this.hostMenu.options.itemBackgroundColor,
-          visible: result[1],
+          visible: visible,
         };
       })
     );

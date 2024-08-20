@@ -26,22 +26,18 @@ export class SubMenuItem extends ExpandableItem {
 
   public override initialise(hostMenu: Menu) {
     super.initialise(hostMenu);
-    this.vm$ = combineLatest([
-      this.disabled$,
-      this.visible$,
-      this.hostMenu.activeItemId$,
-    ]).pipe(
-      map((result) => {
+    this.vm$ = combineLatest([this.disabled$, this.visible$, this.hostMenu.activeItemId$]).pipe(
+      map(([disabled, visible, activeItemId]) => {
         return {
-          color: result[0]
+          color: disabled
             ? this.hostMenu.options.disabledItemTextColor
             : this.hostMenu.options.itemTextColor,
           backgroundColor:
-            result[2] === this.id && !result[0]
+            activeItemId === this.id && !disabled
               ? this.hostMenu.options.itemHighlightColor
               : this.hostMenu.options.itemBackgroundColor,
-          cursor: result[0] ? 'default' : 'pointer',
-          visible: result[1],
+          cursor: disabled ? 'default' : 'pointer',
+          visible: visible,
         };
       })
     );
