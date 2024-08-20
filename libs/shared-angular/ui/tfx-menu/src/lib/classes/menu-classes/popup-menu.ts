@@ -1,93 +1,77 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  BaseActionObject,
-  Interpreter,
-  ResolveTypegenMeta,
-  ServiceMap,
-  TypegenDisabled,
-} from 'xstate';
+import { Actor, createActor } from 'xstate5';
 import { SubMenuComponent } from '../../menu-components/sub-menu/sub-menu.component';
 import { PopupMenuConfig } from '../../types/menu-config.types';
 import { MenuOptionsProps } from '../../types/menu-options.types';
 import { MenuItem, MenuItemGroup } from '../menu-item-classes';
 import { Menu } from './menu';
-import { PopupMenuEvent } from './xstate/events.xstate';
-import { getService, PopupMenuStateSchema } from './xstate/popup-menu.xstate';
+import { popupMenuMachine } from './xstate5/popup-menu.machine';
 
 export abstract class PopupMenu extends Menu {
   public menuItemGroups: MenuItemGroup[];
 
   public subMenuComponent: SubMenuComponent | null;
-  private xstateService: Interpreter<
-    PopupMenu,
-    PopupMenuStateSchema,
-    PopupMenuEvent,
-    any,
-    ResolveTypegenMeta<
-      TypegenDisabled,
-      PopupMenuEvent,
-      BaseActionObject,
-      ServiceMap
-    >
-  > | null;
+
+  private popupMenuMachineActor: Actor<typeof popupMenuMachine> | undefined;
 
   constructor(config: PopupMenuConfig, options: MenuOptionsProps) {
     super(config, options);
     this.menuItemGroups = config.menuItemGroups ?? [];
     this.initialiseMenuItems();
-    this.xstateService = null;
     this.subMenuComponent = null;
   }
 
   public startStateMachine() {
-    if (this.xstateService) {
-      this.xstateService.stop();
+    if (this.popupMenuMachineActor) {
+      this.popupMenuMachineActor.stop();
     }
-    this.xstateService = getService(this.id, this);
-    this.xstateService.onTransition((state) => {
-      let initial = true;
-      if (state.changed || initial) {
-        initial = false;
-      }
+    this.popupMenuMachineActor = createActor(popupMenuMachine, {
+      input: this,
     });
-    this.xstateService.start();
+    // this.xstateService.onTransition((state) => {
+    //   let initial = true;
+    //   if (state.changed || initial) {
+    //     initial = false;
+    //   }
+    // });
+    this.popupMenuMachineActor.start();
   }
 
   public stopStateMachine() {
-    if (this.xstateService) {
-      this.xstateService.stop();
-      this.xstateService = null;
+    if (this.popupMenuMachineActor) {
+      this.popupMenuMachineActor.stop();
+      this.popupMenuMachineActor = undefined;
     }
   }
 
   public backdropClick() {
-    if (this.xstateService) {
-      this.xstateService.send({ type: 'CLICK_BACKDROP' });
+    if (this.popupMenuMachineActor) {
+      this.popupMenuMachineActor.send({ type: 'backdrop.click' });
     }
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public override executableClick(item: MenuItem) {
-    if (this.xstateService) {
-      this.xstateService.send({ type: 'EXECUTE_COMMAND' });
+    if (this.popupMenuMachineActor) {
+      this.popupMenuMachineActor.send({ type: 'command.execute' });
     }
   }
 
   public enterItem(item: MenuItem) {
-    if (this.xstateService) {
-      this.xstateService.send({ type: 'ENTER_ITEM', item });
+    if (this.popupMenuMachineActor) {
+      this.popupMenuMachineActor.send({ type: 'item.enter', item });
     }
   }
 
   public leaveItem() {
-    if (this.xstateService) {
-      this.xstateService.send({ type: 'LEAVE_ITEM' });
+    if (this.popupMenuMachineActor) {
+      this.popupMenuMachineActor.send({ type: 'item.leave' });
     }
   }
 
   public override overSubMenu() {
-    if (this.xstateService) {
-      this.xstateService.send({ type: 'OVER_SUB_MENU' });
+    if (this.popupMenuMachineActor) {
+      this.popupMenuMachineActor.send({ type: 'mouse.overSubMenu' });
     }
   }
 

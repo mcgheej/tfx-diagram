@@ -1,45 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import {
-  BaseActionObject,
-  Interpreter,
-  ResolveTypegenMeta,
-  ServiceMap,
-  TypegenDisabled,
-} from 'xstate';
+import { Actor, createActor } from 'xstate5';
 import { APP_MENU_DEFAULT_OPTIONS } from '../../defaults';
 import { AppMenuComponent } from '../../menu-components/app-menu/app-menu.component';
 import { AppMenuConfig } from '../../types/menu-config.types';
 import { MenuOptions } from '../../types/menu-options.types';
-import {
-  AppMenuItem,
-  ExpandableItem,
-  MenuItem,
-  SubMenuItem,
-} from '../menu-item-classes';
+import { AppMenuItem, ExpandableItem, MenuItem, SubMenuItem } from '../menu-item-classes';
 import { Menu } from './menu';
 import { SubMenu } from './sub-menu';
-import { getService } from './xstate/app-menu.xstate';
-import { AppMenuEvent } from './xstate/events.xstate';
+import { appMenuMachine } from './xstate5/app-menu.machine';
 
 export class AppMenu extends Menu {
   public appMenuItems: AppMenuItem[];
   public appMenuComponent: AppMenuComponent | null;
 
-  private xstateService: Interpreter<
-    AppMenu,
-    any,
-    AppMenuEvent,
-    {
-      value: any;
-      context: AppMenu;
-    },
-    ResolveTypegenMeta<
-      TypegenDisabled,
-      AppMenuEvent,
-      BaseActionObject,
-      ServiceMap
-    >
-  > | null;
+  private appMenuMachineActor: Actor<typeof appMenuMachine> | undefined;
 
   constructor(config: AppMenuConfig, options: MenuOptions) {
     config.type = 'appMenu';
@@ -48,14 +22,16 @@ export class AppMenu extends Menu {
     this.appMenuComponent = null;
     this.initialiseMenuItems();
     this.assignParentMenuRefsAppMenu(this);
-    this.xstateService = null;
   }
 
   public startStateMachine() {
-    if (this.xstateService) {
-      this.xstateService.stop();
+    if (this.appMenuMachineActor) {
+      this.appMenuMachineActor.stop();
     }
-    this.xstateService = getService(this.id, this);
+    console.log('creating actor');
+    this.appMenuMachineActor = createActor(appMenuMachine, {
+      input: this,
+    });
     // this.xstateService.onTransition((state) => {
     //   let initial = true;
     //   if (state.changed || initial) {
@@ -63,44 +39,44 @@ export class AppMenu extends Menu {
     //     console.log(state.value);
     //   }
     // });
-    this.xstateService.start();
+    this.appMenuMachineActor.start();
   }
 
   public stopStateMachine() {
-    if (this.xstateService) {
-      this.xstateService.stop();
-      this.xstateService = null;
+    if (this.appMenuMachineActor) {
+      this.appMenuMachineActor.stop();
+      this.appMenuMachineActor = undefined;
     }
   }
 
   public backdropClick() {
-    if (this.xstateService) {
-      this.xstateService.send({ type: 'CLICK_BACKDROP' });
+    if (this.appMenuMachineActor) {
+      this.appMenuMachineActor.send({ type: 'backdrop.click' });
     }
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   public override executableClick(item: MenuItem) {
-    if (this.xstateService) {
-      this.xstateService.send({ type: 'EXECUTE_COMMAND' });
+    if (this.appMenuMachineActor) {
+      this.appMenuMachineActor.send({ type: 'command.execute' });
     }
   }
 
   public clickItem(item: AppMenuItem) {
-    if (this.xstateService) {
-      this.xstateService.send({ type: 'CLICK_ITEM', item });
+    if (this.appMenuMachineActor) {
+      this.appMenuMachineActor.send({ type: 'item.click', item });
     }
   }
 
   public enterItem(item: AppMenuItem) {
-    if (this.xstateService) {
-      this.xstateService.send({ type: 'ENTER_ITEM', item });
+    if (this.appMenuMachineActor) {
+      this.appMenuMachineActor.send({ type: 'item.enter', item });
     }
   }
 
   public leaveItem() {
-    if (this.xstateService) {
-      this.xstateService.send({ type: 'LEAVE_ITEM' });
+    if (this.appMenuMachineActor) {
+      this.appMenuMachineActor.send({ type: 'item.leave' });
     }
   }
 
