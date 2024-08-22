@@ -28,7 +28,6 @@ export class AppMenu extends Menu {
     if (this.appMenuMachineActor) {
       this.appMenuMachineActor.stop();
     }
-    console.log('creating actor');
     this.appMenuMachineActor = createActor(appMenuMachine, {
       input: this,
     });
