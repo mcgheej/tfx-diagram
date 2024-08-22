@@ -6,9 +6,9 @@ import {
   KeyboardStateServiceActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
 import { Rectangle } from '@tfx-diagram/diagram/data-access/shape-classes';
+import { selectShapes } from '@tfx-diagram/diagram/data-access/store/features/shapes';
 import { TextEdit } from '@tfx-diagram/diagram/data-access/text-classes';
 import { filter, map, of, switchMap } from 'rxjs';
-import { selectShapes } from '../../../../shapes/src/lib/shapes.feature';
 import { selectTextEdit } from '../control-frame.feature';
 
 export const printableKeypress = (actions$: Actions<Action>, store: Store) => {

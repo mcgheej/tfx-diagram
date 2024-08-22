@@ -7,6 +7,7 @@ import {
   FontFamilyButtonServiceActions,
   FontSizeButtonServiceActions,
   HelpMenuActions,
+  KeyboardStateServiceActions,
   LineDashButtonServiceActions,
   LineWidthButtonServiceActions,
   PagesEffectsActions,
@@ -16,7 +17,6 @@ import {
   SketchbookEffectsActions,
   SketchbookViewComponentActions,
   TextOptionsServiceActions,
-  ViewMenuActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
 import { SketchbookState } from '@tfx-diagram/electron-renderer-web-context-bridge-api';
 
@@ -134,12 +134,6 @@ export const sketchbookReducer = createReducer(
       };
     }
   ),
-  on(SketchbookViewComponentActions.addPageConfirmed, (state) => {
-    return {
-      ...state,
-      status: 'modified',
-    } as SketchbookState;
-  }),
   on(
     FileMenuActions.saveSketchbookClick,
     SaveCloseMachineActions.saveStart,
@@ -159,6 +153,15 @@ export const sketchbookReducer = createReducer(
       status: 'saved',
     } as SketchbookState;
   }),
+  on(SaveCloseMachineActions.closeStart, SaveCloseMachineActions.discardClick, (state) => {
+    return {
+      ...state,
+      status: 'closing',
+    } as SketchbookState;
+  }),
+  on(PagesEffectsActions.sketchbookClose, () => {
+    return { ...initialState };
+  }),
   on(
     SketchbookEffectsActions.saveCancel,
     SketchbookEffectsActions.saveError,
@@ -174,6 +177,29 @@ export const sketchbookReducer = createReducer(
     ControlFrameEffectsActions.selectedShapesLineWidthChange,
     ControlFrameEffectsActions.selectedShapesStartEndpointChange,
     ControlFrameEffectsActions.selectedShapesFinishEndpointChange,
+    ControlFrameEffectsActions.dragEndSingleSelection,
+    ControlFrameEffectsActions.dragEndMultiSelection,
+    ControlFrameEffectsActions.dragEndHandle,
+    SketchbookViewComponentActions.addPageConfirmed,
+    SketchbookViewComponentActions.deletePageClick,
+    SketchbookViewComponentActions.zoomChange,
+    SketchbookViewComponentActions.currentPageChange,
+    SketchbookViewComponentActions.pageOrderChange,
+    ShapesEffectsActions.anotherShapeOnPage,
+    ShapesEffectsActions.duplicatedShapesOnPage,
+    ShapesEffectsActions.pasteShapesOnPage,
+    ShapesEffectsActions.alignObjects,
+    ShapesEffectsActions.distributeObjects,
+    ShapesEffectsActions.bringToFront,
+    ShapesEffectsActions.sendToBack,
+    ShapesEffectsActions.bringItemForward,
+    ShapesEffectsActions.sendItemBackward,
+    ShapesEffectsActions.shapeResizeClick,
+    ShapesEffectsActions.groupClick,
+    ShapesEffectsActions.ungroupClick,
+    KeyboardStateServiceActions.printableCharPressed,
+    KeyboardStateServiceActions.deleteKeypress,
+    KeyboardStateServiceActions.backspaceKeypress,
     (state) => {
       return {
         ...state,
@@ -181,43 +207,10 @@ export const sketchbookReducer = createReducer(
       } as SketchbookState;
     }
   ),
-  on(SaveCloseMachineActions.closeStart, SaveCloseMachineActions.discardClick, (state) => {
-    return {
-      ...state,
-      status: 'closing',
-    } as SketchbookState;
-  }),
-  on(PagesEffectsActions.sketchbookClose, () => {
-    return { ...initialState };
-  }),
   on(PagesEffectsActions.openSuccess, (state, { fileData }) => {
     return {
       ...fileData.sketchbook,
       status: 'saved',
-    } as SketchbookState;
-  }),
-  on(SketchbookViewComponentActions.deletePageClick, (state) => {
-    return {
-      ...state,
-      status: 'modified',
-    } as SketchbookState;
-  }),
-  on(SketchbookViewComponentActions.zoomChange, ViewMenuActions.zoomChange, (state) => {
-    return {
-      ...state,
-      status: 'modified',
-    } as SketchbookState;
-  }),
-  on(SketchbookViewComponentActions.currentPageChange, (state) => {
-    return {
-      ...state,
-      status: 'modified',
-    } as SketchbookState;
-  }),
-  on(SketchbookViewComponentActions.pageOrderChange, (state) => {
-    return {
-      ...state,
-      status: 'modified',
     } as SketchbookState;
   })
 );
