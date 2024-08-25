@@ -1,6 +1,6 @@
 import { Directive, ElementRef, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { nextInChain, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Shape, nextInChain } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
 import {
   selectPageViewport,
@@ -9,8 +9,8 @@ import {
 } from '@tfx-diagram/diagram-data-access-store-features-transform';
 import {
   selectControlShapes,
-  selectHighlightedShapeId,
   selectHighlightFrameStart,
+  selectHighlightedShapeId,
   selectSelectedShapeIds,
   selectSelectionFrameStart,
   selectTextEdit,
@@ -24,11 +24,11 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import {
+  Subject,
   combineLatest,
   distinctUntilChanged,
   filter,
   map,
-  Subject,
   takeUntil,
   withLatestFrom,
 } from 'rxjs';
@@ -37,6 +37,7 @@ export interface ShadowMouseMoveEvent {
   x: number;
   y: number;
   shapeIdUnderMouse: string;
+  shapeUnderMouse: Shape | undefined;
 }
 
 @Directive({
@@ -105,8 +106,8 @@ export class ShadowCanvasDirective implements OnInit, OnDestroy {
 
       this.store
         .select(selectViewportMouseCoords)
-        .pipe(takeUntil(this.destroy$))
-        .subscribe(({ x, y }) => {
+        .pipe(takeUntil(this.destroy$), withLatestFrom(this.store.select(selectShapes)))
+        .subscribe(([{ x, y }, shapes]) => {
           let shadowColour = 0;
           const { data } = c.getImageData(x - 1, y - 1, 3, 3);
           shadowColour = data[2] + data[1] * 256 + data[0] * 65536;
@@ -122,7 +123,12 @@ export class ShadowCanvasDirective implements OnInit, OnDestroy {
             }
           }
           const id = shadowColour === 0 ? '' : shadowColour.toString();
-          this.shadowMouseMove.emit({ x, y, shapeIdUnderMouse: id });
+          this.shadowMouseMove.emit({
+            x,
+            y,
+            shapeIdUnderMouse: id,
+            shapeUnderMouse: shapes.get(id),
+          });
         });
     }
   }

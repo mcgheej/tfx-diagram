@@ -120,3 +120,12 @@ export const rectRotate = (r: Rect, angle: number, origin: Point): Rect => {
     }
   );
 };
+
+export const rectFromSize = (size: Size): Rect => {
+  return {
+    x: 0,
+    y: 0,
+    width: size.width,
+    height: size.height,
+  };
+};

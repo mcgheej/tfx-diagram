@@ -3,27 +3,42 @@ import { Store } from '@ngrx/store';
 import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { PageViewportComponentActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
-import { selectPageWindow } from '@tfx-diagram/diagram-data-access-store-features-transform';
+import {
+  selectPageWindow,
+  selectTransform,
+} from '@tfx-diagram/diagram-data-access-store-features-transform';
 import {
   selectControlShapes,
   selectHighlightedShapeId,
   selectTextEdit,
 } from '@tfx-diagram/diagram/data-access/store/features/control-frame';
 import { selectShapes } from '@tfx-diagram/diagram/data-access/store/features/shapes';
-import { PRECISION } from '@tfx-diagram/diagram/util/misc-functions';
+import {
+  PRECISION,
+  inverseTransform,
+  pointInRect,
+  rectFromSize,
+} from '@tfx-diagram/diagram/util/misc-functions';
 import { MouseWheelService } from '@tfx-diagram/diagram/util/mouse-wheel';
-import { EDIT_TEXT_ID, Size } from '@tfx-diagram/electron-renderer-web/shared-types';
+import {
+  EDIT_TEXT_ID,
+  Page,
+  Size,
+  Transform,
+} from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { combineLatest, filter, map, Subject, takeUntil, withLatestFrom } from 'rxjs';
+import { Subject, combineLatest, filter, map, takeUntil, withLatestFrom } from 'rxjs';
+import { PageBackgroundContextMenuService } from '../context-menus/page-background-context-menu/page-background-context-menu.service';
 
 @Injectable()
 export class PageViewportComponentService implements OnDestroy {
   vm$ = combineLatest([
     this.store.select(selectPageWindow),
     this.store.select(selectTextEdit),
+    this.store.select(selectTransform),
   ]).pipe(
     withLatestFrom(this.store.select(selectCurrentPage)),
-    map(([[pageWindow, textEdit], page]) => {
+    map(([[pageWindow, textEdit, transform], page]) => {
       if (page && pageWindow) {
         return {
           window: pageWindow,
@@ -31,6 +46,7 @@ export class PageViewportComponentService implements OnDestroy {
           showVerticalScrollbar: page.size.height - pageWindow.height > PRECISION,
           showHorizontalScrollbar: page.size.width - pageWindow.width > PRECISION,
           textEdit,
+          transform,
         };
       }
       return null;
@@ -63,7 +79,11 @@ export class PageViewportComponentService implements OnDestroy {
     takeUntil(this.destroy$)
   );
 
-  constructor(private store: Store, private mouseWheel: MouseWheelService) {}
+  constructor(
+    private store: Store,
+    private mouseWheel: MouseWheelService,
+    private pageBackgroundContextMenu: PageBackgroundContextMenuService
+  ) {}
 
   start(): void {
     this.scrollFromWheel$.subscribe(([ev, vm]) => {
@@ -123,5 +143,26 @@ export class PageViewportComponentService implements OnDestroy {
         newWindow,
       })
     );
+  }
+
+  contextMenuRequest(
+    ev: MouseEvent,
+    shapeIdUnderMouse: string,
+    shapeUnderMouse: Shape | undefined,
+    page: Page,
+    t: Transform | null
+  ) {
+    if (shapeUnderMouse) {
+      // context menu requested for a shape
+    } else if (!shapeIdUnderMouse) {
+      if (t) {
+        const pagePosition = inverseTransform({ x: ev.offsetX, y: ev.offsetY }, t);
+        if (pointInRect(pagePosition, rectFromSize(page.size))) {
+          // context menu requested while mouse pointer is over a blank area
+          // of the page so open the page background context menu.
+          this.pageBackgroundContextMenu.open({ x: ev.clientX, y: ev.clientY });
+        }
+      }
+    }
   }
 }

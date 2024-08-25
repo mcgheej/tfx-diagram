@@ -5,7 +5,8 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { Size } from '@tfx-diagram/electron-renderer-web/shared-types';
+import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Page, Size, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect, TfxResizeEvent } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Subject, fromEvent, takeUntil } from 'rxjs';
 import {
@@ -17,6 +18,7 @@ import {
 } from '../+xstate/mouse-machine/mouse-machine.events';
 import { MouseMachineService } from '../+xstate/mouse-machine/mouse-machine.service';
 import { ShadowMouseMoveEvent } from '../canvas-directives/shadow-canvas.directive';
+import { PageBackgroundContextMenuService } from '../context-menus/page-background-context-menu/page-background-context-menu.service';
 import { PageViewportComponentService } from './page-viewport.service';
 
 @Component({
@@ -24,7 +26,11 @@ import { PageViewportComponentService } from './page-viewport.service';
   templateUrl: './page-viewport.component.html',
   styleUrls: ['./page-viewport.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PageViewportComponentService, MouseMachineService],
+  providers: [
+    PageViewportComponentService,
+    MouseMachineService,
+    PageBackgroundContextMenuService,
+  ],
 })
 export class PageViewportComponent implements OnInit, OnDestroy {
   viewportSize: Size = { width: 300, height: 300 };
@@ -34,6 +40,9 @@ export class PageViewportComponent implements OnInit, OnDestroy {
 
   private destroy$ = new Subject<void>();
   private mouseup$ = fromEvent<MouseEvent>(document, 'mouseup');
+
+  private shapeIdUnderMouse = '';
+  private shapeUnderMouse: Shape | undefined;
 
   constructor(
     private service: PageViewportComponentService,
@@ -102,6 +111,8 @@ export class PageViewportComponent implements OnInit, OnDestroy {
   }
 
   onMouseMove(ev: ShadowMouseMoveEvent) {
+    this.shapeIdUnderMouse = ev.shapeIdUnderMouse;
+    this.shapeUnderMouse = ev.shapeUnderMouse;
     this.mouseMachine.send({
       type: 'mouse.move',
       x: ev.x,
@@ -129,5 +140,11 @@ export class PageViewportComponent implements OnInit, OnDestroy {
 
   onDoubleClick() {
     this.mouseMachine.send({ type: 'leftButton.doubleClick' } as LeftButtonDoubleClick);
+  }
+
+  onContextMenu(ev: MouseEvent, page: Page, t: Transform | null) {
+    ev.preventDefault();
+    ev.stopPropagation();
+    this.service.contextMenuRequest(ev, this.shapeIdUnderMouse, this.shapeUnderMouse, page, t);
   }
 }

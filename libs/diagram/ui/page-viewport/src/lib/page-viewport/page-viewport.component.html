@@ -32,6 +32,7 @@
       class="canvas-container"
       (mousedown)="onMouseDown($event)"
       (dblclick)="onDoubleClick()"
+      (contextmenu)="onContextMenu($event, vm.page, vm.transform)"
     >
       <canvas
         tfxDiagramCanvas
