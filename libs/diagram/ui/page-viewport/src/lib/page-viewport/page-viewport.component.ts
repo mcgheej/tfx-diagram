@@ -145,6 +145,13 @@ export class PageViewportComponent implements OnInit, OnDestroy {
   onContextMenu(ev: MouseEvent, page: Page, t: Transform | null) {
     ev.preventDefault();
     ev.stopPropagation();
-    this.service.contextMenuRequest(ev, this.shapeIdUnderMouse, this.shapeUnderMouse, page, t);
+    this.service.contextMenuRequest(
+      ev,
+      this.shapeIdUnderMouse,
+      this.shapeUnderMouse,
+      this.viewportSize,
+      page,
+      t
+    );
   }
 }
