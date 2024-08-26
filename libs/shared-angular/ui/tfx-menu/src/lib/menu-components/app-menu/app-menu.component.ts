@@ -11,7 +11,10 @@ import { takeUntil } from 'rxjs/operators';
 import { AppMenu } from '../../classes/menu-classes';
 import { AppMenuItem, MenuItem } from '../../classes/menu-item-classes';
 import { PopupMenuRef } from '../../popup-menu/popup-menu-ref';
-import { PopupMenuService } from '../../popup-menu/popup-menu.service';
+import {
+  FlexibleSubMenuPositioning,
+  PopupMenuService,
+} from '../../popup-menu/popup-menu.service';
 import { MENU_ITEM_DATA } from '../../tfx-menu.tokens';
 
 @Component({
@@ -28,22 +31,17 @@ export class AppMenuComponent implements OnInit, OnDestroy {
   private activeMenuItem: AppMenuItem | null = null;
   private destroy$ = new Subject<void>();
 
-  constructor(
-    private injector: Injector,
-    private popupMenu: PopupMenuService
-  ) {}
+  constructor(private injector: Injector, private popupMenu: PopupMenuService) {}
 
   ngOnInit(): void {
     this.menu.appMenuComponent = this;
-    this.menu.subMenuControl$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((item) => {
-        if (item) {
-          this.openSubMenu(item as AppMenuItem);
-        } else {
-          this.closeSubMenu();
-        }
-      });
+    this.menu.subMenuControl$.pipe(takeUntil(this.destroy$)).subscribe((item) => {
+      if (item) {
+        this.openSubMenu(item as AppMenuItem);
+      } else {
+        this.closeSubMenu();
+      }
+    });
     this.menu.startStateMachine();
   }
 
@@ -77,15 +75,18 @@ export class AppMenuComponent implements OnInit, OnDestroy {
     }
     this.activeMenuItem = appMenuItem;
     this.menuRef = this.popupMenu.openSubMenu(appMenuItem.subMenu, {
-      associatedElement: appMenuItem.component.elementRef,
-      positions: [
-        {
-          originX: 'start',
-          originY: 'bottom',
-          overlayX: 'start',
-          overlayY: 'top',
-        },
-      ],
+      positioning: {
+        type: 'Flexible',
+        associatedElement: appMenuItem.component.elementRef,
+        positions: [
+          {
+            originX: 'start',
+            originY: 'bottom',
+            overlayX: 'start',
+            overlayY: 'top',
+          },
+        ],
+      } as FlexibleSubMenuPositioning,
       backdropClick: () => {
         this.menu.backdropClick();
         this.menuRef = null;

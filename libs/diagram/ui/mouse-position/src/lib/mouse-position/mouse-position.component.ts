@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { ContextMenuService } from '@tfx-diagram/shared-angular/ui/tfx-menu';
+import { FlexibleSubMenuPositioning } from 'libs/shared-angular/ui/tfx-menu/src/lib/popup-menu/popup-menu.service';
 import { MousePositionContextMenuService } from './mouse-position-context-menu.service';
 
 @Component({
@@ -30,7 +31,18 @@ export class MousePositionComponent {
 
   openContextMenu() {
     this.contextMenuService.openContextMenu(this.contextMenu.getContextMenu(), {
-      associatedElement: this.mousePositionElRef,
+      positioning: {
+        type: 'Flexible',
+        associatedElement: this.mousePositionElRef,
+        positions: [
+          {
+            originX: 'center',
+            originY: 'center',
+            overlayX: 'start',
+            overlayY: 'bottom',
+          },
+        ],
+      } as FlexibleSubMenuPositioning,
     });
   }
 }

@@ -11,6 +11,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ContextMenuService } from '@tfx-diagram/shared-angular/ui/tfx-menu';
+import { FlexibleSubMenuPositioning } from 'libs/shared-angular/ui/tfx-menu/src/lib/popup-menu/popup-menu.service';
 import { Subscription } from 'rxjs';
 import { ZoomContextMenuService } from '../zoom-context-menu.service';
 import { ZoomControlService } from '../zoom-control.service';
@@ -57,7 +58,18 @@ export class ZoomControlComponent implements OnInit, OnChanges, OnDestroy {
 
   onContextMenu() {
     this.contextMenuService.openContextMenu(this.zoomContextMenu.getContextMenu(), {
-      associatedElement: this.zoomTextElRef,
+      positioning: {
+        type: 'Flexible',
+        associatedElement: this.zoomTextElRef,
+        positions: [
+          {
+            originX: 'center',
+            originY: 'center',
+            overlayX: 'start',
+            overlayY: 'bottom',
+          },
+        ],
+      } as FlexibleSubMenuPositioning,
     });
   }
 

@@ -15,7 +15,10 @@ import { SubMenu } from '../../classes/menu-classes';
 import { PopupMenu } from '../../classes/menu-classes/popup-menu';
 import { MenuItem, SubMenuItem } from '../../classes/menu-item-classes';
 import { PopupMenuRef } from '../../popup-menu/popup-menu-ref';
-import { PopupMenuService } from '../../popup-menu/popup-menu.service';
+import {
+  FlexibleSubMenuPositioning,
+  PopupMenuService,
+} from '../../popup-menu/popup-menu.service';
 import { MENU_ITEM_DATA } from '../../tfx-menu.tokens';
 
 @Component({
@@ -33,10 +36,7 @@ export class PopupMenuComponent implements OnInit, OnDestroy {
   private injectors: Map<string, Injector> = new Map<string, Injector>();
   private destroy$ = new Subject<void>();
 
-  constructor(
-    private popupMenu: PopupMenuService,
-    private injector: Injector
-  ) {}
+  constructor(private popupMenu: PopupMenuService, private injector: Injector) {}
 
   @HostListener('mouseenter') onEnter() {
     if (this.menu.type === 'subMenu') {
@@ -45,15 +45,13 @@ export class PopupMenuComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.menu.subMenuControl$
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((item) => {
-        if (item) {
-          this.openSubMenu(item as SubMenuItem);
-        } else {
-          this.closeSubMenu();
-        }
-      });
+    this.menu.subMenuControl$.pipe(takeUntil(this.destroy$)).subscribe((item) => {
+      if (item) {
+        this.openSubMenu(item as SubMenuItem);
+      } else {
+        this.closeSubMenu();
+      }
+    });
     this.menu.startStateMachine();
   }
 
@@ -87,15 +85,18 @@ export class PopupMenuComponent implements OnInit, OnDestroy {
     this.activeMenuItem = subMenuItem;
     this.childMenuRef = this.popupMenu.openSubMenu(subMenuItem.subMenu, {
       hasBackdrop: false,
-      associatedElement: subMenuItem.component.elementRef,
-      positions: [
-        {
-          originX: 'end',
-          originY: 'top',
-          overlayX: 'start',
-          overlayY: 'top',
-        },
-      ],
+      positioning: {
+        type: 'Flexible',
+        associatedElement: subMenuItem.component.elementRef,
+        positions: [
+          {
+            originX: 'end',
+            originY: 'top',
+            overlayX: 'start',
+            overlayY: 'top',
+          },
+        ],
+      } as FlexibleSubMenuPositioning,
     });
   }
 

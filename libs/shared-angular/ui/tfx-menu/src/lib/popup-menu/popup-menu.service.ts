@@ -1,5 +1,7 @@
 import {
   ConnectedPosition,
+  FlexibleConnectedPositionStrategy,
+  GlobalPositionStrategy,
   Overlay,
   OverlayConfig,
   OverlayRef,
@@ -11,27 +13,32 @@ import { SubMenuComponent } from '../menu-components/sub-menu/sub-menu.component
 import { POPUP_MENU_DATA } from '../tfx-menu.tokens';
 import { PopupMenuRef } from './popup-menu-ref';
 
+export interface SubMenuPositioning {
+  type: 'Flexible' | 'Global';
+}
+
+export interface FlexibleSubMenuPositioning extends SubMenuPositioning {
+  associatedElement: ElementRef;
+  positions: ConnectedPosition[];
+}
+
+export interface GlobalSubMenuPositioning extends SubMenuPositioning {
+  top: number;
+  left: number;
+}
+
 export interface PopupMenuComponentOptions {
   panelClass?: string;
   hasBackdrop?: boolean;
   backdropClass?: string;
-  associatedElement?: ElementRef;
-  positions?: ConnectedPosition[];
+  positioning: SubMenuPositioning;
   backdropClick?: () => void;
 }
 
-export const DEFAULT_CONFIG: PopupMenuComponentOptions = {
+export const DEFAULT_CONFIG: Omit<PopupMenuComponentOptions, 'positioning'> = {
   hasBackdrop: true,
   backdropClass: 'transparent-backdrop',
   panelClass: 'tm-menu-panel',
-  positions: [
-    {
-      originX: 'center',
-      originY: 'center',
-      overlayX: 'start',
-      overlayY: 'bottom',
-    },
-  ],
 };
 
 @Injectable({
@@ -40,11 +47,8 @@ export const DEFAULT_CONFIG: PopupMenuComponentOptions = {
 export class PopupMenuService {
   constructor(private injector: Injector, private overlay: Overlay) {}
 
-  public openSubMenu(
-    menu: PopupMenu,
-    config: PopupMenuComponentOptions
-  ): PopupMenuRef {
-    const menuConfig = { ...DEFAULT_CONFIG, ...config };
+  public openSubMenu(menu: PopupMenu, config: PopupMenuComponentOptions): PopupMenuRef {
+    const menuConfig: PopupMenuComponentOptions = { ...DEFAULT_CONFIG, ...config };
     const overlayRef = this.createOverlay(menuConfig);
     const menuRef = new PopupMenuRef(overlayRef);
     this.attachSubMenuContainer(overlayRef, menu, menuRef);
@@ -70,25 +74,36 @@ export class PopupMenuService {
     menuRef: PopupMenuRef
   ) {
     const injector = this.createInjector(menu, menuRef);
-    const containerPortal = new ComponentPortal(
-      SubMenuComponent,
-      null,
-      injector
-    );
-    const containerRef: ComponentRef<SubMenuComponent> = overlayRef.attach(
-      containerPortal
-    );
+    const containerPortal = new ComponentPortal(SubMenuComponent, null, injector);
+    const containerRef: ComponentRef<SubMenuComponent> = overlayRef.attach(containerPortal);
     return containerRef.instance;
   }
 
-  private getOverlayConfig(config: PopupMenuComponentOptions): OverlayConfig {
-    config.associatedElement = config.associatedElement ?? ({} as ElementRef);
-    config.positions = config.positions ?? [];
-    const positionStrategy = this.overlay
+  private getFlexiblePositionStrategy(
+    config: PopupMenuComponentOptions
+  ): FlexibleConnectedPositionStrategy {
+    const positioning = config.positioning as FlexibleSubMenuPositioning;
+    return this.overlay
       .position()
-      .flexibleConnectedTo(config.associatedElement)
+      .flexibleConnectedTo(positioning.associatedElement)
       .withViewportMargin(30)
-      .withPositions(config.positions);
+      .withPositions(positioning.positions);
+  }
+
+  private getGlobalPositionStrategy(config: PopupMenuComponentOptions): GlobalPositionStrategy {
+    const positioning = config.positioning as GlobalSubMenuPositioning;
+    return this.overlay
+      .position()
+      .global()
+      .left(`${positioning.left}px`)
+      .top(`${positioning.top}px`);
+  }
+
+  private getOverlayConfig(config: PopupMenuComponentOptions): OverlayConfig {
+    const positionStrategy =
+      config.positioning.type === 'Flexible'
+        ? this.getFlexiblePositionStrategy(config)
+        : this.getGlobalPositionStrategy(config);
 
     const overlayConfig = new OverlayConfig({
       hasBackdrop: config.hasBackdrop,

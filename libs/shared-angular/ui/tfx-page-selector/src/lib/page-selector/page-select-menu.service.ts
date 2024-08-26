@@ -5,6 +5,7 @@ import {
   MenuBuilderService,
   MenuItem,
 } from '@tfx-diagram/shared-angular/ui/tfx-menu';
+import { FlexibleSubMenuPositioning } from 'libs/shared-angular/ui/tfx-menu/src/lib/popup-menu/popup-menu.service';
 import { Observable, of } from 'rxjs';
 
 @Injectable()
@@ -16,15 +17,18 @@ export class PageSelectMenuService {
   open(pages: string[], selectedPageIndex: number, el: ElementRef): Observable<MenuItem> {
     return this.contextMenu
       .openContextMenu(this.getContextMenu(pages, selectedPageIndex), {
-        associatedElement: el,
-        positions: [
-          {
-            originX: 'start',
-            originY: 'top',
-            overlayX: 'start',
-            overlayY: 'bottom',
-          },
-        ],
+        positioning: {
+          type: 'Flexible',
+          associatedElement: el,
+          positions: [
+            {
+              originX: 'start',
+              originY: 'top',
+              overlayX: 'start',
+              overlayY: 'bottom',
+            },
+          ],
+        } as FlexibleSubMenuPositioning,
       })
       .afterClosed();
   }
