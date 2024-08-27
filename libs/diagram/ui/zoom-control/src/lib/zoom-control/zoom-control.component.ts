@@ -10,8 +10,10 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { ContextMenuService } from '@tfx-diagram/shared-angular/ui/tfx-menu';
-import { FlexibleSubMenuPositioning } from 'libs/shared-angular/ui/tfx-menu/src/lib/popup-menu/popup-menu.service';
+import {
+  ContextMenuService,
+  FlexibleSubMenuPositioning,
+} from '@tfx-diagram/shared-angular/ui/tfx-menu';
 import { Subscription } from 'rxjs';
 import { ZoomContextMenuService } from '../zoom-context-menu.service';
 import { ZoomControlService } from '../zoom-control.service';

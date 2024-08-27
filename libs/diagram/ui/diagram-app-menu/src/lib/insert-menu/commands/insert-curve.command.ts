@@ -55,8 +55,8 @@ export class InsertCurveCommand {
                 id: Shape.generateId(),
                 controlPoints: [
                   { x: x1, y },
-                  { x: x1 + 9, y },
-                  { x: x1 + 11, y },
+                  { x: x1 + 9, y: y + 9 },
+                  { x: x1 + 11, y: y - 9 },
                   { x: x1 + 20, y },
                 ],
                 strokeStyle: lineColor,

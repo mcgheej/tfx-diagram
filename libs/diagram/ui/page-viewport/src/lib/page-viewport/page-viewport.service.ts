@@ -161,23 +161,15 @@ export class PageViewportComponentService implements OnDestroy {
         if (pointInRect(pagePosition, rectFromSize(page.size))) {
           // context menu requested while mouse pointer is over a blank area
           // of the page so open the page background context menu.
-          const viewportOffsetX = ev.clientX - ev.offsetX;
-          const viewoprtOffsetY = ev.clientY - ev.offsetY;
-          const { width: cWidth, height: cHeight } =
-            this.pageBackgroundContextMenu.contextMenuSize();
-          let x = ev.offsetX;
-          let y = ev.offsetY;
-          if (x + cWidth >= viewportSize.width) {
-            x = viewportSize.width - cWidth;
-            x = Math.max(0, x);
-          }
-          if (y + cHeight >= viewportSize.height) {
-            y = viewportSize.height - cHeight;
-            y = Math.max(0, y);
-          }
-          x += ev.clientX - ev.offsetX;
-          y += ev.clientY - ev.offsetY;
-          this.pageBackgroundContextMenu.open({ x, y });
+          const viewportOffset = {
+            x: ev.clientX - ev.offsetX,
+            y: ev.clientY - ev.offsetY,
+          };
+          this.pageBackgroundContextMenu.open(
+            { x: ev.offsetX, y: ev.offsetY },
+            viewportOffset,
+            viewportSize
+          );
         }
       }
     }

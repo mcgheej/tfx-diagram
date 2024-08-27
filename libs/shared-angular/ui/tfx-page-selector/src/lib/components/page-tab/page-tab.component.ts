@@ -10,9 +10,12 @@ import {
   output,
 } from '@angular/core';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { ContextMenuService, PopupMenuRef } from '@tfx-diagram/shared-angular/ui/tfx-menu';
+import {
+  ContextMenuService,
+  FlexibleSubMenuPositioning,
+  PopupMenuRef,
+} from '@tfx-diagram/shared-angular/ui/tfx-menu';
 import { TfxShowIfTruncatedModule } from '@tfx-diagram/shared-angular/ui/tfx-show-if-truncated';
-import { FlexibleSubMenuPositioning } from 'libs/shared-angular/ui/tfx-menu/src/lib/popup-menu/popup-menu.service';
 import { PageRenameDetails, PageTabClickData } from '../../page-selector.types';
 import { PageTabInputComponent } from '../page-tab-input/page-tab-input.component';
 import { DELETE_PAGE, PageTabMenuService, RENAME_PAGE } from './page-tab-menu.service';

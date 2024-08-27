@@ -11,6 +11,7 @@ import { Action, Store } from '@ngrx/store';
 import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   InsertMenuActions,
+  PageBackgroundContextMenuActions,
   ShapesEffectsActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
@@ -27,7 +28,13 @@ export const insertShape = (actions$: Actions<Action>, store: Store) => {
         InsertMenuActions.insertArc,
         InsertMenuActions.insertCurve,
         InsertMenuActions.insertLine,
-        InsertMenuActions.insertTriangle
+        InsertMenuActions.insertTriangle,
+        PageBackgroundContextMenuActions.insertCircle,
+        PageBackgroundContextMenuActions.insertRectangle,
+        PageBackgroundContextMenuActions.insertArc,
+        PageBackgroundContextMenuActions.insertCurve,
+        PageBackgroundContextMenuActions.insertLine,
+        PageBackgroundContextMenuActions.insertTriangle
       ),
       concatLatestFrom(() => [store.select(selectCurrentPage), store.select(selectShapes)]),
       filter(([, page]) => page !== null),

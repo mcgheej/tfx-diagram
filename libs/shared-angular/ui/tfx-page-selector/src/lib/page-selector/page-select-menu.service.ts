@@ -2,10 +2,10 @@ import { ElementRef, Injectable, inject } from '@angular/core';
 import {
   ContextMenu,
   ContextMenuService,
+  FlexibleSubMenuPositioning,
   MenuBuilderService,
   MenuItem,
 } from '@tfx-diagram/shared-angular/ui/tfx-menu';
-import { FlexibleSubMenuPositioning } from 'libs/shared-angular/ui/tfx-menu/src/lib/popup-menu/popup-menu.service';
 import { Observable, of } from 'rxjs';
 
 @Injectable()

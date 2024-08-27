@@ -6,8 +6,10 @@ import {
   ViewChild,
 } from '@angular/core';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { ContextMenuService } from '@tfx-diagram/shared-angular/ui/tfx-menu';
-import { FlexibleSubMenuPositioning } from 'libs/shared-angular/ui/tfx-menu/src/lib/popup-menu/popup-menu.service';
+import {
+  ContextMenuService,
+  FlexibleSubMenuPositioning,
+} from '@tfx-diagram/shared-angular/ui/tfx-menu';
 import { MousePositionContextMenuService } from './mouse-position-context-menu.service';
 
 @Component({

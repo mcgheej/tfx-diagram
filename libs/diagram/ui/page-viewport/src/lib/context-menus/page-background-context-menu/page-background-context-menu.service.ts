@@ -1,25 +1,45 @@
 import { Injectable, inject } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Point, Size } from '@tfx-diagram/electron-renderer-web/shared-types';
 import {
   ContextMenu,
   ContextMenuService,
+  GlobalSubMenuPositioning,
   MenuBuilderService,
 } from '@tfx-diagram/shared-angular/ui/tfx-menu';
-import { GlobalSubMenuPositioning } from 'libs/shared-angular/ui/tfx-menu/src/lib/popup-menu/popup-menu.service';
+import { getInsertArc } from './insert-arc';
+import { getInsertCircle } from './insert-circle';
+import { getInsertCurve } from './insert-curve';
+import { getInsertLine } from './insert-line';
+import { getInsertRectangle } from './insert-rectangle';
+import { getInsertText } from './insert-text';
+import { getInsertTriangle } from './insert-triangle';
 
 @Injectable()
 export class PageBackgroundContextMenuService {
+  private store = inject(Store);
   private contextMenu = inject(ContextMenuService);
   private mb = inject(MenuBuilderService);
 
-  open({ x, y }: Point) {
+  open({ x: viewportX, y: viewportY }: Point, viewportOffset: Point, viewportSize: Size) {
+    const { width: cWidth, height: cHeight } = this.contextMenuSize();
+    let x = viewportX;
+    let y = viewportY;
+    if (x + cWidth >= viewportSize.width) {
+      x = viewportSize.width - cWidth;
+      x = Math.max(0, x);
+    }
+    if (y + cHeight >= viewportSize.height) {
+      y = viewportSize.height - cHeight;
+      y = Math.max(0, y);
+    }
     console.log(`Open menu at (${x}, ${y})`);
     this.contextMenu
-      .openContextMenu(getContextMenu(this.mb), {
+      .openContextMenu(getContextMenu(this.store, this.mb, { x: viewportX, y: viewportY }), {
         positioning: {
           type: 'Global',
-          left: x,
-          top: y,
+          left: x + viewportOffset.x,
+          top: y + viewportOffset.y,
         } as GlobalSubMenuPositioning,
       })
       .afterClosed()
@@ -33,33 +53,18 @@ export class PageBackgroundContextMenuService {
   }
 }
 
-function getContextMenu(mb: MenuBuilderService): ContextMenu {
+function getContextMenu(store: Store, mb: MenuBuilderService, position: Point): ContextMenu {
   return mb.contextMenu({
     id: 'page-background-context-menu',
     menuItemGroups: [
       mb.menuItemGroup([
-        mb.commandItem({
-          label: 'Insert Circle',
-          // exec
-        }),
-        mb.commandItem({
-          label: 'Insert Rectangle',
-        }),
-        mb.commandItem({
-          label: 'Insert Arc',
-        }),
-        mb.commandItem({
-          label: 'Insert Curve',
-        }),
-        mb.commandItem({
-          label: 'Insert Line',
-        }),
-        mb.commandItem({
-          label: 'Insert Triangle',
-        }),
-        mb.commandItem({
-          label: 'Insert Text',
-        }),
+        getInsertCircle(store, mb, position),
+        getInsertRectangle(store, mb, position),
+        getInsertArc(store, mb, position),
+        getInsertCurve(store, mb, position),
+        getInsertLine(store, mb, position),
+        getInsertTriangle(store, mb, position),
+        getInsertText(store, mb, position),
       ]),
     ],
   });

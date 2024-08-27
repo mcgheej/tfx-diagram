@@ -15,6 +15,7 @@ export * as KeyboardStateServiceActions from './lib/keyboard-state-service.actio
 export * as LineDashButtonServiceActions from './lib/line-dash-button-service.actions';
 export * as LineWidthButtonServiceActions from './lib/line-width-button-service.actions';
 export * as MouseMachineActions from './lib/mouse-machine.actions';
+export * as PageBackgroundContextMenuActions from './lib/page-background-context-menu.actions';
 export * as PageViewportComponentActions from './lib/page-viewport-component.actions';
 export * as PagesEffectsActions from './lib/pages-effects.actions';
 export * as SaveCloseMachineActions from './lib/save-close-machine.actions';
