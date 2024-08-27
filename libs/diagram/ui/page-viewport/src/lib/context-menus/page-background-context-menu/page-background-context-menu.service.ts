@@ -33,7 +33,6 @@ export class PageBackgroundContextMenuService {
       y = viewportSize.height - cHeight;
       y = Math.max(0, y);
     }
-    console.log(`Open menu at (${x}, ${y})`);
     this.contextMenu
       .openContextMenu(getContextMenu(this.store, this.mb, { x: viewportX, y: viewportY }), {
         positioning: {
@@ -44,7 +43,7 @@ export class PageBackgroundContextMenuService {
       })
       .afterClosed()
       .subscribe({
-        complete: () => console.log('closed menu'),
+        complete: () => null,
       });
   }
 
