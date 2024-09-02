@@ -1,5 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { MouseMachineActions } from '@tfx-diagram/diagram-data-access-store-actions';
+import {
+  MouseMachineActions,
+  PageViewportComponentActions,
+} from '@tfx-diagram/diagram-data-access-store-actions';
 import { Group } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { AppState } from '@tfx-diagram/electron-renderer-web-context-bridge-api';
 import { redoStack, undoStack } from '../state-history';
@@ -27,7 +30,10 @@ export function operationCanBeUndone(state: AppState, action: any): boolean {
     if (actionType === MouseMachineActions.leftButtonDown.type) {
       return doMouseMachineActionsLeftButtonDown(state);
     }
-    if (actionType === MouseMachineActions.ctrlLeftButtonDown.type) {
+    if (
+      actionType === MouseMachineActions.ctrlLeftButtonDown.type ||
+      actionType === PageViewportComponentActions.rightButtonDown.type
+    ) {
       return doMouseMachineActionsCtrlLeftButtonDown(state);
     }
     return true;

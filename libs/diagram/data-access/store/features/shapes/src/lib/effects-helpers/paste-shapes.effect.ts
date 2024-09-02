@@ -1,12 +1,15 @@
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
-import { linkShapeArray, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Shape, linkShapeArray } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   EditMenuActions,
+  PageBackgroundContextMenuActions,
   ShapesEffectsActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
-import { Page } from '@tfx-diagram/electron-renderer-web/shared-types';
+import { rectUnionArray } from '@tfx-diagram/diagram/util/misc-functions';
+import { Page, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
+import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { filter, of, switchMap } from 'rxjs';
 import { selectCopyBuffer, selectPasteCount, selectShapes } from '../shapes.feature';
 import {
@@ -18,7 +21,7 @@ import {
 export const pasteShapes = (actions$: Actions<Action>, store: Store) => {
   return createEffect(() => {
     return actions$.pipe(
-      ofType(EditMenuActions.pasteClick),
+      ofType(EditMenuActions.pasteClick, PageBackgroundContextMenuActions.pasteClick),
       concatLatestFrom(() => [
         store.select(selectCurrentPage),
         store.select(selectCopyBuffer),
@@ -29,23 +32,43 @@ export const pasteShapes = (actions$: Actions<Action>, store: Store) => {
         ([action, page, copyBuffer]) =>
           action.textEdit === null && page !== null && copyBuffer.length > 0
       ),
-      switchMap(([, page, copyBuffer, pasteCount, shapes]) => {
+      switchMap(([action, page, copyBuffer, currentPasteCount, shapes]) => {
         const { id: pageId, lastShapeId } = page as Page;
         const topLevelIds: string[] = [];
+        const boundingBoxes: Rect[] = [];
         const copyBufferMap: Map<string, Shape> = new Map();
         for (const s of copyBuffer) {
           copyBufferMap.set(s.id, s);
           if (s.groupId === '') {
             topLevelIds.push(s.id);
           }
+          if (s.shapeType !== 'group') {
+            boundingBoxes.push(s.boundingBox());
+          }
         }
-        const offset = (pasteCount + 1) * 5;
+        let offset = { x: 0, y: 0 } as Point;
+        let pasteCount = currentPasteCount;
+        if (action.type === PageBackgroundContextMenuActions.PASTE_CLICK) {
+          // Need to calculate bounding box for contents of copy buffer.
+          // use this to compute the required offset to place the pasted
+          // shapes centred on the mouse position.
+          const b = rectUnionArray(boundingBoxes);
+          const p = action.position;
+          offset = {
+            x: p.x - (b.x + b.width / 2),
+            y: p.y - (b.y + b.height / 2),
+          };
+        } else {
+          pasteCount = currentPasteCount + 1;
+          const t = pasteCount * 5;
+          offset = { x: t, y: t };
+        }
         let newShapes = duplicateShapesFromIds(
           '',
           topLevelIds,
           getNewIdsFromIds(topLevelIds, shapes),
           copyBufferMap,
-          { x: offset, y: offset }
+          offset
         );
         const newDrawableShapes: Shape[] = [];
         const newGroupShapes: Shape[] = [];
@@ -66,6 +89,7 @@ export const pasteShapes = (actions$: Actions<Action>, store: Store) => {
             newShapeIds,
             shapes: linkDuplicatedShapesToPage(newShapes, shapes, lastShapeId),
             pageId,
+            pasteCount,
           })
         );
       })

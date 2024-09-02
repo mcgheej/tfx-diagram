@@ -331,7 +331,8 @@ export const shapesReducer = createReducer(
     ShapesEffectsActions.sendItemBackward,
     ShapesEffectsActions.shapeResizeClick,
     ShapesEffectsActions.groupClick,
-    (state, { type, shapes }) => {
+    (state, a) => {
+      const { type, shapes } = a;
       if (shapes.length === 0) {
         return state;
       }
@@ -339,14 +340,14 @@ export const shapesReducer = createReducer(
       for (const shape of shapes) {
         newShapes.set(shape.id, shape);
       }
-      let pasteCount = state.pasteCount;
+      let newPasteCount = state.pasteCount;
       if (type === ShapesEffectsActions.PASTE_SHAPES_ON_PAGE) {
-        pasteCount++;
+        newPasteCount = a.pasteCount;
       }
       return {
         ...state,
         shapes: newShapes,
-        pasteCount,
+        pasteCount: newPasteCount,
       };
     }
   ),

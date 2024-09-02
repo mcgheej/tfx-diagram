@@ -16,3 +16,8 @@ export const scrollChange = createAction(
   '[Page Viewport Component] Scroll Change',
   props<{ pageId: string; newWindow: Rect }>()
 );
+
+export const rightButtonDown = createAction(
+  'Page Viewport Component] Right Button Down',
+  props<{ x: number; y: number }>()
+);

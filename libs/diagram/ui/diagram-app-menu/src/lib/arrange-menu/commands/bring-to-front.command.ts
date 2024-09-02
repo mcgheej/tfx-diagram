@@ -6,7 +6,7 @@ import {
 } from '@tfx-diagram/diagram/data-access/store/features/control-frame';
 import { CommandItem, MenuBuilderService } from '@tfx-diagram/shared-angular/ui/tfx-menu';
 import { Hotkey, HotkeysService } from 'angular2-hotkeys';
-import { map, Subscription } from 'rxjs';
+import { map, take } from 'rxjs';
 
 export class BringToFrontCommand {
   private hotkey: Hotkey | null = null;
@@ -18,18 +18,11 @@ export class BringToFrontCommand {
     exec: this.doBringToFront(),
   });
 
-  private selectedShapeIds: string[] = [];
-  private subscription: Subscription | null = null;
-
   constructor(
     private mb: MenuBuilderService,
     private store: Store,
     private hotkeysService: HotkeysService
-  ) {
-    this.subscription = this.store.select(selectSelectedShapeIds).subscribe((ids) => {
-      this.selectedShapeIds = ids;
-    });
-  }
+  ) {}
 
   getItem(): CommandItem {
     if (this.hotkey) {
@@ -48,16 +41,18 @@ export class BringToFrontCommand {
       this.hotkeysService.remove(this.hotkey);
       this.hotkey = null;
     }
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
   }
 
   private doBringToFront(): (commandItem: CommandItem) => void {
     return () => {
-      this.store.dispatch(
-        ArrangeMenuActions.bringToFrontClick({ selectedShapeIds: this.selectedShapeIds })
-      );
+      this.store
+        .select(selectSelectedShapeIds)
+        .pipe(take(1))
+        .subscribe((selectedShapeIds) => {
+          if (selectedShapeIds.length > 0) {
+            this.store.dispatch(ArrangeMenuActions.bringToFrontClick({ selectedShapeIds }));
+          }
+        });
     };
   }
 }

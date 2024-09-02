@@ -19,6 +19,7 @@ import {
 import { MouseMachineService } from '../+xstate/mouse-machine/mouse-machine.service';
 import { ShadowMouseMoveEvent } from '../canvas-directives/shadow-canvas.directive';
 import { PageBackgroundContextMenuService } from '../context-menus/page-background-context-menu/page-background-context-menu.service';
+import { ShapeContextMenuService } from '../context-menus/shape-context-menu/shape-context-menu.service';
 import { PageViewportComponentService } from './page-viewport.service';
 
 @Component({
@@ -30,6 +31,7 @@ import { PageViewportComponentService } from './page-viewport.service';
     PageViewportComponentService,
     MouseMachineService,
     PageBackgroundContextMenuService,
+    ShapeContextMenuService,
   ],
 })
 export class PageViewportComponent implements OnInit, OnDestroy {
@@ -122,10 +124,11 @@ export class PageViewportComponent implements OnInit, OnDestroy {
   }
 
   onMouseDown(ev: MouseEvent) {
-    if (ev.button !== 0) {
+    if (ev.button === 2) {
+      this.service.rightButtonDown(ev);
       return;
     }
-    if (ev.ctrlKey) {
+    if (ev.button === 0 && ev.ctrlKey) {
       this.mouseMachine.send({ type: 'leftButton.ctrlDown' } as LeftButtonCtrlDown);
     } else {
       this.mouseMachine.send({

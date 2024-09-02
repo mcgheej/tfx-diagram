@@ -1,5 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { Point, Size } from '@tfx-diagram/electron-renderer-web/shared-types';
 import {
   ContextMenu,
@@ -7,22 +8,27 @@ import {
   GlobalSubMenuPositioning,
   MenuBuilderService,
 } from '@tfx-diagram/shared-angular/ui/tfx-menu';
-import { getInsertArc } from './insert-arc';
-import { getInsertCircle } from './insert-circle';
-import { getInsertCurve } from './insert-curve';
-import { getInsertLine } from './insert-line';
-import { getInsertRectangle } from './insert-rectangle';
-import { getInsertText } from './insert-text';
-import { getInsertTriangle } from './insert-triangle';
-import { getPaste } from './paste';
+import { getBringItemForward } from './bring-item-forward';
+import { getBringToFront } from './bring-to-front';
+import { getCopy } from './copy';
+import { getCut } from './cut';
+import { getDelete } from './delete';
+import { getDuplicate } from './duplicate';
+import { getSendItemBackward } from './send-item-backward';
+import { getSendToBack } from './send-to-back';
 
 @Injectable()
-export class PageBackgroundContextMenuService {
+export class ShapeContextMenuService {
   private store = inject(Store);
   private contextMenu = inject(ContextMenuService);
   private mb = inject(MenuBuilderService);
 
-  open({ x: viewportX, y: viewportY }: Point, viewportOffset: Point, viewportSize: Size) {
+  open(
+    { x: viewportX, y: viewportY }: Point,
+    shapeUnderMouse: Shape,
+    viewportOffset: Point,
+    viewportSize: Size
+  ) {
     const { width: cWidth, height: cHeight } = this.contextMenuSize();
     let x = viewportX;
     let y = viewportY;
@@ -35,7 +41,7 @@ export class PageBackgroundContextMenuService {
       y = Math.max(0, y);
     }
     this.contextMenu
-      .openContextMenu(getContextMenu(this.store, this.mb, { x: viewportX, y: viewportY }), {
+      .openContextMenu(getContextMenu(this.store, this.mb, shapeUnderMouse), {
         positioning: {
           type: 'Global',
           left: x + viewportOffset.x,
@@ -49,24 +55,26 @@ export class PageBackgroundContextMenuService {
   }
 
   private contextMenuSize(): Size {
-    return { width: 232, height: 187 };
+    return { width: 271, height: 166 };
   }
 }
 
-function getContextMenu(store: Store, mb: MenuBuilderService, position: Point): ContextMenu {
+function getContextMenu(
+  store: Store,
+  mb: MenuBuilderService,
+  shapeUnderMouse: Shape
+): ContextMenu {
   return mb.contextMenu({
-    id: 'page-background-context-menu',
+    id: 'shape-context-menu',
     menuItemGroups: [
       mb.menuItemGroup([
-        getInsertCircle(store, mb, position),
-        getInsertRectangle(store, mb, position),
-        getInsertArc(store, mb, position),
-        getInsertCurve(store, mb, position),
-        getInsertLine(store, mb, position),
-        getInsertTriangle(store, mb, position),
-        getInsertText(store, mb, position),
+        getBringToFront(store, mb),
+        getSendToBack(store, mb),
+        getBringItemForward(store, mb, shapeUnderMouse),
+        getSendItemBackward(store, mb, shapeUnderMouse),
       ]),
-      mb.menuItemGroup([getPaste(store, mb, position)]),
+      mb.menuItemGroup([getCut(store, mb), getCopy(store, mb), getDuplicate(store, mb)]),
+      mb.menuItemGroup([getDelete(store, mb)]),
     ],
   });
 }

@@ -19,7 +19,7 @@ export const duplicatedShapesOnPage = createAction(
 export const PASTE_SHAPES_ON_PAGE = '[Shapes Effects] Paste Shapes On Page';
 export const pasteShapesOnPage = createAction(
   PASTE_SHAPES_ON_PAGE,
-  props<{ newShapeIds: string[]; shapes: Shape[]; pageId: string }>()
+  props<{ newShapeIds: string[]; shapes: Shape[]; pageId: string; pasteCount: number }>()
 );
 
 export const deleteShapesOnPage = createAction(

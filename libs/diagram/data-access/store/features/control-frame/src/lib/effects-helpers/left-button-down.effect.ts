@@ -4,6 +4,7 @@ import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   ControlFrameEffectsActions,
   MouseMachineActions,
+  PageViewportComponentActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
 import { Group } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { selectShapes } from '@tfx-diagram/diagram/data-access/store/features/shapes';
@@ -19,7 +20,7 @@ import {
 export const leftButtonDown = (actions$: Actions<Action>, store: Store) => {
   return createEffect(() => {
     return actions$.pipe(
-      ofType(MouseMachineActions.leftButtonDown),
+      ofType(MouseMachineActions.leftButtonDown, PageViewportComponentActions.rightButtonDown),
       concatLatestFrom(() => [
         store.select(selectHighlightedShapeId),
         store.select(selectShapes),

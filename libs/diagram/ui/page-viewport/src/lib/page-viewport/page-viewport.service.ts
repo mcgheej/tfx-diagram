@@ -1,4 +1,4 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable, OnDestroy, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { PageViewportComponentActions } from '@tfx-diagram/diagram-data-access-store-actions';
@@ -29,9 +29,15 @@ import {
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Subject, combineLatest, filter, map, takeUntil, withLatestFrom } from 'rxjs';
 import { PageBackgroundContextMenuService } from '../context-menus/page-background-context-menu/page-background-context-menu.service';
+import { ShapeContextMenuService } from '../context-menus/shape-context-menu/shape-context-menu.service';
 
 @Injectable()
 export class PageViewportComponentService implements OnDestroy {
+  private store = inject(Store);
+  private mouseWheel = inject(MouseWheelService);
+  private pageBackgroundContextMenu = inject(PageBackgroundContextMenuService);
+  private shapeContextMenu = inject(ShapeContextMenuService);
+
   vm$ = combineLatest([
     this.store.select(selectPageWindow),
     this.store.select(selectTextEdit),
@@ -78,12 +84,6 @@ export class PageViewportComponentService implements OnDestroy {
     withLatestFrom(this.vm$),
     takeUntil(this.destroy$)
   );
-
-  constructor(
-    private store: Store,
-    private mouseWheel: MouseWheelService,
-    private pageBackgroundContextMenu: PageBackgroundContextMenuService
-  ) {}
 
   start(): void {
     this.scrollFromWheel$.subscribe(([ev, vm]) => {
@@ -145,6 +145,12 @@ export class PageViewportComponentService implements OnDestroy {
     );
   }
 
+  rightButtonDown(ev: MouseEvent) {
+    this.store.dispatch(
+      PageViewportComponentActions.rightButtonDown({ x: ev.offsetX, y: ev.offsetY })
+    );
+  }
+
   contextMenuRequest(
     ev: MouseEvent,
     shapeIdUnderMouse: string,
@@ -153,18 +159,23 @@ export class PageViewportComponentService implements OnDestroy {
     page: Page,
     t: Transform | null
   ) {
+    const viewportOffset = {
+      x: ev.clientX - ev.offsetX,
+      y: ev.clientY - ev.offsetY,
+    };
     if (shapeUnderMouse) {
-      // context menu requested for a shape
+      this.shapeContextMenu.open(
+        { x: ev.offsetX, y: ev.offsetY },
+        shapeUnderMouse,
+        viewportOffset,
+        viewportSize
+      );
     } else if (!shapeIdUnderMouse) {
       if (t) {
         const pagePosition = inverseTransform({ x: ev.offsetX, y: ev.offsetY }, t);
         if (pointInRect(pagePosition, rectFromSize(page.size))) {
           // context menu requested while mouse pointer is over a blank area
           // of the page so open the page background context menu.
-          const viewportOffset = {
-            x: ev.clientX - ev.offsetX,
-            y: ev.clientY - ev.offsetY,
-          };
           this.pageBackgroundContextMenu.open(
             { x: ev.offsetX, y: ev.offsetY },
             viewportOffset,
