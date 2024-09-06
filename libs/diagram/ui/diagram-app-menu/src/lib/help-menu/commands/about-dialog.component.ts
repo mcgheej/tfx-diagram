@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
       <div class="content-container">
         <div class="dialog-title">About Diagram</div>
         <div></div>
-        <div class="footer">Diagram v0.5.0 (16/08/2024)</div>
+        <div class="footer">Diagram v0.6.0 (02/09/2024)</div>
       </div>
     </div>
   `,

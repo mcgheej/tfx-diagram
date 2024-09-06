@@ -24,7 +24,7 @@ export type HorizontalAlignment = 'left' | 'center' | 'right';
 export type VerticalAlignment = 'top' | 'center' | 'bottom';
 
 /**
- * This type is ised to specify the horizontal and vertical
+ * This type is used to specify the horizontal and vertical
  * alignment of an object in its container, e.g. a page in
  * the viewport
  */
