@@ -25,8 +25,8 @@ export function calcArcBoundingBox({
   // quadrants to shift (0, 1, 2 or 3) required and
   // then adjust to give the normalised start and end
   // angles.
-  const quadrantShift = Math.floor(sAngle / 90);
-  const sAngleDash = sAngle - quadrantShift * 90;
+  const quadrantShift = Math.floor(sAngle / 90) * 90;
+  const sAngleDash = sAngle - quadrantShift;
   let eAngleDash = eAngle - (sAngle - sAngleDash);
   if (eAngleDash < 0) {
     eAngleDash = 360 + eAngleDash;
@@ -64,16 +64,28 @@ export function calcArcBoundingBox({
   }
   switch (bQuadrant) {
     case 0: {
-      return rectRotate(pointsBoundingBox([a, b, ...cArray]), quadrantShift * 90, c);
+      return rectRotate(
+        pointsBoundingBox([a, b, ...cArray]),
+        (quadrantShift * Math.PI) / 180,
+        c
+      );
     }
     case 1: {
-      return rectRotate(pointsBoundingBox([a, b, d, ...cArray]), quadrantShift * 90, c);
+      return rectRotate(
+        pointsBoundingBox([a, b, d, ...cArray]),
+        (quadrantShift * Math.PI) / 180,
+        c
+      );
     }
     case 2: {
-      return rectRotate(pointsBoundingBox([a, b, d, e, ...cArray]), quadrantShift * 90, c);
+      return rectRotate(
+        pointsBoundingBox([a, b, d, e, ...cArray]),
+        (quadrantShift * Math.PI) / 180,
+        c
+      );
     }
     case 3: {
-      return rectRotate(pointsBoundingBox([a, b, d, e, f]), quadrantShift * 90, c);
+      return rectRotate(pointsBoundingBox([a, b, d, e, f]), (quadrantShift * Math.PI) / 180, c);
     }
     default: {
       console.log('should never get here');

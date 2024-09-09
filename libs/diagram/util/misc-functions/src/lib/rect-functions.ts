@@ -36,12 +36,12 @@ export function rectIntersect(a: Rect, b: Rect): Rect | null {
   } as Rect;
 }
 
-export function rectInflate(a: Rect, s: number): Rect {
+export function rectInflate(r: Rect, s: number): Rect {
   return {
-    x: a.x - s,
-    y: a.y - s,
-    width: a.width + 2 * s,
-    height: a.height + 2 * s,
+    x: r.x - s,
+    y: r.y - s,
+    width: r.width + 2 * s,
+    height: r.height + 2 * s,
   } as Rect;
 }
 
@@ -79,12 +79,12 @@ export function rectUnion(a: Rect, b: Rect): Rect {
   };
 }
 
-export function rectEdges(a: Rect): RectEdges {
+export function rectEdges(r: Rect): RectEdges {
   return {
-    left: a.x,
-    top: a.y,
-    right: a.x + a.width,
-    bottom: a.y + a.height,
+    left: r.x,
+    top: r.y,
+    right: r.x + r.width,
+    bottom: r.y + r.height,
   };
 }
 
@@ -98,17 +98,16 @@ export const getRectSize = (r: Rect): Size => {
 /**
  *
  * @param r - source rectangle
- * @param angle - angle to rotate clockwise
+ * @param a - angle to rotate clockwise (radians)
  * @param origin - point to rotate around
  * @returns
  */
-export const rectRotate = (r: Rect, angle: number, origin: Point): Rect => {
-  if (angle === 0) {
+export const rectRotate = (r: Rect, a: number, origin: Point): Rect => {
+  if (a === 0) {
     return r;
   }
   const p1: Point = { x: r.x - origin.x, y: r.y - origin.y };
   const p2: Point = { x: r.x + r.width - origin.x, y: r.y + r.height - origin.y };
-  const a = (angle * Math.PI) / 180;
   return rectNormalised(
     {
       x: p1.x * Math.cos(a) - p1.y * Math.sin(a) + origin.x,

@@ -56,7 +56,7 @@ export interface Point {
  *
  * r - distance from origin to point
  * a - angle of line connecting origin to point in
- *     degress, clockwise from 3 o'clock
+ *     degrees, clockwise from 3 o'clock
  */
 export interface PolarPoint {
   r: number;
