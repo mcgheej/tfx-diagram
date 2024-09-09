@@ -1,5 +1,13 @@
 import { Shape } from './shape';
 
+/**
+ *
+ * @param ids - identify which shape objects to get from the shapes Map
+ * @param shapes - Map of shape objects
+ * @returns array of shape objects
+ *
+ * Iterates over the supplied ids to build an array of shape object
+ */
 export const getShapesArrayFromIdArray = (
   ids: string[],
   shapes: Map<string, Shape>
@@ -14,22 +22,33 @@ export const getShapesArrayFromIdArray = (
   return result;
 };
 
+/**
+ *
+ * @param startId - id of first shape object in linked list
+ * @param shapes - Map containing shape objects
+ * @returns - array of shape objects
+ */
 export const getShapesArrayFromMapList = (
   startId: string,
   shapes: Map<string, Shape>
 ): Shape[] => {
   let id = startId;
-  const shapeArray: Shape[] = [];
+  const result: Shape[] = [];
+
+  // id will be empty string if last shape in list processed or last id
+  // processed didn't index to a shape object in the shapes Map
   while (id) {
     const shape = shapes.get(id);
     if (shape) {
-      shapeArray.push(shape);
+      result.push(shape);
       id = shape.nextShapeId;
     } else {
+      // Shape object not found so set id to empoty string to stop
+      // running through linked shapes.
       id = '';
     }
   }
-  return shapeArray;
+  return result;
 };
 
 export const linkShapeArray = (shapes: Shape[]): Shape[] => {
