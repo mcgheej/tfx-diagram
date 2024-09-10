@@ -9,7 +9,7 @@ import { Shape } from './shape';
  *
  * Iterates over the supplied ids to build an array of shape object
  */
-export const getShapesArrayFromIdArray = (
+export const getShapeArrayFromIdArray = (
   ids: string[],
   shapes: Map<string, Shape>
 ): Shape[] => {

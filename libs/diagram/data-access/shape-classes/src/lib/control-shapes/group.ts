@@ -4,7 +4,7 @@ import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { ControlShape } from '../control-shape';
 import { AllShapeProps, GroupConfig, GroupProps, ShapeProps, SharedProperties } from '../props';
 import { Shape } from '../shape';
-import { getShapesArrayFromIdArray } from '../shape-misc-functions';
+import { getShapeArrayFromIdArray } from '../shape-misc-functions';
 import { groupHighlightFrame } from './frames/group-highlight-frame';
 import { groupSelectFrame } from './frames/group-select-frame';
 
@@ -147,7 +147,7 @@ export class Group extends ControlShape implements GroupProps {
 
 const getGroupBoundingRect = (group: Group, shapes: Map<string, Shape>): Rect => {
   const boundingBoxes: Rect[] = [];
-  const groupShapes = getShapesArrayFromIdArray(group.groupMemberIds, shapes);
+  const groupShapes = getShapeArrayFromIdArray(group.groupMemberIds, shapes);
   if (groupShapes.length === group.groupMemberIds.length) {
     for (const s of groupShapes) {
       if (s.shapeType === 'group') {

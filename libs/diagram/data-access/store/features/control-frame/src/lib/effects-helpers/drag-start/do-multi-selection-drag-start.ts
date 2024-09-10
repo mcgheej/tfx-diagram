@@ -27,7 +27,7 @@ export const doMultiSelectionDragStart = (
   connections: Map<string, Connection>,
   shapeSnap: boolean
 ) => {
-  // const selectedShapes = getShapesArrayFromIdArray(selectedShapeIds, shapes);
+  // const selectedShapes = getShapesArrayFromIdsArray(selectedShapeIds, shapes);
   if (selectedShapeIds.length > 0) {
     const s = shapes.get(selectedShapeIds[0]);
     if (s) {

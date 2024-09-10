@@ -2,7 +2,7 @@ import {
   Group,
   RectangleOutline,
   Shape,
-  getShapesArrayFromIdArray,
+  getShapeArrayFromIdArray,
   gridSnapPoint,
   linkShapeArray,
 } from '@tfx-diagram/diagram/data-access/shape-classes';
@@ -33,7 +33,7 @@ export const getMultiSelectControlFrame = (
 ): Shape[] => {
   const boundingBoxes: Rect[] = [];
   const frameShapes: Shape[] = [];
-  for (const selectedShape of getShapesArrayFromIdArray(shapeIds, shapes)) {
+  for (const selectedShape of getShapeArrayFromIdArray(shapeIds, shapes)) {
     boundingBoxes.push(
       selectedShape.shapeType === 'group'
         ? (selectedShape as Group).boundingBox(shapes)

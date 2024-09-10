@@ -7,7 +7,7 @@ import {
 import {
   Group,
   Shape,
-  getShapesArrayFromIdArray,
+  getShapeArrayFromIdArray,
 } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { nanoid } from 'nanoid';
 import { filter, of, switchMap } from 'rxjs';
@@ -23,7 +23,7 @@ export const groupShapes = (actions$: Actions<Action>, store: Store) => {
         const modifiedShapes: Shape[] = [];
         let selectedShapeIds: string[] = [];
 
-        const selectedShapes = getShapesArrayFromIdArray(action.selectedShapeIds, shapes);
+        const selectedShapes = getShapeArrayFromIdArray(action.selectedShapeIds, shapes);
         if (selectedShapes.length === action.selectedShapeIds.length) {
           // All selected items available so create new group shape and modify
           // selected items to belong to new group by setting 'groupId' property.
