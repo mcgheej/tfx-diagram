@@ -3,7 +3,7 @@ import {
   Connection,
   Group,
   Shape,
-  getShapesArrayFromMapList,
+  getShapeArrayFromMapList,
 } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { inverseTransform } from '@tfx-diagram/diagram/util/misc-functions';
 import { GridProps, Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
@@ -34,7 +34,7 @@ export const doSingleSelectionDragMove = (
       gridProps
     );
     const movedControlShapes: Shape[] = [];
-    const controlShapesArray = getShapesArrayFromMapList(selectionFrameStart, controlShapes);
+    const controlShapesArray = getShapeArrayFromMapList(selectionFrameStart, controlShapes);
     for (const controlShape of controlShapesArray) {
       movedControlShapes.push(controlShape.move(shiftDelta));
     }

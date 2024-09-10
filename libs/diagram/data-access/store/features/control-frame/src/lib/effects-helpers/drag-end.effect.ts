@@ -9,7 +9,7 @@ import {
   Group,
   RectangleOutline,
   Shape,
-  getShapesArrayFromMapList,
+  getShapeArrayFromMapList,
 } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { selectShapes } from '@tfx-diagram/diagram/data-access/store/features/shapes';
 import { rectIntersect } from '@tfx-diagram/diagram/util/misc-functions';
@@ -100,7 +100,7 @@ export const dragEnd = (actions$: Actions<Action>, store: Store) => {
             return of(ControlFrameEffectsActions.dragEndMultiSelection());
           }
           if (dragType === 'handle') {
-            const controlFrame = getShapesArrayFromMapList(selectionFrameStart, controlShapes);
+            const controlFrame = getShapeArrayFromMapList(selectionFrameStart, controlShapes);
             const modifiedShapes: Shape[] = [];
             for (const shape of controlFrame) {
               if (!shape.visible) {

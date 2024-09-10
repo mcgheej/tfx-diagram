@@ -4,7 +4,7 @@ import {
   Connection,
   Handle,
   Shape,
-  getShapesArrayFromMapList,
+  getShapeArrayFromMapList,
 } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { inverseTransform } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
@@ -22,7 +22,7 @@ export const doHandleDragStart = (
   const mousePagePos = inverseTransform(mousePos, transform);
   const handle = controlShapes.get(highlightedShapeId) as Handle;
   if (handle && handle.shapeType === 'handle') {
-    const controlFrame = getShapesArrayFromMapList(selectionFrameStart, controlShapes);
+    const controlFrame = getShapeArrayFromMapList(selectionFrameStart, controlShapes);
     if (handle.handleType === 'notConnectorEnd' || !shapeSnap) {
       // Reshaping a shape not a connector so if snap-to-shape enabled find
       // connections associated with the shape

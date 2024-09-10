@@ -3,7 +3,7 @@ import {
   Connection,
   Handle,
   Shape,
-  getShapesArrayFromMapList,
+  getShapeArrayFromMapList,
 } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   inverseTransform,
@@ -41,7 +41,7 @@ export const doHandleDragMove = (
       prevMousePagePos
     );
     let newHandlePos = pointAdd(shiftDelta, { x: handle.x, y: handle.y });
-    const controlShapesArray = getShapesArrayFromMapList(selectionFrameStart, controlShapes);
+    const controlShapesArray = getShapeArrayFromMapList(selectionFrameStart, controlShapes);
     const associatedShape = shapes.get(handle.associatedShapeId);
     if (associatedShape) {
       if (connectionHook && currentPage) {

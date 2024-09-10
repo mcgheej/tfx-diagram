@@ -29,7 +29,7 @@ export const getShapeArrayFromIdArray = (
  * @param shapes - Map containing shape objects
  * @returns - array of shape objects
  */
-export const getShapesArrayFromMapList = (
+export const getShapeArrayFromMapList = (
   startId: string,
   shapes: Map<string, Shape>
 ): Shape[] => {
