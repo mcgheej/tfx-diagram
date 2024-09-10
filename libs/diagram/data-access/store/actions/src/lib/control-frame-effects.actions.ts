@@ -4,7 +4,7 @@ import {
   Endpoint,
   RectangleOutline,
   Shape,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
+} from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   ColorRef,
   FontProps,

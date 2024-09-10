@@ -7,16 +7,16 @@ import {
 } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {
-  ENDPOINT_STYLES,
-  Endpoint,
-  EndpointSize,
-  EndpointStyle,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
-import {
   createEndpoint,
   createFinishEndpoint,
   createStartEndpoint,
 } from '@tfx-diagram/diagram/data-access/endpoint-classes';
+import {
+  ENDPOINT_STYLES,
+  Endpoint,
+  EndpointSize,
+  EndpointStyle,
+} from '@tfx-diagram/diagram/data-access/shape-classes';
 import { Size } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { EndpointDialogData } from './endpoint-dialog.types';
 

@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { Point, Size } from '@tfx-diagram/electron-renderer-web/shared-types';
 import {
   ContextMenu,

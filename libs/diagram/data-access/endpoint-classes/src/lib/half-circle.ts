@@ -1,4 +1,4 @@
-import { Endpoint, EndpointSize } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Endpoint, EndpointSize } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { pointTransform } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { mmBaseLineWidth, mmRadii } from './endpoint.constants';

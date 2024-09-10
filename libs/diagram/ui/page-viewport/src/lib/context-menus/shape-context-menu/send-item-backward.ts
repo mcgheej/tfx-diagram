@@ -1,7 +1,7 @@
 import { Store } from '@ngrx/store';
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { ArrangeMenuActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
+import { Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   selectNumberOfSelectedShapes,
   selectSelectedShapeIds,

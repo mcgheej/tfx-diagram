@@ -1,5 +1,12 @@
 import { createReducer, on } from '@ngrx/store';
 import {
+  ControlFrameEffectsActions,
+  EditMenuActions,
+  ShapesEffectsActions,
+  SketchbookEffectsActions,
+} from '@tfx-diagram/diagram-data-access-store-actions';
+import { createEndpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
+import {
   Arc,
   ArcConfig,
   Circle,
@@ -25,14 +32,7 @@ import {
   TriangleConnection,
   TriangleConnectionProps,
   getAllShapesInSelection,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
-import {
-  ControlFrameEffectsActions,
-  EditMenuActions,
-  ShapesEffectsActions,
-  SketchbookEffectsActions,
-} from '@tfx-diagram/diagram-data-access-store-actions';
-import { createEndpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
+} from '@tfx-diagram/diagram/data-access/shape-classes';
 import { ShapesState } from '@tfx-diagram/electron-renderer-web-context-bridge-api';
 import {
   ColorRef,

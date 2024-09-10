@@ -6,7 +6,7 @@ import {
   Line,
   Rectangle,
   Triangle,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
+} from '@tfx-diagram/diagram/data-access/shape-classes';
 
 export const INSERT_CIRCLE = '[Insert Menu] Insert Circle';
 export const INSERT_RECTANGLE = '[Insert Menu] Insert Rectangle';

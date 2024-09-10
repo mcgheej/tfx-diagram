@@ -1,4 +1,4 @@
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 
 export interface DrawChainData {
   drawChain: Shape[];

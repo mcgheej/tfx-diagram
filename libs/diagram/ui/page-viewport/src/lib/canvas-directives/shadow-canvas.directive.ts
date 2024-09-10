@@ -1,12 +1,12 @@
 import { Directive, ElementRef, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
 import {
   selectPageViewport,
   selectTransform,
   selectViewportMouseCoords,
 } from '@tfx-diagram/diagram-data-access-store-features-transform';
+import { Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   selectControlShapes,
   selectHighlightFrameStart,

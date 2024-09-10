@@ -1,4 +1,4 @@
-import { Connection, Endpoint, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Connection, Endpoint, Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { ColorRef, FontProps } from '@tfx-diagram/electron-renderer-web/shared-types';
 
 export const shapesFeatureKey = 'shapes';

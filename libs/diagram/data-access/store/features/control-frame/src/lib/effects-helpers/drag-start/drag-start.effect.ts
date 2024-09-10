@@ -1,12 +1,12 @@
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
-import { Group } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   ControlFrameEffectsActions,
   MouseMachineActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectShapeSnap } from '@tfx-diagram/diagram-data-access-store-features-settings';
 import { selectTransform } from '@tfx-diagram/diagram-data-access-store-features-transform';
+import { Group } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   selectConnections,
   selectShapes,

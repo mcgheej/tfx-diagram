@@ -1,12 +1,12 @@
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
-import { Shape, linkShapeArray } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   EditMenuActions,
   PageBackgroundContextMenuActions,
   ShapesEffectsActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
+import { Shape, linkShapeArray } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { rectUnionArray } from '@tfx-diagram/diagram/util/misc-functions';
 import { Page, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';

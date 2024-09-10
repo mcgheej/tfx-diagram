@@ -2,7 +2,7 @@ import {
   Endpoint,
   EndpointSize,
   EndpointStyle,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
+} from '@tfx-diagram/diagram/data-access/shape-classes';
 import { HalfCircle } from './half-circle';
 import { HollowArrow } from './hollow-arrow';
 import { HollowCircle } from './hollow-circle';

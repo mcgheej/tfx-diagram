@@ -5,7 +5,7 @@ import {
   Input,
   output,
 } from '@angular/core';
-import { Endpoint } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Endpoint } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { Size } from '@tfx-diagram/electron-renderer-web/shared-types';
 
 @Component({

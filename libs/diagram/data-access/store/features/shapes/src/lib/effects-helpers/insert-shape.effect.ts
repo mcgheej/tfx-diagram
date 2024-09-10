@@ -8,13 +8,13 @@
 // }
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   InsertMenuActions,
   PageBackgroundContextMenuActions,
   ShapesEffectsActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
+import { Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { Page } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { filter, of, switchMap } from 'rxjs';
 import { selectShapes } from '../shapes.feature';

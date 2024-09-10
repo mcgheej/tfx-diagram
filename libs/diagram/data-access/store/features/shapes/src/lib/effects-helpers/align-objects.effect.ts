@@ -1,10 +1,10 @@
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
-import { Group, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   ArrangeMenuActions,
   ShapesEffectsActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
+import { Group, Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { filter, of, switchMap } from 'rxjs';
 import { selectShapes } from '../shapes.feature';

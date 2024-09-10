@@ -1,7 +1,7 @@
 import { Store } from '@ngrx/store';
-import { Arc, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { PageBackgroundContextMenuActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectTransform } from '@tfx-diagram/diagram-data-access-store-features-transform';
+import { Arc, Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   selectFillColor,
   selectLineColor,

@@ -1,12 +1,12 @@
 import { Injectable, OnDestroy, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { PageViewportComponentActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
 import {
   selectPageWindow,
   selectTransform,
 } from '@tfx-diagram/diagram-data-access-store-features-transform';
+import { Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   selectControlShapes,
   selectHighlightedShapeId,

@@ -1,7 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Store } from '@ngrx/store';
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   FileMenuActions,
   PagesEffectsActions,
@@ -11,6 +10,7 @@ import {
   SketchbookViewComponentActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectPagesState } from '@tfx-diagram/diagram-data-access-store-features-pages';
+import { Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   selectCustomColorIds,
   selectCustomColors,

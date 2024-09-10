@@ -1,11 +1,11 @@
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
-import { Group, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   ControlFrameEffectsActions,
   MouseMachineActions,
   PageViewportComponentActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
+import { Group, Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { selectShapes } from '@tfx-diagram/diagram/data-access/store/features/shapes';
 import { TextBox, TextEdit } from '@tfx-diagram/diagram/data-access/text-classes';
 import { EDIT_TEXT_ID, Point } from '@tfx-diagram/electron-renderer-web/shared-types';

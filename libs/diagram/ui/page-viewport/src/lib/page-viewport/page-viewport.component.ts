@@ -5,7 +5,7 @@ import {
   OnDestroy,
   OnInit,
 } from '@angular/core';
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { Page, Size, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect, TfxResizeEvent } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Subject, fromEvent, takeUntil } from 'rxjs';

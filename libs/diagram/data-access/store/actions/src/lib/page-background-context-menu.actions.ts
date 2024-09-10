@@ -6,7 +6,7 @@ import {
   Line,
   Rectangle,
   Triangle,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
+} from '@tfx-diagram/diagram/data-access/shape-classes';
 import { TextEdit } from '@tfx-diagram/diagram/data-access/text-classes';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 

@@ -1,16 +1,16 @@
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import {
-  Group,
-  RectangleOutline,
-  Shape,
-  getShapesArrayFromMapList,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
-import {
   ControlFrameEffectsActions,
   MouseMachineActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
+import {
+  Group,
+  RectangleOutline,
+  Shape,
+  getShapesArrayFromMapList,
+} from '@tfx-diagram/diagram/data-access/shape-classes';
 import { selectShapes } from '@tfx-diagram/diagram/data-access/store/features/shapes';
 import { rectIntersect } from '@tfx-diagram/diagram/util/misc-functions';
 import { filter, of, switchMap } from 'rxjs';

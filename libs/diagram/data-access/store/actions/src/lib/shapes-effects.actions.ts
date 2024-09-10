@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 
 export const firstShapeOnPage = createAction(
   '[Shapes Effects] First Shape On Page',

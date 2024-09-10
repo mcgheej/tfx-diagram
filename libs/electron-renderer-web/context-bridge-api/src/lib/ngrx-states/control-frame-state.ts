@@ -1,4 +1,4 @@
-import { Connection, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Connection, Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { TextEdit } from '@tfx-diagram/diagram/data-access/text-classes';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 

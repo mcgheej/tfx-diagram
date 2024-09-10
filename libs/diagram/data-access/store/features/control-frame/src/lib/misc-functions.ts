@@ -1,11 +1,11 @@
 import {
-  getShapesArrayFromIdArray,
-  gridSnapPoint,
   Group,
-  linkShapeArray,
   RectangleOutline,
   Shape,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
+  getShapesArrayFromIdArray,
+  gridSnapPoint,
+  linkShapeArray,
+} from '@tfx-diagram/diagram/data-access/shape-classes';
 import { pointSubtract, rectUnionArray } from '@tfx-diagram/diagram/util/misc-functions';
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';

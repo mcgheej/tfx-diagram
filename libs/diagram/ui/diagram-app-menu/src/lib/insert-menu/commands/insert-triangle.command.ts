@@ -1,7 +1,7 @@
 import { Store } from '@ngrx/store';
-import { Shape, Triangle } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { InsertMenuActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectPageWindow } from '@tfx-diagram/diagram-data-access-store-features-transform';
+import { Shape, Triangle } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   selectFillColor,
   selectFontProps,

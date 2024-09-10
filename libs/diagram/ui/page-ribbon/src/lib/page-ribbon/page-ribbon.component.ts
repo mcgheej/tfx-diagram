@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Line, Rectangle } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Line, Rectangle } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { selectSelectedShapeIds } from '@tfx-diagram/diagram/data-access/store/features/control-frame';
 import {
   selectEndpoints,

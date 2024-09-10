@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { UntypedFormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { Page, Size, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 
 export interface JpegDialogData {

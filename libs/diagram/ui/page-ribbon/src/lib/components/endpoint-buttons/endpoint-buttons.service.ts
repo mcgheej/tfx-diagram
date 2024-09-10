@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { Endpoint } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { EndpointButtonsServiceActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import { createEndpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
+import { Endpoint } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   EndpointDialogComponent,
   EndpointDialogResult,

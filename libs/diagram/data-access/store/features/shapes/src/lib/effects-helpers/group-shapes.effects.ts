@@ -1,14 +1,14 @@
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import {
-  Group,
-  Shape,
-  getShapesArrayFromIdArray,
-} from '@tfx-diagram/diagram-data-access-shape-base-class';
-import {
   ArrangeMenuActions,
   ShapesEffectsActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
+import {
+  Group,
+  Shape,
+  getShapesArrayFromIdArray,
+} from '@tfx-diagram/diagram/data-access/shape-classes';
 import { nanoid } from 'nanoid';
 import { filter, of, switchMap } from 'rxjs';
 import { selectShapes } from '../shapes.feature';

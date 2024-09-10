@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Endpoint } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Endpoint } from '@tfx-diagram/diagram/data-access/shape-classes';
 
 export const endpointDialogOpening = createAction(
   '[EndpointButtonsService] Endpoint Dialog Opening'

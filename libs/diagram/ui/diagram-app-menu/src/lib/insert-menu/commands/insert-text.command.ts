@@ -1,7 +1,7 @@
 import { Store } from '@ngrx/store';
-import { Rectangle, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { InsertMenuActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectPageWindow } from '@tfx-diagram/diagram-data-access-store-features-transform';
+import { Rectangle, Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { selectFontProps } from '@tfx-diagram/diagram/data-access/store/features/shapes';
 import { CommandItem, MenuBuilderService } from '@tfx-diagram/shared-angular/ui/tfx-menu';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';

@@ -1,4 +1,4 @@
-import { Connection, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Connection, Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { getSubMap } from '@tfx-diagram/diagram/util/misc-functions';
 
 export const getMovingConnectionIds = (
