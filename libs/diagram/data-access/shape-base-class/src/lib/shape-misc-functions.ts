@@ -51,6 +51,14 @@ export const getShapesArrayFromMapList = (
   return result;
 };
 
+/**
+ *
+ * @param shapes - array of shapes to link
+ * @returns same array of shapes but now linked
+ *
+ * Simply works through the supplied array setting the previous and
+ * next id links to link the shapes togather.
+ */
 export const linkShapeArray = (shapes: Shape[]): Shape[] => {
   if (shapes.length === 0) {
     return shapes;
