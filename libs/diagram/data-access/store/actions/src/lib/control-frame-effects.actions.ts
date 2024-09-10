@@ -1,6 +1,10 @@
 import { createAction, props } from '@ngrx/store';
-import { Connection, Endpoint, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
-import { RectangleOutline } from '@tfx-diagram/diagram/data-access/shape-classes';
+import {
+  Connection,
+  Endpoint,
+  RectangleOutline,
+  Shape,
+} from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   ColorRef,
   FontProps,

@@ -1,8 +1,7 @@
 import { Store } from '@ngrx/store';
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Rectangle, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { PageBackgroundContextMenuActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectTransform } from '@tfx-diagram/diagram-data-access-store-features-transform';
-import { Rectangle } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   selectFillColor,
   selectFontProps,
@@ -11,8 +10,8 @@ import {
   selectLineWidth,
 } from '@tfx-diagram/diagram/data-access/store/features/shapes';
 import { inverseTransform } from '@tfx-diagram/diagram/util/misc-functions';
+import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { CommandItem, MenuBuilderService } from '@tfx-diagram/shared-angular/ui/tfx-menu';
-import { Point } from 'electron';
 import { combineLatest, take } from 'rxjs';
 
 export function getInsertRectangle(

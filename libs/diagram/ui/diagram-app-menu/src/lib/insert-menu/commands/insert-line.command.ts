@@ -1,8 +1,7 @@
 import { Store } from '@ngrx/store';
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Line, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { InsertMenuActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectPageWindow } from '@tfx-diagram/diagram-data-access-store-features-transform';
-import { Line } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   selectEndpoints,
   selectLineColor,

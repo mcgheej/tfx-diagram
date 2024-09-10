@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Handle, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   ControlFrameEffectsActions,
   DiagramCanvasDirectiveActions,
@@ -9,7 +9,6 @@ import {
   ShapesEffectsActions,
   SketchbookViewComponentActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
-import { Handle } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { TextBlock, TextBox, TextEdit } from '@tfx-diagram/diagram/data-access/text-classes';
 import { ControlFrameState } from '@tfx-diagram/electron-renderer-web-context-bridge-api';
 import { TextCursorCommandCodes } from '@tfx-diagram/electron-renderer-web/shared-types';

@@ -1,10 +1,10 @@
 import {
   Connection,
   getShapesArrayFromMapList,
+  Handle,
   Shape,
 } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { ControlFrameEffectsActions } from '@tfx-diagram/diagram-data-access-store-actions';
-import { Handle } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   inverseTransform,
   pointAdd,

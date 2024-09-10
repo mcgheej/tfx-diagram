@@ -1,7 +1,11 @@
 import { Store } from '@ngrx/store';
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import {
+  Circle,
+  Rectangle,
+  Shape,
+  Triangle,
+} from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { InsertMenuActions } from '@tfx-diagram/diagram-data-access-store-actions';
-import { Circle, Rectangle, Triangle } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   selectFillColor,
   selectFontProps,

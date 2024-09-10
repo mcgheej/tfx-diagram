@@ -6,8 +6,7 @@ import {
   OnInit,
 } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { PRESET_LINE_WIDTHS } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { Size } from 'electron';
+import { PRESET_LINE_WIDTHS, Size } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { LineWidthDialogData } from './line-width-dialog.types';
 
 @Component({

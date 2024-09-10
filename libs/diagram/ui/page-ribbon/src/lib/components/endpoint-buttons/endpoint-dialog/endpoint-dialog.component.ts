@@ -17,7 +17,7 @@ import {
   createFinishEndpoint,
   createStartEndpoint,
 } from '@tfx-diagram/diagram/data-access/endpoint-classes';
-import { Size } from 'electron';
+import { Size } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { EndpointDialogData } from './endpoint-dialog.types';
 
 export interface EndpointDialogResult {

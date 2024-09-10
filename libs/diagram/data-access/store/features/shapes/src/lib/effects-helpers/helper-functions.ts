@@ -1,5 +1,4 @@
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
-import { Group } from '@tfx-diagram/diagram/data-access/shape-classes';
+import { Group, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { nanoid } from 'nanoid';
 

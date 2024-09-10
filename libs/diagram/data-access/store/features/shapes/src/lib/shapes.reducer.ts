@@ -1,16 +1,30 @@
 import { createReducer, on } from '@ngrx/store';
 import {
+  Arc,
   ArcConfig,
+  Circle,
   CircleConfig,
+  CircleConnection,
+  CircleConnectionProps,
   Connection,
+  Curve,
   CurveConfig,
   Endpoint,
+  Group,
   GroupConfig,
+  Line,
   LineConfig,
+  Rectangle,
   RectangleConfig,
+  RectangleConnection,
+  RectangleConnectionProps,
   Shape,
   ShapeProps,
+  Triangle,
   TriangleConfig,
+  TriangleConnection,
+  TriangleConnectionProps,
+  getAllShapesInSelection,
 } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   ControlFrameEffectsActions,
@@ -19,22 +33,6 @@ import {
   SketchbookEffectsActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
 import { createEndpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
-import {
-  Arc,
-  Circle,
-  CircleConnection,
-  CircleConnectionProps,
-  Curve,
-  Group,
-  Line,
-  Rectangle,
-  RectangleConnection,
-  RectangleConnectionProps,
-  Triangle,
-  TriangleConnection,
-  TriangleConnectionProps,
-  getAllShapesInSelection,
-} from '@tfx-diagram/diagram/data-access/shape-classes';
 import { ShapesState } from '@tfx-diagram/electron-renderer-web-context-bridge-api';
 import {
   ColorRef,

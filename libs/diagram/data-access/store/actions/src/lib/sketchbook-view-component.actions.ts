@@ -1,8 +1,12 @@
 import { createAction, props } from '@ngrx/store';
 import { ZoomSelectType } from '@tfx-diagram/diagram/ui/zoom-control';
-import { Page, PageFormats, PageLayout } from '@tfx-diagram/electron-renderer-web/shared-types';
+import {
+  Page,
+  PageFormats,
+  PageLayout,
+  Size,
+} from '@tfx-diagram/electron-renderer-web/shared-types';
 import { MoveResult } from '@tfx-diagram/shared-angular/tfx-page-selector';
-import { Size } from 'electron';
 
 export const zoomChange = createAction(
   '[Sketchbook View Component] Zoom Change',

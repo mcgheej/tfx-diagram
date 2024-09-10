@@ -1,10 +1,10 @@
 import {
   Connection,
   getShapesArrayFromMapList,
+  Group,
   Shape,
 } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { ControlFrameEffectsActions } from '@tfx-diagram/diagram-data-access-store-actions';
-import { Group } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { inverseTransform } from '@tfx-diagram/diagram/util/misc-functions';
 import { GridProps, Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { of } from 'rxjs';

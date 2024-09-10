@@ -1,13 +1,12 @@
 import { Directive, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Group, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { DiagramCanvasDirectiveActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
 import {
   selectPageViewport,
   selectTransform,
 } from '@tfx-diagram/diagram-data-access-store-features-transform';
-import { Group } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   selectControlShapes,
   selectHighlightFrameStart,
@@ -18,8 +17,7 @@ import {
 } from '@tfx-diagram/diagram/data-access/store/features/control-frame';
 import { selectShapes } from '@tfx-diagram/diagram/data-access/store/features/shapes';
 import { TextEdit } from '@tfx-diagram/diagram/data-access/text-classes';
-import { Page, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { Size } from 'electron';
+import { Page, Size, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import {
   Subject,
   combineLatest,

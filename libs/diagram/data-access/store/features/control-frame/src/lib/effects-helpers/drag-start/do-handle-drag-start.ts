@@ -1,10 +1,11 @@
 import {
+  CircleConnection,
   Connection,
   getShapesArrayFromMapList,
+  Handle,
   Shape,
 } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { ControlFrameEffectsActions } from '@tfx-diagram/diagram-data-access-store-actions';
-import { CircleConnection, Handle } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { inverseTransform } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { of } from 'rxjs';
