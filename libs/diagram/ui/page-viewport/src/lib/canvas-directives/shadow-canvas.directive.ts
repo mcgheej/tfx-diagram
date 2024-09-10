@@ -1,6 +1,6 @@
 import { Directive, ElementRef, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Shape, nextInChain } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
 import {
   selectPageViewport,
@@ -147,12 +147,12 @@ export class ShadowCanvasDirective implements OnInit, OnDestroy {
   ) {
     c.save();
     this.clipToPage(pageSize, c, t);
-    let shape = nextInChain(firstShapeId, shapes);
+    let shape = shapes.get(firstShapeId);
     while (shape) {
       if (shape.selectable) {
         shape.drawShadow(c, t);
       }
-      shape = nextInChain(shape.nextShapeId, shapes);
+      shape = shapes.get(shape.nextShapeId);
     }
     c.restore();
   }

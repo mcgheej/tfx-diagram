@@ -71,13 +71,6 @@ export const linkShapeArray = (shapes: Shape[]): Shape[] => {
   return shapes;
 };
 
-export const nextInChain = (id: string, shapes: Map<string, Shape>): Shape | undefined => {
-  if (id) {
-    return shapes.get(id);
-  }
-  return undefined;
-};
-
 export const bringShapeForward = (
   id: string,
   modifiedShapes: Map<string, Shape>,

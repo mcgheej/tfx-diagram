@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { UntypedFormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { Shape, nextInChain } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { Page, Size, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 
 export interface JpegDialogData {
@@ -128,10 +128,10 @@ export class JpegDialogComponent implements OnInit, AfterViewInit {
   ): void {
     c.save();
     this.clipToPage(pageSize, c, t);
-    let shape = nextInChain(firstShapeId, shapes);
+    let shape = shapes.get(firstShapeId);
     while (shape) {
       shape.draw(c, t);
-      shape = nextInChain(shape.nextShapeId, shapes);
+      shape = shapes.get(shape.nextShapeId);
     }
     c.restore();
   }

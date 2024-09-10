@@ -1,6 +1,6 @@
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
-import { nextInChain, Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   ControlFrameEffectsActions,
   SelectionMenuActions,
@@ -20,13 +20,13 @@ export const selectAll = (actions$: Actions<Action>, store: Store) => {
         const selectedShapeIds: string[] = [];
         let frameShapes: Shape[] = [];
         if (currentPage) {
-          let shape = nextInChain(currentPage.firstShapeId, shapes);
+          let shape = shapes.get(currentPage.firstShapeId);
           while (shape) {
             const itemId = Group.topLevelGroupIdFromId(shape.id, shapes);
             if (!selectedShapeIds.includes(itemId)) {
               selectedShapeIds.push(itemId);
             }
-            shape = nextInChain(shape.nextShapeId, shapes);
+            shape = shapes.get(shape.nextShapeId);
           }
         }
         if (selectedShapeIds.length === 1) {

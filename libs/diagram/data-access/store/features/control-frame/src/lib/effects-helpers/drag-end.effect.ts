@@ -1,9 +1,8 @@
 import { Actions, concatLatestFrom, createEffect, ofType } from '@ngrx/effects';
 import { Action, Store } from '@ngrx/store';
 import {
-  getShapesArrayFromMapList,
-  nextInChain,
   Shape,
+  getShapesArrayFromMapList,
 } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import {
   ControlFrameEffectsActions,
@@ -53,7 +52,7 @@ export const dragEnd = (actions$: Actions<Action>, store: Store) => {
             const selectionRect = selectionBox.boundingBox();
             const selectedShapeIds: string[] = [];
             if (currentPage) {
-              let shape = nextInChain(currentPage.firstShapeId, shapes);
+              let shape = shapes.get(currentPage.firstShapeId);
               while (shape) {
                 if (rectIntersect(shape.boundingBox(), selectionRect)) {
                   const itemId = Group.topLevelGroupIdFromId(shape.id, shapes);
@@ -61,7 +60,7 @@ export const dragEnd = (actions$: Actions<Action>, store: Store) => {
                     selectedShapeIds.push(itemId);
                   }
                 }
-                shape = nextInChain(shape.nextShapeId, shapes);
+                shape = shapes.get(shape.nextShapeId);
               }
             }
             let controlFrame: Shape[] = [];

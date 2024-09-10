@@ -1,6 +1,6 @@
 import { Directive, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Shape, nextInChain } from '@tfx-diagram/diagram-data-access-shape-base-class';
+import { Shape } from '@tfx-diagram/diagram-data-access-shape-base-class';
 import { DiagramCanvasDirectiveActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
 import {
@@ -120,10 +120,10 @@ export class DiagramCanvasDirective implements OnInit, OnDestroy {
   ) {
     c.save();
     this.clipToPage(pageSize, c, t);
-    let shape = nextInChain(firstShapeId, shapes);
+    let shape = shapes.get(firstShapeId);
     while (shape) {
       shape.draw(c, t);
-      shape = nextInChain(shape.nextShapeId, shapes);
+      shape = shapes.get(shape.nextShapeId);
     }
     c.restore();
   }
