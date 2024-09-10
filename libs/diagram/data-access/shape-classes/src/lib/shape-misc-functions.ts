@@ -1,3 +1,4 @@
+import { getDrawableShapeIdsInSelection } from './misc-functions';
 import { Shape } from './shape';
 
 /**
@@ -77,6 +78,45 @@ export const linkShapeArray = (shapes: Shape[]): Shape[] => {
   shapes[shapes.length - 1].prevShapeId = shapes[shapes.length - 2].id;
   shapes[shapes.length - 1].nextShapeId = '';
   return shapes;
+};
+
+export const bringShapesToFrontById = (
+  selectedIds: string[],
+  firstId: string,
+  lastId: string,
+  shapes: Map<string, Shape>
+): {
+  newFirstId: string;
+  newLastId: string;
+  modifiedShapes: Map<string, Shape>;
+} => {
+  const result = unlinkShapesById(
+    getDrawableShapeIdsInSelection(selectedIds, shapes),
+    new Map<string, Shape>(),
+    shapes,
+    firstId,
+    lastId
+  );
+  let { selectedShapes, newFirstId, newLastId } = result;
+  const { modifiedShapes } = result;
+  selectedShapes = linkShapeArray(selectedShapes);
+  selectedShapes.map((s) => modifiedShapes.set(s.id, s));
+  const l = selectedShapes.length - 1;
+  const f = getShape(newLastId, modifiedShapes, shapes);
+  if (f) {
+    f.nextShapeId = selectedShapes[0].id;
+    selectedShapes[0].prevShapeId = f.id;
+    newLastId = selectedShapes[l].id;
+    modifiedShapes.set(f.id, f);
+  } else {
+    newFirstId = selectedShapes[0].id;
+    newLastId = selectedShapes[l].id;
+  }
+  return {
+    newFirstId,
+    newLastId,
+    modifiedShapes,
+  };
 };
 
 export const bringShapeForward = (

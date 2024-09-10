@@ -1,7 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import {
-  PagesEffectsActions,
   PageViewportComponentActions,
+  PagesEffectsActions,
   ShapesEffectsActions,
   SketchbookEffectsActions,
   SketchbookViewComponentActions,
@@ -237,6 +237,14 @@ export const pagesReducer = createReducer(
     ShapesEffectsActions.bringItemForward,
     ShapesEffectsActions.sendItemBackward,
     (state, { pageId, firstShapeId, lastShapeId }) => {
+      // If firstShapeId and lastShapeId haven't changed then no state change
+      // required here
+      if (
+        state.pages[pageId].firstShapeId === firstShapeId &&
+        state.pages[pageId].lastShapeId === lastShapeId
+      ) {
+        return state;
+      }
       return {
         ...state,
         pages: {
