@@ -1,6 +1,6 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
+import { linkShapeArray } from '../../original-shape-misc-functions';
 import { Shape } from '../../shape';
-import { linkShapeArray } from '../../shape-misc-functions';
 import { TriangleControlPointReshaper } from '../../standard-shapes/triangle/reshapers/triangle-control-point-reshaper';
 import { Handle } from '../handle';
 import { LineOutline } from '../line-outline';

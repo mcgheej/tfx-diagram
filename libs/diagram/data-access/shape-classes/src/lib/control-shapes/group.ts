@@ -2,9 +2,15 @@ import { rectUnionArray } from '@tfx-diagram/diagram/util/misc-functions';
 import { ColorRef, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { ControlShape } from '../control-shape';
-import { AllShapeProps, GroupConfig, GroupProps, ShapeProps, SharedProperties } from '../props';
+import { getShapeArrayFromIdArray } from '../original-shape-misc-functions';
+import {
+  AllShapeProps,
+  GroupConfig,
+  GroupProps,
+  ShapeProps,
+  SharedProperties,
+} from '../props';
 import { Shape } from '../shape';
-import { getShapeArrayFromIdArray } from '../shape-misc-functions';
 import { groupHighlightFrame } from './frames/group-highlight-frame';
 import { groupSelectFrame } from './frames/group-select-frame';
 
@@ -160,7 +166,10 @@ const getGroupBoundingRect = (group: Group, shapes: Map<string, Shape>): Rect =>
   return rectUnionArray(boundingBoxes);
 };
 
-const getTopLevelGroupFromId = (id: string, shapes: Map<string, Shape>): Group | undefined => {
+const getTopLevelGroupFromId = (
+  id: string,
+  shapes: Map<string, Shape>
+): Group | undefined => {
   const g = shapes.get(id);
   if (g && g.shapeType === 'group') {
     return getTopLevelGroup(g as Group, shapes);

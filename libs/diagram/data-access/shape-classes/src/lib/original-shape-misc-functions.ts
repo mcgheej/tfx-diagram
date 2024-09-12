@@ -60,24 +60,36 @@ export const getShapeArrayFromMapList = (
  * Simply works through the supplied array setting the previous and
  * next id links to link the shapes togather.
  */
-export const linkShapeArray = (shapes: Shape[]): Shape[] => {
-  if (shapes.length === 0) {
+export function linkShapeArray(shapes: Shape[]): Shape[] {
+  const l = shapes.length;
+  if (l === 0) {
     return shapes;
   }
-  if (shapes.length === 1) {
-    shapes[0].prevShapeId = '';
-    shapes[0].nextShapeId = '';
-    return shapes;
-  }
+
   shapes[0].prevShapeId = '';
-  shapes[0].nextShapeId = shapes[1].id;
-  for (let i = 1; i < shapes.length - 1; i++) {
+  for (let i = 1; i < l; i++) {
+    shapes[i - 1].nextShapeId = shapes[i].id;
     shapes[i].prevShapeId = shapes[i - 1].id;
-    shapes[i].nextShapeId = shapes[i + 1].id;
   }
-  shapes[shapes.length - 1].prevShapeId = shapes[shapes.length - 2].id;
-  shapes[shapes.length - 1].nextShapeId = '';
+  shapes[l - 1].nextShapeId = '';
+
   return shapes;
+}
+
+export const getShape = (
+  id: string,
+  modifiedShapes: Map<string, Shape>,
+  shapes: Map<string, Shape>
+): Shape | undefined => {
+  let shape = modifiedShapes.get(id);
+  if (shape) {
+    return shape;
+  }
+  shape = shapes.get(id);
+  if (shape) {
+    return shape.copy({});
+  }
+  return undefined;
 };
 
 export const bringShapesToFrontById = (
@@ -97,7 +109,7 @@ export const bringShapesToFrontById = (
     firstId,
     lastId
   );
-  let { selectedShapes, newFirstId, newLastId } = result;
+  let { unlinkedShapes: selectedShapes, newFirstId, newLastId } = result;
   const { modifiedShapes } = result;
   selectedShapes = linkShapeArray(selectedShapes);
   selectedShapes.map((s) => modifiedShapes.set(s.id, s));
@@ -228,26 +240,28 @@ export const unlinkShapesById = (
 ): {
   newFirstId: string;
   newLastId: string;
-  selectedShapes: Shape[];
+  unlinkedShapes: Shape[];
   modifiedShapes: Map<string, Shape>;
 } => {
-  const selectedShapes: Shape[] = [];
+  const unlinkedShapes: Shape[] = [];
   let newFirstId = firstId;
   let newLastId = lastId;
   ids.map((id) => {
     const s = getShape(id, modifiedShapes, shapes);
     if (s && s.shapeType !== 'group') {
-      selectedShapes.push(s.copy({}));
+      unlinkedShapes.push(s.copy({}));
       if (s.prevShapeId) {
         if (s.nextShapeId) {
           unlinkMidShape(s, modifiedShapes, shapes);
         } else {
-          modifiedShapes = unlinkLastShape(s, modifiedShapes, shapes);
-          newLastId = s.prevShapeId;
+          const r = unlinkLastShape(s, modifiedShapes, shapes);
+          modifiedShapes = r.modifiedShapes;
+          newLastId = r.newLastId;
         }
       } else if (s.nextShapeId) {
-        modifiedShapes = unlinkFirstShape(s, modifiedShapes, shapes);
-        newFirstId = s.nextShapeId;
+        const r = unlinkFirstShape(s, modifiedShapes, shapes);
+        modifiedShapes = r.modifiedShapes;
+        newFirstId = r.newFirstId;
       } else {
         // Only shape
         newFirstId = '';
@@ -259,38 +273,28 @@ export const unlinkShapesById = (
   return {
     newFirstId,
     newLastId,
-    selectedShapes,
+    unlinkedShapes,
     modifiedShapes,
   };
-};
-
-export const getShape = (
-  id: string,
-  modifiedShapes: Map<string, Shape>,
-  shapes: Map<string, Shape>
-): Shape | undefined => {
-  let shape = modifiedShapes.get(id);
-  if (shape) {
-    return shape;
-  }
-  shape = shapes.get(id);
-  if (shape) {
-    return shape.copy({});
-  }
-  return undefined;
 };
 
 const unlinkFirstShape = (
   s: Shape,
   modifiedShapes: Map<string, Shape>,
   shapes: Map<string, Shape>
-): Map<string, Shape> => {
+): {
+  newFirstId: string;
+  modifiedShapes: Map<string, Shape>;
+} => {
   const newFirstShape = getShape(s.nextShapeId, modifiedShapes, shapes);
   if (newFirstShape) {
     newFirstShape.prevShapeId = '';
     modifiedShapes.set(newFirstShape.id, newFirstShape);
   }
-  return modifiedShapes;
+  return {
+    newFirstId: s.nextShapeId,
+    modifiedShapes,
+  };
 };
 
 const unlinkMidShape = (
@@ -313,11 +317,17 @@ const unlinkLastShape = (
   s: Shape,
   modifiedShapes: Map<string, Shape>,
   shapes: Map<string, Shape>
-): Map<string, Shape> => {
+): {
+  newLastId: string;
+  modifiedShapes: Map<string, Shape>;
+} => {
   const newLastShape = getShape(s.prevShapeId, modifiedShapes, shapes);
   if (newLastShape) {
     newLastShape.nextShapeId = '';
     modifiedShapes.set(newLastShape.id, newLastShape);
   }
-  return modifiedShapes;
+  return {
+    newLastId: s.prevShapeId,
+    modifiedShapes,
+  };
 };

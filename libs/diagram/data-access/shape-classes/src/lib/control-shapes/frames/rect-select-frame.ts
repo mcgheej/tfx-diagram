@@ -1,6 +1,6 @@
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
+import { linkShapeArray } from '../../original-shape-misc-functions';
 import { Shape } from '../../shape';
-import { linkShapeArray } from '../../shape-misc-functions';
 import { RectangularReshapersConfig } from '../../types/rectangular-reshapers-config';
 import { Handle } from '../handle';
 import { RectangleOutline } from '../rectangle-outline';

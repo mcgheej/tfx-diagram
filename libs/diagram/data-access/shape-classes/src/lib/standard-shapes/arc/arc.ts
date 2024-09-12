@@ -13,10 +13,16 @@ import { arcSelectFrame } from '../../control-shapes/frames/arc-select-frame';
 import { Group } from '../../control-shapes/group';
 import { Handle } from '../../control-shapes/handle';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline';
-import { AllShapeProps, ArcConfig, ArcProps, ShapeProps, SharedProperties } from '../../props';
+import { linkShapeArray } from '../../original-shape-misc-functions';
+import {
+  AllShapeProps,
+  ArcConfig,
+  ArcProps,
+  ShapeProps,
+  SharedProperties,
+} from '../../props';
 import { NopReshaper } from '../../reshaper/reshaper';
 import { Shape } from '../../shape';
-import { linkShapeArray } from '../../shape-misc-functions';
 import { calcArcBoundingBox, getArcEndpoints } from './calc-arc-bounding-box';
 
 export const arcDefaults: Omit<ArcProps, keyof ShapeProps> = {
@@ -274,7 +280,11 @@ export class Arc extends Shape implements ArcProps {
     }
   }
 
-  private drawArcShadow(c: CanvasRenderingContext2D, params: DrawingParams, t: Transform) {
+  private drawArcShadow(
+    c: CanvasRenderingContext2D,
+    params: DrawingParams,
+    t: Transform
+  ) {
     const { x, y } = params;
     let { lineWidth, radius } = params;
     lineWidth = Math.max(lineWidth, 2);
@@ -312,7 +322,13 @@ export class Arc extends Shape implements ArcProps {
   }
 
   private arcHighlightHandles(): Shape[] {
-    const { a, b } = getArcEndpoints(this.x, this.y, this.radius, this.sAngle, this.eAngle);
+    const { a, b } = getArcEndpoints(
+      this.x,
+      this.y,
+      this.radius,
+      this.sAngle,
+      this.eAngle
+    );
     let controlFrame: Shape[] = [
       new Handle({
         id: Shape.generateId(),

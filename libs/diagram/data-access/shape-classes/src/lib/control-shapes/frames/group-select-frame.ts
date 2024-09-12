@@ -1,7 +1,7 @@
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
+import { linkShapeArray } from '../../original-shape-misc-functions';
 import { NopReshaper } from '../../reshaper/reshaper';
 import { Shape } from '../../shape';
-import { linkShapeArray } from '../../shape-misc-functions';
 import { GROUP_OUTLINE_COLOR } from '../../types/constants';
 import { Handle } from '../handle';
 import { RectangleOutline } from '../rectangle-outline';

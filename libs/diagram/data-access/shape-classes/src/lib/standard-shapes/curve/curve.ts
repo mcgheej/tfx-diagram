@@ -21,6 +21,7 @@ import { Group } from '../../control-shapes/group';
 import { Handle } from '../../control-shapes/handle';
 import { Endpoint } from '../../endpoints';
 import { calcBezierValue } from '../../misc-functions';
+import { linkShapeArray } from '../../original-shape-misc-functions';
 import {
   AllShapeProps,
   CurveConfig,
@@ -30,7 +31,6 @@ import {
 } from '../../props';
 import { NopReshaper } from '../../reshaper/reshaper';
 import { Shape } from '../../shape';
-import { linkShapeArray } from '../../shape-misc-functions';
 import { CurveFinalReshaper } from './reshapers/curve-final-reshaper';
 import { CurveStartReshaper } from './reshapers/curve-start-reshaper';
 
@@ -67,7 +67,9 @@ export class Curve extends Connector implements CurveProps {
     this.lineWidth = config.lineWidth ?? curveDefaults.lineWidth;
     this.strokeStyle = config.strokeStyle ?? curveDefaults.strokeStyle;
     this.startEndpoint =
-      config.startEndpoint === undefined ? curveDefaults.startEndpoint : config.startEndpoint;
+      config.startEndpoint === undefined
+        ? curveDefaults.startEndpoint
+        : config.startEndpoint;
     this.finishEndpoint =
       config.finishEndpoint === undefined
         ? curveDefaults.finishEndpoint
@@ -118,7 +120,8 @@ export class Curve extends Connector implements CurveProps {
       lineWidth: a.lineWidth ?? this.lineWidth,
       strokeStyle: a.strokeStyle ?? this.strokeStyle,
       startEndpoint: a.startEndpoint === undefined ? this.startEndpoint : a.startEndpoint,
-      finishEndpoint: a.finishEndpoint === undefined ? this.finishEndpoint : a.finishEndpoint,
+      finishEndpoint:
+        a.finishEndpoint === undefined ? this.finishEndpoint : a.finishEndpoint,
     } as CurveProps);
     return c;
   }
@@ -241,7 +244,8 @@ export class Curve extends Connector implements CurveProps {
     const newCps: Point[] = [];
     const b = this.boundingBox();
     this.controlPoints.map((cp) => {
-      const x = resizeOption === 'heightOnly' ? cp.x : ((cp.x - b.x) * r.width) / b.width + b.x;
+      const x =
+        resizeOption === 'heightOnly' ? cp.x : ((cp.x - b.x) * r.width) / b.width + b.x;
       const y =
         resizeOption === 'widthOnly' ? cp.y : ((cp.y - b.y) * r.height) / b.height + b.y;
       newCps.push({ x, y });
