@@ -1,7 +1,7 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
+import { Circle } from '../shape-hierarchy/drawable-shapes/basic-shapes/circle/circle';
 import { Connector } from '../shape-hierarchy/drawable-shapes/connectors/connector';
 import { Shape } from '../shape-hierarchy/shape';
-import { Circle } from '../standard-shapes/circle/circle';
 import { Connection, ConnectionProps } from './connection';
 
 /**

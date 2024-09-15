@@ -7,9 +7,9 @@ import {
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { ControlShape } from '../control-shape';
 import { AllShapeProps, ArcConfig, ArcProps, SharedProperties } from '../props';
+import { arcDefaults } from '../shape-hierarchy/drawable-shapes/basic-shapes/arc/arc';
+import { calcArcBoundingBox } from '../shape-hierarchy/drawable-shapes/basic-shapes/arc/calc-arc-bounding-box';
 import { Shape } from '../shape-hierarchy/shape';
-import { arcDefaults } from '../standard-shapes/arc/arc';
-import { calcArcBoundingBox } from '../standard-shapes/arc/calc-arc-bounding-box';
 import { DEFAULT_OUTLINE_COLOUR } from '../types';
 
 type DrawingParams = Pick<ArcProps, 'x' | 'y' | 'radius'>;

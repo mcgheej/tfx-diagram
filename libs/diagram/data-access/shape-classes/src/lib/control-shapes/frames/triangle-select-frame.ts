@@ -1,7 +1,7 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { linkShapeArray } from '../../misc-functions';
+import { TriangleControlPointReshaper } from '../../shape-hierarchy/drawable-shapes/basic-shapes/triangle/reshapers/triangle-control-point-reshaper';
 import { Shape } from '../../shape-hierarchy/shape';
-import { TriangleControlPointReshaper } from '../../standard-shapes/triangle/reshapers/triangle-control-point-reshaper';
 import { Handle } from '../handle';
 import { LineOutline } from '../line-outline';
 

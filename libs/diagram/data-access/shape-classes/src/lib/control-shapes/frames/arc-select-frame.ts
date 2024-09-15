@@ -2,11 +2,11 @@ import { pointAdd, pointFromPolarPoint } from '@tfx-diagram/diagram/util/misc-fu
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { linkShapeArray } from '../../misc-functions';
 import { Reshaper } from '../../reshaper/reshaper';
+import { Arc } from '../../shape-hierarchy/drawable-shapes/basic-shapes/arc/arc';
+import { ArcEangleReshaper } from '../../shape-hierarchy/drawable-shapes/basic-shapes/arc/reshapers/arc-eangle-reshaper';
+import { ArcRadiusReshaper } from '../../shape-hierarchy/drawable-shapes/basic-shapes/arc/reshapers/arc-radius-reshaper';
+import { ArcSangleReshaper } from '../../shape-hierarchy/drawable-shapes/basic-shapes/arc/reshapers/arc-sangle-reshaper';
 import { Shape } from '../../shape-hierarchy/shape';
-import { Arc } from '../../standard-shapes/arc/arc';
-import { ArcEangleReshaper } from '../../standard-shapes/arc/reshapers/arc-eangle-reshaper';
-import { ArcRadiusReshaper } from '../../standard-shapes/arc/reshapers/arc-radius-reshaper';
-import { ArcSangleReshaper } from '../../standard-shapes/arc/reshapers/arc-sangle-reshaper';
 import { ARC_HANDLE_LENGTH } from '../../types/constants';
 import { ArcOutline } from '../arc-outline';
 import { Handle } from '../handle';

@@ -13,8 +13,8 @@ import {
   RectangleProps,
   SharedProperties,
 } from '../props';
+import { rectangleDefaults } from '../shape-hierarchy/drawable-shapes/basic-shapes/rectangle/rectangle';
 import { Shape } from '../shape-hierarchy/shape';
-import { rectangleDefaults } from '../standard-shapes/rectangle/rectangle';
 import { DEFAULT_OUTLINE_COLOUR } from '../types';
 
 type DrawingParams = Pick<RectangleProps, 'x' | 'y' | 'width' | 'height'>;
