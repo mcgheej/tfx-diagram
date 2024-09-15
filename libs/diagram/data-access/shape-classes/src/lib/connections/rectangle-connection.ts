@@ -1,6 +1,6 @@
 import { lineInterpolate } from '../misc-functions';
-import { Shape } from '../shape';
 import { Connector } from '../shape-hierarchy/drawable-shapes/connectors/connector';
+import { Shape } from '../shape-hierarchy/shape';
 import { Rectangle } from '../standard-shapes/rectangle/rectangle';
 import { Connection, ConnectionProps } from './connection';
 

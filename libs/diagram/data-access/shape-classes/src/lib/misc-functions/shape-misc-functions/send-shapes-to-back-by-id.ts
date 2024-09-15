@@ -1,4 +1,4 @@
-import { Shape } from '../../shape';
+import { Shape } from '../../shape-hierarchy/shape';
 import { getDrawableShapeIdsInSelection } from '../misc-functions';
 import { getShape } from './get-shape';
 import { linkShapeArray } from './link-shape-array';

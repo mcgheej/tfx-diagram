@@ -1,4 +1,4 @@
-import { Shape } from '../../shape';
+import { Shape } from '../../shape-hierarchy/shape';
 import { getShape } from './get-shape';
 
 /**

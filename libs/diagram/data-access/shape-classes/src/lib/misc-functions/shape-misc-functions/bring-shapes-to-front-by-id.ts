@@ -1,5 +1,5 @@
 import { getDrawableShapeIdsInSelection } from '../../misc-functions';
-import { Shape } from '../../shape';
+import { Shape } from '../../shape-hierarchy/shape';
 import { getShape } from './get-shape';
 import { linkShapeArray } from './link-shape-array';
 import { unlinkShapesById } from './unlink-shapes-by-id';

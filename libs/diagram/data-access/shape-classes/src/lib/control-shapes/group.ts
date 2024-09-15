@@ -10,7 +10,7 @@ import {
   ShapeProps,
   SharedProperties,
 } from '../props';
-import { Shape } from '../shape';
+import { Shape } from '../shape-hierarchy/shape';
 import { groupHighlightFrame } from './frames/group-highlight-frame';
 import { groupSelectFrame } from './frames/group-select-frame';
 

@@ -1,5 +1,9 @@
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
-import { ColorRef, Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
+import {
+  ColorRef,
+  Point,
+  Transform,
+} from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { ControlShape } from '../control-shape';
 import {
@@ -12,7 +16,7 @@ import {
   SharedProperties,
 } from '../props';
 import { Reshaper } from '../reshaper/reshaper';
-import { Shape } from '../shape';
+import { Shape } from '../shape-hierarchy/shape';
 import { DEFAULT_OUTLINE_COLOUR } from '../types';
 
 const handleDefaults: Omit<HandleProps, keyof ShapeProps | 'x' | 'y' | 'reshaper'> = {

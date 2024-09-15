@@ -3,7 +3,7 @@ import { Handle } from '../../../control-shapes/handle';
 import { LineOutline } from '../../../control-shapes/line-outline';
 import { gridSnapPoint } from '../../../misc-functions';
 import { Reshaper } from '../../../reshaper/reshaper';
-import { Shape } from '../../../shape';
+import { Shape } from '../../../shape-hierarchy/shape';
 import { Triangle } from '../triangle';
 
 export class TriangleControlPointReshaper extends Reshaper {

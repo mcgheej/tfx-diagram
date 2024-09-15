@@ -7,8 +7,13 @@ import {
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { ControlShape } from '../control-shape';
-import { AllShapeProps, RectangleConfig, RectangleProps, SharedProperties } from '../props';
-import { Shape } from '../shape';
+import {
+  AllShapeProps,
+  RectangleConfig,
+  RectangleProps,
+  SharedProperties,
+} from '../props';
+import { Shape } from '../shape-hierarchy/shape';
 import { rectangleDefaults } from '../standard-shapes/rectangle/rectangle';
 import { DEFAULT_OUTLINE_COLOUR } from '../types';
 
@@ -26,7 +31,12 @@ export class RectangleOutline extends ControlShape implements RectangleProps {
   textConfig: TextBoxConfig;
 
   constructor(config: RectangleConfig) {
-    super({ ...config, shapeType: 'rectangleOutline', cursor: 'move', selectable: false });
+    super({
+      ...config,
+      shapeType: 'rectangleOutline',
+      cursor: 'move',
+      selectable: false,
+    });
     this.x = config.x ?? rectangleDefaults.x;
     this.y = config.y ?? rectangleDefaults.y;
     this.width = config.width ?? rectangleDefaults.width;

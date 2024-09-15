@@ -1,5 +1,5 @@
 import { Group } from '../../control-shapes/group';
-import { Shape } from '../../shape';
+import { Shape } from '../../shape-hierarchy/shape';
 
 /**
  * Returns ids of all shapes in the selection (includes shapes within

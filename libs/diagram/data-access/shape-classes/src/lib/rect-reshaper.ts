@@ -2,7 +2,7 @@ import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Handle } from './control-shapes/handle';
 import { RectangleOutline } from './control-shapes/rectangle-outline';
 import { Reshaper } from './reshaper/reshaper';
-import { Shape } from './shape';
+import { Shape } from './shape-hierarchy/shape';
 import { Circle } from './standard-shapes/circle/circle';
 import { Rectangle } from './standard-shapes/rectangle/rectangle';
 

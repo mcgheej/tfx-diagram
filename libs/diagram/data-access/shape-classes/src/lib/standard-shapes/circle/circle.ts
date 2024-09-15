@@ -27,7 +27,7 @@ import {
   ShapeProps,
   SharedProperties,
 } from '../../props';
-import { Shape } from '../../shape';
+import { Shape } from '../../shape-hierarchy/shape';
 import { PX_BOUNDARY_DETECTION_THRESHOLD } from '../../types';
 import { circleReshapersConfig } from './circle-reshapers-config';
 

@@ -1,7 +1,7 @@
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { linkShapeArray } from '../../misc-functions';
 import { NopReshaper } from '../../reshaper/reshaper';
-import { Shape } from '../../shape';
+import { Shape } from '../../shape-hierarchy/shape';
 import { Handle } from '../handle';
 
 export const rectHighlightHandles = (rect: Rect, associatedShapeId: string): Shape[] => {

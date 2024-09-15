@@ -3,7 +3,7 @@ import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-type
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { gridSnapPoint } from '../../../misc-functions';
 import { RectReshaper } from '../../../rect-reshaper';
-import { Shape } from '../../../shape';
+import { Shape } from '../../../shape-hierarchy/shape';
 import { MIN_RECTANGLE_DIMENSION } from '../../../types';
 import { Rectangle } from '../rectangle';
 
@@ -17,7 +17,11 @@ export class RectangleNwReshaper extends RectReshaper {
    *          handle
    *
    */
-  modifiedShape(newHandlePos: Point, associatedShape: Shape, gridProps: GridProps): Shape {
+  modifiedShape(
+    newHandlePos: Point,
+    associatedShape: Shape,
+    gridProps: GridProps
+  ): Shape {
     const associatedRectangle = associatedShape as Rectangle;
     const newPos = gridSnapPoint(newHandlePos, gridProps);
     const newRect = this.nwReshape(newPos, {

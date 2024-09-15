@@ -7,14 +7,14 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { Connection } from './connections/connection';
+import { Connection } from '../connections/connection';
 import {
   AllShapeProps,
   ShapeConfig,
   ShapeCursors,
   ShapeProps,
   ShapeTypes,
-} from './props';
+} from '../props';
 
 /**
  * Default values used for ShapeProps properties if the properties

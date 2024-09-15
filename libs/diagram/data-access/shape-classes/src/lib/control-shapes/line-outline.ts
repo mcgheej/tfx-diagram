@@ -15,8 +15,8 @@ import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { ControlShape } from '../control-shape';
 import { Endpoint } from '../endpoints';
 import { AllShapeProps, LineConfig, LineProps, SharedProperties } from '../props';
-import { Shape } from '../shape';
 import { lineDefaults } from '../shape-hierarchy/drawable-shapes/connectors/line/line';
+import { Shape } from '../shape-hierarchy/shape';
 import { DEFAULT_OUTLINE_COLOUR } from '../types';
 
 type DrawingParams = Pick<LineProps, 'controlPoints'>;

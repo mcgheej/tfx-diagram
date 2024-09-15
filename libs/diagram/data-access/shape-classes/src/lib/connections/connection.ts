@@ -1,5 +1,5 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { Shape } from '../shape';
+import { Shape } from '../shape-hierarchy/shape';
 import { ConnectionTypes } from './connection-types';
 
 export type ConnectorEndTypes = 'connectorStart' | 'connectorFinish';

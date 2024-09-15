@@ -1,6 +1,6 @@
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Connection } from '../connections/connection';
-import { Shape } from '../shape';
+import { Shape } from '../shape-hierarchy/shape';
 
 export abstract class Reshaper {
   abstract modifiedShape(

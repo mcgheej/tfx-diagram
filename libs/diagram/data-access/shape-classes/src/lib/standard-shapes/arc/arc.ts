@@ -22,7 +22,7 @@ import {
   SharedProperties,
 } from '../../props';
 import { NopReshaper } from '../../reshaper/reshaper';
-import { Shape } from '../../shape';
+import { Shape } from '../../shape-hierarchy/shape';
 import { calcArcBoundingBox, getArcEndpoints } from './calc-arc-bounding-box';
 
 export const arcDefaults: Omit<ArcProps, keyof ShapeProps> = {

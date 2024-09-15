@@ -1,9 +1,13 @@
 import { ColorMapRef } from '@tfx-diagram/diagram/data-access/color-classes';
-import { ColorRef, Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
+import {
+  ColorRef,
+  Point,
+  Transform,
+} from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { ControlShape } from '../control-shape';
 import { AllShapeProps, ArcConfig, ArcProps, SharedProperties } from '../props';
-import { Shape } from '../shape';
+import { Shape } from '../shape-hierarchy/shape';
 import { arcDefaults } from '../standard-shapes/arc/arc';
 import { calcArcBoundingBox } from '../standard-shapes/arc/calc-arc-bounding-box';
 import { DEFAULT_OUTLINE_COLOUR } from '../types';

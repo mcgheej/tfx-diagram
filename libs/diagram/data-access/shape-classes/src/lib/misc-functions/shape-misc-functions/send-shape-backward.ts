@@ -1,5 +1,5 @@
 /* eslint-disable prefer-const */
-import { Shape } from '../../shape';
+import { Shape } from '../../shape-hierarchy/shape';
 import { getShape } from './get-shape';
 import { unlinkShapesById } from './unlink-shapes-by-id';
 

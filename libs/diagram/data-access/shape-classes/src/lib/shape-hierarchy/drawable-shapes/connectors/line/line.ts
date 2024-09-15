@@ -28,7 +28,7 @@ import {
   SharedProperties,
 } from '../../../../props';
 import { NopReshaper } from '../../../../reshaper/reshaper';
-import { Shape } from '../../../../shape';
+import { Shape } from '../../../shape';
 import { Connector } from '../connector';
 import { LineControlPointReshaper } from './reshapers/line-control-point-reshaper';
 

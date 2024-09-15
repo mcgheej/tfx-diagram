@@ -28,7 +28,7 @@ import {
   SharedProperties,
 } from '../../../../props';
 import { NopReshaper } from '../../../../reshaper/reshaper';
-import { Shape } from '../../../../shape';
+import { Shape } from '../../../shape';
 import { Connector } from '../connector';
 import { CurveFinalReshaper } from './reshapers/curve-final-reshaper';
 import { CurveStartReshaper } from './reshapers/curve-start-reshaper';

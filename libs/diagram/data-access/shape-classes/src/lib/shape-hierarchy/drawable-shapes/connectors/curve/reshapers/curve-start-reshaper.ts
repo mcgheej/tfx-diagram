@@ -7,7 +7,7 @@ import {
   gridSnapPoint,
   lineInterpolate,
 } from '../../../../../misc-functions';
-import { Shape } from '../../../../../shape';
+import { Shape } from '../../../../shape';
 import { Curve } from '../curve';
 import { CurveEndpointReshaper } from './curve-endpoint-reshaper';
 

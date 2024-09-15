@@ -1,7 +1,6 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { HandleProps, HandleTypes, ShapeCursors } from '../../props';
 import { NopReshaper, Reshaper } from '../../reshaper/reshaper';
-import { Shape } from '../../shape';
 import { CurveFinalReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-final-reshaper';
 import { CurveFree1Reshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-free1-reshaper';
 import { CurveFree2Reshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-free2-reshaper';
@@ -10,6 +9,7 @@ import { CurveMidPointReshaper } from '../../shape-hierarchy/drawable-shapes/con
 import { CurvePostlinkReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-postlink-reshaper';
 import { CurvePrelinkReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-prelink-reshaper';
 import { CurveStartReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-start-reshaper';
+import { Shape } from '../../shape-hierarchy/shape';
 import { Handle } from '../handle';
 
 type PartHandleProps = Pick<

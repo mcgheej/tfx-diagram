@@ -6,7 +6,7 @@ import {
   lineInterpolate,
   realignPoint,
 } from '../../../../../misc-functions';
-import { Shape } from '../../../../../shape';
+import { Shape } from '../../../../shape';
 import { Curve } from '../curve';
 import { CurveNonEndpointReshaper } from './curve-non-endpoint-reshaper';
 

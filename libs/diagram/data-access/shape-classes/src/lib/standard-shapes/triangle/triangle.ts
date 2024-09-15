@@ -28,7 +28,7 @@ import {
   TriangleConfig,
   TriangleProps,
 } from '../../props';
-import { Shape } from '../../shape';
+import { Shape } from '../../shape-hierarchy/shape';
 import { LineAttachParams, checkLine } from '../line-segment-attach-functions';
 import { outsideDetectionRect } from '../rectangle/rectangle-attach-functions';
 

@@ -2,7 +2,7 @@ import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-type
 import { Handle } from '../../../../../control-shapes/handle';
 import { LineOutline } from '../../../../../control-shapes/line-outline';
 import { calcBezierPoint, lineInterpolate } from '../../../../../misc-functions';
-import { Shape } from '../../../../../shape';
+import { Shape } from '../../../../shape';
 import { Curve } from '../curve';
 import { CurveNonEndpointReshaper } from './curve-non-endpoint-reshaper';
 

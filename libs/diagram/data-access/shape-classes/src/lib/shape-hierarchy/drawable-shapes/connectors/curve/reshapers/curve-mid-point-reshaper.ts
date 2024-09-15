@@ -7,7 +7,7 @@ import { getLineOutline } from '../../../../../control-shapes/frames/frame-line.
 import { Handle } from '../../../../../control-shapes/handle';
 import { LineOutline } from '../../../../../control-shapes/line-outline';
 import { calcBezierPoint, lineInterpolate } from '../../../../../misc-functions';
-import { Shape } from '../../../../../shape';
+import { Shape } from '../../../../shape';
 import { Curve } from '../curve';
 import { CurveLinkReshaper } from './curve-link-reshaper';
 import { CurveNonEndpointReshaper } from './curve-non-endpoint-reshaper';

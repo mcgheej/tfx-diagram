@@ -1,7 +1,7 @@
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Handle } from '../../../../../control-shapes/handle';
 import { lineInterpolate } from '../../../../../misc-functions';
-import { Shape } from '../../../../../shape';
+import { Shape } from '../../../../shape';
 import { Line } from '../line';
 import { LineControlPointReshaper } from './line-control-point-reshaper';
 import { LineReshaper } from './line-reshaper';

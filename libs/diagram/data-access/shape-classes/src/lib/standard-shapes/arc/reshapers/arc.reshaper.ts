@@ -3,7 +3,7 @@ import { ArcOutline } from '../../../control-shapes/arc-outline';
 import { Handle } from '../../../control-shapes/handle';
 import { LineOutline } from '../../../control-shapes/line-outline';
 import { Reshaper } from '../../../reshaper/reshaper';
-import { Shape } from '../../../shape';
+import { Shape } from '../../../shape-hierarchy/shape';
 import { ARC_HANDLE_LENGTH } from '../../../types/constants';
 import { Arc } from '../arc';
 
@@ -40,10 +40,18 @@ export abstract class ArcReshaper extends Reshaper {
     modifiedControlFrame.push(
       (controlFrame[1] as LineOutline).copy({ controlPoints: [c, ePoint] })
     );
-    modifiedControlFrame.push((controlFrame[2] as ArcOutline).copy({ radius, sAngle, eAngle }));
-    modifiedControlFrame.push((controlFrame[3] as Handle).copy({ x: sPoint.x, y: sPoint.y }));
-    modifiedControlFrame.push((controlFrame[4] as Handle).copy({ x: ePoint.x, y: ePoint.y }));
-    modifiedControlFrame.push((controlFrame[5] as Handle).copy({ x: mPoint.x, y: mPoint.y }));
+    modifiedControlFrame.push(
+      (controlFrame[2] as ArcOutline).copy({ radius, sAngle, eAngle })
+    );
+    modifiedControlFrame.push(
+      (controlFrame[3] as Handle).copy({ x: sPoint.x, y: sPoint.y })
+    );
+    modifiedControlFrame.push(
+      (controlFrame[4] as Handle).copy({ x: ePoint.x, y: ePoint.y })
+    );
+    modifiedControlFrame.push(
+      (controlFrame[5] as Handle).copy({ x: mPoint.x, y: mPoint.y })
+    );
 
     return modifiedControlFrame;
   }
