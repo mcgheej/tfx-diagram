@@ -1,6 +1,5 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { lineInterpolate } from '../../misc-functions';
-import { linkShapeArray } from '../../original-shape-misc-functions';
+import { lineInterpolate, linkShapeArray } from '../../misc-functions';
 import { Shape } from '../../shape';
 import { Handle } from '../handle';
 import {

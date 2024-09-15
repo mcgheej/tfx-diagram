@@ -13,7 +13,7 @@ import { arcSelectFrame } from '../../control-shapes/frames/arc-select-frame';
 import { Group } from '../../control-shapes/group';
 import { Handle } from '../../control-shapes/handle';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline';
-import { linkShapeArray } from '../../original-shape-misc-functions';
+import { linkShapeArray } from '../../misc-functions';
 import {
   AllShapeProps,
   ArcConfig,

@@ -2,7 +2,7 @@ import { rectUnionArray } from '@tfx-diagram/diagram/util/misc-functions';
 import { ColorRef, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { ControlShape } from '../control-shape';
-import { getShapeArrayFromIdArray } from '../original-shape-misc-functions';
+import { getShapeArrayFromIdArray } from '../misc-functions';
 import {
   AllShapeProps,
   GroupConfig,

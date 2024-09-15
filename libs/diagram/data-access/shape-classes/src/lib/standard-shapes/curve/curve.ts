@@ -20,8 +20,7 @@ import { curveSelectFrame } from '../../control-shapes/frames/curve-select-frame
 import { Group } from '../../control-shapes/group';
 import { Handle } from '../../control-shapes/handle';
 import { Endpoint } from '../../endpoints';
-import { calcBezierValue } from '../../misc-functions';
-import { linkShapeArray } from '../../original-shape-misc-functions';
+import { calcBezierValue, linkShapeArray } from '../../misc-functions';
 import {
   AllShapeProps,
   CurveConfig,

@@ -10,7 +10,6 @@ export * from './lib/control-shapes/handle';
 export * from './lib/control-shapes/rectangle-outline';
 export * from './lib/endpoints';
 export * from './lib/misc-functions';
-// export * from './lib/original-shape-misc-functions';
 export * from './lib/props';
 export * from './lib/reshaper/reshaper';
 export * from './lib/shape';

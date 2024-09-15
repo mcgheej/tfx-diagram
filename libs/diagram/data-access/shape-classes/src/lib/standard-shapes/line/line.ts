@@ -20,7 +20,7 @@ import { lineSelectFrame } from '../../control-shapes/frames/line-select-frame';
 import { Group } from '../../control-shapes/group';
 import { Handle } from '../../control-shapes/handle';
 import { Endpoint } from '../../endpoints';
-import { linkShapeArray } from '../../original-shape-misc-functions';
+import { linkShapeArray } from '../../misc-functions';
 import {
   AllShapeProps,
   LineConfig,
