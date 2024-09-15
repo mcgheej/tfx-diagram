@@ -14,7 +14,7 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { Connection, ConnectorEndTypes } from '../../connection';
+import { Connection, ConnectorEndTypes } from '../../connections/connection';
 import { Connector } from '../../connector';
 import { lineSelectFrame } from '../../control-shapes/frames/line-select-frame';
 import { Group } from '../../control-shapes/group';

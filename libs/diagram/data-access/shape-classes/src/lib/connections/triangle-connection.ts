@@ -1,8 +1,8 @@
-import { Connection, ConnectionProps } from '../../connection';
-import { Connector } from '../../connector';
-import { lineInterpolate } from '../../misc-functions';
-import { Shape } from '../../shape';
-import { Triangle } from '../../standard-shapes/triangle/triangle';
+import { Connector } from '../connector';
+import { lineInterpolate } from '../misc-functions';
+import { Shape } from '../shape';
+import { Triangle } from '../standard-shapes/triangle/triangle';
+import { Connection, ConnectionProps } from './connection';
 
 export interface TriangleConnectionProps extends ConnectionProps {
   index: number;

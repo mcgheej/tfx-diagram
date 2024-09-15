@@ -7,8 +7,14 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { Connection } from './connection';
-import { AllShapeProps, ShapeConfig, ShapeCursors, ShapeProps, ShapeTypes } from './props';
+import { Connection } from './connections/connection';
+import {
+  AllShapeProps,
+  ShapeConfig,
+  ShapeCursors,
+  ShapeProps,
+  ShapeTypes,
+} from './props';
 
 /**
  * Default values used for ShapeProps properties if the properties
@@ -103,7 +109,9 @@ export abstract class Shape implements ShapeProps {
    * then the initial value is taken from the shapeDefaults constant
    */
   constructor(config: ShapeConfig) {
-    (this.id = config.id), (this.shapeType = config.shapeType), (this.cursor = config.cursor);
+    (this.id = config.id),
+      (this.shapeType = config.shapeType),
+      (this.cursor = config.cursor);
     this.prevShapeId = config.prevShapeId ?? shapeDefaults.prevShapeId;
     this.nextShapeId = config.nextShapeId ?? shapeDefaults.nextShapeId;
     this.groupId = config.groupId ?? shapeDefaults.groupId;

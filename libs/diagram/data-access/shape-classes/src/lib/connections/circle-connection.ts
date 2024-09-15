@@ -1,8 +1,8 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { Circle } from '../../standard-shapes/circle/circle';
-import { Connection, ConnectionProps } from '../../connection';
-import { Connector } from '../../connector';
-import { Shape } from '../../shape';
+import { Connector } from '../connector';
+import { Shape } from '../shape';
+import { Circle } from '../standard-shapes/circle/circle';
+import { Connection, ConnectionProps } from './connection';
 
 /**
  * theta - angle of vector from circle centre to connection point in radians

@@ -1,5 +1,5 @@
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { Connection } from '../../../connection';
+import { Connection } from '../../../connections/connection';
 import { Handle } from '../../../control-shapes/handle';
 import { LineOutline } from '../../../control-shapes/line-outline';
 import { calcBezierPoint, gridSnapPoint, lineInterpolate } from '../../../misc-functions';
@@ -75,7 +75,9 @@ export class CurveFinalReshaper extends CurveEndpointReshaper {
     const p1 = lineInterpolate(cp[end - 1], cp[end], 0.5);
     const m = calcBezierPoint((nSegments - 1) * 3 + 1, cp, 0.5);
     const modifiedShapes = [
-      (controlFrame[2 * nSegments - 1] as LineOutline).copy({ controlPoints: [p1, cp[end]] }),
+      (controlFrame[2 * nSegments - 1] as LineOutline).copy({
+        controlPoints: [p1, cp[end]],
+      }),
       (controlFrame[end - 1 + 2 * nSegments] as Handle).copy({ x: p1.x, y: p1.y }),
       (controlFrame[controlFrame.length - 1] as Handle).copy({ x: m.x, y: m.y }),
       (controlFrame[end + 2 * nSegments] as Handle).copy({ x: cp[end].x, y: cp[end].y }),

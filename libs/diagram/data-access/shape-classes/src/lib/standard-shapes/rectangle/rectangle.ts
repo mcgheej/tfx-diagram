@@ -10,8 +10,8 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { Connection } from '../../connection';
-import { RectangleConnection } from '../../control-shapes/connections/rectangle-connection';
+import { Connection } from '../../connections/connection';
+import { RectangleConnection } from '../../connections/rectangle-connection';
 import { rectHighlightHandles } from '../../control-shapes/frames/rect-highlight-frame';
 import { rectSelectFrame } from '../../control-shapes/frames/rect-select-frame';
 import { Group } from '../../control-shapes/group';
@@ -310,7 +310,11 @@ export class Rectangle extends Shape implements RectangleProps {
     return this.textBox.text;
   }
 
-  private drawRectangle(c: CanvasRenderingContext2D, params: DrawingParams, t: Transform) {
+  private drawRectangle(
+    c: CanvasRenderingContext2D,
+    params: DrawingParams,
+    t: Transform
+  ) {
     const { x, y, width, height } = params;
     let { lineWidth } = params;
     lineWidth = lineWidth * 2;

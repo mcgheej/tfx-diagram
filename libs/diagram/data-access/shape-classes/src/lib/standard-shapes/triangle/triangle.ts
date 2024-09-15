@@ -14,8 +14,8 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { Connection } from '../../connection';
-import { TriangleConnection } from '../../control-shapes/connections/triangle-connection';
+import { Connection } from '../../connections/connection';
+import { TriangleConnection } from '../../connections/triangle-connection';
 import { triangleHighlightFrame } from '../../control-shapes/frames/triangle-highlight-frame';
 import { triangleSelectFrame } from '../../control-shapes/frames/triangle-select-frame';
 import { Group } from '../../control-shapes/group';
@@ -260,7 +260,8 @@ export class Triangle extends Shape implements TriangleProps {
     const newVertices: Point[] = [];
     const b = this.boundingBox();
     this.vertices.map((cp) => {
-      const x = resizeOption === 'heightOnly' ? cp.x : ((cp.x - b.x) * r.width) / b.width + b.x;
+      const x =
+        resizeOption === 'heightOnly' ? cp.x : ((cp.x - b.x) * r.width) / b.width + b.x;
       const y =
         resizeOption === 'widthOnly' ? cp.y : ((cp.y - b.y) * r.height) / b.height + b.y;
       newVertices.push({ x, y });
@@ -348,7 +349,11 @@ export class Triangle extends Shape implements TriangleProps {
     }
   }
 
-  private drawTriangleLines(c: CanvasRenderingContext2D, v: [Point, Point, Point], v3: Point) {
+  private drawTriangleLines(
+    c: CanvasRenderingContext2D,
+    v: [Point, Point, Point],
+    v3: Point
+  ) {
     c.moveTo(v[0].x, v[0].y);
     c.lineTo(v[1].x, v[1].y);
     c.lineTo(v[2].x, v[2].y);

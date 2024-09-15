@@ -1,5 +1,8 @@
-import { ShapeInspectorData, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { Connection } from './connection';
+import {
+  ShapeInspectorData,
+  Transform,
+} from '@tfx-diagram/electron-renderer-web/shared-types';
+import { Connection } from './connections/connection';
 import { Shape } from './shape';
 
 export abstract class ControlShape extends Shape {

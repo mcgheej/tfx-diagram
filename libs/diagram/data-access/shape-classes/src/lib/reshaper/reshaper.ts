@@ -1,6 +1,6 @@
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
+import { Connection } from '../connections/connection';
 import { Shape } from '../shape';
-import { Connection } from '../connection';
 
 export abstract class Reshaper {
   abstract modifiedShape(
@@ -12,7 +12,11 @@ export abstract class Reshaper {
     connectionHook: Connection | null
   ): Shape;
 
-  abstract modifiedControlFrame(shape: Shape, controlFrame: Shape[], handle: Shape): Shape[];
+  abstract modifiedControlFrame(
+    shape: Shape,
+    controlFrame: Shape[],
+    handle: Shape
+  ): Shape[];
 
   abstract modifiedFrameForDrag(controlFrame: Shape[]): Shape[];
 

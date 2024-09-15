@@ -1,8 +1,8 @@
-import { Connection, ConnectionProps } from '../../connection';
-import { Connector } from '../../connector';
-import { lineInterpolate } from '../../misc-functions';
-import { Shape } from '../../shape';
-import { Rectangle } from '../../standard-shapes/rectangle/rectangle';
+import { Connector } from '../connector';
+import { lineInterpolate } from '../misc-functions';
+import { Shape } from '../shape';
+import { Rectangle } from '../standard-shapes/rectangle/rectangle';
+import { Connection, ConnectionProps } from './connection';
 
 export interface RectangleConnectionProps extends ConnectionProps {
   index: number;

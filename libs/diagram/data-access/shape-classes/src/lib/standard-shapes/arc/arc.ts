@@ -8,7 +8,7 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { Connection } from '../../connection';
+import { Connection } from '../../connections/connection';
 import { arcSelectFrame } from '../../control-shapes/frames/arc-select-frame';
 import { Group } from '../../control-shapes/group';
 import { Handle } from '../../control-shapes/handle';

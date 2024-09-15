@@ -14,8 +14,8 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { Connection } from '../../connection';
-import { CircleConnection } from '../../control-shapes/connections/circle-connection';
+import { CircleConnection } from '../../connections/circle-connection';
+import { Connection } from '../../connections/connection';
 import { rectHighlightHandles } from '../../control-shapes/frames/rect-highlight-frame';
 import { rectSelectFrame } from '../../control-shapes/frames/rect-select-frame';
 import { Group } from '../../control-shapes/group';
@@ -119,7 +119,11 @@ export class Circle extends Shape implements CircleProps {
     });
   }
 
-  boundingBox(x: number = this.x, y: number = this.y, radius: number = this.radius): Rect {
+  boundingBox(
+    x: number = this.x,
+    y: number = this.y,
+    radius: number = this.radius
+  ): Rect {
     return {
       x: x - radius,
       y: y - radius,

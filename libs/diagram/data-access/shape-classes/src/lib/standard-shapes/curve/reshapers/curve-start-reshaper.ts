@@ -1,5 +1,5 @@
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { Connection } from '../../../connection';
+import { Connection } from '../../../connections/connection';
 import { Handle } from '../../../control-shapes/handle';
 import { LineOutline } from '../../../control-shapes/line-outline';
 import { calcBezierPoint, gridSnapPoint, lineInterpolate } from '../../../misc-functions';
