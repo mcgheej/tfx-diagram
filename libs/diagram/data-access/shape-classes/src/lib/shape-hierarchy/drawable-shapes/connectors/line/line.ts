@@ -3,42 +3,39 @@ import {
   pointAdd,
   pointTransform,
   rectInflate,
+  rectNormalised,
   rectUnionArray,
 } from '@tfx-diagram/diagram/util/misc-functions';
 import {
   ColorRef,
   Point,
-  Range,
   ShapeInspectorData,
   ShapeResizeOptions,
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { Connection, ConnectorEndTypes } from '../../connections/connection';
-import { Connector } from '../../connector';
-import { curveSelectFrame } from '../../control-shapes/frames/curve-select-frame';
-import { Group } from '../../control-shapes/group';
-import { Handle } from '../../control-shapes/handle';
-import { Endpoint } from '../../endpoints';
-import { calcBezierValue, linkShapeArray } from '../../misc-functions';
+import { Connection, ConnectorEndTypes } from '../../../../connections/connection';
+import { lineSelectFrame } from '../../../../control-shapes/frames/line-select-frame';
+import { Group } from '../../../../control-shapes/group';
+import { Handle } from '../../../../control-shapes/handle';
+import { Endpoint } from '../../../../endpoints';
+import { linkShapeArray } from '../../../../misc-functions';
 import {
   AllShapeProps,
-  CurveConfig,
-  CurveProps,
+  LineConfig,
+  LineProps,
   ShapeProps,
   SharedProperties,
-} from '../../props';
-import { NopReshaper } from '../../reshaper/reshaper';
-import { Shape } from '../../shape';
-import { CurveFinalReshaper } from './reshapers/curve-final-reshaper';
-import { CurveStartReshaper } from './reshapers/curve-start-reshaper';
+} from '../../../../props';
+import { NopReshaper } from '../../../../reshaper/reshaper';
+import { Shape } from '../../../../shape';
+import { Connector } from '../connector';
+import { LineControlPointReshaper } from './reshapers/line-control-point-reshaper';
 
-export const curveDefaults: Omit<CurveProps, keyof ShapeProps> = {
+export const lineDefaults: Omit<LineProps, keyof ShapeProps> = {
   controlPoints: [
     { x: 10, y: 10 },
     { x: 20, y: 10 },
-    { x: 40, y: 10 },
-    { x: 50, y: 10 },
   ],
   lineDash: [],
   lineWidth: 0.5,
@@ -47,9 +44,9 @@ export const curveDefaults: Omit<CurveProps, keyof ShapeProps> = {
   finishEndpoint: null,
 };
 
-type DrawingParams = Pick<CurveProps, 'controlPoints' | 'lineWidth'>;
+type DrawingParams = Pick<LineProps, 'controlPoints' | 'lineWidth'>;
 
-export class Curve extends Connector implements CurveProps {
+export class Line extends Connector implements LineProps {
   controlPoints: Point[];
   lineDash: number[];
   lineWidth: number;
@@ -57,29 +54,25 @@ export class Curve extends Connector implements CurveProps {
   startEndpoint: Endpoint | null;
   finishEndpoint: Endpoint | null;
 
-  private showFrame = false;
-
-  constructor(config: CurveConfig) {
-    super({ ...config, shapeType: 'curve', cursor: 'move' });
+  constructor(config: LineConfig) {
+    super({ ...config, shapeType: 'line', cursor: 'move' });
     this.controlPoints = this.validateControlPoints(config);
-    this.lineDash = config.lineDash ?? curveDefaults.lineDash;
-    this.lineWidth = config.lineWidth ?? curveDefaults.lineWidth;
-    this.strokeStyle = config.strokeStyle ?? curveDefaults.strokeStyle;
+    this.lineDash = config.lineDash ?? lineDefaults.lineDash;
+    this.lineWidth = config.lineWidth ?? lineDefaults.lineWidth;
+    this.strokeStyle = config.strokeStyle ?? lineDefaults.strokeStyle;
     this.startEndpoint =
       config.startEndpoint === undefined
-        ? curveDefaults.startEndpoint
+        ? lineDefaults.startEndpoint
         : config.startEndpoint;
     this.finishEndpoint =
       config.finishEndpoint === undefined
-        ? curveDefaults.finishEndpoint
+        ? lineDefaults.finishEndpoint
         : config.finishEndpoint;
   }
 
-  reshape(end: ConnectorEndTypes, newPos: Point): Curve {
-    if (end === 'connectorStart') {
-      return new CurveStartReshaper().modifiedByConnection(this, newPos);
-    }
-    return new CurveFinalReshaper().modifiedByConnection(this, newPos);
+  reshape(end: ConnectorEndTypes, newPos: Point): Line {
+    const reshaper = new LineControlPointReshaper();
+    return reshaper.modifiedByConnection(this, end, newPos);
   }
 
   anchor(): Point {
@@ -104,9 +97,9 @@ export class Curve extends Connector implements CurveProps {
     };
   }
 
-  copy(amendments: Partial<AllShapeProps>): Curve {
-    const a = amendments as Partial<SharedProperties<CurveProps, AllShapeProps>>;
-    const c = new Curve({
+  copy(amendments: Partial<AllShapeProps>): Line {
+    const a = amendments as Partial<SharedProperties<LineProps, AllShapeProps>>;
+    const l = new Line({
       id: a.id ?? this.id,
       prevShapeId: a.prevShapeId ?? this.prevShapeId,
       nextShapeId: a.nextShapeId ?? this.nextShapeId,
@@ -121,8 +114,8 @@ export class Curve extends Connector implements CurveProps {
       startEndpoint: a.startEndpoint === undefined ? this.startEndpoint : a.startEndpoint,
       finishEndpoint:
         a.finishEndpoint === undefined ? this.finishEndpoint : a.finishEndpoint,
-    } as CurveProps);
-    return c;
+    } as LineProps);
+    return l;
   }
 
   dragOffset(mousePagePos: Point): Point {
@@ -139,11 +132,8 @@ export class Curve extends Connector implements CurveProps {
       lineWidth = 1;
     }
     c.save();
-    if (this.showFrame) {
-      this.drawFrame(c, params);
-    }
     const strokeColor = ColorMapRef.resolve(this.strokeStyle);
-    this.drawCurve(c, params, lineWidth, strokeColor, t);
+    this.drawLine(c, params, lineWidth, strokeColor, t);
     if (this.startEndpoint) {
       const cp = this.controlPoints.slice(0, 2);
       this.startEndpoint.draw(
@@ -167,10 +157,6 @@ export class Curve extends Connector implements CurveProps {
         t
       );
     }
-    if (this.showFrame) {
-      this.drawCrosses(c, params);
-      this.drawLabels(c, params);
-    }
     c.restore();
   }
 
@@ -187,11 +173,11 @@ export class Curve extends Connector implements CurveProps {
     }
     const strokeStyle = '#' + (+this.id).toString(16);
     s.save();
-    this.drawCurve(s, params, lineWidth, strokeStyle, t, true);
+    this.drawLine(s, params, lineWidth, strokeStyle, t, true);
     s.restore();
   }
 
-  getProps(): CurveProps {
+  getProps(): LineProps {
     return {
       id: this.id,
       prevShapeId: this.prevShapeId,
@@ -205,8 +191,8 @@ export class Curve extends Connector implements CurveProps {
       controlPoints: this.controlPoints,
       lineDash: this.lineDash,
       lineWidth: this.lineWidth,
-      startEndpoint: this.startEndpoint ?? null,
-      finishEndpoint: this.finishEndpoint ?? null,
+      startEndpoint: this.startEndpoint,
+      finishEndpoint: this.finishEndpoint,
     };
   }
 
@@ -239,7 +225,7 @@ export class Curve extends Connector implements CurveProps {
     return this.endPointHandles(true);
   }
 
-  resizeToBox(r: Rect, resizeOption: ShapeResizeOptions): Curve {
+  resizeToBox(r: Rect, resizeOption: ShapeResizeOptions): Line {
     const newCps: Point[] = [];
     const b = this.boundingBox();
     this.controlPoints.map((cp) => {
@@ -256,14 +242,14 @@ export class Curve extends Connector implements CurveProps {
     if (this.groupId && shapes) {
       return Group.selectTopFrame(this.groupId, shapes);
     }
-    return curveSelectFrame(this.controlPoints, this.id);
+    return lineSelectFrame(this.controlPoints, this.id);
   }
 
   text(): string {
     return '';
   }
 
-  private drawCurve(
+  private drawLine(
     c: CanvasRenderingContext2D,
     params: DrawingParams,
     lineWidthPx: number,
@@ -272,7 +258,7 @@ export class Curve extends Connector implements CurveProps {
     shadow = false
   ) {
     const { controlPoints: cp } = params;
-    if (this.controlPointCountInvalid(this.controlPoints)) {
+    if (cp.length < 2) {
       return;
     }
 
@@ -289,37 +275,20 @@ export class Curve extends Connector implements CurveProps {
     c.lineWidth = lineWidthPx;
     c.beginPath();
     c.moveTo(cp[0].x, cp[0].y);
-    for (let i = 1; i < cp.length; i += 3) {
-      const i1 = i + 1;
-      const i2 = i + 2;
-      c.bezierCurveTo(cp[i].x, cp[i].y, cp[i1].x, cp[i1].y, cp[i2].x, cp[i2].y);
+    for (let i = 1; i < cp.length; i++) {
+      c.lineTo(cp[i].x, cp[i].y);
     }
     c.stroke();
   }
 
-  /**
-   *
-   * @param config
-   * @returns
-   *
-   * Returns default control points if none supplied or the supplied
-   * control points array has an invalid length.
-   */
-  private validateControlPoints(config: CurveConfig): Point[] {
+  private validateControlPoints(config: LineConfig): Point[] {
     if (config.controlPoints) {
-      if (this.controlPointCountInvalid(config.controlPoints)) {
-        return curveDefaults.controlPoints;
+      if (config.controlPoints.length < 2) {
+        return lineDefaults.controlPoints;
       }
       return config.controlPoints;
     }
-    return curveDefaults.controlPoints;
-  }
-
-  private controlPointCountInvalid(cp: Point[]): boolean {
-    if (cp) {
-      return cp.length === 0 || (cp.length - 1) % 3 !== 0;
-    }
-    return true;
+    return lineDefaults.controlPoints;
   }
 
   private getParams(t: Transform): DrawingParams {
@@ -332,6 +301,9 @@ export class Curve extends Connector implements CurveProps {
     };
   }
 
+  // TODO - this is same as implementation in curve - could
+  // refactor into helper function that both class could
+  // use
   private endPointHandles(solid = false): Shape[] {
     const lastPointIdx = this.controlPoints.length - 1;
     const handles: Shape[] = [
@@ -361,86 +333,13 @@ export class Curve extends Connector implements CurveProps {
 
   private calcBoundingBox(cp: Point[]): Rect {
     const emptyRect: Rect = { x: 0, y: 0, width: 0, height: 0 };
-    if (this.controlPointCountInvalid(cp)) {
+    if (cp.length < 2) {
       return emptyRect;
     }
-    const curveRects: Rect[] = [];
-    for (let i = 3; i < cp.length; i += 3) {
-      const xSpan = this.getCurveSpan(cp[i - 3].x, cp[i - 2].x, cp[i - 1].x, cp[i].x);
-      const ySpan = this.getCurveSpan(cp[i - 3].y, cp[i - 2].y, cp[i - 1].y, cp[i].y);
-      curveRects.push({
-        x: xSpan.min,
-        y: ySpan.min,
-        width: xSpan.max - xSpan.min,
-        height: ySpan.max - ySpan.min,
-      });
-    }
-    return rectUnionArray(curveRects);
-  }
-
-  // Gives the span of the curve in one dimension (x or y)
-  private getCurveSpan(p0: number, p1: number, p2: number, p3: number): Range {
-    const i = p1 - p0;
-    const j = p2 - p1;
-    const k = p3 - p2;
-
-    const a = 3 * i - 6 * j + 3 * k;
-    const b = 6 * j - 6 * i;
-    const c = 3 * i;
-
-    const values: number[] = [p0, p3];
-    const squaredExpression = b * b - 4 * a * c;
-    if (squaredExpression < 0) {
-      return { min: Math.min(...values), max: Math.max(...values) };
-    }
-    const e = Math.sqrt(squaredExpression);
-    const t1 = (-b + e) / (2 * a);
-    const t2 = (-b - e) / (2 * a);
-    if (t1 >= 0 && t1 <= 1) {
-      values.push(calcBezierValue(p0, p1, p2, p3, t1));
-    }
-    if (t2 >= 0 && t2 <= 1) {
-      values.push(calcBezierValue(p0, p1, p2, p3, t2));
-    }
-    return { min: Math.min(...values), max: Math.max(...values) };
-  }
-
-  private drawFrame(c: CanvasRenderingContext2D, params: DrawingParams) {
-    const { controlPoints: cp } = params;
-    c.strokeStyle = 'lightgrey';
-    c.lineWidth = 2;
-    c.beginPath();
-    c.moveTo(cp[0].x, cp[0].y);
+    const lineRects: Rect[] = [];
     for (let i = 1; i < cp.length; i++) {
-      c.lineTo(cp[i].x, cp[i].y);
+      lineRects.push(rectNormalised(cp[i - 1], cp[i]));
     }
-    c.stroke();
-  }
-
-  private drawCrosses(c: CanvasRenderingContext2D, params: DrawingParams) {
-    const { controlPoints: cp } = params;
-    c.strokeStyle = 'red';
-    c.lineWidth = 1;
-    c.beginPath();
-    const size = 3;
-    for (let i = 0; i < cp.length; i++) {
-      const { x, y } = cp[i];
-      c.moveTo(x - size, y - size);
-      c.lineTo(x + size, y + size);
-      c.moveTo(x - size, y + size);
-      c.lineTo(x + size, y - size);
-    }
-    c.stroke();
-  }
-
-  private drawLabels(c: CanvasRenderingContext2D, params: DrawingParams) {
-    const { controlPoints: cp } = params;
-    c.fillStyle = 'black';
-    c.font = '10px Arial';
-    for (let i = 0; i < cp.length; i++) {
-      const { x, y } = cp[i];
-      c.fillText('P', x - 20, y);
-      c.fillText(`${i}`, x - 13, y + 3);
-    }
+    return rectUnionArray(lineRects);
   }
 }

@@ -1,8 +1,8 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { HandleTypes } from '../../props';
 import { Shape } from '../../shape';
-import { LineControlPointReshaper } from '../../standard-shapes/line/reshapers/line-control-point-reshaper';
-import { LineMidPointReshaper } from '../../standard-shapes/line/reshapers/line-mid-point-reshaper';
+import { LineControlPointReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/line/reshapers/line-control-point-reshaper';
+import { LineMidPointReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/line/reshapers/line-mid-point-reshaper';
 import { Handle } from '../handle';
 
 export const createLineControlPointHandle = (
@@ -11,7 +11,11 @@ export const createLineControlPointHandle = (
   associatedShapeId: string
 ): Handle => {
   const handleType: HandleTypes =
-    i === 0 ? 'connectorStart' : i === cp.length - 1 ? 'connectorFinish' : 'notConnectorEnd';
+    i === 0
+      ? 'connectorStart'
+      : i === cp.length - 1
+      ? 'connectorFinish'
+      : 'notConnectorEnd';
   return new Handle({
     id: Shape.generateId(),
     x: cp[i].x,

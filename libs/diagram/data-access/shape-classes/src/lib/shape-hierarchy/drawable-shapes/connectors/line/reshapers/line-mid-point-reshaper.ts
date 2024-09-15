@@ -1,7 +1,7 @@
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { Handle } from '../../../control-shapes/handle';
-import { lineInterpolate } from '../../../misc-functions';
-import { Shape } from '../../../shape';
+import { Handle } from '../../../../../control-shapes/handle';
+import { lineInterpolate } from '../../../../../misc-functions';
+import { Shape } from '../../../../../shape';
 import { Line } from '../line';
 import { LineControlPointReshaper } from './line-control-point-reshaper';
 import { LineReshaper } from './line-reshaper';
@@ -35,7 +35,9 @@ export class LineMidPointReshaper extends LineReshaper {
 
     // Now create the two new mid point handles for the new line segments
     // created by the addition of the new control point.
-    modifiedShapes.push(...this.addNewMidPointHandles(cp, controlFrame, handle, handleIdx));
+    modifiedShapes.push(
+      ...this.addNewMidPointHandles(cp, controlFrame, handle, handleIdx)
+    );
 
     return modifiedShapes;
     // return lineModifySelectFrame((shape as Line).controlPoints, controlFrame, handle);
@@ -116,7 +118,9 @@ export class LineMidPointReshaper extends LineReshaper {
     modifiedShapes.push(newMidPointHandle2);
     if (handle.nextShapeId) {
       modifiedShapes.push(
-        (controlFrame[handleIdx + 1] as Handle).copy({ prevShapeId: newMidPointHandle2.id })
+        (controlFrame[handleIdx + 1] as Handle).copy({
+          prevShapeId: newMidPointHandle2.id,
+        })
       );
     }
     return modifiedShapes;

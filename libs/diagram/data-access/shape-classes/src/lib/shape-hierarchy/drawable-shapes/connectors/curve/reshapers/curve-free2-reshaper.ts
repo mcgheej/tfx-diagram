@@ -1,41 +1,22 @@
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { Connection } from '../../../connections/connection';
-import { Handle } from '../../../control-shapes/handle';
-import { LineOutline } from '../../../control-shapes/line-outline';
-import { calcBezierPoint, gridSnapPoint, lineInterpolate } from '../../../misc-functions';
-import { Shape } from '../../../shape';
+import { Handle } from '../../../../../control-shapes/handle';
+import { LineOutline } from '../../../../../control-shapes/line-outline';
+import { calcBezierPoint, lineInterpolate } from '../../../../../misc-functions';
+import { Shape } from '../../../../../shape';
 import { Curve } from '../curve';
-import { CurveEndpointReshaper } from './curve-endpoint-reshaper';
+import { CurveNonEndpointReshaper } from './curve-non-endpoint-reshaper';
 
-export class CurveFinalReshaper extends CurveEndpointReshaper {
-  modifiedByConnection(curve: Curve, newPos: Point): Curve {
-    const cp = [...curve.controlPoints];
-    const end = cp.length - 1;
-    cp[end - 1] = {
-      x: cp[end - 1].x - (cp[end].x - newPos.x),
-      y: cp[end - 1].y - (cp[end].y - newPos.y),
-    };
-    cp[end] = newPos;
-    return curve.copy({ controlPoints: cp });
-  }
-
+export class CurveFree2Reshaper extends CurveNonEndpointReshaper {
   modifiedShape(
     newHandlePos: Point,
     associatedShape: Shape,
     gridProps: GridProps,
     handle: Handle,
-    controlFrame: Shape[],
-    connectionHook: Connection | null
+    controlFrame: Shape[]
   ): Shape {
     const associatedCurve = associatedShape as Curve;
-    if (connectionHook && connectionHook.shapeId) {
-      return associatedCurve.copy({
-        controlPoints: this.reshape(newHandlePos, associatedCurve, handle, controlFrame),
-      });
-    }
-    const newPos = gridSnapPoint(newHandlePos, gridProps);
     return associatedCurve.copy({
-      controlPoints: this.reshape(newPos, associatedCurve, handle, controlFrame),
+      controlPoints: this.reshaper(newHandlePos, associatedCurve, handle, controlFrame),
     });
   }
 
@@ -50,7 +31,7 @@ export class CurveFinalReshaper extends CurveEndpointReshaper {
     // return curveModifySelectFrame((shape as Curve).controlPoints, controlFrame, handle);
   }
 
-  private reshape(
+  private reshaper(
     newHandlePos: Point,
     curve: Curve,
     handle: Handle,
@@ -58,15 +39,12 @@ export class CurveFinalReshaper extends CurveEndpointReshaper {
   ): Point[] {
     const cp = [...curve.controlPoints];
     const nSegments = Math.round((cp.length - 1) / 3);
-    if (controlFrame[2 * nSegments + cp.length - 1].id !== handle.id) {
+    const handleIdx = nSegments * 2 + cp.length - 2;
+    if (controlFrame[handleIdx].id !== handle.id) {
       return cp;
     }
-    const end = cp.length - 1;
-    cp[end - 1] = {
-      x: cp[end - 1].x - (cp[end].x - newHandlePos.x),
-      y: cp[end - 1].y - (cp[end].y - newHandlePos.y),
-    };
-    cp[end] = newHandlePos;
+    const endCpIdx = cp.length - 1;
+    cp[endCpIdx - 1] = lineInterpolate(cp[endCpIdx], newHandlePos, 2);
     return cp;
   }
 
@@ -80,7 +58,6 @@ export class CurveFinalReshaper extends CurveEndpointReshaper {
       }),
       (controlFrame[end - 1 + 2 * nSegments] as Handle).copy({ x: p1.x, y: p1.y }),
       (controlFrame[controlFrame.length - 1] as Handle).copy({ x: m.x, y: m.y }),
-      (controlFrame[end + 2 * nSegments] as Handle).copy({ x: cp[end].x, y: cp[end].y }),
     ];
     return modifiedShapes;
   }

@@ -1,20 +1,25 @@
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { Connection } from '../../../connections/connection';
-import { Handle } from '../../../control-shapes/handle';
-import { LineOutline } from '../../../control-shapes/line-outline';
-import { calcBezierPoint, gridSnapPoint, lineInterpolate } from '../../../misc-functions';
-import { Shape } from '../../../shape';
+import { Connection } from '../../../../../connections/connection';
+import { Handle } from '../../../../../control-shapes/handle';
+import { LineOutline } from '../../../../../control-shapes/line-outline';
+import {
+  calcBezierPoint,
+  gridSnapPoint,
+  lineInterpolate,
+} from '../../../../../misc-functions';
+import { Shape } from '../../../../../shape';
 import { Curve } from '../curve';
 import { CurveEndpointReshaper } from './curve-endpoint-reshaper';
 
-export class CurveStartReshaper extends CurveEndpointReshaper {
+export class CurveFinalReshaper extends CurveEndpointReshaper {
   modifiedByConnection(curve: Curve, newPos: Point): Curve {
     const cp = [...curve.controlPoints];
-    cp[1] = {
-      x: cp[1].x - (cp[0].x - newPos.x),
-      y: cp[1].y - (cp[0].y - newPos.y),
+    const end = cp.length - 1;
+    cp[end - 1] = {
+      x: cp[end - 1].x - (cp[end].x - newPos.x),
+      y: cp[end - 1].y - (cp[end].y - newPos.y),
     };
-    cp[0] = { ...newPos };
+    cp[end] = newPos;
     return curve.copy({ controlPoints: cp });
   }
 
@@ -46,6 +51,7 @@ export class CurveStartReshaper extends CurveEndpointReshaper {
     const cp = (shape as Curve).controlPoints;
     const nSegments = Math.round((cp.length - 1) / 3);
     return this.modify(cp, nSegments, controlFrame);
+    // return curveModifySelectFrame((shape as Curve).controlPoints, controlFrame, handle);
   }
 
   private reshape(
@@ -56,26 +62,29 @@ export class CurveStartReshaper extends CurveEndpointReshaper {
   ): Point[] {
     const cp = [...curve.controlPoints];
     const nSegments = Math.round((cp.length - 1) / 3);
-    if (controlFrame[2 * nSegments].id !== handle.id) {
+    if (controlFrame[2 * nSegments + cp.length - 1].id !== handle.id) {
       return cp;
     }
-    cp[1] = {
-      x: cp[1].x - (cp[0].x - newHandlePos.x),
-      y: cp[1].y - (cp[0].y - newHandlePos.y),
+    const end = cp.length - 1;
+    cp[end - 1] = {
+      x: cp[end - 1].x - (cp[end].x - newHandlePos.x),
+      y: cp[end - 1].y - (cp[end].y - newHandlePos.y),
     };
-    cp[0] = newHandlePos;
+    cp[end] = newHandlePos;
     return cp;
   }
 
   private modify(cp: Point[], nSegments: number, controlFrame: Shape[]): Shape[] {
-    const i = nSegments * 2;
-    const p1 = lineInterpolate(cp[0], cp[1], 0.5);
-    const m = calcBezierPoint(1, cp, 0.5);
+    const end = cp.length - 1;
+    const p1 = lineInterpolate(cp[end - 1], cp[end], 0.5);
+    const m = calcBezierPoint((nSegments - 1) * 3 + 1, cp, 0.5);
     const modifiedShapes = [
-      (controlFrame[0] as LineOutline).copy({ controlPoints: [cp[0], p1] }),
-      (controlFrame[i + 1] as Handle).copy({ x: p1.x, y: p1.y }),
-      (controlFrame[i + cp.length] as Handle).copy({ x: m.x, y: m.y }),
-      (controlFrame[i] as Handle).copy({ x: cp[0].x, y: cp[0].y }),
+      (controlFrame[2 * nSegments - 1] as LineOutline).copy({
+        controlPoints: [p1, cp[end]],
+      }),
+      (controlFrame[end - 1 + 2 * nSegments] as Handle).copy({ x: p1.x, y: p1.y }),
+      (controlFrame[controlFrame.length - 1] as Handle).copy({ x: m.x, y: m.y }),
+      (controlFrame[end + 2 * nSegments] as Handle).copy({ x: cp[end].x, y: cp[end].y }),
     ];
     return modifiedShapes;
   }

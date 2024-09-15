@@ -1,5 +1,5 @@
-import { Reshaper } from '../../../reshaper/reshaper';
-import { Shape } from '../../../shape';
+import { Reshaper } from '../../../../../reshaper/reshaper';
+import { Shape } from '../../../../../shape';
 
 export abstract class LineReshaper extends Reshaper {
   modifiedFrameForDrag(controlFrame: Shape[]): Shape[] {

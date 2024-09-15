@@ -2,14 +2,14 @@ import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { HandleProps, HandleTypes, ShapeCursors } from '../../props';
 import { NopReshaper, Reshaper } from '../../reshaper/reshaper';
 import { Shape } from '../../shape';
-import { CurveFinalReshaper } from '../../standard-shapes/curve/reshapers/curve-final-reshaper';
-import { CurveFree1Reshaper } from '../../standard-shapes/curve/reshapers/curve-free1-reshaper';
-import { CurveFree2Reshaper } from '../../standard-shapes/curve/reshapers/curve-free2-reshaper';
-import { CurveLinkReshaper } from '../../standard-shapes/curve/reshapers/curve-link-reshaper';
-import { CurveMidPointReshaper } from '../../standard-shapes/curve/reshapers/curve-mid-point-reshaper';
-import { CurvePostlinkReshaper } from '../../standard-shapes/curve/reshapers/curve-postlink-reshaper';
-import { CurvePrelinkReshaper } from '../../standard-shapes/curve/reshapers/curve-prelink-reshaper';
-import { CurveStartReshaper } from '../../standard-shapes/curve/reshapers/curve-start-reshaper';
+import { CurveFinalReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-final-reshaper';
+import { CurveFree1Reshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-free1-reshaper';
+import { CurveFree2Reshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-free2-reshaper';
+import { CurveLinkReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-link-reshaper';
+import { CurveMidPointReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-mid-point-reshaper';
+import { CurvePostlinkReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-postlink-reshaper';
+import { CurvePrelinkReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-prelink-reshaper';
+import { CurveStartReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-start-reshaper';
 import { Handle } from '../handle';
 
 type PartHandleProps = Pick<
@@ -24,7 +24,11 @@ export const createCurveControlPointHandle = (
 ): Handle => {
   const { x, y, handleStyle, pxWidth, cursor, reshaper } = getCurveHandleProps(i, cp);
   const handleType: HandleTypes =
-    i === 0 ? 'connectorStart' : i === cp.length - 1 ? 'connectorFinish' : 'notConnectorEnd';
+    i === 0
+      ? 'connectorStart'
+      : i === cp.length - 1
+      ? 'connectorFinish'
+      : 'notConnectorEnd';
   return new Handle({
     id: Shape.generateId(),
     x,
@@ -70,7 +74,8 @@ const getCurveHandleProps = (i: number, cp: Point[]): PartHandleProps => {
     case 2: {
       x = (cp[i].x - cp[i + 1].x) / 2 + cp[i + 1].x;
       y = (cp[i].y - cp[i + 1].y) / 2 + cp[i + 1].y;
-      reshaper = i === cp.length - 2 ? new CurveFree2Reshaper() : new CurvePrelinkReshaper();
+      reshaper =
+        i === cp.length - 2 ? new CurveFree2Reshaper() : new CurvePrelinkReshaper();
       break;
     }
   }
@@ -84,7 +89,10 @@ const getCurveHandleProps = (i: number, cp: Point[]): PartHandleProps => {
   };
 };
 
-export const createMidSegmentHandle = (midPoint: Point, associatedShapeId: string): Handle => {
+export const createMidSegmentHandle = (
+  midPoint: Point,
+  associatedShapeId: string
+): Handle => {
   return new Handle({
     id: Shape.generateId(),
     x: midPoint.x,

@@ -1,8 +1,8 @@
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { Handle } from '../../../control-shapes/handle';
-import { LineOutline } from '../../../control-shapes/line-outline';
-import { calcBezierPoint, lineInterpolate } from '../../../misc-functions';
-import { Shape } from '../../../shape';
+import { Handle } from '../../../../../control-shapes/handle';
+import { LineOutline } from '../../../../../control-shapes/line-outline';
+import { calcBezierPoint, lineInterpolate } from '../../../../../misc-functions';
+import { Shape } from '../../../../../shape';
 import { Curve } from '../curve';
 import { CurveNonEndpointReshaper } from './curve-non-endpoint-reshaper';
 
@@ -73,11 +73,15 @@ export class CurveLinkReshaper extends CurveNonEndpointReshaper {
       postLinkLine.copy({ controlPoints: [{ ...cp[cpIdx] }, p2] }),
     ];
 
-    modifiedShapes.push((controlFrame[handleIdx - 1] as Handle).copy({ x: p1.x, y: p1.y }));
+    modifiedShapes.push(
+      (controlFrame[handleIdx - 1] as Handle).copy({ x: p1.x, y: p1.y })
+    );
     modifiedShapes.push(
       (controlFrame[handleIdx] as Handle).copy({ x: cp[cpIdx].x, y: cp[cpIdx].y })
     );
-    modifiedShapes.push((controlFrame[handleIdx + 1] as Handle).copy({ x: p2.x, y: p2.y }));
+    modifiedShapes.push(
+      (controlFrame[handleIdx + 1] as Handle).copy({ x: p2.x, y: p2.y })
+    );
 
     const m1 = calcBezierPoint(segment * 3 + 1, cp, 0.5);
     const m2 = calcBezierPoint((segment + 1) * 3 + 1, cp, 0.5);

@@ -6,13 +6,17 @@ import {
   rectNormalised,
   rectUnionArray,
 } from '@tfx-diagram/diagram/util/misc-functions';
-import { ColorRef, Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
+import {
+  ColorRef,
+  Point,
+  Transform,
+} from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { ControlShape } from '../control-shape';
 import { Endpoint } from '../endpoints';
 import { AllShapeProps, LineConfig, LineProps, SharedProperties } from '../props';
 import { Shape } from '../shape';
-import { lineDefaults } from '../standard-shapes/line/line';
+import { lineDefaults } from '../shape-hierarchy/drawable-shapes/connectors/line/line';
 import { DEFAULT_OUTLINE_COLOUR } from '../types';
 
 type DrawingParams = Pick<LineProps, 'controlPoints'>;
