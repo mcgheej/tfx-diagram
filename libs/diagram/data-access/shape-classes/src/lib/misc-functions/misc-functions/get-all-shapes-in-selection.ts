@@ -1,5 +1,5 @@
-import { Group } from '../../control-shapes/group';
 import { Shape } from '../../shape-hierarchy/shape';
+import { Group } from '../../shape-hierarchy/structural-shapes/group';
 
 export function getAllShapesInSelection(
   selectedShapeIds: string[],

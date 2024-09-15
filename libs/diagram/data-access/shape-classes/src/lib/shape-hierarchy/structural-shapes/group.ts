@@ -1,18 +1,18 @@
 import { rectUnionArray } from '@tfx-diagram/diagram/util/misc-functions';
 import { ColorRef, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { ControlShape } from '../control-shape';
-import { getShapeArrayFromIdArray } from '../misc-functions';
+import { ControlShape } from '../../control-shape';
+import { groupHighlightFrame } from '../../control-shapes/frames/group-highlight-frame';
+import { groupSelectFrame } from '../../control-shapes/frames/group-select-frame';
+import { getShapeArrayFromIdArray } from '../../misc-functions';
 import {
   AllShapeProps,
   GroupConfig,
   GroupProps,
   ShapeProps,
   SharedProperties,
-} from '../props';
-import { Shape } from '../shape-hierarchy/shape';
-import { groupHighlightFrame } from './frames/group-highlight-frame';
-import { groupSelectFrame } from './frames/group-select-frame';
+} from '../../props';
+import { Shape } from '../shape';
 
 const groupDefaults: Omit<GroupProps, keyof ShapeProps> = {
   groupMemberIds: [],

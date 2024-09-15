@@ -1,7 +1,7 @@
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Shape } from '../../shape-hierarchy/shape';
+import { Group } from '../../shape-hierarchy/structural-shapes/group';
 import { GROUP_OUTLINE_COLOR } from '../../types';
-import { Group } from '../group';
 import { RectangleOutline } from '../rectangle-outline';
 
 export const groupHighlightFrame = (

@@ -18,7 +18,6 @@ import { Connection } from '../../connections/connection';
 import { TriangleConnection } from '../../connections/triangle-connection';
 import { triangleHighlightFrame } from '../../control-shapes/frames/triangle-highlight-frame';
 import { triangleSelectFrame } from '../../control-shapes/frames/triangle-select-frame';
-import { Group } from '../../control-shapes/group';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline';
 import { lineInterpolate } from '../../misc-functions';
 import {
@@ -29,6 +28,7 @@ import {
   TriangleProps,
 } from '../../props';
 import { Shape } from '../../shape-hierarchy/shape';
+import { Group } from '../../shape-hierarchy/structural-shapes/group';
 import { LineAttachParams, checkLine } from '../line-segment-attach-functions';
 import { outsideDetectionRect } from '../rectangle/rectangle-attach-functions';
 

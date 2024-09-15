@@ -14,7 +14,6 @@ import { Connection } from '../../connections/connection';
 import { RectangleConnection } from '../../connections/rectangle-connection';
 import { rectHighlightHandles } from '../../control-shapes/frames/rect-highlight-frame';
 import { rectSelectFrame } from '../../control-shapes/frames/rect-select-frame';
-import { Group } from '../../control-shapes/group';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline';
 import {
   AllShapeProps,
@@ -24,6 +23,7 @@ import {
   SharedProperties,
 } from '../../props';
 import { Shape } from '../../shape-hierarchy/shape';
+import { Group } from '../../shape-hierarchy/structural-shapes/group';
 import { LineAttachParams, checkLine } from '../line-segment-attach-functions';
 import { outsideDetectionRect } from './rectangle-attach-functions';
 import { rectangleReshapersConfig } from './rectangle-reshapers-config';

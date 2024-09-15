@@ -18,7 +18,6 @@ import { CircleConnection } from '../../connections/circle-connection';
 import { Connection } from '../../connections/connection';
 import { rectHighlightHandles } from '../../control-shapes/frames/rect-highlight-frame';
 import { rectSelectFrame } from '../../control-shapes/frames/rect-select-frame';
-import { Group } from '../../control-shapes/group';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline';
 import {
   AllShapeProps,
@@ -28,6 +27,7 @@ import {
   SharedProperties,
 } from '../../props';
 import { Shape } from '../../shape-hierarchy/shape';
+import { Group } from '../../shape-hierarchy/structural-shapes/group';
 import { PX_BOUNDARY_DETECTION_THRESHOLD } from '../../types';
 import { circleReshapersConfig } from './circle-reshapers-config';
 

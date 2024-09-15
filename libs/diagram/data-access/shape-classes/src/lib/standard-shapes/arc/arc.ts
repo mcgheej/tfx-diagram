@@ -10,7 +10,6 @@ import {
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Connection } from '../../connections/connection';
 import { arcSelectFrame } from '../../control-shapes/frames/arc-select-frame';
-import { Group } from '../../control-shapes/group';
 import { Handle } from '../../control-shapes/handle';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline';
 import { linkShapeArray } from '../../misc-functions';
@@ -23,6 +22,7 @@ import {
 } from '../../props';
 import { NopReshaper } from '../../reshaper/reshaper';
 import { Shape } from '../../shape-hierarchy/shape';
+import { Group } from '../../shape-hierarchy/structural-shapes/group';
 import { calcArcBoundingBox, getArcEndpoints } from './calc-arc-bounding-box';
 
 export const arcDefaults: Omit<ArcProps, keyof ShapeProps> = {
