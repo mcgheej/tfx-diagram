@@ -153,12 +153,16 @@ export const sketchbookReducer = createReducer(
       status: 'saved',
     } as SketchbookState;
   }),
-  on(SaveCloseMachineActions.closeStart, SaveCloseMachineActions.discardClick, (state) => {
-    return {
-      ...state,
-      status: 'closing',
-    } as SketchbookState;
-  }),
+  on(
+    SaveCloseMachineActions.closeStart,
+    SaveCloseMachineActions.discardClick,
+    (state) => {
+      return {
+        ...state,
+        status: 'closing',
+      } as SketchbookState;
+    }
+  ),
   on(PagesEffectsActions.sketchbookClose, () => {
     return { ...initialState };
   }),
@@ -171,7 +175,6 @@ export const sketchbookReducer = createReducer(
     ShapesEffectsActions.duplicatedShapesOnPage,
     ShapesEffectsActions.pasteShapesOnPage,
     ShapesEffectsActions.deleteShapesOnPage,
-    ShapesEffectsActions.groupClick,
     ControlFrameEffectsActions.selectedShapesLineColorChange,
     ControlFrameEffectsActions.selectedShapesFillColorChange,
     ControlFrameEffectsActions.selectedShapesLineWidthChange,

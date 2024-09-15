@@ -66,7 +66,10 @@ export class ShapeInspectorService {
   toggleExpandedInDrawChain(id: string) {
     const e = this.extendedShapeViewData.get(id);
     if (e) {
-      const n: ExtendedShapeViewData = { ...e, expandedInDrawChain: !e.expandedInDrawChain };
+      const n: ExtendedShapeViewData = {
+        ...e,
+        expandedInDrawChain: !e.expandedInDrawChain,
+      };
       this.extendedShapeViewData.set(id, n);
       this.expandedDataChangedSubject$.next();
     }
