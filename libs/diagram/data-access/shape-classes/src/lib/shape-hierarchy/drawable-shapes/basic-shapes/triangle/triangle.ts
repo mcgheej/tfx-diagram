@@ -18,7 +18,11 @@ import { Connection } from '../../../../connections/connection';
 import { TriangleConnection } from '../../../../connections/derived-connections/triangle-connection';
 import { triangleHighlightFrame } from '../../../../control-frames/triangle-highlight-frame';
 import { triangleSelectFrame } from '../../../../control-frames/triangle-select-frame';
-import { lineInterpolate } from '../../../../misc-functions';
+import {
+  checkLine,
+  lineInterpolate,
+  outsideDetectionRect,
+} from '../../../../misc-functions';
 import {
   AllShapeProps,
   ShapeProps,
@@ -26,12 +30,11 @@ import {
   TriangleConfig,
   TriangleProps,
 } from '../../../../props';
+import { LineAttachParams } from '../../../../types';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline/rectangle-outline';
 import { BasicShape } from '../basic-shape';
-import { LineAttachParams, checkLine } from '../line-segment-attach-functions';
-import { outsideDetectionRect } from '../rectangle-attach-functions';
 
 export const triangleDefaults: Omit<TriangleProps, keyof ShapeProps> = {
   vertices: [

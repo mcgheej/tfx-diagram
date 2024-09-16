@@ -1,14 +1,13 @@
 import {
   EMPTY_RECT,
-  pointAdd,
-  pointFromPolarPoint,
   pointsBoundingBox,
   rectRotate,
 } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { ArcOutline } from '../control-shapes/arc-outline/arc-outline';
-import { Arc } from './arc/arc';
+import { Arc } from '../../shape-hierarchy/drawable-shapes/basic-shapes/arc/arc';
+import { ArcOutline } from '../../shape-hierarchy/drawable-shapes/control-shapes/arc-outline/arc-outline';
+import { getArcEndpoints } from './get-arc-endpoints';
 
 export function calcArcBoundingBox({
   x,
@@ -96,17 +95,4 @@ export function calcArcBoundingBox({
     }
   }
   return EMPTY_RECT;
-}
-
-export function getArcEndpoints(
-  x: number,
-  y: number,
-  radius: number,
-  sAngle: number,
-  eAngle: number
-): { a: Point; b: Point } {
-  return {
-    a: pointAdd({ x, y }, pointFromPolarPoint({ r: radius, a: sAngle })),
-    b: pointAdd({ x, y }, pointFromPolarPoint({ r: radius, a: eAngle })),
-  };
 }

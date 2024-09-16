@@ -5,11 +5,11 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
+import { calcArcBoundingBox } from '../../../../misc-functions';
 import { AllShapeProps, ArcConfig, ArcProps, SharedProperties } from '../../../../props';
 import { DEFAULT_OUTLINE_COLOUR } from '../../../../types';
 import { Shape } from '../../../shape';
 import { arcDefaults } from '../../basic-shapes/arc/arc';
-import { calcArcBoundingBox } from '../../basic-shapes/calc-arc-bounding-box';
 import { ControlShape } from '../control-shape';
 
 type DrawingParams = Pick<ArcProps, 'x' | 'y' | 'radius'>;

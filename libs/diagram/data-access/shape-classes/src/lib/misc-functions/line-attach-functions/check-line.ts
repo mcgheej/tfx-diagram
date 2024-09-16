@@ -3,20 +3,8 @@ import {
   vectorMagnitudeSquared,
 } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { PX_BOUNDARY_DETECTION_THRESHOLD } from '../../../types';
-
-/**
- * index:             numeric id for line
- * shortestDistance:  shortest distance so far from point to line
- * k:                 parameteric value for connection point on line
- * connectionPoint:   (x, y) coords for connection point on line
- */
-export interface LineAttachParams {
-  index: number;
-  shortestDistance: number;
-  k: number;
-  connectionPoint: Point;
-}
+import { PX_BOUNDARY_DETECTION_THRESHOLD } from '../../types';
+import { LineAttachParams } from '../../types/line-attach-params';
 
 /**
  *
@@ -27,13 +15,13 @@ export interface LineAttachParams {
  * @param param4 - line attach parameters (see above)
  * @returns - line attach params
  */
-export const checkLine = (
+export function checkLine(
   i: number,
   p: Point,
   a: Point,
   b: Point,
   { index, shortestDistance, k: t, connectionPoint }: LineAttachParams
-): LineAttachParams => {
+): LineAttachParams {
   // The line segment must be at least 3 pixels long to allow a
   // connection to be made. Check square of length and if shorter
   // than 3 squared do not proceed and simply return unchanged
@@ -83,4 +71,4 @@ export const checkLine = (
     }
   }
   return { index, shortestDistance, k: t, connectionPoint };
-};
+}

@@ -14,6 +14,7 @@ import { Connection } from '../../../../connections/connection';
 import { RectangleConnection } from '../../../../connections/derived-connections/rectangle-connection';
 import { rectHighlightHandles } from '../../../../control-frames/rect-highlight-frame';
 import { rectSelectFrame } from '../../../../control-frames/rect-select-frame';
+import { checkLine, outsideDetectionRect } from '../../../../misc-functions';
 import {
   AllShapeProps,
   RectangleConfig,
@@ -22,12 +23,11 @@ import {
   SharedProperties,
 } from '../../../../props';
 import { rectangleReshapersConfig } from '../../../../reshapers/rectangle/rectangle-reshapers-config';
+import { LineAttachParams } from '../../../../types';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline/rectangle-outline';
 import { BasicShape } from '../basic-shape';
-import { LineAttachParams, checkLine } from '../line-segment-attach-functions';
-import { outsideDetectionRect } from '../rectangle-attach-functions';
 
 const DEFAULT_X = 50;
 const DEFAULT_Y = 50;

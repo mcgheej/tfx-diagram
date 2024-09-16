@@ -3,7 +3,7 @@ import { linkShapeArray } from '../misc-functions';
 import { Handle } from '../shape-hierarchy/drawable-shapes/control-shapes/handle/handle';
 import { RectangleOutline } from '../shape-hierarchy/drawable-shapes/control-shapes/rectangle-outline/rectangle-outline';
 import { Shape } from '../shape-hierarchy/shape';
-import { RectangularReshapersConfig } from '../types/rectangular-reshapers-config';
+import { RectangularReshapersConfig } from '../types';
 
 export const rectSelectFrame = (
   rect: Rect,
