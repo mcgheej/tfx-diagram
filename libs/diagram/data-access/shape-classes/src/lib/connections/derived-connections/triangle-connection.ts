@@ -1,8 +1,8 @@
-import { lineInterpolate } from '../misc-functions';
-import { Triangle } from '../shape-hierarchy/drawable-shapes/basic-shapes/triangle/triangle';
-import { Connector } from '../shape-hierarchy/drawable-shapes/connectors/connector';
-import { Shape } from '../shape-hierarchy/shape';
-import { Connection, ConnectionProps } from './connection';
+import { lineInterpolate } from '../../misc-functions';
+import { Triangle } from '../../shape-hierarchy/drawable-shapes/basic-shapes/triangle/triangle';
+import { Connector } from '../../shape-hierarchy/drawable-shapes/connectors/connector';
+import { Shape } from '../../shape-hierarchy/shape';
+import { Connection, ConnectionProps } from '../connection';
 
 export interface TriangleConnectionProps extends ConnectionProps {
   index: number;

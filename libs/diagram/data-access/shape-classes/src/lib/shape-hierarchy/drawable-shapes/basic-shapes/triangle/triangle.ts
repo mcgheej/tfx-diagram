@@ -15,7 +15,7 @@ import {
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Connection } from '../../../../connections/connection';
-import { TriangleConnection } from '../../../../connections/triangle-connection';
+import { TriangleConnection } from '../../../../connections/derived-connections/triangle-connection';
 import { lineInterpolate } from '../../../../misc-functions';
 import {
   AllShapeProps,

@@ -11,7 +11,7 @@ import {
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Connection } from '../../../../connections/connection';
-import { RectangleConnection } from '../../../../connections/rectangle-connection';
+import { RectangleConnection } from '../../../../connections/derived-connections/rectangle-connection';
 import {
   AllShapeProps,
   RectangleConfig,
