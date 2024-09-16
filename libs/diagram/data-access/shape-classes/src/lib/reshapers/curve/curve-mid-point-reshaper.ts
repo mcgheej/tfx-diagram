@@ -1,11 +1,11 @@
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { calcBezierPoint, lineInterpolate } from '../../misc-functions';
-import { Curve } from '../../shape-hierarchy/drawable-shapes/connectors/curve/curve';
 import {
   createCurveControlPointHandle,
   createMidSegmentHandle,
-} from '../../shape-hierarchy/drawable-shapes/control-shapes/frames/curve-frame-handle.generators';
-import { getLineOutline } from '../../shape-hierarchy/drawable-shapes/control-shapes/frames/frame-line.generators';
+} from '../../control-frames/curve-frame-handle.generators';
+import { getLineOutline } from '../../control-frames/frame-line.generators';
+import { calcBezierPoint, lineInterpolate } from '../../misc-functions';
+import { Curve } from '../../shape-hierarchy/drawable-shapes/connectors/curve/curve';
 import { Handle } from '../../shape-hierarchy/drawable-shapes/control-shapes/shapes/handle';
 import { LineOutline } from '../../shape-hierarchy/drawable-shapes/control-shapes/shapes/line-outline';
 import { Shape } from '../../shape-hierarchy/shape';

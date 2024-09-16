@@ -1,9 +1,9 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { HandleTypes } from '../../../../props';
-import { LineControlPointReshaper } from '../../../../reshapers/line/line-control-point-reshaper';
-import { LineMidPointReshaper } from '../../../../reshapers/line/line-mid-point-reshaper';
-import { Shape } from '../../../shape';
-import { Handle } from '../shapes/handle';
+import { HandleTypes } from '../props';
+import { LineControlPointReshaper } from '../reshapers/line/line-control-point-reshaper';
+import { LineMidPointReshaper } from '../reshapers/line/line-mid-point-reshaper';
+import { Handle } from '../shape-hierarchy/drawable-shapes/control-shapes/shapes/handle';
+import { Shape } from '../shape-hierarchy/shape';
 
 export const createLineControlPointHandle = (
   i: number,

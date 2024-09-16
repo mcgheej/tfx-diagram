@@ -12,6 +12,8 @@ import {
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Connection } from '../../../../connections/connection';
 import { RectangleConnection } from '../../../../connections/derived-connections/rectangle-connection';
+import { rectHighlightHandles } from '../../../../control-frames/rect-highlight-frame';
+import { rectSelectFrame } from '../../../../control-frames/rect-select-frame';
 import {
   AllShapeProps,
   RectangleConfig,
@@ -22,8 +24,6 @@ import {
 import { rectangleReshapersConfig } from '../../../../reshapers/rectangle/rectangle-reshapers-config';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group';
-import { rectHighlightHandles } from '../../control-shapes/frames/rect-highlight-frame';
-import { rectSelectFrame } from '../../control-shapes/frames/rect-select-frame';
 import { RectangleOutline } from '../../control-shapes/shapes/rectangle-outline';
 import { LineAttachParams, checkLine } from '../line-segment-attach-functions';
 import { outsideDetectionRect } from './rectangle-attach-functions';

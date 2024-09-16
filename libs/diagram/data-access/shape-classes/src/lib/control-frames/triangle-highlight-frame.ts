@@ -1,8 +1,8 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { linkShapeArray } from '../../../../misc-functions';
-import { NopReshaper } from '../../../../reshapers/reshaper';
-import { Shape } from '../../../shape';
-import { Handle } from '../shapes/handle';
+import { linkShapeArray } from '../misc-functions';
+import { NopReshaper } from '../reshapers/reshaper';
+import { Handle } from '../shape-hierarchy/drawable-shapes/control-shapes/shapes/handle';
+import { Shape } from '../shape-hierarchy/shape';
 
 export const triangleHighlightFrame = (
   vertices: [Point, Point, Point],

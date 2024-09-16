@@ -9,6 +9,7 @@ import {
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Connection } from '../../../../connections/connection';
+import { arcSelectFrame } from '../../../../control-frames/arc-select-frame';
 import { linkShapeArray } from '../../../../misc-functions';
 import {
   AllShapeProps,
@@ -20,7 +21,6 @@ import {
 import { NopReshaper } from '../../../../reshapers/reshaper';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group';
-import { arcSelectFrame } from '../../control-shapes/frames/arc-select-frame';
 import { Handle } from '../../control-shapes/shapes/handle';
 import { RectangleOutline } from '../../control-shapes/shapes/rectangle-outline';
 import { calcArcBoundingBox, getArcEndpoints } from './calc-arc-bounding-box';

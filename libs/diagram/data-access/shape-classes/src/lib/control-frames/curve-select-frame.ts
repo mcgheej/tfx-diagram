@@ -1,12 +1,8 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import {
-  calcBezierPoint,
-  lineInterpolate,
-  linkShapeArray,
-} from '../../../../misc-functions';
-import { Shape } from '../../../shape';
-import { Handle } from '../shapes/handle';
-import { LineOutline } from '../shapes/line-outline';
+import { calcBezierPoint, lineInterpolate, linkShapeArray } from '../misc-functions';
+import { Handle } from '../shape-hierarchy/drawable-shapes/control-shapes/shapes/handle';
+import { LineOutline } from '../shape-hierarchy/drawable-shapes/control-shapes/shapes/line-outline';
+import { Shape } from '../shape-hierarchy/shape';
 import {
   createCurveControlPointHandle,
   createMidSegmentHandle,

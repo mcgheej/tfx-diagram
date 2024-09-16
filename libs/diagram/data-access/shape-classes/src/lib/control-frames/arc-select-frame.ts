@@ -1,16 +1,16 @@
 import { pointAdd, pointFromPolarPoint } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { linkShapeArray } from '../../../../misc-functions';
-import { ArcEangleReshaper } from '../../../../reshapers/arc/arc-eangle-reshaper';
-import { ArcRadiusReshaper } from '../../../../reshapers/arc/arc-radius-reshaper';
-import { ArcSangleReshaper } from '../../../../reshapers/arc/arc-sangle-reshaper';
-import { Reshaper } from '../../../../reshapers/reshaper';
-import { ARC_HANDLE_LENGTH } from '../../../../types/constants';
-import { Shape } from '../../../shape';
-import { Arc } from '../../basic-shapes/arc/arc';
-import { ArcOutline } from '../shapes/arc-outline';
-import { Handle } from '../shapes/handle';
-import { LineOutline } from '../shapes/line-outline';
+import { linkShapeArray } from '../misc-functions';
+import { ArcEangleReshaper } from '../reshapers/arc/arc-eangle-reshaper';
+import { ArcRadiusReshaper } from '../reshapers/arc/arc-radius-reshaper';
+import { ArcSangleReshaper } from '../reshapers/arc/arc-sangle-reshaper';
+import { Reshaper } from '../reshapers/reshaper';
+import { Arc } from '../shape-hierarchy/drawable-shapes/basic-shapes/arc/arc';
+import { ArcOutline } from '../shape-hierarchy/drawable-shapes/control-shapes/shapes/arc-outline';
+import { Handle } from '../shape-hierarchy/drawable-shapes/control-shapes/shapes/handle';
+import { LineOutline } from '../shape-hierarchy/drawable-shapes/control-shapes/shapes/line-outline';
+import { Shape } from '../shape-hierarchy/shape';
+import { ARC_HANDLE_LENGTH } from '../types/constants';
 
 /**
  * Arc Select Frame

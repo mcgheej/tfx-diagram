@@ -1,5 +1,5 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { LineOutline } from '../shapes/line-outline';
+import { LineOutline } from '../shape-hierarchy/drawable-shapes/control-shapes/shapes/line-outline';
 
 /**
  *

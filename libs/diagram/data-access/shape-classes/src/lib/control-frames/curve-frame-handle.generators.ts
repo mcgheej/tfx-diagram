@@ -1,16 +1,16 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { HandleProps, HandleTypes, ShapeCursors } from '../../../../props';
-import { CurveFinalReshaper } from '../../../../reshapers/curve/curve-final-reshaper';
-import { CurveFree1Reshaper } from '../../../../reshapers/curve/curve-free1-reshaper';
-import { CurveFree2Reshaper } from '../../../../reshapers/curve/curve-free2-reshaper';
-import { CurveLinkReshaper } from '../../../../reshapers/curve/curve-link-reshaper';
-import { CurveMidPointReshaper } from '../../../../reshapers/curve/curve-mid-point-reshaper';
-import { CurvePostlinkReshaper } from '../../../../reshapers/curve/curve-postlink-reshaper';
-import { CurvePrelinkReshaper } from '../../../../reshapers/curve/curve-prelink-reshaper';
-import { CurveStartReshaper } from '../../../../reshapers/curve/curve-start-reshaper';
-import { NopReshaper, Reshaper } from '../../../../reshapers/reshaper';
-import { Shape } from '../../../shape';
-import { Handle } from '../shapes/handle';
+import { HandleProps, HandleTypes, ShapeCursors } from '../props';
+import { CurveFinalReshaper } from '../reshapers/curve/curve-final-reshaper';
+import { CurveFree1Reshaper } from '../reshapers/curve/curve-free1-reshaper';
+import { CurveFree2Reshaper } from '../reshapers/curve/curve-free2-reshaper';
+import { CurveLinkReshaper } from '../reshapers/curve/curve-link-reshaper';
+import { CurveMidPointReshaper } from '../reshapers/curve/curve-mid-point-reshaper';
+import { CurvePostlinkReshaper } from '../reshapers/curve/curve-postlink-reshaper';
+import { CurvePrelinkReshaper } from '../reshapers/curve/curve-prelink-reshaper';
+import { CurveStartReshaper } from '../reshapers/curve/curve-start-reshaper';
+import { NopReshaper, Reshaper } from '../reshapers/reshaper';
+import { Handle } from '../shape-hierarchy/drawable-shapes/control-shapes/shapes/handle';
+import { Shape } from '../shape-hierarchy/shape';
 
 type PartHandleProps = Pick<
   HandleProps,

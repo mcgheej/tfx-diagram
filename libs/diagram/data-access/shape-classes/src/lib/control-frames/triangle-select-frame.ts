@@ -1,9 +1,9 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { linkShapeArray } from '../../../../misc-functions';
-import { TriangleControlPointReshaper } from '../../../../reshapers/triangle/triangle-control-point-reshaper';
-import { Shape } from '../../../shape';
-import { Handle } from '../shapes/handle';
-import { LineOutline } from '../shapes/line-outline';
+import { linkShapeArray } from '../misc-functions';
+import { TriangleControlPointReshaper } from '../reshapers/triangle/triangle-control-point-reshaper';
+import { Handle } from '../shape-hierarchy/drawable-shapes/control-shapes/shapes/handle';
+import { LineOutline } from '../shape-hierarchy/drawable-shapes/control-shapes/shapes/line-outline';
+import { Shape } from '../shape-hierarchy/shape';
 
 export const triangleSelectFrame = (
   vertices: [Point, Point, Point],
