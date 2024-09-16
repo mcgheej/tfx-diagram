@@ -1,4 +1,4 @@
-import { Reshaper } from '../reshaper/reshaper';
+import { Reshaper } from '../reshapers/reshaper';
 
 export interface RectangularReshapersConfig {
   nwReshaper: Reshaper;

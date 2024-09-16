@@ -23,13 +23,13 @@ import {
   ShapeProps,
   SharedProperties,
 } from '../../../../props';
+import { circleReshapersConfig } from '../../../../reshapers/circle/circle-reshapers-config';
 import { PX_BOUNDARY_DETECTION_THRESHOLD } from '../../../../types';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group';
 import { rectHighlightHandles } from '../../control-shapes/frames/rect-highlight-frame';
 import { rectSelectFrame } from '../../control-shapes/frames/rect-select-frame';
 import { RectangleOutline } from '../../control-shapes/shapes/rectangle-outline';
-import { circleReshapersConfig } from './circle-reshapers-config';
 
 const circleDefaults: Omit<CircleProps, keyof ShapeProps> = {
   x: 50,

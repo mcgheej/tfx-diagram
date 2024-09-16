@@ -14,7 +14,7 @@ import {
   ShapeProps,
   SharedProperties,
 } from '../../../../props';
-import { Reshaper } from '../../../../reshaper/reshaper';
+import { Reshaper } from '../../../../reshapers/reshaper';
 import { DEFAULT_OUTLINE_COLOUR } from '../../../../types';
 import { Shape } from '../../../shape';
 import { ControlShape } from '../control-shape';

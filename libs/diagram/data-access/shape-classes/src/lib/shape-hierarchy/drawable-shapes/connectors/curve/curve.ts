@@ -24,14 +24,14 @@ import {
   ShapeProps,
   SharedProperties,
 } from '../../../../props';
-import { NopReshaper } from '../../../../reshaper/reshaper';
+import { CurveFinalReshaper } from '../../../../reshapers/curve/curve-final-reshaper';
+import { CurveStartReshaper } from '../../../../reshapers/curve/curve-start-reshaper';
+import { NopReshaper } from '../../../../reshapers/reshaper';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group';
 import { curveSelectFrame } from '../../control-shapes/frames/curve-select-frame';
 import { Handle } from '../../control-shapes/shapes/handle';
 import { Connector } from '../connector';
-import { CurveFinalReshaper } from './reshapers/curve-final-reshaper';
-import { CurveStartReshaper } from './reshapers/curve-start-reshaper';
 
 export const curveDefaults: Omit<CurveProps, keyof ShapeProps> = {
   controlPoints: [

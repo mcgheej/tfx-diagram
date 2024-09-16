@@ -19,6 +19,7 @@ import {
   ShapeProps,
   SharedProperties,
 } from '../../../../props';
+import { rectangleReshapersConfig } from '../../../../reshapers/rectangle/rectangle-reshapers-config';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group';
 import { rectHighlightHandles } from '../../control-shapes/frames/rect-highlight-frame';
@@ -26,7 +27,6 @@ import { rectSelectFrame } from '../../control-shapes/frames/rect-select-frame';
 import { RectangleOutline } from '../../control-shapes/shapes/rectangle-outline';
 import { LineAttachParams, checkLine } from '../line-segment-attach-functions';
 import { outsideDetectionRect } from './rectangle-attach-functions';
-import { rectangleReshapersConfig } from './rectangle-reshapers-config';
 
 const DEFAULT_X = 50;
 const DEFAULT_Y = 50;

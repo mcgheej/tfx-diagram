@@ -1,6 +1,6 @@
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { linkShapeArray } from '../../../../misc-functions';
-import { NopReshaper } from '../../../../reshaper/reshaper';
+import { NopReshaper } from '../../../../reshapers/reshaper';
 import { Shape } from '../../../shape';
 import { Handle } from '../shapes/handle';
 

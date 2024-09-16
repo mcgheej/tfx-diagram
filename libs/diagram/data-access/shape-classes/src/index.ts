@@ -6,7 +6,7 @@ export * from './lib/connections/derived-connections/triangle-connection';
 export * from './lib/endpoints';
 export * from './lib/misc-functions';
 export * from './lib/props';
-export * from './lib/reshaper/reshaper';
+export * from './lib/reshapers/reshaper';
 export * from './lib/shape-hierarchy/drawable-shapes/basic-shapes/arc/arc';
 export * from './lib/shape-hierarchy/drawable-shapes/basic-shapes/circle/circle';
 export * from './lib/shape-hierarchy/drawable-shapes/basic-shapes/rectangle/rectangle';

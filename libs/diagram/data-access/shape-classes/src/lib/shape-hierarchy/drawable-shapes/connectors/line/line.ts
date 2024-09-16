@@ -24,13 +24,13 @@ import {
   ShapeProps,
   SharedProperties,
 } from '../../../../props';
-import { NopReshaper } from '../../../../reshaper/reshaper';
+import { LineControlPointReshaper } from '../../../../reshapers/line/line-control-point-reshaper';
+import { NopReshaper } from '../../../../reshapers/reshaper';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group';
 import { lineSelectFrame } from '../../control-shapes/frames/line-select-frame';
 import { Handle } from '../../control-shapes/shapes/handle';
 import { Connector } from '../connector';
-import { LineControlPointReshaper } from './reshapers/line-control-point-reshaper';
 
 export const lineDefaults: Omit<LineProps, keyof ShapeProps> = {
   controlPoints: [

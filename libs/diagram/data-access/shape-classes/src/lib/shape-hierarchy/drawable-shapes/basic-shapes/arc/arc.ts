@@ -17,7 +17,7 @@ import {
   ShapeProps,
   SharedProperties,
 } from '../../../../props';
-import { NopReshaper } from '../../../../reshaper/reshaper';
+import { NopReshaper } from '../../../../reshapers/reshaper';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group';
 import { arcSelectFrame } from '../../control-shapes/frames/arc-select-frame';

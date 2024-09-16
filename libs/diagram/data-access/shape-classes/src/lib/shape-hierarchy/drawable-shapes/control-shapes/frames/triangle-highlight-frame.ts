@@ -1,6 +1,6 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { linkShapeArray } from '../../../../misc-functions';
-import { NopReshaper } from '../../../../reshaper/reshaper';
+import { NopReshaper } from '../../../../reshapers/reshaper';
 import { Shape } from '../../../shape';
 import { Handle } from '../shapes/handle';
 
