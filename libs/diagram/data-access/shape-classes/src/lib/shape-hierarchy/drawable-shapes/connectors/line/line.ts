@@ -29,7 +29,7 @@ import { LineControlPointReshaper } from '../../../../reshapers/line/line-contro
 import { NopReshaper } from '../../../../reshapers/reshaper';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group';
-import { Handle } from '../../control-shapes/shapes/handle';
+import { Handle } from '../../control-shapes/handle/handle';
 import { Connector } from '../connector';
 
 export const lineDefaults: Omit<LineProps, keyof ShapeProps> = {

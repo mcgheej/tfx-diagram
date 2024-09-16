@@ -1,6 +1,6 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { lineInterpolate, linkShapeArray } from '../misc-functions';
-import { Handle } from '../shape-hierarchy/drawable-shapes/control-shapes/shapes/handle';
+import { Handle } from '../shape-hierarchy/drawable-shapes/control-shapes/handle/handle';
 import { Shape } from '../shape-hierarchy/shape';
 import {
   createLineControlPointHandle,

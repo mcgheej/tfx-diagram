@@ -29,7 +29,8 @@ import { circleReshapersConfig } from '../../../../reshapers/circle/circle-resha
 import { PX_BOUNDARY_DETECTION_THRESHOLD } from '../../../../types';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group';
-import { RectangleOutline } from '../../control-shapes/shapes/rectangle-outline';
+import { RectangleOutline } from '../../control-shapes/rectangle-outline/rectangle-outline';
+import { BasicShape } from '../basic-shape';
 
 const circleDefaults: Omit<CircleProps, keyof ShapeProps> = {
   x: 50,
@@ -44,7 +45,7 @@ const circleDefaults: Omit<CircleProps, keyof ShapeProps> = {
 
 type DrawingParams = Pick<CircleProps, 'x' | 'y' | 'radius' | 'lineWidth'>;
 
-export class Circle extends Shape implements CircleProps {
+export class Circle extends BasicShape implements CircleProps {
   x: number;
   y: number;
   radius: number;

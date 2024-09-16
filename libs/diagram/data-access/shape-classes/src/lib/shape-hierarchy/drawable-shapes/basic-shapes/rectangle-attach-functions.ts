@@ -1,8 +1,8 @@
 import { pointInRect, rectInflate } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect, RectSides } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { lineInterpolate } from '../../../../misc-functions';
-import { PX_BOUNDARY_DETECTION_THRESHOLD } from '../../../../types';
+import { lineInterpolate } from '../../../misc-functions';
+import { PX_BOUNDARY_DETECTION_THRESHOLD } from '../../../types';
 
 export interface RectangleAttachParams {
   side: RectSides;

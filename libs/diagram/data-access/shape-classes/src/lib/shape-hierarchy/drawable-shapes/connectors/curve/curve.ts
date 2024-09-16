@@ -30,7 +30,7 @@ import { CurveStartReshaper } from '../../../../reshapers/curve/curve-start-resh
 import { NopReshaper } from '../../../../reshapers/reshaper';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group';
-import { Handle } from '../../control-shapes/shapes/handle';
+import { Handle } from '../../control-shapes/handle/handle';
 import { Connector } from '../connector';
 
 export const curveDefaults: Omit<CurveProps, keyof ShapeProps> = {

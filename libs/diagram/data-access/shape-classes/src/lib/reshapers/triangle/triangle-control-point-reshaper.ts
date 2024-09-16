@@ -1,8 +1,8 @@
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { gridSnapPoint } from '../../misc-functions';
 import { Triangle } from '../../shape-hierarchy/drawable-shapes/basic-shapes/triangle/triangle';
-import { Handle } from '../../shape-hierarchy/drawable-shapes/control-shapes/shapes/handle';
-import { LineOutline } from '../../shape-hierarchy/drawable-shapes/control-shapes/shapes/line-outline';
+import { Handle } from '../../shape-hierarchy/drawable-shapes/control-shapes/handle/handle';
+import { LineOutline } from '../../shape-hierarchy/drawable-shapes/control-shapes/line-outline/line-outline';
 import { Shape } from '../../shape-hierarchy/shape';
 import { Reshaper } from '../reshaper';
 

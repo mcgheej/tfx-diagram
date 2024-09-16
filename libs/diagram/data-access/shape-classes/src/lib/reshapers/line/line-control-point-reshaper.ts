@@ -2,7 +2,7 @@ import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-type
 import { Connection, ConnectorEndTypes } from '../../connections/connection';
 import { gridSnapPoint, lineInterpolate } from '../../misc-functions';
 import { Line } from '../../shape-hierarchy/drawable-shapes/connectors/line/line';
-import { Handle } from '../../shape-hierarchy/drawable-shapes/control-shapes/shapes/handle';
+import { Handle } from '../../shape-hierarchy/drawable-shapes/control-shapes/handle/handle';
 import { Shape } from '../../shape-hierarchy/shape';
 import { LineReshaper } from './line-reshaper';
 

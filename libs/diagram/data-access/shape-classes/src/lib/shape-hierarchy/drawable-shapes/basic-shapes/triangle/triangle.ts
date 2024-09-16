@@ -28,9 +28,10 @@ import {
 } from '../../../../props';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group';
-import { RectangleOutline } from '../../control-shapes/shapes/rectangle-outline';
+import { RectangleOutline } from '../../control-shapes/rectangle-outline/rectangle-outline';
+import { BasicShape } from '../basic-shape';
 import { LineAttachParams, checkLine } from '../line-segment-attach-functions';
-import { outsideDetectionRect } from '../rectangle/rectangle-attach-functions';
+import { outsideDetectionRect } from '../rectangle-attach-functions';
 
 export const triangleDefaults: Omit<TriangleProps, keyof ShapeProps> = {
   vertices: [
@@ -49,7 +50,7 @@ type DrawingParams = Pick<TriangleProps, 'vertices' | 'lineWidth'>;
 
 const INITIAL_ATTACH_DISTANCE = 10000;
 
-export class Triangle extends Shape implements TriangleProps {
+export class Triangle extends BasicShape implements TriangleProps {
   vertices: [Point, Point, Point];
   lineDash: number[];
   lineWidth: number;

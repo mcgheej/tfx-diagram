@@ -7,9 +7,8 @@ import {
 } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-// import { ArcOutline } from '../../control-shapes/arc-outline';
-import { ArcOutline } from '../../control-shapes/shapes/arc-outline';
-import { Arc } from './arc';
+import { ArcOutline } from '../control-shapes/arc-outline/arc-outline';
+import { Arc } from './arc/arc';
 
 export function calcArcBoundingBox({
   x,

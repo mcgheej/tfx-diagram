@@ -1,8 +1,8 @@
 import { pointAdd, pointFromPolarPoint } from '@tfx-diagram/diagram/util/misc-functions';
 import { Arc } from '../../shape-hierarchy/drawable-shapes/basic-shapes/arc/arc';
-import { ArcOutline } from '../../shape-hierarchy/drawable-shapes/control-shapes/shapes/arc-outline';
-import { Handle } from '../../shape-hierarchy/drawable-shapes/control-shapes/shapes/handle';
-import { LineOutline } from '../../shape-hierarchy/drawable-shapes/control-shapes/shapes/line-outline';
+import { ArcOutline } from '../../shape-hierarchy/drawable-shapes/control-shapes/arc-outline/arc-outline';
+import { Handle } from '../../shape-hierarchy/drawable-shapes/control-shapes/handle/handle';
+import { LineOutline } from '../../shape-hierarchy/drawable-shapes/control-shapes/line-outline/line-outline';
 import { Shape } from '../../shape-hierarchy/shape';
 import { ARC_HANDLE_LENGTH } from '../../types/constants';
 import { Reshaper } from '../reshaper';

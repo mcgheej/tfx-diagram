@@ -9,7 +9,7 @@ import { AllShapeProps, ArcConfig, ArcProps, SharedProperties } from '../../../.
 import { DEFAULT_OUTLINE_COLOUR } from '../../../../types';
 import { Shape } from '../../../shape';
 import { arcDefaults } from '../../basic-shapes/arc/arc';
-import { calcArcBoundingBox } from '../../basic-shapes/arc/calc-arc-bounding-box';
+import { calcArcBoundingBox } from '../../basic-shapes/calc-arc-bounding-box';
 import { ControlShape } from '../control-shape';
 
 type DrawingParams = Pick<ArcProps, 'x' | 'y' | 'radius'>;

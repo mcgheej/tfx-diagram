@@ -9,7 +9,7 @@ import { CurvePostlinkReshaper } from '../reshapers/curve/curve-postlink-reshape
 import { CurvePrelinkReshaper } from '../reshapers/curve/curve-prelink-reshaper';
 import { CurveStartReshaper } from '../reshapers/curve/curve-start-reshaper';
 import { NopReshaper, Reshaper } from '../reshapers/reshaper';
-import { Handle } from '../shape-hierarchy/drawable-shapes/control-shapes/shapes/handle';
+import { Handle } from '../shape-hierarchy/drawable-shapes/control-shapes/handle/handle';
 import { Shape } from '../shape-hierarchy/shape';
 
 type PartHandleProps = Pick<

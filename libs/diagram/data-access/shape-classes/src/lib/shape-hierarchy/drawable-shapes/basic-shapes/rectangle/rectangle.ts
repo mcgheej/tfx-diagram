@@ -24,9 +24,10 @@ import {
 import { rectangleReshapersConfig } from '../../../../reshapers/rectangle/rectangle-reshapers-config';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group';
-import { RectangleOutline } from '../../control-shapes/shapes/rectangle-outline';
+import { RectangleOutline } from '../../control-shapes/rectangle-outline/rectangle-outline';
+import { BasicShape } from '../basic-shape';
 import { LineAttachParams, checkLine } from '../line-segment-attach-functions';
-import { outsideDetectionRect } from './rectangle-attach-functions';
+import { outsideDetectionRect } from '../rectangle-attach-functions';
 
 const DEFAULT_X = 50;
 const DEFAULT_Y = 50;
@@ -48,7 +49,7 @@ type DrawingParams = Pick<RectangleProps, 'x' | 'y' | 'width' | 'height' | 'line
 
 const INITIAL_ATTACH_DISTANCE = 10000;
 
-export class Rectangle extends Shape implements RectangleProps {
+export class Rectangle extends BasicShape implements RectangleProps {
   x: number;
   y: number;
   width: number;

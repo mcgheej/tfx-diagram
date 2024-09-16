@@ -4,8 +4,9 @@ import {
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Connection } from '../../../connections/connection';
 import { Shape } from '../../shape';
+import { DrawableShape } from '../drawable-shape';
 
-export abstract class ControlShape extends Shape {
+export abstract class ControlShape extends DrawableShape {
   attachBoundary(): Connection | undefined {
     return undefined;
   }

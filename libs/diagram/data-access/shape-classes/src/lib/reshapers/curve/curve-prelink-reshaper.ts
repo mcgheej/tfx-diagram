@@ -1,8 +1,8 @@
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { calcBezierPoint, lineInterpolate, realignPoint } from '../../misc-functions';
 import { Curve } from '../../shape-hierarchy/drawable-shapes/connectors/curve/curve';
-import { Handle } from '../../shape-hierarchy/drawable-shapes/control-shapes/shapes/handle';
-import { LineOutline } from '../../shape-hierarchy/drawable-shapes/control-shapes/shapes/line-outline';
+import { Handle } from '../../shape-hierarchy/drawable-shapes/control-shapes/handle/handle';
+import { LineOutline } from '../../shape-hierarchy/drawable-shapes/control-shapes/line-outline/line-outline';
 import { Shape } from '../../shape-hierarchy/shape';
 import { CurveNonEndpointReshaper } from './curve-non-endpoint-reshaper';
 

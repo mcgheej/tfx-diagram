@@ -21,9 +21,10 @@ import {
 import { NopReshaper } from '../../../../reshapers/reshaper';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group';
-import { Handle } from '../../control-shapes/shapes/handle';
-import { RectangleOutline } from '../../control-shapes/shapes/rectangle-outline';
-import { calcArcBoundingBox, getArcEndpoints } from './calc-arc-bounding-box';
+import { Handle } from '../../control-shapes/handle/handle';
+import { RectangleOutline } from '../../control-shapes/rectangle-outline/rectangle-outline';
+import { BasicShape } from '../basic-shape';
+import { calcArcBoundingBox, getArcEndpoints } from '../calc-arc-bounding-box';
 
 export const arcDefaults: Omit<ArcProps, keyof ShapeProps> = {
   x: 50,
@@ -40,7 +41,7 @@ export const arcDefaults: Omit<ArcProps, keyof ShapeProps> = {
 
 type DrawingParams = Pick<ArcProps, 'x' | 'y' | 'radius' | 'lineWidth'>;
 
-export class Arc extends Shape implements ArcProps {
+export class Arc extends BasicShape implements ArcProps {
   x: number;
   y: number;
   radius: number;
