@@ -1,30 +1,30 @@
 import { rectUnionArray } from '@tfx-diagram/diagram/util/misc-functions';
 import { ColorRef, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { groupHighlightFrame } from '../../control-frames/group-highlight-frame';
-import { groupSelectFrame } from '../../control-frames/group-select-frame';
-import { getShapeArrayFromIdArray } from '../../misc-functions';
+import { groupHighlightFrame } from '../../../control-frames/group-highlight-frame';
+import { groupSelectFrame } from '../../../control-frames/group-select-frame';
+import { getShapeArrayFromIdArray } from '../../../misc-functions';
 import {
   AllShapeProps,
   GroupConfig,
   GroupProps,
   ShapeProps,
   SharedProperties,
-} from '../../props';
-import { ControlShape } from '../drawable-shapes/control-shapes/control-shape';
-import { Shape } from '../shape';
+} from '../../../props';
+import { Shape } from '../../shape';
+import { StructuralShape } from '../structural-shape';
 
 const groupDefaults: Omit<GroupProps, keyof ShapeProps> = {
   groupMemberIds: [],
 };
 
-export class Group extends ControlShape implements GroupProps {
+export class Group extends StructuralShape implements GroupProps {
   // static members
 
   static highlightTopFrame(id: string, shapes: Map<string, Shape>): Shape[] {
     const topGroup = getTopLevelGroupFromId(id, shapes);
     if (topGroup) {
-      return groupHighlightFrame(topGroup, shapes, topGroup.boundingBox(shapes));
+      return groupHighlightFrame(topGroup.boundingBox(shapes));
     }
     return [];
   }
@@ -112,9 +112,9 @@ export class Group extends ControlShape implements GroupProps {
     return { x: mousePagePos.x, y: mousePagePos.y };
   }
 
-  draw(): void {
-    return;
-  }
+  // draw(): void {
+  //   return;
+  // }
 
   getProps(): GroupProps {
     return {
@@ -131,7 +131,7 @@ export class Group extends ControlShape implements GroupProps {
   }
 
   override highLightFrame(shapes: Map<string, Shape>): Shape[] {
-    return groupHighlightFrame(this, shapes, this.boundingBox(shapes));
+    return groupHighlightFrame(this.boundingBox(shapes));
   }
 
   move(): Shape {

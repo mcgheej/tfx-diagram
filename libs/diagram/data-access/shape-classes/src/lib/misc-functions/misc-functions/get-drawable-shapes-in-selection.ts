@@ -1,5 +1,5 @@
 import { Shape } from '../../shape-hierarchy/shape';
-import { Group } from '../../shape-hierarchy/structural-shapes/group';
+import { Group } from '../../shape-hierarchy/structural-shapes/group/group';
 
 /**
  * Returns shapes in the selection (includes shapes within

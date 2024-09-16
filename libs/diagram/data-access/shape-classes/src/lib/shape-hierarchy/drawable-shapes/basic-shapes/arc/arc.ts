@@ -24,7 +24,7 @@ import {
 } from '../../../../props';
 import { NopReshaper } from '../../../../reshapers/reshaper';
 import { Shape } from '../../../shape';
-import { Group } from '../../../structural-shapes/group';
+import { Group } from '../../../structural-shapes/group/group';
 import { Handle } from '../../control-shapes/handle/handle';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline/rectangle-outline';
 import { BasicShape } from '../basic-shape';

@@ -18,5 +18,5 @@ export * from './lib/shape-hierarchy/drawable-shapes/control-shapes/control-shap
 export * from './lib/shape-hierarchy/drawable-shapes/control-shapes/handle/handle';
 export * from './lib/shape-hierarchy/drawable-shapes/control-shapes/rectangle-outline/rectangle-outline';
 export * from './lib/shape-hierarchy/shape';
-export * from './lib/shape-hierarchy/structural-shapes/group';
+export * from './lib/shape-hierarchy/structural-shapes/group/group';
 export * from './lib/types';

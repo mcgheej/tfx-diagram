@@ -25,7 +25,7 @@ import {
 import { rectangleReshapersConfig } from '../../../../reshapers/rectangle/rectangle-reshapers-config';
 import { LineAttachParams } from '../../../../types';
 import { Shape } from '../../../shape';
-import { Group } from '../../../structural-shapes/group';
+import { Group } from '../../../structural-shapes/group/group';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline/rectangle-outline';
 import { BasicShape } from '../basic-shape';
 

@@ -28,7 +28,7 @@ import {
 import { circleReshapersConfig } from '../../../../reshapers/circle/circle-reshapers-config';
 import { PX_BOUNDARY_DETECTION_THRESHOLD } from '../../../../types';
 import { Shape } from '../../../shape';
-import { Group } from '../../../structural-shapes/group';
+import { Group } from '../../../structural-shapes/group/group';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline/rectangle-outline';
 import { BasicShape } from '../basic-shape';
 

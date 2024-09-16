@@ -29,7 +29,7 @@ import { CurveFinalReshaper } from '../../../../reshapers/curve/curve-final-resh
 import { CurveStartReshaper } from '../../../../reshapers/curve/curve-start-reshaper';
 import { NopReshaper } from '../../../../reshapers/reshaper';
 import { Shape } from '../../../shape';
-import { Group } from '../../../structural-shapes/group';
+import { Group } from '../../../structural-shapes/group/group';
 import { Handle } from '../../control-shapes/handle/handle';
 import { Connector } from '../connector';
 
