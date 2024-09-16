@@ -1,13 +1,13 @@
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
+import { calcBezierPoint, lineInterpolate } from '../../../../../misc-functions';
+import { Shape } from '../../../../shape';
 import {
   createCurveControlPointHandle,
   createMidSegmentHandle,
-} from '../../../../../control-shapes/frames/curve-frame-handle.generators';
-import { getLineOutline } from '../../../../../control-shapes/frames/frame-line.generators';
-import { Handle } from '../../../../../control-shapes/handle';
-import { LineOutline } from '../../../../../control-shapes/line-outline';
-import { calcBezierPoint, lineInterpolate } from '../../../../../misc-functions';
-import { Shape } from '../../../../shape';
+} from '../../../control-shapes/frames/curve-frame-handle.generators';
+import { getLineOutline } from '../../../control-shapes/frames/frame-line.generators';
+import { Handle } from '../../../control-shapes/shapes/handle';
+import { LineOutline } from '../../../control-shapes/shapes/line-outline';
 import { Curve } from '../curve';
 import { CurveLinkReshaper } from './curve-link-reshaper';
 import { CurveNonEndpointReshaper } from './curve-non-endpoint-reshaper';

@@ -1,5 +1,5 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { LineOutline } from '../line-outline';
+import { LineOutline } from '../shapes/line-outline';
 
 /**
  *

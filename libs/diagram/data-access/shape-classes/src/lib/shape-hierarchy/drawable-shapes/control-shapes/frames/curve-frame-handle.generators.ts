@@ -1,16 +1,16 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { HandleProps, HandleTypes, ShapeCursors } from '../../props';
-import { NopReshaper, Reshaper } from '../../reshaper/reshaper';
-import { CurveFinalReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-final-reshaper';
-import { CurveFree1Reshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-free1-reshaper';
-import { CurveFree2Reshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-free2-reshaper';
-import { CurveLinkReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-link-reshaper';
-import { CurveMidPointReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-mid-point-reshaper';
-import { CurvePostlinkReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-postlink-reshaper';
-import { CurvePrelinkReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-prelink-reshaper';
-import { CurveStartReshaper } from '../../shape-hierarchy/drawable-shapes/connectors/curve/reshapers/curve-start-reshaper';
-import { Shape } from '../../shape-hierarchy/shape';
-import { Handle } from '../handle';
+import { HandleProps, HandleTypes, ShapeCursors } from '../../../../props';
+import { NopReshaper, Reshaper } from '../../../../reshaper/reshaper';
+import { Shape } from '../../../shape';
+import { CurveFinalReshaper } from '../../connectors/curve/reshapers/curve-final-reshaper';
+import { CurveFree1Reshaper } from '../../connectors/curve/reshapers/curve-free1-reshaper';
+import { CurveFree2Reshaper } from '../../connectors/curve/reshapers/curve-free2-reshaper';
+import { CurveLinkReshaper } from '../../connectors/curve/reshapers/curve-link-reshaper';
+import { CurveMidPointReshaper } from '../../connectors/curve/reshapers/curve-mid-point-reshaper';
+import { CurvePostlinkReshaper } from '../../connectors/curve/reshapers/curve-postlink-reshaper';
+import { CurvePrelinkReshaper } from '../../connectors/curve/reshapers/curve-prelink-reshaper';
+import { CurveStartReshaper } from '../../connectors/curve/reshapers/curve-start-reshaper';
+import { Handle } from '../shapes/handle';
 
 type PartHandleProps = Pick<
   HandleProps,

@@ -1,13 +1,13 @@
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Connection } from '../../../../../connections/connection';
-import { Handle } from '../../../../../control-shapes/handle';
-import { LineOutline } from '../../../../../control-shapes/line-outline';
 import {
   calcBezierPoint,
   gridSnapPoint,
   lineInterpolate,
 } from '../../../../../misc-functions';
 import { Shape } from '../../../../shape';
+import { Handle } from '../../../control-shapes/shapes/handle';
+import { LineOutline } from '../../../control-shapes/shapes/line-outline';
 import { Curve } from '../curve';
 import { CurveEndpointReshaper } from './curve-endpoint-reshaper';
 

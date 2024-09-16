@@ -12,12 +12,17 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
+import { Endpoint } from '../../../../endpoints';
+import {
+  AllShapeProps,
+  LineConfig,
+  LineProps,
+  SharedProperties,
+} from '../../../../props';
+import { DEFAULT_OUTLINE_COLOUR } from '../../../../types';
+import { Shape } from '../../../shape';
+import { lineDefaults } from '../../connectors/line/line';
 import { ControlShape } from '../control-shape';
-import { Endpoint } from '../endpoints';
-import { AllShapeProps, LineConfig, LineProps, SharedProperties } from '../props';
-import { lineDefaults } from '../shape-hierarchy/drawable-shapes/connectors/line/line';
-import { Shape } from '../shape-hierarchy/shape';
-import { DEFAULT_OUTLINE_COLOUR } from '../types';
 
 type DrawingParams = Pick<LineProps, 'controlPoints'>;
 

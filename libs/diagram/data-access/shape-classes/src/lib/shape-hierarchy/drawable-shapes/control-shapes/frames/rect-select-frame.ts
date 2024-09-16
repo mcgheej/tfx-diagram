@@ -1,9 +1,9 @@
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { linkShapeArray } from '../../misc-functions';
-import { Shape } from '../../shape-hierarchy/shape';
-import { RectangularReshapersConfig } from '../../types/rectangular-reshapers-config';
-import { Handle } from '../handle';
-import { RectangleOutline } from '../rectangle-outline';
+import { linkShapeArray } from '../../../../misc-functions';
+import { RectangularReshapersConfig } from '../../../../types/rectangular-reshapers-config';
+import { Shape } from '../../../shape';
+import { Handle } from '../shapes/handle';
+import { RectangleOutline } from '../shapes/rectangle-outline';
 
 export const rectSelectFrame = (
   rect: Rect,

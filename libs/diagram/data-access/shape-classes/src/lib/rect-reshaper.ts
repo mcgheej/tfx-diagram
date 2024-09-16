@@ -1,9 +1,9 @@
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { Handle } from './control-shapes/handle';
-import { RectangleOutline } from './control-shapes/rectangle-outline';
 import { Reshaper } from './reshaper/reshaper';
 import { Circle } from './shape-hierarchy/drawable-shapes/basic-shapes/circle/circle';
 import { Rectangle } from './shape-hierarchy/drawable-shapes/basic-shapes/rectangle/rectangle';
+import { Handle } from './shape-hierarchy/drawable-shapes/control-shapes/shapes/handle';
+import { RectangleOutline } from './shape-hierarchy/drawable-shapes/control-shapes/shapes/rectangle-outline';
 import { Shape } from './shape-hierarchy/shape';
 
 export abstract class RectReshaper extends Reshaper {

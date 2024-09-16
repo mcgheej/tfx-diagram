@@ -6,16 +6,16 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { ControlShape } from '../control-shape';
 import {
   AllShapeProps,
   RectangleConfig,
   RectangleProps,
   SharedProperties,
-} from '../props';
-import { rectangleDefaults } from '../shape-hierarchy/drawable-shapes/basic-shapes/rectangle/rectangle';
-import { Shape } from '../shape-hierarchy/shape';
-import { DEFAULT_OUTLINE_COLOUR } from '../types';
+} from '../../../../props';
+import { DEFAULT_OUTLINE_COLOUR } from '../../../../types';
+import { Shape } from '../../../shape';
+import { rectangleDefaults } from '../../basic-shapes/rectangle/rectangle';
+import { ControlShape } from '../control-shape';
 
 type DrawingParams = Pick<RectangleProps, 'x' | 'y' | 'width' | 'height'>;
 

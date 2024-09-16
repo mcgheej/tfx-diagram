@@ -16,9 +16,6 @@ import {
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { CircleConnection } from '../../../../connections/circle-connection';
 import { Connection } from '../../../../connections/connection';
-import { rectHighlightHandles } from '../../../../control-shapes/frames/rect-highlight-frame';
-import { rectSelectFrame } from '../../../../control-shapes/frames/rect-select-frame';
-import { RectangleOutline } from '../../../../control-shapes/rectangle-outline';
 import {
   AllShapeProps,
   CircleConfig,
@@ -29,6 +26,9 @@ import {
 import { PX_BOUNDARY_DETECTION_THRESHOLD } from '../../../../types';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group';
+import { rectHighlightHandles } from '../../control-shapes/frames/rect-highlight-frame';
+import { rectSelectFrame } from '../../control-shapes/frames/rect-select-frame';
+import { RectangleOutline } from '../../control-shapes/shapes/rectangle-outline';
 import { circleReshapersConfig } from './circle-reshapers-config';
 
 const circleDefaults: Omit<CircleProps, keyof ShapeProps> = {

@@ -5,7 +5,6 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { ControlShape } from '../control-shape';
 import {
   AllShapeProps,
   HandleConfig,
@@ -14,10 +13,11 @@ import {
   HandleTypes,
   ShapeProps,
   SharedProperties,
-} from '../props';
-import { Reshaper } from '../reshaper/reshaper';
-import { Shape } from '../shape-hierarchy/shape';
-import { DEFAULT_OUTLINE_COLOUR } from '../types';
+} from '../../../../props';
+import { Reshaper } from '../../../../reshaper/reshaper';
+import { DEFAULT_OUTLINE_COLOUR } from '../../../../types';
+import { Shape } from '../../../shape';
+import { ControlShape } from '../control-shape';
 
 const handleDefaults: Omit<HandleProps, keyof ShapeProps | 'x' | 'y' | 'reshaper'> = {
   pxWidth: 11,

@@ -1,7 +1,7 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { lineInterpolate, linkShapeArray } from '../../misc-functions';
-import { Shape } from '../../shape-hierarchy/shape';
-import { Handle } from '../handle';
+import { lineInterpolate, linkShapeArray } from '../../../../misc-functions';
+import { Shape } from '../../../shape';
+import { Handle } from '../shapes/handle';
 import {
   createLineControlPointHandle,
   createLineMidPointHandle,

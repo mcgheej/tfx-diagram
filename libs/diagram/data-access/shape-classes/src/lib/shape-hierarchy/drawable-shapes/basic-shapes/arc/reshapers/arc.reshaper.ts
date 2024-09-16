@@ -1,10 +1,10 @@
 import { pointAdd, pointFromPolarPoint } from '@tfx-diagram/diagram/util/misc-functions';
-import { ArcOutline } from '../../../../../control-shapes/arc-outline';
-import { Handle } from '../../../../../control-shapes/handle';
-import { LineOutline } from '../../../../../control-shapes/line-outline';
 import { Reshaper } from '../../../../../reshaper/reshaper';
 import { ARC_HANDLE_LENGTH } from '../../../../../types/constants';
 import { Shape } from '../../../../shape';
+import { ArcOutline } from '../../../control-shapes/shapes/arc-outline';
+import { Handle } from '../../../control-shapes/shapes/handle';
+import { LineOutline } from '../../../control-shapes/shapes/line-outline';
 import { Arc } from '../arc';
 
 export abstract class ArcReshaper extends Reshaper {
