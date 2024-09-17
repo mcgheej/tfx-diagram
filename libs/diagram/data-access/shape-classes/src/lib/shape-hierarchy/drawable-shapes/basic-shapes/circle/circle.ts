@@ -25,12 +25,26 @@ import {
   ShapeProps,
   SharedProperties,
 } from '../../../../props';
-import { circleReshapersConfig } from '../../../../reshapers/circle/circle-reshapers-config';
-import { PX_BOUNDARY_DETECTION_THRESHOLD } from '../../../../types';
+import * as Reshapers from '../../../../reshapers';
+import {
+  PX_BOUNDARY_DETECTION_THRESHOLD,
+  RectangularReshapersConfig,
+} from '../../../../types';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group/group';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline/rectangle-outline';
 import { BasicShape } from '../basic-shape';
+
+export const circleReshapersConfig: RectangularReshapersConfig = {
+  nwReshaper: new Reshapers.CircleNwReshaper(),
+  nReshaper: new Reshapers.CircleNReshaper(),
+  neReshaper: new Reshapers.CircleNeReshaper(),
+  eReshaper: new Reshapers.CircleEReshaper(),
+  seReshaper: new Reshapers.CircleSeReshaper(),
+  sReshaper: new Reshapers.CircleSReshaper(),
+  swReshaper: new Reshapers.CircleSwReshaper(),
+  wReshaper: new Reshapers.CircleWReshaper(),
+};
 
 const circleDefaults: Omit<CircleProps, keyof ShapeProps> = {
   x: 50,

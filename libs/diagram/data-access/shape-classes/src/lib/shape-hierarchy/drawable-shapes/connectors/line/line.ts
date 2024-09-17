@@ -25,8 +25,7 @@ import {
   ShapeProps,
   SharedProperties,
 } from '../../../../props';
-import { LineControlPointReshaper } from '../../../../reshapers/line/line-control-point-reshaper';
-import { NopReshaper } from '../../../../reshapers/reshaper';
+import { LineControlPointReshaper, NopReshaper } from '../../../../reshapers';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group/group';
 import { Handle } from '../../control-shapes/handle/handle';

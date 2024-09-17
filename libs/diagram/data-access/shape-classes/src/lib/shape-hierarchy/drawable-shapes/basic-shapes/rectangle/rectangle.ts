@@ -22,12 +22,23 @@ import {
   ShapeProps,
   SharedProperties,
 } from '../../../../props';
-import { rectangleReshapersConfig } from '../../../../reshapers/rectangle/rectangle-reshapers-config';
-import { LineAttachParams } from '../../../../types';
+import * as Reshapers from '../../../../reshapers';
+import { LineAttachParams, RectangularReshapersConfig } from '../../../../types';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group/group';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline/rectangle-outline';
 import { BasicShape } from '../basic-shape';
+
+export const rectangleReshapersConfig: RectangularReshapersConfig = {
+  nwReshaper: new Reshapers.RectangleNwReshaper(),
+  nReshaper: new Reshapers.RectangleNReshaper(),
+  neReshaper: new Reshapers.RectangleNeReshaper(),
+  eReshaper: new Reshapers.RectangleEReshaper(),
+  seReshaper: new Reshapers.RectangleSeReshaper(),
+  sReshaper: new Reshapers.RectangleSReshaper(),
+  swReshaper: new Reshapers.RectangleSwReshaper(),
+  wReshaper: new Reshapers.RectangleWReshaper(),
+};
 
 const DEFAULT_X = 50;
 const DEFAULT_Y = 50;

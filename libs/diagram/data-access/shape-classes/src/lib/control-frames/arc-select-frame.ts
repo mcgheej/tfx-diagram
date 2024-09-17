@@ -1,10 +1,12 @@
 import { pointAdd, pointFromPolarPoint } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { linkShapeArray } from '../misc-functions';
-import { ArcEangleReshaper } from '../reshapers/arc/arc-eangle-reshaper';
-import { ArcRadiusReshaper } from '../reshapers/arc/arc-radius-reshaper';
-import { ArcSangleReshaper } from '../reshapers/arc/arc-sangle-reshaper';
-import { Reshaper } from '../reshapers/reshaper';
+import {
+  ArcEangleReshaper,
+  ArcRadiusReshaper,
+  ArcSangleReshaper,
+  Reshaper,
+} from '../reshapers';
 import { Arc } from '../shape-hierarchy/drawable-shapes/basic-shapes/arc/arc';
 import { ArcOutline } from '../shape-hierarchy/drawable-shapes/control-shapes/arc-outline/arc-outline';
 import { Handle } from '../shape-hierarchy/drawable-shapes/control-shapes/handle/handle';

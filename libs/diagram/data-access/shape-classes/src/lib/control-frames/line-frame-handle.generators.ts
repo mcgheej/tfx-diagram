@@ -1,7 +1,6 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { HandleTypes } from '../props';
-import { LineControlPointReshaper } from '../reshapers/line/line-control-point-reshaper';
-import { LineMidPointReshaper } from '../reshapers/line/line-mid-point-reshaper';
+import { LineControlPointReshaper, LineMidPointReshaper } from '../reshapers';
 import { Handle } from '../shape-hierarchy/drawable-shapes/control-shapes/handle/handle';
 import { Shape } from '../shape-hierarchy/shape';
 

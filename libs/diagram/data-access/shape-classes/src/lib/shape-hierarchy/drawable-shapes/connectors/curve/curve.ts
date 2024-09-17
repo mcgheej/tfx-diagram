@@ -25,9 +25,11 @@ import {
   ShapeProps,
   SharedProperties,
 } from '../../../../props';
-import { CurveFinalReshaper } from '../../../../reshapers/curve/curve-final-reshaper';
-import { CurveStartReshaper } from '../../../../reshapers/curve/curve-start-reshaper';
-import { NopReshaper } from '../../../../reshapers/reshaper';
+import {
+  CurveFinalReshaper,
+  CurveStartReshaper,
+  NopReshaper,
+} from '../../../../reshapers';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group/group';
 import { Handle } from '../../control-shapes/handle/handle';

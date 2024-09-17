@@ -22,7 +22,7 @@ import {
   ShapeProps,
   SharedProperties,
 } from '../../../../props';
-import { NopReshaper } from '../../../../reshapers/reshaper';
+import { NopReshaper } from '../../../../reshapers';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group/group';
 import { Handle } from '../../control-shapes/handle/handle';
