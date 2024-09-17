@@ -1,4 +1,3 @@
-import { Endpoint, EndpointSize } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   pointAdd,
   pointRotate,
@@ -6,30 +5,32 @@ import {
   pointTransform,
 } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { arrowRatio, mmArrowLengths, mmBaseLineWidth } from './endpoint.constants';
+import { Endpoint } from '../endpoint';
+import { arrowRatio, mmArrowLengths, mmBaseLineWidth } from '../endpoint.constants';
+import { EndpointSize } from '../endpoint.types';
 
-export class SolidDiamond extends Endpoint {
-  static readonly availableSizesSolidDiamond: EndpointSize[] = ['medium', 'large'];
+export class StandardArrow extends Endpoint {
+  static readonly availableSizesStandardArrow: EndpointSize[] = ['medium', 'large'];
   static modalStartSize: EndpointSize = 'medium';
   static modalFinishSize: EndpointSize = 'medium';
 
   get modalStartSize(): EndpointSize {
-    return SolidDiamond.modalStartSize;
+    return StandardArrow.modalStartSize;
   }
 
   set modalStartSize(size: EndpointSize) {
-    if (SolidDiamond.availableSizesSolidDiamond.includes(size)) {
-      SolidDiamond.modalStartSize = size;
+    if (StandardArrow.availableSizesStandardArrow.includes(size)) {
+      StandardArrow.modalStartSize = size;
     }
   }
 
   get modalFinishSize(): EndpointSize {
-    return SolidDiamond.modalFinishSize;
+    return StandardArrow.modalFinishSize;
   }
 
   set modalFinishSize(size: EndpointSize) {
-    if (SolidDiamond.availableSizesSolidDiamond.includes(size)) {
-      SolidDiamond.modalFinishSize = size;
+    if (StandardArrow.availableSizesStandardArrow.includes(size)) {
+      StandardArrow.modalFinishSize = size;
     }
   }
 
@@ -38,24 +39,22 @@ export class SolidDiamond extends Endpoint {
   private arrowBase: Point[];
 
   constructor(size: EndpointSize = 'medium') {
-    if (SolidDiamond.availableSizesSolidDiamond.includes(size)) {
-      super('solid-diamond', size, SolidDiamond.availableSizesSolidDiamond);
+    if (StandardArrow.availableSizesStandardArrow.includes(size)) {
+      super('standard-arrow', size, StandardArrow.availableSizesStandardArrow);
     } else {
-      super('solid-diamond', 'medium', SolidDiamond.availableSizesSolidDiamond);
+      super('standard-arrow', 'medium', StandardArrow.availableSizesStandardArrow);
     }
-
     this.mmLength = mmArrowLengths[this.size as 'medium' | 'large'];
     this.mmHeight = (2 * this.mmLength * arrowRatio.height) / arrowRatio.length;
     this.arrowBase = [
       { x: 0, y: 0 },
-      { x: this.mmLength / 2, y: -this.mmHeight / 2 },
-      { x: this.mmLength, y: 0 },
-      { x: this.mmLength / 2, y: this.mmHeight / 2 },
+      { x: this.mmLength, y: -this.mmHeight / 2 },
+      { x: this.mmLength, y: this.mmHeight / 2 },
     ];
   }
 
-  copy(): SolidDiamond {
-    return new SolidDiamond(this.size);
+  copy(): StandardArrow {
+    return new StandardArrow(this.size);
   }
 
   /**
@@ -74,9 +73,14 @@ export class SolidDiamond extends Endpoint {
 
     const a: Point[] = [
       pointTransform(pointAdd(this.arrowBase[0], p), t),
-      pointTransform(pointAdd(pointRotate(pointScale(this.arrowBase[1], s), angle), p), t),
-      pointTransform(pointAdd(pointRotate(pointScale(this.arrowBase[2], s), angle), p), t),
-      pointTransform(pointAdd(pointRotate(pointScale(this.arrowBase[3], s), angle), p), t),
+      pointTransform(
+        pointAdd(pointRotate(pointScale(this.arrowBase[1], s), angle), p),
+        t
+      ),
+      pointTransform(
+        pointAdd(pointRotate(pointScale(this.arrowBase[2], s), angle), p),
+        t
+      ),
     ];
 
     c.save();
@@ -87,7 +91,6 @@ export class SolidDiamond extends Endpoint {
     c.moveTo(a[0].x, a[0].y);
     c.lineTo(a[1].x, a[1].y);
     c.lineTo(a[2].x, a[2].y);
-    c.lineTo(a[3].x, a[3].y);
     c.fill();
     c.restore();
   }

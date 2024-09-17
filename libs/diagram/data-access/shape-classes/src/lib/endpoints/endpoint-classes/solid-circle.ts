@@ -1,14 +1,19 @@
-import { Endpoint, EndpointSize } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   pointAdd,
   pointRotate,
   pointTransform,
 } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { mmBaseLineWidth, mmRadii } from './endpoint.constants';
+import { Endpoint } from '../endpoint';
+import { mmBaseLineWidth, mmRadii } from '../endpoint.constants';
+import { EndpointSize } from '../endpoint.types';
 
 export class SolidCircle extends Endpoint {
-  static readonly availableSizesSolidCircle: EndpointSize[] = ['small', 'medium', 'large'];
+  static readonly availableSizesSolidCircle: EndpointSize[] = [
+    'small',
+    'medium',
+    'large',
+  ];
   static modalStartSize: EndpointSize = 'medium';
   static modalFinishSize: EndpointSize = 'medium';
 

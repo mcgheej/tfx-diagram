@@ -5,7 +5,6 @@ import {
   ShapesEffectsActions,
   SketchbookEffectsActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
-import { createEndpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
 import {
   Arc,
   ArcConfig,
@@ -31,6 +30,7 @@ import {
   TriangleConfig,
   TriangleConnection,
   TriangleConnectionProps,
+  createEndpoint,
   getAllShapesInSelection,
 } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { ShapesState } from '@tfx-diagram/electron-renderer-web-context-bridge-api';

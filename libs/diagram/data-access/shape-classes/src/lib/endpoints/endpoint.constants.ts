@@ -1,3 +1,5 @@
+import { EndpointStyle } from './endpoint.types';
+
 export const mmBaseLineWidth = 0.25;
 
 // Arrow head ratios
@@ -18,3 +20,15 @@ export const mmRadii = {
   medium: 1,
   large: 1.5,
 };
+
+// Array of supported styles
+export const ENDPOINT_STYLES: EndpointStyle[] = [
+  'none',
+  'standard-arrow',
+  'hollow-arrow',
+  'solid-circle',
+  'hollow-circle',
+  'solid-diamond',
+  'hollow-diamond',
+  'half-circle',
+];

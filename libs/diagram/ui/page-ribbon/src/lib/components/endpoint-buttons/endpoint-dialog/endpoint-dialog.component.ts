@@ -7,15 +7,13 @@ import {
 } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import {
-  createEndpoint,
-  createFinishEndpoint,
-  createStartEndpoint,
-} from '@tfx-diagram/diagram/data-access/endpoint-classes';
-import {
   ENDPOINT_STYLES,
   Endpoint,
   EndpointSize,
   EndpointStyle,
+  createEndpoint,
+  createFinishEndpoint,
+  createStartEndpoint,
 } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { Size } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { EndpointDialogData } from './endpoint-dialog.types';
@@ -43,7 +41,9 @@ export class EndpointDialogComponent implements OnInit {
     for (let i = 0; i < ENDPOINT_STYLES.length; i++) {
       const style = ENDPOINT_STYLES[i];
       this.endpoints.push(
-        this.data.end === 'start' ? createStartEndpoint(style) : createFinishEndpoint(style)
+        this.data.end === 'start'
+          ? createStartEndpoint(style)
+          : createFinishEndpoint(style)
       );
     }
   }

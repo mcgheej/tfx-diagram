@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { EndpointButtonsServiceActions } from '@tfx-diagram/diagram-data-access-store-actions';
-import { createEndpoint } from '@tfx-diagram/diagram/data-access/endpoint-classes';
-import { Endpoint } from '@tfx-diagram/diagram/data-access/shape-classes';
+import { Endpoint, createEndpoint } from '@tfx-diagram/diagram/data-access/shape-classes';
 import {
   EndpointDialogComponent,
   EndpointDialogResult,
@@ -14,7 +13,11 @@ import { EndpointDialogData } from './endpoint-dialog/endpoint-dialog.types';
 export class EndpointButtonsService {
   constructor(private dialog: MatDialog, private store: Store) {}
 
-  openEndpointDialog(el: HTMLElement, endpoint: Endpoint | null, end: 'start' | 'finish') {
+  openEndpointDialog(
+    el: HTMLElement,
+    endpoint: Endpoint | null,
+    end: 'start' | 'finish'
+  ) {
     let config: MatDialogConfig<EndpointDialogData> = {
       data: { endpoint, end },
       width: '180px',
@@ -42,13 +45,17 @@ export class EndpointButtonsService {
           if (endpoint) {
             endpoint.modalStartSize = result.size;
           }
-          this.store.dispatch(EndpointButtonsServiceActions.startEndpointChange({ endpoint }));
+          this.store.dispatch(
+            EndpointButtonsServiceActions.startEndpointChange({ endpoint })
+          );
         } else {
           const endpoint = createEndpoint(result.endpointType, result.size);
           if (endpoint) {
             endpoint.modalFinishSize = result.size;
           }
-          this.store.dispatch(EndpointButtonsServiceActions.finishEndpointChange({ endpoint }));
+          this.store.dispatch(
+            EndpointButtonsServiceActions.finishEndpointChange({ endpoint })
+          );
         }
       }
     });

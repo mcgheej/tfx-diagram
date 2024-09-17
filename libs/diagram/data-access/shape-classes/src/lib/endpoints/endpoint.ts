@@ -1,5 +1,5 @@
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { EndpointSize, EndpointStyle } from './endpoint-styles';
+import { EndpointSize, EndpointStyle } from './endpoint.types';
 
 export abstract class Endpoint {
   readonly availableSizes: EndpointSize[];
@@ -11,7 +11,11 @@ export abstract class Endpoint {
   abstract get modalFinishSize(): EndpointSize;
   abstract set modalFinishSize(size: EndpointSize);
 
-  constructor(endpointType: EndpointStyle, size: EndpointSize, availableSizes: EndpointSize[]) {
+  constructor(
+    endpointType: EndpointStyle,
+    size: EndpointSize,
+    availableSizes: EndpointSize[]
+  ) {
     this.endpointType = endpointType;
     this.size = size;
     this.availableSizes = availableSizes;

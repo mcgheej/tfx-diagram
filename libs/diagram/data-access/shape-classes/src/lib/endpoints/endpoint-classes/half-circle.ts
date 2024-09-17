@@ -1,50 +1,47 @@
-import { Endpoint, EndpointSize } from '@tfx-diagram/diagram/data-access/shape-classes';
-import {
-  pointAdd,
-  pointRotate,
-  pointTransform,
-} from '@tfx-diagram/diagram/util/misc-functions';
+import { pointTransform } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { mmBaseLineWidth, mmRadii } from './endpoint.constants';
+import { Endpoint } from '../endpoint';
+import { mmBaseLineWidth, mmRadii } from '../endpoint.constants';
+import { EndpointSize } from '../endpoint.types';
 
-export class HollowCircle extends Endpoint {
-  static readonly availableSizesHollowCircle: EndpointSize[] = ['small', 'medium', 'large'];
+export class HalfCircle extends Endpoint {
+  static readonly availableSizesHalfCircle: EndpointSize[] = ['small', 'medium', 'large'];
   static modalStartSize: EndpointSize = 'medium';
   static modalFinishSize: EndpointSize = 'medium';
 
   get modalStartSize(): EndpointSize {
-    return HollowCircle.modalStartSize;
+    return HalfCircle.modalStartSize;
   }
 
   set modalStartSize(size: EndpointSize) {
-    if (HollowCircle.availableSizesHollowCircle.includes(size)) {
-      HollowCircle.modalStartSize = size;
+    if (HalfCircle.availableSizesHalfCircle.includes(size)) {
+      HalfCircle.modalStartSize = size;
     }
   }
 
   get modalFinishSize(): EndpointSize {
-    return HollowCircle.modalFinishSize;
+    return HalfCircle.modalFinishSize;
   }
 
   set modalFinishSize(size: EndpointSize) {
-    if (HollowCircle.availableSizesHollowCircle.includes(size)) {
-      HollowCircle.modalFinishSize = size;
+    if (HalfCircle.availableSizesHalfCircle.includes(size)) {
+      HalfCircle.modalFinishSize = size;
     }
   }
 
   private mmCircleRadius: number;
 
   constructor(size: EndpointSize) {
-    if (HollowCircle.availableSizesHollowCircle.includes(size)) {
-      super('hollow-circle', size, HollowCircle.availableSizesHollowCircle);
+    if (HalfCircle.availableSizesHalfCircle.includes(size)) {
+      super('half-circle', size, HalfCircle.availableSizesHalfCircle);
     } else {
-      super('hollow-circle', 'medium', HollowCircle.availableSizesHollowCircle);
+      super('half-circle', 'medium', HalfCircle.availableSizesHalfCircle);
     }
     this.mmCircleRadius = mmRadii[this.size];
   }
 
-  copy(): HollowCircle {
-    return new HollowCircle(this.size);
+  copy(): HalfCircle {
+    return new HalfCircle(this.size);
   }
 
   /**
@@ -61,19 +58,19 @@ export class HollowCircle extends Endpoint {
     // Scale for line width
     const s = (1 + mmLineWidth / mmBaseLineWidth) / 2;
     const pxRadius = this.mmCircleRadius * s * t.scaleFactor;
-    const pxE = pointTransform(p, t);
-    const { x, y } = pointAdd(pointRotate({ x: pxRadius, y: 0 }, angle), pxE);
-
+    const { x, y } = pointTransform(p, t);
+    const sAngle = (3 * Math.PI) / 2 + angle;
+    const eAngle = Math.PI / 2 + angle;
     c.save();
     c.fillStyle = 'white';
     c.beginPath();
-    c.arc(x, y, pxRadius, 0, 2 * Math.PI);
+    c.arc(x, y, pxRadius, sAngle, eAngle);
     c.fill();
 
     c.strokeStyle = strokeStyle;
     c.lineWidth = 1;
     c.beginPath();
-    c.arc(x, y, pxRadius, 0, 2 * Math.PI);
+    c.arc(x, y, pxRadius, sAngle, eAngle);
     c.clip();
 
     let pxLineWidth = mmLineWidth * t.scaleFactor * 2;
@@ -83,8 +80,9 @@ export class HollowCircle extends Endpoint {
     c.lineWidth = pxLineWidth;
     c.setLineDash([]);
     c.beginPath();
-    c.arc(x, y, pxRadius, 0, 2 * Math.PI);
+    c.arc(x, y, pxRadius, sAngle, eAngle);
     c.stroke();
+
     c.restore();
   }
 }
