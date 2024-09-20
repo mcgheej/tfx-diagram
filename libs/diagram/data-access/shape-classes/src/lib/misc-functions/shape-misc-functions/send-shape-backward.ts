@@ -1,5 +1,6 @@
 /* eslint-disable prefer-const */
 import { Shape } from '../../shape-hierarchy/shape';
+import { getDrawableShapeIdsInSelection } from '../misc-functions';
 import { getShape } from './get-shape';
 import { unlinkShapesById } from './unlink-shapes-by-id';
 
@@ -64,6 +65,43 @@ export function sendShapeBackward(
       newLastId,
       modifiedShapes,
     };
+  } else if (s && s.shapeType === 'group') {
+    const ids = getDrawableShapeIdsInSelection([id], shapes);
+    if (ids.length > 1) {
+      const f = getShape(ids[0], modifiedShapes, shapes);
+      const l = getShape(ids[ids.length - 1], modifiedShapes, shapes);
+      if (f && l) {
+        let { newFirstId, newLastId } = unlinkShapesById(
+          ids,
+          modifiedShapes,
+          shapes,
+          firstId,
+          lastId
+        );
+        const n = getShape(f.prevShapeId, modifiedShapes, shapes);
+        if (n) {
+          const p = getShape(n.prevShapeId, modifiedShapes, shapes);
+          n.prevShapeId = l.id;
+          l.nextShapeId = n.id;
+          if (p) {
+            f.prevShapeId = p.id;
+            p.nextShapeId = f.id;
+            modifiedShapes.set(p.id, p);
+          } else {
+            f.prevShapeId = '';
+            newFirstId = f.id;
+          }
+          modifiedShapes.set(f.id, f);
+          modifiedShapes.set(l.id, l);
+          modifiedShapes.set(n.id, n);
+        }
+        return {
+          newFirstId,
+          newLastId,
+          modifiedShapes,
+        };
+      }
+    }
   }
   return {
     newFirstId: firstId,

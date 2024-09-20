@@ -4,11 +4,13 @@ import {
   ArrangeMenuActions,
   ShapesEffectsActions,
 } from '@tfx-diagram/diagram-data-access-store-actions';
+import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
 import {
   Group,
-  Shape,
-  getShapeArrayFromIdArray,
+  bringShapesToFrontById,
+  getShape,
 } from '@tfx-diagram/diagram/data-access/shape-classes';
+import { Page } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { nanoid } from 'nanoid';
 import { filter, of, switchMap } from 'rxjs';
 import { selectShapes } from '../shapes.feature';
@@ -17,29 +19,41 @@ export const groupShapes = (actions$: Actions<Action>, store: Store) => {
   return createEffect(() => {
     return actions$.pipe(
       ofType(ArrangeMenuActions.groupClick),
-      concatLatestFrom(() => [store.select(selectShapes)]),
-      filter(([action]) => action.selectedShapeIds.length > 1),
-      switchMap(([action, shapes]) => {
-        const modifiedShapes: Shape[] = [];
-        let selectedShapeIds: string[] = [];
-
-        const selectedShapes = getShapeArrayFromIdArray(action.selectedShapeIds, shapes);
-        if (selectedShapes.length === action.selectedShapeIds.length) {
-          // All selected items available so create new group shape and modify
-          // selected items to belong to new group by setting 'groupId' property.
-          const groupId = nanoid();
-          modifiedShapes.push(
-            new Group({ id: groupId, groupMemberIds: [...action.selectedShapeIds] })
-          );
-          for (const s of selectedShapes) {
-            modifiedShapes.push(s.copy({ groupId }));
+      concatLatestFrom(() => [
+        store.select(selectCurrentPage),
+        store.select(selectShapes),
+      ]),
+      filter(([action, page]) => {
+        return action.selectedShapeIds.length > 1 && page !== null;
+      }),
+      switchMap(([action, page, shapes]) => {
+        const { selectedShapeIds } = action;
+        const { id: pageId, firstShapeId, lastShapeId } = page as Page;
+        const { modifiedShapes, newFirstId, newLastId } = bringShapesToFrontById(
+          selectedShapeIds,
+          firstShapeId,
+          lastShapeId,
+          shapes
+        );
+        const groupId = nanoid();
+        modifiedShapes.set(
+          groupId,
+          new Group({ id: groupId, groupMemberIds: [...selectedShapeIds] })
+        );
+        for (const id of selectedShapeIds) {
+          const s = getShape(id, modifiedShapes, shapes);
+          if (s) {
+            s.groupId = groupId;
+            modifiedShapes.set(id, s);
           }
-          selectedShapeIds = [groupId];
         }
         return of(
           ShapesEffectsActions.groupClick({
-            selectedShapeIds,
-            shapes: modifiedShapes,
+            selectedShapeIds: [groupId],
+            shapes: [...modifiedShapes.values()],
+            pageId,
+            firstShapeId: newFirstId,
+            lastShapeId: newLastId,
           })
         );
       })

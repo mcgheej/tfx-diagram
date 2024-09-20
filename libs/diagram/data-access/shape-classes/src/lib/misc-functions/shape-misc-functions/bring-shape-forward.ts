@@ -1,5 +1,6 @@
 /* eslint-disable prefer-const */
 import { Shape } from '../../shape-hierarchy/shape';
+import { getDrawableShapeIdsInSelection } from '../misc-functions';
 import { getShape } from './get-shape';
 import { unlinkShapesById } from './unlink-shapes-by-id';
 
@@ -76,6 +77,44 @@ export function bringShapeForward(
       newLastId,
       modifiedShapes,
     };
+  } else if (s && s.shapeType === 'group') {
+    const ids = getDrawableShapeIdsInSelection([id], shapes);
+    if (ids.length > 1) {
+      const f = getShape(ids[0], modifiedShapes, shapes);
+      const l = getShape(ids[ids.length - 1], modifiedShapes, shapes);
+      if (f && l && l.nextShapeId) {
+        // Group is not at end of draw list so proceed with bring forward
+        let { newFirstId, newLastId } = unlinkShapesById(
+          ids,
+          modifiedShapes,
+          shapes,
+          firstId,
+          lastId
+        );
+        const p = getShape(l.nextShapeId, modifiedShapes, shapes);
+        if (p) {
+          const n = getShape(p.nextShapeId, modifiedShapes, shapes);
+          p.nextShapeId = f.id;
+          f.prevShapeId = p.id;
+          if (n) {
+            l.nextShapeId = n.id;
+            n.prevShapeId = l.id;
+            modifiedShapes.set(n.id, n);
+          } else {
+            l.nextShapeId = '';
+            newLastId = l.id;
+          }
+          modifiedShapes.set(f.id, f);
+          modifiedShapes.set(l.id, l);
+          modifiedShapes.set(p.id, p);
+        }
+        return {
+          newFirstId,
+          newLastId,
+          modifiedShapes,
+        };
+      }
+    }
   }
   return {
     newFirstId: firstId,

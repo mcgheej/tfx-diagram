@@ -1,6 +1,7 @@
 import { Store } from '@ngrx/store';
 import { ArrangeMenuActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import { selectCurrentPage } from '@tfx-diagram/diagram-data-access-store-features-pages';
+import { getDrawableShapeIdsInSelection } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { selectSelectedShapeIds } from '@tfx-diagram/diagram/data-access/store/features/control-frame';
 import { selectShapes } from '@tfx-diagram/diagram/data-access/store/features/shapes';
 import { CommandItem, MenuBuilderService } from '@tfx-diagram/shared-angular/ui/tfx-menu';
@@ -18,10 +19,8 @@ export class SendItemBackwardCommand {
       }
       const selectedShape = shapes.get(selectedShapeIds[0]);
       if (currentPage && selectedShape) {
-        if (
-          currentPage.firstShapeId === selectedShape.id ||
-          selectedShape.shapeType === 'group'
-        ) {
+        const ids = getDrawableShapeIdsInSelection(selectedShapeIds, shapes);
+        if (ids.length > 0 && currentPage.firstShapeId === ids[0]) {
           return true;
         }
         return false;
@@ -53,7 +52,9 @@ export class SendItemBackwardCommand {
         .subscribe((selectedShapeIds) => {
           if (selectedShapeIds.length === 1) {
             this.store.dispatch(
-              ArrangeMenuActions.sendItemBackward({ selectedShapeId: selectedShapeIds[0] })
+              ArrangeMenuActions.sendItemBackward({
+                selectedShapeId: selectedShapeIds[0],
+              })
             );
           }
         });

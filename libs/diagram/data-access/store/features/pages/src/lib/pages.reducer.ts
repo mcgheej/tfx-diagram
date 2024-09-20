@@ -31,15 +31,18 @@ export const pagesReducer = createReducer(
       };
     }
   ),
-  on(SketchbookViewComponentActions.currentPageChange, (state, { newCurrentPageIndex }) => {
-    if (newCurrentPageIndex >= 0 && newCurrentPageIndex < state.pageIds.length) {
-      return {
-        ...state,
-        currentPageId: state.pageIds[newCurrentPageIndex],
-      };
+  on(
+    SketchbookViewComponentActions.currentPageChange,
+    (state, { newCurrentPageIndex }) => {
+      if (newCurrentPageIndex >= 0 && newCurrentPageIndex < state.pageIds.length) {
+        return {
+          ...state,
+          currentPageId: state.pageIds[newCurrentPageIndex],
+        };
+      }
+      return { ...state };
     }
-    return { ...state };
-  }),
+  ),
   on(SketchbookViewComponentActions.pageOrderChange, (state, { move }) => {
     const { currentPageIndex, newPageIndex } = move;
     if (
@@ -56,7 +59,11 @@ export const pagesReducer = createReducer(
       ...state.pageIds.slice(0, currentPageIndex),
       ...state.pageIds.slice(currentPageIndex + 1),
     ];
-    pageIds = [...pageIds.slice(0, newPageIndex), movingPageId, ...pageIds.slice(newPageIndex)];
+    pageIds = [
+      ...pageIds.slice(0, newPageIndex),
+      movingPageId,
+      ...pageIds.slice(newPageIndex),
+    ];
     return {
       ...state,
       pageIds,
@@ -233,6 +240,7 @@ export const pagesReducer = createReducer(
   on(
     ShapesEffectsActions.deleteShapesOnPage,
     ShapesEffectsActions.bringToFront,
+    ShapesEffectsActions.groupClick,
     ShapesEffectsActions.sendToBack,
     ShapesEffectsActions.bringItemForward,
     ShapesEffectsActions.sendItemBackward,

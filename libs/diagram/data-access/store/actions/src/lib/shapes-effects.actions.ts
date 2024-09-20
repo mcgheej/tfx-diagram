@@ -96,7 +96,13 @@ export const shapeResizeClick = createAction(
 
 export const groupClick = createAction(
   '[Shapes Effects] Group Click',
-  props<{ selectedShapeIds: string[]; shapes: Shape[] }>()
+  props<{
+    selectedShapeIds: string[];
+    shapes: Shape[];
+    pageId: string;
+    firstShapeId: string;
+    lastShapeId: string;
+  }>()
 );
 
 export const ungroupClick = createAction(
