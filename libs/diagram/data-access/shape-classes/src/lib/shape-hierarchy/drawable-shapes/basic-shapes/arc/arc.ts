@@ -119,29 +119,6 @@ export class Arc extends BasicShape implements ArcProps {
     } as ArcProps);
     return s;
   }
-  // copy(amendments: Partial<ArcProps>): Arc {
-  //   const a = amendments;
-  //   const s = new Arc({
-  //     id: a.id ?? this.id,
-  //     prevShapeId: a.prevShapeId ?? this.prevShapeId,
-  //     nextShapeId: a.nextShapeId ?? this.nextShapeId,
-  //     cursor: a.cursor ?? this.cursor,
-  //     groupId: a.groupId ?? this.groupId,
-  //     selectable: a.selectable ?? this.selectable,
-  //     visible: a.visible ?? this.visible,
-  //     x: a.x ?? this.x,
-  //     y: a.y ?? this.y,
-  //     radius: a.radius ?? this.radius,
-  //     sAngle: (a.sAngle ?? this.sAngle) % 360,
-  //     eAngle: (a.eAngle ?? this.eAngle) % 360,
-  //     circleSegment: a.circleSegment ?? this.circleSegment,
-  //     strokeStyle: a.strokeStyle ?? this.strokeStyle,
-  //     fillStyle: a.fillStyle ?? this.fillStyle,
-  //     lineDash: a.lineDash ?? this.lineDash,
-  //     lineWidth: a.lineWidth ?? this.lineWidth,
-  //   } as ArcProps);
-  //   return s;
-  // }
 
   dragOffset(mousePagePos: Point): Point {
     return {

@@ -132,7 +132,10 @@ export abstract class Shape implements ShapeProps {
   abstract draw(c: CanvasRenderingContext2D, t: Transform): void;
   abstract drawShadow(s: CanvasRenderingContext2D, t: Transform): void;
   abstract getProps(): ShapeProps;
-  abstract highLightFrame(shapes?: Map<string, Shape>): Shape[]; // sketch: getHighlightShapes
+  abstract highLightFrame(
+    shapes?: Map<string, Shape>,
+    connections?: Map<string, Connection>
+  ): Shape[]; // sketch: getHighlightShapes
   abstract inspectorViewData(): ShapeInspectorData[];
   abstract move(shiftDelta: Point): Shape;
   abstract outlineShapes(shapes?: Map<string, Shape>): Shape[]; // sketch: getOutlineShapes

@@ -1,11 +1,17 @@
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
+import { Connection } from '../connections/connection';
 import { linkShapeArray } from '../misc-functions';
 import { NopReshaper } from '../reshapers';
+import { ConnectionPoint } from '../shape-hierarchy/drawable-shapes/control-shapes/connection-point/connection-point';
 import { Handle } from '../shape-hierarchy/drawable-shapes/control-shapes/handle/handle';
 import { Shape } from '../shape-hierarchy/shape';
 
-export const rectHighlightHandles = (rect: Rect, associatedShapeId: string): Shape[] => {
-  let controlFrame: Shape[] = [
+export function rectHighlightFrame(
+  rect: Rect,
+  associatedShapeId: string,
+  connections: Map<string, Connection>
+): Shape[] {
+  let frame: Shape[] = [
     new Handle({
       id: Shape.generateId(),
       x: rect.x + rect.width / 2,
@@ -43,6 +49,17 @@ export const rectHighlightHandles = (rect: Rect, associatedShapeId: string): Sha
       reshaper: new NopReshaper(),
     }),
   ];
-  controlFrame = linkShapeArray(controlFrame);
-  return controlFrame;
-};
+  connections.forEach((connection) => {
+    if (connection.shapeId === associatedShapeId) {
+      frame.push(
+        new ConnectionPoint({
+          id: Shape.generateId(),
+          x: connection.connectionPoint.x,
+          y: connection.connectionPoint.y,
+        })
+      );
+    }
+  });
+  frame = linkShapeArray(frame);
+  return frame;
+}

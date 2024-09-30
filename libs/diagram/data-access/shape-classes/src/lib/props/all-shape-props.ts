@@ -1,5 +1,6 @@
 import { ArcProps } from './arc-props';
 import { CircleProps } from './circle-props';
+import { ConnectionPointProps } from './connection-point-props';
 import { CurveProps } from './curve-props';
 import { GroupProps } from './group-props';
 import { HandleProps } from './handle-props';
@@ -14,6 +15,7 @@ export type AllShapeProps = LineProps &
   TriangleProps &
   ArcProps &
   HandleProps &
+  ConnectionPointProps &
   GroupProps;
 
 type OmitNever<T extends Record<string, unknown>> = {

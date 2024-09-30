@@ -15,7 +15,7 @@ export abstract class ControlShape extends DrawableShape {
   drawShadow(s: CanvasRenderingContext2D, t: Transform): void {}
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  highLightFrame(shapes: Map<string, Shape>): Shape[] {
+  highLightFrame(): Shape[] {
     return [];
   }
 

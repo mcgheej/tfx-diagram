@@ -32,6 +32,7 @@ import {
 } from '../../../../reshapers';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group/group';
+import { ConnectionPoint } from '../../control-shapes/connection-point/connection-point';
 import { Handle } from '../../control-shapes/handle/handle';
 import { Connector } from '../connector';
 
@@ -212,11 +213,14 @@ export class Curve extends Connector implements CurveProps {
     };
   }
 
-  highLightFrame(shapes: Map<string, Shape>): Shape[] {
+  highLightFrame(
+    shapes: Map<string, Shape>,
+    connections: Map<string, Connection>
+  ): Shape[] {
     if (this.groupId && shapes) {
       return Group.highlightTopFrame(this.groupId, shapes);
     }
-    return this.endPointHandles();
+    return this.endPointHandles(connections);
   }
 
   inspectorViewData(): ShapeInspectorData[] {
@@ -238,7 +242,7 @@ export class Curve extends Connector implements CurveProps {
   }
 
   outlineShapes(): Shape[] {
-    return this.endPointHandles(true);
+    return this.endPointHandles(undefined, true);
   }
 
   resizeToBox(r: Rect, resizeOption: ShapeResizeOptions): Curve {
@@ -334,29 +338,56 @@ export class Curve extends Connector implements CurveProps {
     };
   }
 
-  private endPointHandles(solid = false): Shape[] {
+  private endPointHandles(
+    connections: Map<string, Connection> | undefined,
+    solid = false
+  ): Shape[] {
     const lastPointIdx = this.controlPoints.length - 1;
+    let startConnectionPoint: ConnectionPoint | undefined = undefined;
+    let finishConnectionPoint: ConnectionPoint | undefined = undefined;
+    connections?.forEach((connection) => {
+      if (connection.connectorId === this.id) {
+        if (connection.end === 'connectorStart') {
+          //
+          startConnectionPoint = new ConnectionPoint({
+            id: Shape.generateId(),
+            x: connection.connectionPoint.x,
+            y: connection.connectionPoint.y,
+          });
+        } else if (connection.end === 'connectorFinish') {
+          finishConnectionPoint = new ConnectionPoint({
+            id: Shape.generateId(),
+            x: connection.connectionPoint.x,
+            y: connection.connectionPoint.y,
+          });
+        }
+      }
+    });
     const handles: Shape[] = [
-      new Handle({
-        id: Shape.generateId(),
-        x: this.controlPoints[0].x,
-        y: this.controlPoints[0].y,
-        pxWidth: 9,
-        handleStyle: 'square',
-        associatedShapeId: this.id,
-        solid,
-        reshaper: new NopReshaper(),
-      }),
-      new Handle({
-        id: Shape.generateId(),
-        x: this.controlPoints[lastPointIdx].x,
-        y: this.controlPoints[lastPointIdx].y,
-        pxWidth: 9,
-        handleStyle: 'square',
-        associatedShapeId: this.id,
-        solid,
-        reshaper: new NopReshaper(),
-      }),
+      startConnectionPoint
+        ? startConnectionPoint
+        : new Handle({
+            id: Shape.generateId(),
+            x: this.controlPoints[0].x,
+            y: this.controlPoints[0].y,
+            pxWidth: 9,
+            handleStyle: 'square',
+            associatedShapeId: this.id,
+            solid,
+            reshaper: new NopReshaper(),
+          }),
+      finishConnectionPoint
+        ? finishConnectionPoint
+        : new Handle({
+            id: Shape.generateId(),
+            x: this.controlPoints[lastPointIdx].x,
+            y: this.controlPoints[lastPointIdx].y,
+            pxWidth: 9,
+            handleStyle: 'square',
+            associatedShapeId: this.id,
+            solid,
+            reshaper: new NopReshaper(),
+          }),
     ];
     return linkShapeArray(handles);
   }

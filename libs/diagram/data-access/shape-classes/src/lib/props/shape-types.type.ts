@@ -9,4 +9,5 @@ export type ShapeTypes =
   | 'lineOutline'
   | 'arcOutline'
   | 'rectangleOutline'
+  | 'connectionPoint'
   | 'group';

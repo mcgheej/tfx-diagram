@@ -12,7 +12,7 @@ import {
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { Connection } from '../../../../connections/connection';
 import { RectangleConnection } from '../../../../connections/derived-connections/rectangle-connection';
-import { rectHighlightHandles } from '../../../../control-frames/rect-highlight-frame';
+import { rectHighlightFrame } from '../../../../control-frames/rect-highlight-frame';
 import { rectSelectFrame } from '../../../../control-frames/rect-select-frame';
 import { checkLine, outsideDetectionRect } from '../../../../misc-functions';
 import {
@@ -251,18 +251,22 @@ export class Rectangle extends BasicShape implements RectangleProps {
     };
   }
 
-  highLightFrame(shapes: Map<string, Shape>): Shape[] {
+  highLightFrame(
+    shapes: Map<string, Shape>,
+    connections: Map<string, Connection>
+  ): Shape[] {
     if (this.groupId && shapes) {
       return Group.highlightTopFrame(this.groupId, shapes);
     }
-    return rectHighlightHandles(
+    return rectHighlightFrame(
       {
         x: this.x,
         y: this.y,
         width: this.width,
         height: this.height,
       },
-      this.id
+      this.id,
+      connections
     );
   }
 

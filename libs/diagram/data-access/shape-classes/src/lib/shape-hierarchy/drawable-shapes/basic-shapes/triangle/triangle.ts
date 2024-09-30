@@ -234,11 +234,14 @@ export class Triangle extends BasicShape implements TriangleProps {
     };
   }
 
-  highLightFrame(shapes: Map<string, Shape>): Shape[] {
+  highLightFrame(
+    shapes: Map<string, Shape>,
+    connections: Map<string, Connection>
+  ): Shape[] {
     if (this.groupId && shapes) {
       return Group.highlightTopFrame(this.groupId, shapes);
     }
-    return triangleHighlightFrame(this.vertices, this.id);
+    return triangleHighlightFrame(this.vertices, this.id, connections);
   }
 
   inspectorViewData(): ShapeInspectorData[] {
