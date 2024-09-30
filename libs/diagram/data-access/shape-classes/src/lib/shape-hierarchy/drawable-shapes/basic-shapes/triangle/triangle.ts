@@ -4,6 +4,10 @@ import {
   inverseTransform,
   pointAdd,
   pointTransform,
+  vectorCrossProductSignedMagnitude,
+  vectorMagnitude,
+  vectorPerpendicularClockwise,
+  vectorPerpendicularCounterClockwise,
 } from '@tfx-diagram/diagram/util/misc-functions';
 import {
   ColorRef,
@@ -53,6 +57,8 @@ type DrawingParams = Pick<TriangleProps, 'vertices' | 'lineWidth'>;
 
 const INITIAL_ATTACH_DISTANCE = 10000;
 
+export type TrianglePerimeterVertices = [Point, Point, Point, Point, Point, Point];
+
 export class Triangle extends BasicShape implements TriangleProps {
   vertices: [Point, Point, Point];
   lineDash: number[];
@@ -60,6 +66,9 @@ export class Triangle extends BasicShape implements TriangleProps {
   strokeStyle: ColorRef;
   fillStyle: ColorRef;
   textConfig: TextBoxConfig;
+
+  // Vertices of triangle's outer perimeter (allows for line width and bevel joins)
+  perimeterVertices: TrianglePerimeterVertices;
 
   private textBox: TextBox;
 
@@ -72,6 +81,8 @@ export class Triangle extends BasicShape implements TriangleProps {
     this.fillStyle = config.fillStyle ?? triangleDefaults.fillStyle;
     this.textConfig = config.textConfig ?? triangleDefaults.textConfig;
     this.textBox = new TextBox({ ...this.textConfig, id: this.id }, this.rect());
+
+    this.perimeterVertices = this.getPerimeterVertices(this.vertices, this.lineWidth);
   }
 
   anchor(): Point {
@@ -90,11 +101,19 @@ export class Triangle extends BasicShape implements TriangleProps {
       x: t.scaleFactor * (point.x + t.transX),
       y: t.scaleFactor * (point.y + t.transY),
     };
-    const { vertices } = this.getParams(t);
+    // const { vertices } = this.getParams(t);
+    const vertices: TrianglePerimeterVertices = [
+      pointTransform(this.perimeterVertices[0], t),
+      pointTransform(this.perimeterVertices[1], t),
+      pointTransform(this.perimeterVertices[2], t),
+      pointTransform(this.perimeterVertices[3], t),
+      pointTransform(this.perimeterVertices[4], t),
+      pointTransform(this.perimeterVertices[5], t),
+    ];
 
     // Check point is inside bounding rect expanded for detection threshold. If
     // not then no need to check if near rectangle boundary
-    if (outsideDetectionRect(p, this.rect(vertices))) {
+    if (outsideDetectionRect(p, this.perimeterRect(vertices))) {
       return undefined;
     }
 
@@ -106,7 +125,10 @@ export class Triangle extends BasicShape implements TriangleProps {
     };
     attachParams = checkLine(0, p, vertices[0], vertices[1], attachParams);
     attachParams = checkLine(1, p, vertices[1], vertices[2], attachParams);
-    attachParams = checkLine(2, p, vertices[2], vertices[0], attachParams);
+    attachParams = checkLine(2, p, vertices[2], vertices[3], attachParams);
+    attachParams = checkLine(3, p, vertices[3], vertices[4], attachParams);
+    attachParams = checkLine(4, p, vertices[4], vertices[5], attachParams);
+    attachParams = checkLine(5, p, vertices[5], vertices[0], attachParams);
     if (attachParams.shortestDistance !== INITIAL_ATTACH_DISTANCE) {
       return new TriangleConnection({
         id: connectionHook.id,
@@ -166,10 +188,9 @@ export class Triangle extends BasicShape implements TriangleProps {
     const params = this.getParams(t);
     const { vertices } = this.getParams(t);
     let { lineWidth: pxLineWidth } = params;
-    if (pxLineWidth < 2) {
-      pxLineWidth = 2;
+    if (pxLineWidth < 1) {
+      pxLineWidth = 1;
     }
-    pxLineWidth = pxLineWidth * 2;
     c.save();
     const strokeColor = ColorMapRef.resolve(this.strokeStyle);
     const fillColor = ColorMapRef.resolve(this.fillStyle);
@@ -190,7 +211,7 @@ export class Triangle extends BasicShape implements TriangleProps {
     }
     const colour = '#' + (+this.id).toString(16);
     s.save();
-    this.drawTriangle(s, vertices, 10, colour, colour, t, true);
+    this.drawTriangle(s, vertices, lineWidthPx + 10, colour, colour, t, true);
     s.restore();
   }
 
@@ -274,30 +295,7 @@ export class Triangle extends BasicShape implements TriangleProps {
   }
 
   rect(vertices: [Point, Point, Point] = this.vertices): Rect {
-    let maxX = -10000;
-    let maxY = -10000;
-    let minX = 10000;
-    let minY = 10000;
-    for (let i = 0; i < 3; i++) {
-      if (vertices[i].x > maxX) {
-        maxX = vertices[i].x;
-      }
-      if (vertices[i].y > maxY) {
-        maxY = vertices[i].y;
-      }
-      if (vertices[i].x < minX) {
-        minX = vertices[i].x;
-      }
-      if (vertices[i].y < minY) {
-        minY = vertices[i].y;
-      }
-    }
-    return {
-      x: minX,
-      y: minY,
-      width: maxX - minX,
-      height: maxY - minY,
-    };
+    return this.getRect(vertices);
   }
 
   selectFrame(shapes: Map<string, Shape>): Shape[] {
@@ -309,6 +307,37 @@ export class Triangle extends BasicShape implements TriangleProps {
 
   text(): string {
     return this.textBox.text;
+  }
+
+  private perimeterRect(vertices: TrianglePerimeterVertices): Rect {
+    return this.getRect(vertices);
+  }
+
+  private getRect(p: Point[]): Rect {
+    let maxX = -10000;
+    let maxY = -10000;
+    let minX = 10000;
+    let minY = 10000;
+    for (let i = 0; i < p.length; i++) {
+      if (p[i].x > maxX) {
+        maxX = p[i].x;
+      }
+      if (p[i].y > maxY) {
+        maxY = p[i].y;
+      }
+      if (p[i].x < minX) {
+        minX = p[i].x;
+      }
+      if (p[i].y < minY) {
+        minY = p[i].y;
+      }
+    }
+    return {
+      x: minX,
+      y: minY,
+      width: maxX - minX,
+      height: maxY - minY,
+    };
   }
 
   private drawTriangle(
@@ -342,11 +371,12 @@ export class Triangle extends BasicShape implements TriangleProps {
       }
 
       const v3 = lineInterpolate(v[0], v[1], 0.01);
-      if (!shadow) {
-        c.beginPath();
-        this.drawTriangleLines(c, v, v3);
-        c.clip();
-      }
+      // if (!shadow) {
+      //   c.beginPath();
+      //   this.drawTriangleLines(c, v, v3);
+      //   c.clip();
+      // }
+      c.lineJoin = 'bevel';
       c.beginPath();
       this.drawTriangleLines(c, v, v3);
       c.stroke();
@@ -374,5 +404,58 @@ export class Triangle extends BasicShape implements TriangleProps {
       ],
       lineWidth: t.scaleFactor * this.lineWidth,
     };
+  }
+
+  private getPerimeterVertices(
+    triangleVertices: [Point, Point, Point],
+    lineWdth: number
+  ): TrianglePerimeterVertices {
+    const a = triangleVertices[0];
+    const b = triangleVertices[1];
+    const c = triangleVertices[2];
+
+    const verticesDirection = this.getVerticesDirection(a, b, c);
+    const result: Point[] = [];
+    result.push(...this.getOuterCorners(a, b, lineWdth, verticesDirection));
+    result.push(...this.getOuterCorners(b, c, lineWdth, verticesDirection));
+    result.push(...this.getOuterCorners(c, a, lineWdth, verticesDirection));
+
+    return [result[0], result[1], result[2], result[3], result[4], result[5]];
+  }
+
+  private getVerticesDirection(
+    a: Point,
+    b: Point,
+    c: Point
+  ): 'clockwise' | 'counter-clockwise' {
+    const m = vectorCrossProductSignedMagnitude(
+      { x: b.x - a.x, y: b.y - a.y },
+      { x: c.x - b.x, y: c.y - b.y }
+    );
+    return m >= 0 ? 'clockwise' : 'counter-clockwise';
+  }
+
+  private getOuterCorners(
+    a: Point,
+    b: Point,
+    lineWidth: number,
+    direction: 'clockwise' | 'counter-clockwise'
+  ): Point[] {
+    const result: Point[] = [];
+    const abV: Point = { x: b.x - a.x, y: b.y - a.y };
+    const baV: Point = { x: a.x - b.x, y: a.y - b.y };
+    const m = vectorMagnitude(abV);
+    const apV =
+      direction === 'clockwise'
+        ? vectorPerpendicularClockwise(abV)
+        : vectorPerpendicularCounterClockwise(abV);
+    const bqV =
+      direction === 'clockwise'
+        ? vectorPerpendicularCounterClockwise(baV)
+        : vectorPerpendicularClockwise(baV);
+    const l = lineWidth / 2;
+    result.push({ x: a.x + (l * apV.x) / m, y: a.y + (l * apV.y) / m });
+    result.push({ x: b.x + (l * bqV.x) / m, y: b.y + (l * bqV.y) / m });
+    return result;
   }
 }

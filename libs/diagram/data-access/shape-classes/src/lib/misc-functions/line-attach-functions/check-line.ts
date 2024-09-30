@@ -1,4 +1,5 @@
 import {
+  vectorDotProduct,
   vectorMagnitude,
   vectorMagnitudeSquared,
 } from '@tfx-diagram/diagram/util/misc-functions';
@@ -38,7 +39,7 @@ export function checkLine(
 
     // Calculate dot product of B and P vectors divided by dot product of B
     // with itself (lSquared).
-    const k = (P.x * B.x + P.y * B.y) / lSquared;
+    const k = vectorDotProduct(B, P) / lSquared;
     const C: Point = { x: k * B.x, y: k * B.y };
     let d = vectorMagnitude({ x: C.x - P.x, y: C.y - P.y });
 

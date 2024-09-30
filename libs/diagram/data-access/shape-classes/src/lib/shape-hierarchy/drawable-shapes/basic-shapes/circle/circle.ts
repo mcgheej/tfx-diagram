@@ -100,7 +100,8 @@ export class Circle extends BasicShape implements CircleProps {
       x: t.scaleFactor * (point.x + t.transX),
       y: t.scaleFactor * (point.y + t.transY),
     };
-    const { x, y, radius } = this.getParams(t);
+    const { x, y, lineWidth, radius: r } = this.getParams(t);
+    const radius = r + lineWidth / 2;
 
     // Check point is inside bounding rect expanded for detection threshold. If
     // not then no need to check if near circle circumference
@@ -209,12 +210,12 @@ export class Circle extends BasicShape implements CircleProps {
       return;
     }
     const params = this.getParams(t);
-    const { x, y } = params;
+    const { x, y, lineWidth } = params;
     let { radius } = params;
     if (radius < 3) {
       radius = 3;
     }
-    radius += 5;
+    radius += 5 + lineWidth / 2;
     const colour = '#' + (+this.id).toString(16);
     s.save();
     s.fillStyle = colour;
@@ -332,9 +333,8 @@ export class Circle extends BasicShape implements CircleProps {
   private drawCircle(c: CanvasRenderingContext2D, params: DrawingParams, t: Transform) {
     const { x, y } = params;
     let { lineWidth, radius } = params;
-    lineWidth = lineWidth * 2;
-    if (lineWidth < 2) {
-      lineWidth = 2;
+    if (lineWidth < 1) {
+      lineWidth = 1;
     }
     if (radius < 3) {
       radius = 3;
@@ -354,10 +354,10 @@ export class Circle extends BasicShape implements CircleProps {
 
     const strokeColor = ColorMapRef.resolve(this.strokeStyle);
     if (strokeColor) {
-      c.beginPath();
-      c.lineWidth = 1;
-      c.arc(x, y, radius + 1, 0, 2 * Math.PI);
-      c.clip();
+      // c.beginPath();
+      // c.lineWidth = 1;
+      // c.arc(x, y, radius + 1, 0, 2 * Math.PI);
+      // c.clip();
       c.strokeStyle = strokeColor;
       c.lineWidth = lineWidth;
       c.setLineDash(scaledLineDash);

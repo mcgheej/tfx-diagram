@@ -47,18 +47,34 @@ export class TriangleConnection extends Connection implements TriangleConnection
   }
 
   modifyConnectionPoint(t: Triangle): TriangleConnection {
+    const v = t.perimeterVertices;
     if (this.index === 0) {
       return this.copy({
-        connectionPoint: lineInterpolate(t.vertices[0], t.vertices[1], this.k),
+        connectionPoint: lineInterpolate(v[0], v[1], this.k),
       });
     }
     if (this.index === 1) {
       return this.copy({
-        connectionPoint: lineInterpolate(t.vertices[1], t.vertices[2], this.k),
+        connectionPoint: lineInterpolate(v[1], v[2], this.k),
+      });
+    }
+    if (this.index === 2) {
+      return this.copy({
+        connectionPoint: lineInterpolate(v[2], v[3], this.k),
+      });
+    }
+    if (this.index === 3) {
+      return this.copy({
+        connectionPoint: lineInterpolate(v[3], v[4], this.k),
+      });
+    }
+    if (this.index === 4) {
+      return this.copy({
+        connectionPoint: lineInterpolate(v[4], v[5], this.k),
       });
     }
     return this.copy({
-      connectionPoint: lineInterpolate(t.vertices[2], t.vertices[0], this.k),
+      connectionPoint: lineInterpolate(v[5], v[0], this.k),
     });
   }
 

@@ -99,15 +99,23 @@ export class Rectangle extends BasicShape implements RectangleProps {
     t: Transform,
     connectionHook: Connection
   ): Connection | undefined {
+    // Get point in viewport coords and rectangle that bounds this
+    // rectangle, including its edges (factor in line width), as need
+    // to attach to outer limit of rectangle edge
     const p: Point = {
       x: t.scaleFactor * (point.x + t.transX),
       y: t.scaleFactor * (point.y + t.transY),
     };
-    const { x, y, width, height } = this.getParams(t);
+    const { x: xT, y: yT, width: widthT, height: heightT, lineWidth } = this.getParams(t);
+    const rectWithEdges = rectInflate(
+      { x: xT, y: yT, width: widthT, height: heightT },
+      lineWidth / 2
+    );
+    const { x, y, width, height } = rectWithEdges;
 
     // Check point is inside bounding rect expanded for detection threshold. If
     // not then no need to check if near rectangle boundary
-    if (outsideDetectionRect(p, { x, y, width, height })) {
+    if (outsideDetectionRect(p, rectWithEdges)) {
       return undefined;
     }
 
@@ -209,8 +217,8 @@ export class Rectangle extends BasicShape implements RectangleProps {
       return;
     }
     const params = this.getParams(t);
-    const { x, y, width, height } = params;
-    const rect = rectInflate({ x, y, width, height }, 5);
+    const { x, y, width, height, lineWidth } = params;
+    const rect = rectInflate({ x, y, width, height }, 5 + lineWidth / 2);
     const colour = '#' + (+this.id).toString(16);
 
     s.save();
@@ -329,9 +337,8 @@ export class Rectangle extends BasicShape implements RectangleProps {
   ) {
     const { x, y, width, height } = params;
     let { lineWidth } = params;
-    lineWidth = lineWidth * 2;
-    if (lineWidth < 2) {
-      lineWidth = 2;
+    if (lineWidth < 1) {
+      lineWidth = 1;
     }
 
     const s = ((1 + this.lineWidth / 0.25) / 2) * t.scaleFactor;
@@ -349,10 +356,10 @@ export class Rectangle extends BasicShape implements RectangleProps {
     }
     const strokeColor = ColorMapRef.resolve(this.strokeStyle);
     if (strokeColor) {
-      c.beginPath();
-      c.lineWidth = 1;
-      c.rect(x - 1, y - 1, width + 2, height + 2);
-      c.clip();
+      // c.beginPath();
+      // c.lineWidth = 1;
+      // c.rect(x - 1, y - 1, width + 2, height + 2);
+      // c.clip();
       c.strokeStyle = strokeColor;
       c.lineWidth = lineWidth;
       c.setLineDash(scaledLineDash);
