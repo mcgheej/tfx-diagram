@@ -3,7 +3,6 @@ import { ColorRef, Point } from '@tfx-diagram/electron-renderer-web/shared-types
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { groupHighlightFrame } from '../../../control-frames/group-highlight-frame';
 import { groupSelectFrame } from '../../../control-frames/group-select-frame';
-import { getShapeArrayFromIdArray } from '../../../misc-functions';
 import {
   AllShapeProps,
   GroupConfig,
@@ -22,6 +21,7 @@ export class Group extends StructuralShape implements GroupProps {
   // static members
 
   static highlightTopFrame(id: string, shapes: Map<string, Shape>): Shape[] {
+    console.log('Group.highlightTopFrame');
     const topGroup = getTopLevelGroupFromId(id, shapes);
     if (topGroup) {
       return groupHighlightFrame(topGroup.boundingBox(shapes));
@@ -112,10 +112,6 @@ export class Group extends StructuralShape implements GroupProps {
     return { x: mousePagePos.x, y: mousePagePos.y };
   }
 
-  // draw(): void {
-  //   return;
-  // }
-
   getProps(): GroupProps {
     return {
       id: this.id,
@@ -131,6 +127,7 @@ export class Group extends StructuralShape implements GroupProps {
   }
 
   override highLightFrame(shapes: Map<string, Shape>): Shape[] {
+    console.log('group.highlightFrame');
     return groupHighlightFrame(this.boundingBox(shapes));
   }
 
@@ -153,16 +150,8 @@ export class Group extends StructuralShape implements GroupProps {
 
 const getGroupBoundingRect = (group: Group, shapes: Map<string, Shape>): Rect => {
   const boundingBoxes: Rect[] = [];
-  const groupShapes = getShapeArrayFromIdArray(group.groupMemberIds, shapes);
-  if (groupShapes.length === group.groupMemberIds.length) {
-    for (const s of groupShapes) {
-      if (s.shapeType === 'group') {
-        boundingBoxes.push(getGroupBoundingRect(s as Group, shapes));
-      } else {
-        boundingBoxes.push(s.boundingBox());
-      }
-    }
-  }
+  const drawableShapes = getDrawableShapes(group, shapes);
+  drawableShapes.map((s) => boundingBoxes.push(s.boundingBox()));
   return rectUnionArray(boundingBoxes);
 };
 
@@ -189,18 +178,7 @@ const getTopLevelGroup = (group: Group, shapes: Map<string, Shape>): Group => {
 };
 
 const getDrawableShapeIds = (group: Group, shapes: Map<string, Shape>): string[] => {
-  let shapeIds: string[] = [];
-  for (const id of group.groupMemberIds) {
-    const s = shapes.get(id);
-    if (s) {
-      if (s.shapeType === 'group') {
-        shapeIds = [...shapeIds, ...getDrawableShapeIds(s as Group, shapes)];
-      } else {
-        shapeIds.push(id);
-      }
-    }
-  }
-  return shapeIds;
+  return getDrawableShapes(group, shapes).map((s) => s.id);
 };
 
 const getDrawableShapes = (group: Group, shapes: Map<string, Shape>): Shape[] => {
@@ -219,19 +197,7 @@ const getDrawableShapes = (group: Group, shapes: Map<string, Shape>): Shape[] =>
 };
 
 const getAllShapeIds = (group: Group, shapes: Map<string, Shape>): string[] => {
-  let shapeIds: string[] = [];
-  for (const id of group.groupMemberIds) {
-    const s = shapes.get(id);
-    if (s) {
-      if (s.shapeType === 'group') {
-        shapeIds.push(s.id);
-        shapeIds = [...shapeIds, ...getAllShapeIds(s as Group, shapes)];
-      } else {
-        shapeIds.push(id);
-      }
-    }
-  }
-  return shapeIds;
+  return getAllShapes(group, shapes).map((s) => s.id);
 };
 
 const getAllShapes = (group: Group, shapes: Map<string, Shape>): Shape[] => {

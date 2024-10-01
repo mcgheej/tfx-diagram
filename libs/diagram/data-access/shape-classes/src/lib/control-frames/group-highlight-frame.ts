@@ -3,8 +3,7 @@ import { RectangleOutline } from '../shape-hierarchy/drawable-shapes/control-sha
 import { Shape } from '../shape-hierarchy/shape';
 import { GROUP_OUTLINE_COLOR } from '../types';
 
-export const groupHighlightFrame = (boundingBox: Rect): Shape[] => {
-  const { x, y, width, height } = boundingBox;
+export const groupHighlightFrame = ({ x, y, width, height }: Rect): Shape[] => {
   return [
     new RectangleOutline({
       id: Shape.generateId(),
