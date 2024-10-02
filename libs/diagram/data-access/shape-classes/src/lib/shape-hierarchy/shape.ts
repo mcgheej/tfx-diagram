@@ -134,7 +134,8 @@ export abstract class Shape implements ShapeProps {
   abstract getProps(): ShapeProps;
   abstract highLightFrame(
     shapes?: Map<string, Shape>,
-    connections?: Map<string, Connection>
+    connections?: Map<string, Connection>,
+    ignoreGroup?: boolean
   ): Shape[]; // sketch: getHighlightShapes
   abstract inspectorViewData(): ShapeInspectorData[];
   abstract move(shiftDelta: Point): Shape;

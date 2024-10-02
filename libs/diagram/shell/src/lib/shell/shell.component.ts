@@ -24,7 +24,10 @@ import {
   selectModifiedTitle,
   selectStatus,
 } from '@tfx-diagram/diagram-data-access-store-features-sketchbook';
-import { selectShapes } from '@tfx-diagram/diagram/data-access/store/features/shapes';
+import {
+  selectConnections,
+  selectShapes,
+} from '@tfx-diagram/diagram/data-access/store/features/shapes';
 import { DiagramAppMenuService } from '@tfx-diagram/diagram/ui/diagram-app-menu';
 import { JpegDialogComponent, JpegDialogResult } from '@tfx-diagram/diagram/ui/dialogs';
 import { IconButtonConfig } from '@tfx-diagram/shared-angular/ui/tfx-icon-button';
@@ -55,7 +58,9 @@ export const myCustomTooltipDefaults: Partial<MatTooltipDefaultOptions> = {
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults }],
+  providers: [
+    { provide: MAT_TOOLTIP_DEFAULT_OPTIONS, useValue: myCustomTooltipDefaults },
+  ],
 })
 export class ShellComponent implements OnInit, OnDestroy {
   @Input() controlButtonConfigs: IconButtonConfig[] = [];
@@ -105,6 +110,14 @@ export class ShellComponent implements OnInit, OnDestroy {
     this.store.dispatch(ShellComponentActions.appStart());
     this.diagramAppMenu.cmds$.subscribe((cmd: string) => this.menuCmd.emit(cmd));
     this.manageExportJpeg();
+
+    combineLatest([
+      this.store.select(selectConnections),
+      this.store.select(selectShapes),
+    ]).subscribe(([c, s]) => {
+      console.log(c);
+      console.log(s);
+    });
   }
 
   ngOnDestroy(): void {

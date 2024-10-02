@@ -1,4 +1,8 @@
-import { Connection, Shape } from '@tfx-diagram/diagram/data-access/shape-classes';
+import {
+  Connection,
+  Shape,
+  getShape,
+} from '@tfx-diagram/diagram/data-access/shape-classes';
 
 export const getModifiedConnections = (
   movingConnectionIds: string[],
@@ -11,7 +15,7 @@ export const getModifiedConnections = (
     movingConnectionIds.map((id) => {
       const connection = connections.get(id);
       if (connection) {
-        const connector = getConnector(connection.connectorId, shapes, modifiedShapes);
+        const connector = getShape(connection.connectorId, modifiedShapes, shapes, false);
         const modifiedShape = modifiedShapes.get(connection.shapeId);
         if (modifiedShape && connector && connector.category() === 'connector') {
           const modifiedConnection = connection.modifyConnectionPoint(modifiedShape);
@@ -23,17 +27,4 @@ export const getModifiedConnections = (
     });
   }
   return modifiedConnections;
-};
-
-const getConnector = (
-  id: string,
-  shapes: Map<string, Shape>,
-  modifiedShapes: Map<string, Shape>
-): Shape | undefined => {
-  let connector = modifiedShapes.get(id);
-  if (connector) {
-    return connector;
-  }
-  connector = shapes.get(id);
-  return connector;
 };

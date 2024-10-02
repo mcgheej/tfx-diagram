@@ -16,10 +16,13 @@ export const leftButtonDown = createAction(
 export const ctrlLeftButtonDown = createAction('[Mouse Machine] Ctrl Left Button Down');
 
 export const dragStart = createAction(
-  '[Mouse Moachine] Drag Start',
+  '[Mouse Machine] Drag Start',
   props<{ mousePos: Point }>()
 );
 
-export const dragMove = createAction('[Mouse Machine] Drag Move', props<{ mousePos: Point }>());
+export const dragMove = createAction(
+  '[Mouse Machine] Drag Move',
+  props<{ mousePos: Point }>()
+);
 
 export const dragEnd = createAction('[Mouse Machine] Drag End');

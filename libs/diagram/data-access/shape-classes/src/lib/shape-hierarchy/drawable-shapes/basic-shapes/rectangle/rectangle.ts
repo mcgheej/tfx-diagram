@@ -253,10 +253,11 @@ export class Rectangle extends BasicShape implements RectangleProps {
 
   highLightFrame(
     shapes: Map<string, Shape>,
-    connections: Map<string, Connection>
+    connections: Map<string, Connection>,
+    ignoreGroup = false
   ): Shape[] {
-    if (this.groupId && shapes) {
-      return Group.highlightTopFrame(this.groupId, shapes);
+    if (this.groupId && shapes && !ignoreGroup) {
+      return Group.highlightTopFrame(this.groupId, shapes, connections);
     }
     return rectHighlightFrame(
       {

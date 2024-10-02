@@ -20,7 +20,8 @@ import { Shape } from '../../shape-hierarchy/shape';
 export function getShape(
   id: string,
   modifiedShapes: Map<string, Shape>,
-  shapes: Map<string, Shape>
+  shapes: Map<string, Shape>,
+  copy = true
 ): Shape | undefined {
   let shape = modifiedShapes.get(id);
   if (shape) {
@@ -28,7 +29,10 @@ export function getShape(
   }
   shape = shapes.get(id);
   if (shape) {
-    return shape.copy({});
+    if (copy) {
+      return shape.copy({});
+    }
+    return shape;
   }
   return undefined;
 }

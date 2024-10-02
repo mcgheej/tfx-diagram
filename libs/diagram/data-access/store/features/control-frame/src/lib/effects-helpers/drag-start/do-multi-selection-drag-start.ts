@@ -27,13 +27,11 @@ export const doMultiSelectionDragStart = (
   connections: Map<string, Connection>,
   shapeSnap: boolean
 ) => {
-  // const selectedShapes = getShapesArrayFromIdsArray(selectedShapeIds, shapes);
   if (selectedShapeIds.length > 0) {
     const s = shapes.get(selectedShapeIds[0]);
     if (s) {
-      const shapeIds = getDrawableShapeIdsInSelection(selectedShapeIds, shapes);
       const mousePagePos = inverseTransform(mousePos, transform);
-      // const movingConnectionIds: string[] = [];
+      const shapeIds = getDrawableShapeIdsInSelection(selectedShapeIds, shapes);
       const movingConnectionIds = getMovingConnectionIds(
         shapeIds,
         shapes,

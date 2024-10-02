@@ -1,6 +1,7 @@
 import { rectUnionArray } from '@tfx-diagram/diagram/util/misc-functions';
 import { ColorRef, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
+import { Connection } from '../../../connections/connection';
 import { groupHighlightFrame } from '../../../control-frames/group-highlight-frame';
 import { groupSelectFrame } from '../../../control-frames/group-select-frame';
 import {
@@ -20,11 +21,19 @@ const groupDefaults: Omit<GroupProps, keyof ShapeProps> = {
 export class Group extends StructuralShape implements GroupProps {
   // static members
 
-  static highlightTopFrame(id: string, shapes: Map<string, Shape>): Shape[] {
-    console.log('Group.highlightTopFrame');
+  static highlightTopFrame(
+    id: string,
+    shapes: Map<string, Shape>,
+    connections: Map<string, Connection>
+  ): Shape[] {
     const topGroup = getTopLevelGroupFromId(id, shapes);
     if (topGroup) {
-      return groupHighlightFrame(topGroup.boundingBox(shapes));
+      return groupHighlightFrame(
+        topGroup.boundingBox(shapes),
+        getDrawableShapes(topGroup, shapes),
+        shapes,
+        connections
+      );
     }
     return [];
   }
@@ -106,7 +115,7 @@ export class Group extends StructuralShape implements GroupProps {
 
   dragOffset(mousePagePos: Point, shapes: Map<string, Shape>): Point {
     const drawableShapes = getDrawableShapes(this, shapes);
-    if (drawableShapes.length > 1) {
+    if (drawableShapes.length > 0) {
       return drawableShapes[0].dragOffset(mousePagePos);
     }
     return { x: mousePagePos.x, y: mousePagePos.y };
@@ -127,7 +136,6 @@ export class Group extends StructuralShape implements GroupProps {
   }
 
   override highLightFrame(shapes: Map<string, Shape>): Shape[] {
-    console.log('group.highlightFrame');
     return groupHighlightFrame(this.boundingBox(shapes));
   }
 
