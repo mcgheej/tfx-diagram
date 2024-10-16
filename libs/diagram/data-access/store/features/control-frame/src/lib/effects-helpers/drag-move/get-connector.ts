@@ -25,7 +25,6 @@ export const getModifiedConnections = (
           if (shapesInSelection.get(connector.id) === undefined) {
             const modifiedConnector = modifiedConnection.reshapeConnector(connector);
             modifiedShapes.set(modifiedConnector.id, modifiedConnector);
-            console.log('reshape connector');
           }
         }
       }

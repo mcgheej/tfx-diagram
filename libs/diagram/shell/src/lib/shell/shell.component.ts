@@ -24,10 +24,7 @@ import {
   selectModifiedTitle,
   selectStatus,
 } from '@tfx-diagram/diagram-data-access-store-features-sketchbook';
-import {
-  selectConnections,
-  selectShapes,
-} from '@tfx-diagram/diagram/data-access/store/features/shapes';
+import { selectShapes } from '@tfx-diagram/diagram/data-access/store/features/shapes';
 import { DiagramAppMenuService } from '@tfx-diagram/diagram/ui/diagram-app-menu';
 import { JpegDialogComponent, JpegDialogResult } from '@tfx-diagram/diagram/ui/dialogs';
 import { IconButtonConfig } from '@tfx-diagram/shared-angular/ui/tfx-icon-button';
@@ -110,14 +107,6 @@ export class ShellComponent implements OnInit, OnDestroy {
     this.store.dispatch(ShellComponentActions.appStart());
     this.diagramAppMenu.cmds$.subscribe((cmd: string) => this.menuCmd.emit(cmd));
     this.manageExportJpeg();
-
-    combineLatest([
-      this.store.select(selectConnections),
-      this.store.select(selectShapes),
-    ]).subscribe(([c, s]) => {
-      console.log(c);
-      console.log(s);
-    });
   }
 
   ngOnDestroy(): void {

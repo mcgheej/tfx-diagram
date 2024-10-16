@@ -685,10 +685,8 @@ const updateSelectedFontProps = (
   for (const shapeId of selectedShapeIds) {
     let shape = newShapes.get(shapeId);
     if (shape) {
-      console.log(shape);
       shape = shape.copy({ textConfig: fontProps });
       if (shape) {
-        console.log(shape);
         newShapes.set(shape.id, shape);
         shapesChanged = true;
       }
