@@ -3,6 +3,7 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Connection } from '../../../connections/connection';
+import { ShapeCategory } from '../../../types';
 import { Shape } from '../../shape';
 import { DrawableShape } from '../drawable-shape';
 
@@ -41,7 +42,7 @@ export abstract class ControlShape extends DrawableShape {
     return '';
   }
 
-  override category(): string {
+  override category(): ShapeCategory {
     return 'control-shape';
   }
 }

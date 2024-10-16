@@ -1,9 +1,10 @@
 import { GridProps, Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { Connection, ConnectorEndTypes } from '../../connections/connection';
+import { Connection } from '../../connections/connection';
 import { gridSnapPoint, lineInterpolate } from '../../misc-functions';
 import { Line } from '../../shape-hierarchy/drawable-shapes/connectors/line/line';
 import { Handle } from '../../shape-hierarchy/drawable-shapes/control-shapes/handle/handle';
 import { Shape } from '../../shape-hierarchy/shape';
+import { ConnectorEndTypes } from '../../types';
 import { LineReshaper } from './line-reshaper';
 
 export class LineControlPointReshaper extends LineReshaper {

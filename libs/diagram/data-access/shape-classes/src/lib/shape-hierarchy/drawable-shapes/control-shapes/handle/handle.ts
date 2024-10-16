@@ -9,13 +9,11 @@ import {
   AllShapeProps,
   HandleConfig,
   HandleProps,
-  HandleStyle,
-  HandleTypes,
   ShapeProps,
   SharedProperties,
 } from '../../../../props';
 import { Reshaper } from '../../../../reshapers';
-import { DEFAULT_OUTLINE_COLOUR } from '../../../../types';
+import { DEFAULT_OUTLINE_COLOUR, HandleStyle, HandleTypes } from '../../../../types';
 import { Shape } from '../../../shape';
 import { ControlShape } from '../control-shape';
 

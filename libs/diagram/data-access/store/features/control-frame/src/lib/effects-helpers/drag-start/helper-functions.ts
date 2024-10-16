@@ -13,31 +13,41 @@ export const getMovingConnectionIds = (
   // these to the moving connectors array. Note connections associated with
   // connectors included in the selection will be removed as part of the drag
   // start.
+  // --------
+  // Above comment may be out of date - new comment below
+  // --------
+  // If snap-to-shape enabled find connections where the associated shape
+  // is in the selection and the associated connector has no other connection
+  // to a shape outside the selection. Add these to the moving connectors array.
+  // Note connections associated with connectors included in the selection that
+  // have connections to shapes outside the selection will be removed as part
+  // of the drag start.
   if (shapeSnap) {
     const selectedShapesMap = getSubMap(shapes, ids);
     connections.forEach((connection) => {
       if (
-        connectionShapeInSelection(connection, selectedShapesMap) &&
+        connection.getAssociatedShape(selectedShapesMap) &&
         connectionConnectorNotInSelection(connection, selectedShapesMap)
       ) {
         movingConnectionIds.push(connection.id);
+      }
+      if (connection.getAssociatedShape(selectedShapesMap)) {
+        const connector = connection.getAssociatedConnector(selectedShapesMap);
+        if (connector) {
+          // Connector is in selection as well. If the other end of the
+          // connector is connected to a shape in the selection then add
+          // this connection id to moving ids array, else this connection
+          // needs to be flagged for removal
+        } else {
+          movingConnectionIds.push(connection.id);
+        }
       }
     });
   }
   return movingConnectionIds;
 };
 
-export const connectionShapeInSelection = (
-  connection: Connection,
-  selectedShapesMap: Map<string, Shape>
-): boolean => {
-  if (selectedShapesMap.get(connection.shapeId)) {
-    return true;
-  }
-  return false;
-};
-
-export const connectionConnectorNotInSelection = (
+const connectionConnectorNotInSelection = (
   connection: Connection,
   selectedShapesMap: Map<string, Shape>
 ): boolean => {

@@ -1,5 +1,5 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { HandleProps, HandleTypes, ShapeCursors } from '../props';
+import { HandleProps } from '../props';
 import {
   CurveFinalReshaper,
   CurveFree1Reshaper,
@@ -14,6 +14,7 @@ import {
 } from '../reshapers';
 import { Handle } from '../shape-hierarchy/drawable-shapes/control-shapes/handle/handle';
 import { Shape } from '../shape-hierarchy/shape';
+import { HandleTypes, ShapeCursors } from '../types';
 
 type PartHandleProps = Pick<
   HandleProps,

@@ -3,6 +3,7 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Connection } from '../../connections/connection';
+import { ShapeCategory } from '../../types';
 import { Shape } from '../shape';
 
 export abstract class StructuralShape extends Shape {
@@ -44,7 +45,7 @@ export abstract class StructuralShape extends Shape {
     return '';
   }
 
-  override category(): string {
+  override category(): ShapeCategory {
     return 'structural-shape';
   }
 }

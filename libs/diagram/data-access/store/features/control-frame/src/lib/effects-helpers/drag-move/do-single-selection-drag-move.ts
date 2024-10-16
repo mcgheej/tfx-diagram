@@ -6,7 +6,11 @@ import {
   getShapeArrayFromMapList,
 } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { inverseTransform } from '@tfx-diagram/diagram/util/misc-functions';
-import { GridProps, Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
+import {
+  GridProps,
+  Point,
+  Transform,
+} from '@tfx-diagram/electron-renderer-web/shared-types';
 import { of } from 'rxjs';
 import { snapShiftDelta } from '../../misc-functions';
 import { getModifiedConnections } from './get-connector';
@@ -33,25 +37,24 @@ export const doSingleSelectionDragMove = (
       shapes,
       gridProps
     );
-    const movedControlShapes: Shape[] = [];
-    const controlShapesArray = getShapeArrayFromMapList(selectionFrameStart, controlShapes);
-    for (const controlShape of controlShapesArray) {
-      movedControlShapes.push(controlShape.move(shiftDelta));
-    }
-    const modifiedShapes = new Map<string, Shape>();
-    if (selectedShape.shapeType === 'group') {
-      for (const shape of Group.drawableShapes(selectedShape as Group, shapes)) {
-        modifiedShapes.set(shape.id, shape.move(shiftDelta));
-      }
-    } else {
-      modifiedShapes.set(selectedShape.id, selectedShape.move(shiftDelta));
-    }
+
+    const movedControlShapes = getMovedControlShapes(
+      selectionFrameStart,
+      controlShapes,
+      shiftDelta
+    );
+
+    const shapesInSelection = getShapesInSelection(selectedShape, shapes);
+    const modifiedShapes = getModifiedShapes(shapesInSelection, shapes, shiftDelta);
+
     const modifiedConnections = getModifiedConnections(
       movingConnectionIds,
       connections,
       shapes,
-      modifiedShapes
+      modifiedShapes,
+      shapesInSelection
     );
+
     return of(
       ControlFrameEffectsActions.dragMoveSingleSelection({
         controlShapes: movedControlShapes,
@@ -62,3 +65,42 @@ export const doSingleSelectionDragMove = (
   }
   return of(ControlFrameEffectsActions.frameChange({ modifiedShapes: [] }));
 };
+
+function getMovedControlShapes(
+  selectionFrameStart: string,
+  controlShapes: Map<string, Shape>,
+  shiftDelta: Point
+): Shape[] {
+  const r: Shape[] = [];
+  getShapeArrayFromMapList(selectionFrameStart, controlShapes).map((controlShape) => {
+    r.push(controlShape.move(shiftDelta));
+  });
+  return r;
+}
+
+function getModifiedShapes(
+  shapesInSelection: Map<string, Shape>,
+  shapes: Map<string, Shape>,
+  shiftDelta: Point
+): Map<string, Shape> {
+  const modifiedShapes = new Map<string, Shape>();
+  shapesInSelection.forEach((s) => {
+    modifiedShapes.set(s.id, s.move(shiftDelta));
+  });
+  return modifiedShapes;
+}
+
+function getShapesInSelection(
+  selectedShape: Shape,
+  shapes: Map<string, Shape>
+): Map<string, Shape> {
+  const shapesInSelection = new Map<string, Shape>();
+  if (selectedShape.shapeType === 'group') {
+    for (const shape of Group.drawableShapes(selectedShape as Group, shapes)) {
+      shapesInSelection.set(shape.id, shape);
+    }
+  } else {
+    shapesInSelection.set(selectedShape.id, selectedShape);
+  }
+  return shapesInSelection;
+}

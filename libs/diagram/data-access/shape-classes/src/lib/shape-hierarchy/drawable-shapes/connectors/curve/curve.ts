@@ -14,7 +14,7 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { Connection, ConnectorEndTypes } from '../../../../connections/connection';
+import { Connection } from '../../../../connections/connection';
 import { curveSelectFrame } from '../../../../control-frames/curve-select-frame';
 import { Endpoint } from '../../../../endpoints';
 import { calcBezierValue, linkShapeArray } from '../../../../misc-functions';
@@ -30,6 +30,7 @@ import {
   CurveStartReshaper,
   NopReshaper,
 } from '../../../../reshapers';
+import { ConnectorEndTypes } from '../../../../types';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group/group';
 import { ConnectionPoint } from '../../control-shapes/connection-point/connection-point';

@@ -1,7 +1,7 @@
 import { ColorRef, PartPartial } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Reshaper } from '../reshapers';
-import { HandleStyle } from './handle-style.type';
-import { HandleTypes } from './handle-types.type';
+import { HandleStyle } from '../types/handle-style.type';
+import { HandleTypes } from '../types/handle-types.type';
 import { ShapeProps } from './shape-props';
 
 export interface HandleProps extends ShapeProps {

@@ -150,8 +150,11 @@ export const shapesReducer = createReducer(
   }),
   on(
     ControlFrameEffectsActions.dragStartSingleSelection,
-    (state, { selectedShape, movingConnectionIds }) => {
-      const connections = updateConnectionsDragStartSelection(state, [selectedShape.id]);
+    (state, { movingConnectionIds, compromisedConnectionIds }) => {
+      const connections = updateConnectionsDragStartSelection(
+        state,
+        compromisedConnectionIds
+      );
       return {
         ...state,
         connections,
@@ -702,26 +705,27 @@ const updateSelectedFontProps = (
 
 const updateConnectionsDragStartSelection = (
   state: ShapesState,
-  selectedShapeIds: string[]
+  compromisedConnectionIds: string[]
+  // selectedShapeIds: string[]
 ): Map<string, Connection> => {
-  const deleteConnectionIds: string[] = [];
-  selectedShapeIds.map((selectedShapeId) => {
-    const shape = state.shapes.get(selectedShapeId);
-    if (shape) {
-      if (shape.category() !== 'shape') {
-        state.connections.forEach((connection) => {
-          if (connection.connectorId === shape.id) {
-            deleteConnectionIds.push(connection.id);
-          }
-        });
-      }
-    }
-  });
-  if (deleteConnectionIds.length === 0) {
+  // const deleteConnectionIds: string[] = [];
+  // selectedShapeIds.map((selectedShapeId) => {
+  //   const shape = state.shapes.get(selectedShapeId);
+  //   if (shape) {
+  //     if (shape.category() !== 'shape') {
+  //       state.connections.forEach((connection) => {
+  //         if (connection.connectorId === shape.id) {
+  //           deleteConnectionIds.push(connection.id);
+  //         }
+  //       });
+  //     }
+  //   }
+  // });
+  if (compromisedConnectionIds.length === 0) {
     return state.connections;
   }
   const updatedConnections = new Map(state.connections);
-  deleteConnectionIds.map((id) => {
+  compromisedConnectionIds.map((id) => {
     updatedConnections.delete(id);
   });
   return updatedConnections;

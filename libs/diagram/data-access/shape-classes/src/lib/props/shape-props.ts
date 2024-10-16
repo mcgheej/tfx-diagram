@@ -1,6 +1,6 @@
 import { PartPartial } from '@tfx-diagram/electron-renderer-web/shared-types';
-import { ShapeCursors } from './shape-cursors.type';
-import { ShapeTypes } from './shape-types.type';
+import { ShapeCursors } from '../types/shape-cursors.type';
+import { ShapeTypes } from '../types/shape-types.type';
 
 /**
  * Base properties for all shape instances

@@ -14,7 +14,7 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
-import { Connection, ConnectorEndTypes } from '../../../../connections/connection';
+import { Connection } from '../../../../connections/connection';
 import { lineSelectFrame } from '../../../../control-frames/line-select-frame';
 import { Endpoint } from '../../../../endpoints';
 import { linkShapeArray } from '../../../../misc-functions';
@@ -26,6 +26,7 @@ import {
   SharedProperties,
 } from '../../../../props';
 import { LineControlPointReshaper, NopReshaper } from '../../../../reshapers';
+import { ConnectorEndTypes } from '../../../../types';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group/group';
 import { ConnectionPoint } from '../../control-shapes/connection-point/connection-point';

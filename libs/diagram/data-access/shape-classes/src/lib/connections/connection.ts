@@ -1,8 +1,7 @@
 import { Point } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Shape } from '../shape-hierarchy/shape';
+import { ConnectorEndTypes } from '../types';
 import { ConnectionTypes } from './connection-types';
-
-export type ConnectorEndTypes = 'connectorStart' | 'connectorFinish';
 
 export interface ConnectionProps {
   id: string;
@@ -34,4 +33,19 @@ export abstract class Connection implements ConnectionProps {
   abstract getProps(): ConnectionProps;
   abstract modifyConnectionPoint(shape: Shape): Connection;
   abstract reshapeConnector(connector: Shape): Shape;
+
+  /**
+   *
+   * @param shapes - set of shapes to check
+   *
+   * Checks if the connection's associated shape is present in the
+   * supplied Map of Shapes.
+   */
+  getAssociatedShape(shapes: Map<string, Shape>): Shape | undefined {
+    return shapes.get(this.shapeId);
+  }
+
+  getAssociatedConnector(shapes: Map<string, Shape>): Shape | undefined {
+    return shapes.get(this.connectorId);
+  }
 }

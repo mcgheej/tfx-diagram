@@ -29,7 +29,10 @@ export const selectionChange = createAction(
 // );
 
 export const FRAME_CHANGE = '[Control Frame Effects] Frame Change';
-export const frameChange = createAction(FRAME_CHANGE, props<{ modifiedShapes: Shape[] }>());
+export const frameChange = createAction(
+  FRAME_CHANGE,
+  props<{ modifiedShapes: Shape[] }>()
+);
 
 // export const dragStart = createAction('[Control Frame Effects] Drag Start');
 
@@ -55,10 +58,12 @@ export const dragStartSingleSelection = createAction(
     dragOffset: Point;
     frameShapes: Shape[];
     movingConnectionIds: string[];
+    compromisedConnectionIds: string[];
   }>()
 );
 
-export const DRAG_MOVE_SINGLE_SELECTION = '[Control Frame Effects] Drag Move Single Selection';
+export const DRAG_MOVE_SINGLE_SELECTION =
+  '[Control Frame Effects] Drag Move Single Selection';
 export const dragMoveSingleSelection = createAction(
   DRAG_MOVE_SINGLE_SELECTION,
   props<{ controlShapes: Shape[]; shapes: Shape[]; modifiedConnections: Connection[] }>()
@@ -71,16 +76,22 @@ export const dragEndSingleSelection = createAction(
 
 export const dragStartMultiSelection = createAction(
   '[Control Frame Effects] Drag Start Multi Selection',
-  props<{ selectedShapeIds: string[]; dragOffset: Point; movingConnectionIds: string[] }>()
+  props<{
+    selectedShapeIds: string[];
+    dragOffset: Point;
+    movingConnectionIds: string[];
+  }>()
 );
 
-export const DRAG_MOVE_MULTI_SELECTION = '[Control Frame Effects] Drag Move Multi Selection';
+export const DRAG_MOVE_MULTI_SELECTION =
+  '[Control Frame Effects] Drag Move Multi Selection';
 export const dragMoveMultiSelection = createAction(
   DRAG_MOVE_MULTI_SELECTION,
   props<{ controlShapes: Shape[]; shapes: Shape[]; modifiedConnections: Connection[] }>()
 );
 
-export const DRAG_END_MULTI_SELECTION = '[Control Frame Effects] Drag End Multi Selection';
+export const DRAG_END_MULTI_SELECTION =
+  '[Control Frame Effects] Drag End Multi Selection';
 export const dragEndMultiSelection = createAction(DRAG_END_MULTI_SELECTION);
 
 export const DRAG_START_HANDLE = '[Control Frame Effects] Drag Start Handle';
@@ -124,10 +135,16 @@ export const fillColorChange = createAction(
 );
 
 export const LINE_DASH_CHANGE = '[Control Frame Effects] Line Dash Change';
-export const lineDashChange = createAction(LINE_DASH_CHANGE, props<{ lineDash: number[] }>());
+export const lineDashChange = createAction(
+  LINE_DASH_CHANGE,
+  props<{ lineDash: number[] }>()
+);
 
 export const LINE_WIDTH_CHANGE = '[Control Frame Effects] Line Width Change';
-export const lineWidthChange = createAction(LINE_WIDTH_CHANGE, props<{ lineWidth: number }>());
+export const lineWidthChange = createAction(
+  LINE_WIDTH_CHANGE,
+  props<{ lineWidth: number }>()
+);
 
 export const START_ENDPOINT_CHANGE = '[Control Frame Effects] Start Endpoint Change';
 export const startEndpointChange = createAction(
