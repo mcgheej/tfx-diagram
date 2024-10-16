@@ -1,8 +1,8 @@
 import { ControlFrameEffectsActions } from '@tfx-diagram/diagram-data-access-store-actions';
 import {
   Connection,
-  Group,
   Shape,
+  getDrawableShapesInSelectionMap,
   getShapeArrayFromMapList,
 } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { inverseTransform } from '@tfx-diagram/diagram/util/misc-functions';
@@ -44,7 +44,7 @@ export const doSingleSelectionDragMove = (
       shiftDelta
     );
 
-    const shapesInSelection = getShapesInSelection(selectedShape, shapes);
+    const shapesInSelection = getDrawableShapesInSelectionMap([selectedShape.id], shapes);
     const modifiedShapes = getModifiedShapes(shapesInSelection, shapes, shiftDelta);
 
     const modifiedConnections = getModifiedConnections(
@@ -88,19 +88,4 @@ function getModifiedShapes(
     modifiedShapes.set(s.id, s.move(shiftDelta));
   });
   return modifiedShapes;
-}
-
-function getShapesInSelection(
-  selectedShape: Shape,
-  shapes: Map<string, Shape>
-): Map<string, Shape> {
-  const shapesInSelection = new Map<string, Shape>();
-  if (selectedShape.shapeType === 'group') {
-    for (const shape of Group.drawableShapes(selectedShape as Group, shapes)) {
-      shapesInSelection.set(shape.id, shape);
-    }
-  } else {
-    shapesInSelection.set(selectedShape.id, selectedShape);
-  }
-  return shapesInSelection;
 }

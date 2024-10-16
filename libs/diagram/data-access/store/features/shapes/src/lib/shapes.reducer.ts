@@ -173,11 +173,11 @@ export const shapesReducer = createReducer(
   }),
   on(
     ControlFrameEffectsActions.dragStartMultiSelection,
-    (state, { selectedShapeIds, movingConnectionIds }) => {
+    (state, { movingConnectionIds, compromisedConnectionIds }) => {
       return {
         ...state,
         movingConnectionIds,
-        connections: updateConnectionsDragStartSelection(state, selectedShapeIds),
+        connections: updateConnectionsDragStartSelection(state, compromisedConnectionIds),
       };
     }
   ),
@@ -706,21 +706,7 @@ const updateSelectedFontProps = (
 const updateConnectionsDragStartSelection = (
   state: ShapesState,
   compromisedConnectionIds: string[]
-  // selectedShapeIds: string[]
 ): Map<string, Connection> => {
-  // const deleteConnectionIds: string[] = [];
-  // selectedShapeIds.map((selectedShapeId) => {
-  //   const shape = state.shapes.get(selectedShapeId);
-  //   if (shape) {
-  //     if (shape.category() !== 'shape') {
-  //       state.connections.forEach((connection) => {
-  //         if (connection.connectorId === shape.id) {
-  //           deleteConnectionIds.push(connection.id);
-  //         }
-  //       });
-  //     }
-  //   }
-  // });
   if (compromisedConnectionIds.length === 0) {
     return state.connections;
   }

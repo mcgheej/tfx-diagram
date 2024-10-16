@@ -3,11 +3,7 @@ import { Connection, Group, Shape } from '@tfx-diagram/diagram/data-access/shape
 import { getSubMap, inverseTransform } from '@tfx-diagram/diagram/util/misc-functions';
 import { Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { of } from 'rxjs';
-
-interface Result {
-  movingConnectionIds: string[];
-  compromisedConnectionIds: string[];
-}
+import { MovingConnectionsResult } from './moving-connections-result';
 
 /**
  *
@@ -67,7 +63,7 @@ function singleShapeStart(
   selectedShape: Shape,
   connections: Map<string, Connection>,
   shapeSnap: boolean
-): Result {
+): MovingConnectionsResult {
   const movingConnectionIds: string[] = [];
   const compromisedConnectionIds: string[] = [];
   if (shapeSnap) {
@@ -101,7 +97,7 @@ function groupShapeStart(
   shapes: Map<string, Shape>,
   connections: Map<string, Connection>,
   shapeSnap: boolean
-): Result {
+): MovingConnectionsResult {
   const movingConnectionIds: string[] = [];
   const compromisedConnectionIds: string[] = [];
 

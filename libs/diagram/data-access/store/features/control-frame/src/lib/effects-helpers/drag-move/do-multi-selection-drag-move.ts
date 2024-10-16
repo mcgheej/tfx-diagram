@@ -3,10 +3,15 @@ import {
   Connection,
   Shape,
   getDrawableShapesInSelection,
+  getDrawableShapesInSelectionMap,
   getShapeArrayFromMapList,
 } from '@tfx-diagram/diagram/data-access/shape-classes';
 import { inverseTransform } from '@tfx-diagram/diagram/util/misc-functions';
-import { GridProps, Point, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
+import {
+  GridProps,
+  Point,
+  Transform,
+} from '@tfx-diagram/electron-renderer-web/shared-types';
 import { of } from 'rxjs';
 import { snapShiftDelta } from '../../misc-functions';
 import { getModifiedConnections } from './get-connector';
@@ -30,11 +35,15 @@ export const doMultiSelectionDragMove = (
       const shiftDelta = snapShiftDelta(mousePagePos, dragOffset, s, shapes, gridProps);
 
       const movedControlShapes: Shape[] = [];
-      const controlShapesArray = getShapeArrayFromMapList(selectionFrameStart, controlShapes);
+      const controlShapesArray = getShapeArrayFromMapList(
+        selectionFrameStart,
+        controlShapes
+      );
       for (const controlShape of controlShapesArray) {
         movedControlShapes.push(controlShape.move(shiftDelta));
       }
 
+      const shapesInSelection = getDrawableShapesInSelectionMap(selectedShapeIds, shapes);
       const modifiedShapes = new Map<string, Shape>();
       const selectedShapes = getDrawableShapesInSelection(selectedShapeIds, shapes);
       for (const shape of selectedShapes) {
@@ -45,7 +54,8 @@ export const doMultiSelectionDragMove = (
         movingConnectionIds,
         connections,
         shapes,
-        modifiedShapes
+        modifiedShapes,
+        shapesInSelection
       );
 
       return of(

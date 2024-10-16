@@ -22,3 +22,25 @@ export function getDrawableShapesInSelection(
   });
   return result;
 }
+
+export function getDrawableShapesInSelectionMap(
+  selectedShapeIds: string[],
+  shapes: Map<string, Shape>
+): Map<string, Shape> {
+  const arr: Shape[] = [];
+  selectedShapeIds.map((id) => {
+    const s = shapes.get(id);
+    if (s) {
+      if (s.shapeType === 'group') {
+        arr.push(...Group.drawableShapes(s as Group, shapes));
+      } else {
+        arr.push(s);
+      }
+    }
+  });
+  const result = new Map<string, Shape>();
+  arr.map((s) => {
+    result.set(s.id, s);
+  });
+  return result;
+}

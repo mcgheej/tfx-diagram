@@ -80,6 +80,7 @@ export const dragStartMultiSelection = createAction(
     selectedShapeIds: string[];
     dragOffset: Point;
     movingConnectionIds: string[];
+    compromisedConnectionIds: string[];
   }>()
 );
 
