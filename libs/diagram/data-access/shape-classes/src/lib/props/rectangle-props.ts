@@ -10,7 +10,7 @@ export interface RectangleProps extends ShapeProps {
   y: number;
   width: number;
   height: number;
-  cornerRadius: number[];
+  corners: string;
   lineDash: number[];
   lineWidth: number;
   strokeStyle: ColorRef;

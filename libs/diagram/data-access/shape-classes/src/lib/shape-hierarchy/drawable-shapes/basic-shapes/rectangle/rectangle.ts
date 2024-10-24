@@ -60,7 +60,7 @@ export const rectangleDefaults: Omit<RectangleProps, keyof ShapeProps> = {
   y: DEFAULT_Y,
   width: DEFAULT_WIDTH,
   height: DEFAULT_HEIGHT,
-  cornerRadius: [20, 0, 20, 10],
+  corners: '20 0 20 10',
   lineDash: [],
   lineWidth: 0.5,
   strokeStyle: { colorSet: 'theme', ref: 'text1-3' },
@@ -86,12 +86,13 @@ export class Rectangle extends BasicShape implements RectangleProps {
   height: number;
   lineDash: number[];
   lineWidth: number;
-  cornerRadius: number[];
+  corners: string;
   strokeStyle: ColorRef;
   fillStyle: ColorRef;
   textConfig: TextBoxConfig;
 
   private textBox: TextBox;
+  // private cornerRadius: RectangleRadii;
   private computedCornerRadius: RectangleRadii;
 
   constructor(config: RectangleConfig) {
@@ -100,14 +101,16 @@ export class Rectangle extends BasicShape implements RectangleProps {
     this.y = config.y ?? rectangleDefaults.y;
     this.width = config.width ?? rectangleDefaults.width;
     this.height = config.height ?? rectangleDefaults.height;
-    this.cornerRadius = config.cornerRadius ?? rectangleDefaults.cornerRadius;
+    this.corners = config.corners ?? rectangleDefaults.corners;
     this.lineDash = config.lineDash ?? rectangleDefaults.lineDash;
     this.lineWidth = config.lineWidth ?? rectangleDefaults.lineWidth;
     this.strokeStyle = config.strokeStyle ?? rectangleDefaults.strokeStyle;
     this.fillStyle = config.fillStyle ?? rectangleDefaults.fillStyle;
     this.textConfig = config.textConfig ?? rectangleDefaults.textConfig;
     this.textBox = new TextBox({ ...this.textConfig, id: this.id }, this.rect());
-    this.computedCornerRadius = this.computeCornerRadii();
+
+    // this.cornerRadius = [20, 0, 20, 10];
+    this.computedCornerRadius = this.computeCornerRadii(this.corners);
 
     Rectangle.deleteCaches(this.id);
   }
@@ -215,7 +218,7 @@ export class Rectangle extends BasicShape implements RectangleProps {
       height: a.height ?? this.height,
       lineDash: a.lineDash ?? this.lineDash,
       lineWidth: a.lineWidth ?? this.lineWidth,
-      cornerRadius: a.cornerRadius ?? this.cornerRadius,
+      corners: a.corners ?? this.corners,
       strokeStyle: a.strokeStyle ?? this.strokeStyle,
       fillStyle: a.fillStyle ?? this.fillStyle,
       textConfig: aTextConfig,
@@ -288,7 +291,7 @@ export class Rectangle extends BasicShape implements RectangleProps {
       y: this.y,
       width: this.width,
       height: this.height,
-      cornerRadius: this.cornerRadius,
+      corners: this.corners,
       strokeStyle: this.strokeStyle,
       fillStyle: this.fillStyle,
       lineDash: this.lineDash,
@@ -428,28 +431,44 @@ export class Rectangle extends BasicShape implements RectangleProps {
     };
   }
 
-  private computeCornerRadii(): RectangleRadii {
+  private computeCornerRadii(corners: string): RectangleRadii {
+    if (corners === '') {
+      return [0, 0, 0, 0];
+    }
     const r: RectangleRadii = [0, 0, 0, 0];
-    if (this.cornerRadius.length === 1) {
-      r[0] = this.cornerRadius[0];
+    const values = corners.split(' ');
+    if (values.length > 4) {
+      return r;
+    }
+
+    const cornerRadius: number[] = [];
+    for (let i = 0; i < values.length; i++) {
+      if (!/^0|[1-9]\d*$/.exec(values[i])) {
+        return [0, 0, 0, 0];
+      }
+      cornerRadius.push(+values[i]);
+    }
+
+    if (cornerRadius.length === 1) {
+      r[0] = cornerRadius[0];
       r[1] = r[0];
       r[2] = r[0];
       r[3] = r[0];
-    } else if (this.cornerRadius.length === 2) {
-      r[0] = this.cornerRadius[0];
-      r[1] = this.cornerRadius[1];
+    } else if (cornerRadius.length === 2) {
+      r[0] = cornerRadius[0];
+      r[1] = cornerRadius[1];
       r[2] = r[0];
       r[3] = r[1];
-    } else if (this.cornerRadius.length === 3) {
-      r[0] = this.cornerRadius[0];
-      r[1] = this.cornerRadius[1];
-      r[2] = this.cornerRadius[2];
-      r[3] = this.cornerRadius[1];
-    } else if (this.cornerRadius.length > 3) {
-      r[0] = this.cornerRadius[0];
-      r[1] = this.cornerRadius[1];
-      r[2] = this.cornerRadius[2];
-      r[3] = this.cornerRadius[3];
+    } else if (cornerRadius.length === 3) {
+      r[0] = cornerRadius[0];
+      r[1] = cornerRadius[1];
+      r[2] = cornerRadius[2];
+      r[3] = cornerRadius[1];
+    } else if (cornerRadius.length > 3) {
+      r[0] = cornerRadius[0];
+      r[1] = cornerRadius[1];
+      r[2] = cornerRadius[2];
+      r[3] = cornerRadius[3];
     }
     let t = this.adjustSide(r[0], r[1], this.width);
     r[0] = t[0];

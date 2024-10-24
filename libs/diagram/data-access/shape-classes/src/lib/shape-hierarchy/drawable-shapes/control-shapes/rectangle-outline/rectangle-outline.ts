@@ -24,7 +24,7 @@ export class RectangleOutline extends ControlShape implements RectangleProps {
   y: number;
   width: number;
   height: number;
-  cornerRadius: number[];
+  corners: string;
   lineDash: number[];
   lineWidth: number;
   strokeStyle: ColorRef;
@@ -47,7 +47,7 @@ export class RectangleOutline extends ControlShape implements RectangleProps {
     this.strokeStyle = DEFAULT_OUTLINE_COLOUR;
     (this.fillStyle = { colorSet: 'empty', ref: '' }), (this.selectable = false);
     this.textConfig = {};
-    this.cornerRadius = [0, 0, 0, 0];
+    this.corners = '0';
   }
 
   anchor(): Point {
@@ -121,7 +121,7 @@ export class RectangleOutline extends ControlShape implements RectangleProps {
       y: this.y,
       width: this.width,
       height: this.height,
-      cornerRadius: [0, 0, 0, 0],
+      corners: '0',
       strokeStyle: this.strokeStyle,
       fillStyle: this.fillStyle,
       lineDash: this.lineDash,
