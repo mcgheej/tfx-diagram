@@ -228,7 +228,7 @@ export class Arc extends BasicShape implements ArcProps {
   private drawArc(c: CanvasRenderingContext2D, params: DrawingParams, t: Transform) {
     const { x, y } = params;
     let { lineWidth, radius } = params;
-    lineWidth = Math.max(lineWidth, 2);
+    lineWidth = Math.max(lineWidth, 1);
     radius = Math.max(radius, 3);
     const s = ((1 + this.lineWidth / 0.25) / 2) * t.scaleFactor;
     const scaledLineDash = this.lineDash.map((dotDash) => {

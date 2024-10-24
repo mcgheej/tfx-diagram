@@ -371,6 +371,7 @@ export const shapesReducer = createReducer(
       const newShapes = new Map(state.shapes);
       deletedShapeIds.map((id) => {
         newShapes.delete(id);
+        Rectangle.deleteCaches(id);
       });
       modifiedShapes.map((shape) => {
         newShapes.set(shape.id, shape);
@@ -399,6 +400,7 @@ export const shapesReducer = createReducer(
           }
           newShapes.delete(shape.id);
           Shape.shapeIdsMap.delete(shape.id);
+          Rectangle.deleteCaches(shape.id);
         } else {
           shapeId = '';
           console.log('Error - shape not found');
