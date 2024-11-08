@@ -3,7 +3,9 @@ import { TextBox } from '@tfx-diagram/diagram/data-access/text-classes';
 import {
   inverseTransform,
   pointAdd,
+  pointInRect,
   pointTransform,
+  rectInflate,
   vectorCrossProductSignedMagnitude,
   vectorMagnitude,
   vectorPerpendicularClockwise,
@@ -22,11 +24,7 @@ import { Connection } from '../../../../connections/connection';
 import { TriangleConnection } from '../../../../connections/derived-connections/triangle-connection';
 import { triangleHighlightFrame } from '../../../../control-frames/triangle-highlight-frame';
 import { triangleSelectFrame } from '../../../../control-frames/triangle-select-frame';
-import {
-  checkLine,
-  lineInterpolate,
-  outsideDetectionRect,
-} from '../../../../misc-functions';
+import { checkLine, lineInterpolate } from '../../../../misc-functions';
 import {
   AllShapeProps,
   ShapeProps,
@@ -34,7 +32,7 @@ import {
   TriangleConfig,
   TriangleProps,
 } from '../../../../props';
-import { LineAttachParams } from '../../../../types';
+import { LineAttachParams, PX_BOUNDARY_DETECTION_THRESHOLD } from '../../../../types';
 import { Shape } from '../../../shape';
 import { Group } from '../../../structural-shapes/group/group';
 import { RectangleOutline } from '../../control-shapes/rectangle-outline/rectangle-outline';
@@ -97,11 +95,7 @@ export class Triangle extends BasicShape implements TriangleProps {
     t: Transform,
     connectionHook: Connection
   ): Connection | undefined {
-    const p: Point = {
-      x: t.scaleFactor * (point.x + t.transX),
-      y: t.scaleFactor * (point.y + t.transY),
-    };
-    // const { vertices } = this.getParams(t);
+    const p = pointTransform(point, t);
     const vertices: TrianglePerimeterVertices = [
       pointTransform(this.perimeterVertices[0], t),
       pointTransform(this.perimeterVertices[1], t),
@@ -462,4 +456,11 @@ export class Triangle extends BasicShape implements TriangleProps {
     result.push({ x: b.x + (l * bqV.x) / m, y: b.y + (l * bqV.y) / m });
     return result;
   }
+}
+
+function outsideDetectionRect(p: Point, r: Rect): boolean {
+  if (pointInRect(p, rectInflate(r, PX_BOUNDARY_DETECTION_THRESHOLD))) {
+    return false;
+  }
+  return true;
 }

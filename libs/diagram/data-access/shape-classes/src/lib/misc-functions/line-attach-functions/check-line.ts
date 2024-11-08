@@ -65,7 +65,7 @@ export function checkLine(
         return {
           index: i,
           shortestDistance: d,
-          k: k,
+          k,
           connectionPoint: { x: C.x + a.x, y: C.y + a.y },
         };
       }

@@ -1,4 +1,8 @@
-import { Point, PolarPoint, Transform } from '@tfx-diagram/electron-renderer-web/shared-types';
+import {
+  Point,
+  PolarPoint,
+  Transform,
+} from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect } from '@tfx-diagram/shared-angular/utils/shared-types';
 import { EMPTY_RECT } from './rect-functions';
 
@@ -63,6 +67,10 @@ export const pointInRect = (p: Point, r: Rect): boolean => {
     return false;
   }
   return true;
+};
+
+export const pointOutsideRect = (p: Point, r: Rect): boolean => {
+  return !pointInRect(p, r);
 };
 
 export function pointsCopy(p: Point[]): Point[] {

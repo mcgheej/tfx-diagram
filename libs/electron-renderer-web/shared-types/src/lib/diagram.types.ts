@@ -63,6 +63,11 @@ export interface PolarPoint {
   a: number;
 }
 
+export interface LineSegment {
+  a: Point;
+  b: Point;
+}
+
 export interface Size {
   width: number;
   height: number;

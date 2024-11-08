@@ -1,4 +1,8 @@
-import { Point, Size } from '@tfx-diagram/electron-renderer-web/shared-types';
+import {
+  LineSegment,
+  Point,
+  Size,
+} from '@tfx-diagram/electron-renderer-web/shared-types';
 import { Rect, RectEdges } from '@tfx-diagram/shared-angular/utils/shared-types';
 
 export const EMPTY_RECT: Rect = { x: 0, y: 0, width: 0, height: 0 };
@@ -37,6 +41,15 @@ export function rectIntersect(a: Rect, b: Rect): Rect | null {
 }
 
 export function rectInflate(r: Rect, s: number): Rect {
+  if (r.width + 2 * s <= 0 || r.height + 2 * s <= 0) {
+    return {
+      x: r.x + r.width / 2,
+      y: r.y + r.height / 2,
+      width: 0,
+      height: 0,
+    };
+  }
+
   return {
     x: r.x - s,
     y: r.y - s,
@@ -128,3 +141,23 @@ export const rectFromSize = (size: Size): Rect => {
     height: size.height,
   };
 };
+
+export function rectTopLine(r: Rect): LineSegment {
+  const { x, y, width } = r;
+  return { a: { x, y }, b: { x: x + width, y } };
+}
+
+export function rectRightLine(r: Rect): LineSegment {
+  const { x, y, width, height } = r;
+  return { a: { x: x + width, y }, b: { x: x + width, y: y + height } };
+}
+
+export function rectBottomLine(r: Rect): LineSegment {
+  const { x, y, width, height } = r;
+  return { a: { x, y: y + height }, b: { x: x + width, y: y + height } };
+}
+
+export function rectLeftLine(r: Rect): LineSegment {
+  const { x, y, height } = r;
+  return { a: { x, y }, b: { x, y: y + height } };
+}

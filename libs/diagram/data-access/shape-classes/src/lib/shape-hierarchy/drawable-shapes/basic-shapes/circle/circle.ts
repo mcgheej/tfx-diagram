@@ -3,6 +3,7 @@ import { TextBox } from '@tfx-diagram/diagram/data-access/text-classes';
 import {
   inverseTransform,
   pointInRect,
+  pointTransform,
   rectInflate,
 } from '@tfx-diagram/diagram/util/misc-functions';
 import {
@@ -96,10 +97,7 @@ export class Circle extends BasicShape implements CircleProps {
     t: Transform,
     connectionHook: Connection
   ): Connection | undefined {
-    const p: Point = {
-      x: t.scaleFactor * (point.x + t.transX),
-      y: t.scaleFactor * (point.y + t.transY),
-    };
+    const p = pointTransform(point, t);
     const { x, y, lineWidth, radius: r } = this.getParams(t);
     const radius = r + lineWidth / 2;
 
