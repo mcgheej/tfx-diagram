@@ -81,7 +81,7 @@ export function attachRectangle(
             end: connectionHook.end,
             shapeId: rectangleId,
             connectionPoint: inverseTransform(connectionPointPx, t),
-            index: 0,
+            index: i,
             normalisedVector: u,
             k: 0,
           });

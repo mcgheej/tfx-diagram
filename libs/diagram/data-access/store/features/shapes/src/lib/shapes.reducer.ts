@@ -259,13 +259,40 @@ export const shapesReducer = createReducer(
   ),
   on(
     ControlFrameEffectsActions.selectedShapesLineWidthChange,
-    (state, { lineWidth, selectedShapeIds }) => {
+    (state, { lineWidth, modifiedConnections, modifiedShapes }) => {
+      const shapes = new Map(state.shapes);
+      modifiedShapes.map((shape) => {
+        shapes.set(shape.id, shape);
+      });
+
+      if (modifiedConnections.length > 0) {
+        const connections = new Map(state.connections);
+        modifiedConnections.map((connection) => {
+          connections.set(connection.id, connection);
+        });
+        return {
+          ...state,
+          shapes,
+          connections,
+          lineWidth,
+        };
+      }
       return {
-        ...updateSelectedLineWidths(state, selectedShapeIds, lineWidth),
+        ...state,
+        shapes,
         lineWidth,
       };
     }
   ),
+  // on(
+  //   ControlFrameEffectsActions.selectedShapesLineWidthChange,
+  //   (state, { lineWidth, selectedShapeIds }) => {
+  //     return {
+  //       ...updateSelectedLineWidths(state, selectedShapeIds, lineWidth),
+  //       lineWidth,
+  //     };
+  //   }
+  // ),
   on(
     ControlFrameEffectsActions.selectedShapesStartEndpointChange,
     (state, { endpoint, selectedShapeIds }) => {

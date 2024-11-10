@@ -14,7 +14,7 @@ import {
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { of } from 'rxjs';
 import { snapShiftDelta } from '../../misc-functions';
-import { getModifiedConnections } from './get-connector';
+import { getModifiedConnections } from './get-modified-connections';
 
 export const doMultiSelectionDragMove = (
   mousePos: Point,

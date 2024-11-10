@@ -17,7 +17,7 @@ import {
   Transform,
 } from '@tfx-diagram/electron-renderer-web/shared-types';
 import { of } from 'rxjs';
-import { getModifiedConnections } from './get-connector';
+import { getModifiedConnections } from './get-modified-connections';
 
 export const doHandleDragMove = (
   mousePos: Point,
@@ -41,7 +41,10 @@ export const doHandleDragMove = (
       prevMousePagePos
     );
     let newHandlePos = pointAdd(shiftDelta, { x: handle.x, y: handle.y });
-    const controlShapesArray = getShapeArrayFromMapList(selectionFrameStart, controlShapes);
+    const controlShapesArray = getShapeArrayFromMapList(
+      selectionFrameStart,
+      controlShapes
+    );
     const associatedShape = shapes.get(handle.associatedShapeId);
     if (associatedShape) {
       if (connectionHook && currentPage) {

@@ -47,8 +47,8 @@ export class CircleConnection extends Connection implements CircleConnectionProp
   modifyConnectionPoint(shape: Circle): CircleConnection {
     return this.copy({
       connectionPoint: {
-        x: this.normalisedVector.x * shape.radius + shape.x,
-        y: this.normalisedVector.y * shape.radius + shape.y,
+        x: this.normalisedVector.x * (shape.radius + shape.lineWidth / 2) + shape.x,
+        y: this.normalisedVector.y * (shape.radius + shape.lineWidth / 2) + shape.y,
       },
     });
   }

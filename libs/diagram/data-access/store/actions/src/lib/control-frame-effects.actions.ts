@@ -190,7 +190,11 @@ export const SELECTED_SHAPES_LINE_WIDTH_CHANGE =
   '[Control Frame Effects] Selected Shapes Line Width Change';
 export const selectedShapesLineWidthChange = createAction(
   SELECTED_SHAPES_LINE_WIDTH_CHANGE,
-  props<{ lineWidth: number; selectedShapeIds: string[] }>()
+  props<{
+    lineWidth: number;
+    modifiedShapes: Shape[];
+    modifiedConnections: Connection[];
+  }>()
 );
 
 export const SELECTED_SHAPES_START_ENDPOINT_CHANGE =

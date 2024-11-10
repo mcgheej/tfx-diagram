@@ -66,7 +66,7 @@ export const rectangleDefaults: Omit<RectangleProps, keyof ShapeProps> = {
   y: DEFAULT_Y,
   width: DEFAULT_WIDTH,
   height: DEFAULT_HEIGHT,
-  corners: '0',
+  corners: '5 0 10 20',
   lineDash: [],
   lineWidth: 0.5,
   strokeStyle: { colorSet: 'theme', ref: 'text1-3' },
