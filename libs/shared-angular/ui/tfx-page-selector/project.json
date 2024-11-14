@@ -6,6 +6,11 @@
   "projectType": "library",
   "tags": [],
   "targets": {
+    "build": {
+      "options": {
+        "tsConfig": "libs/shared-angular/ui/tfx-page-selector/tsconfig.lib.json"
+      }
+    },
     "lint": {
       "executor": "@nx/eslint:lint"
     }

@@ -78,22 +78,32 @@
         "libs/diagram/ui/file-save-close-xstate/src/index.ts"
       ],
       "@tfx-diagram/diagram/ui/material": ["libs/diagram/ui/material/src/index.ts"],
-      "@tfx-diagram/diagram/ui/mouse-position": ["libs/diagram/ui/mouse-position/src/index.ts"],
+      "@tfx-diagram/diagram/ui/mouse-position": [
+        "libs/diagram/ui/mouse-position/src/index.ts"
+      ],
       "@tfx-diagram/diagram/ui/page-ribbon": ["libs/diagram/ui/page-ribbon/src/index.ts"],
-      "@tfx-diagram/diagram/ui/page-viewport": ["libs/diagram/ui/page-viewport/src/index.ts"],
+      "@tfx-diagram/diagram/ui/page-viewport": [
+        "libs/diagram/ui/page-viewport/src/index.ts"
+      ],
       "@tfx-diagram/diagram/ui/rulers": ["libs/diagram/ui/rulers/src/index.ts"],
       "@tfx-diagram/diagram/ui/shape-inspector": [
         "libs/diagram/ui/shape-inspector/src/index.ts"
       ],
-      "@tfx-diagram/diagram/ui/zoom-control": ["libs/diagram/ui/zoom-control/src/index.ts"],
-      "@tfx-diagram/diagram/util/app-tokens": ["libs/diagram/util/app-tokens/src/index.ts"],
+      "@tfx-diagram/diagram/ui/zoom-control": [
+        "libs/diagram/ui/zoom-control/src/index.ts"
+      ],
+      "@tfx-diagram/diagram/util/app-tokens": [
+        "libs/diagram/util/app-tokens/src/index.ts"
+      ],
       "@tfx-diagram/diagram/util/keyboard-state": [
         "libs/diagram/util/keyboard-state/src/index.ts"
       ],
       "@tfx-diagram/diagram/util/misc-functions": [
         "libs/diagram/util/misc-functions/src/index.ts"
       ],
-      "@tfx-diagram/diagram/util/mouse-wheel": ["libs/diagram/util/mouse-wheel/src/index.ts"],
+      "@tfx-diagram/diagram/util/mouse-wheel": [
+        "libs/diagram/util/mouse-wheel/src/index.ts"
+      ],
       "@tfx-diagram/electron-renderer-web-context-bridge-api": [
         "libs/electron-renderer-web/context-bridge-api/src/index.ts"
       ],
@@ -103,7 +113,9 @@
       "@tfx-diagram/electron-renderer-web/shared-types": [
         "libs/electron-renderer-web/shared-types/src/index.ts"
       ],
-      "@tfx-diagram/electron/file-operations": ["libs/electron/file-operations/src/index.ts"],
+      "@tfx-diagram/electron/file-operations": [
+        "libs/electron/file-operations/src/index.ts"
+      ],
       "@tfx-diagram/shared-angular/tfx-page-selector": [
         "libs/shared-angular/ui/tfx-page-selector/src/index.ts"
       ],

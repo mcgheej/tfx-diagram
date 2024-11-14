@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PagesModule } from '@tfx-diagram/diagram-data-access-store-features-pages';
@@ -29,36 +29,30 @@ import { TfxMenuModule } from '@tfx-diagram/shared-angular/ui/tfx-menu';
 import { SketchbookViewComponent } from './components/sketchbook-view/sketchbook-view.component';
 import { ShellComponent } from './shell/shell.component';
 
-@NgModule({
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    DiagramAppMenuModule,
-    TfxMenuModule.forRoot(),
-    TfxAppBarModule,
-    MouseWheelModule,
-    UndoRedoModule,
-    SettingsModule,
-    ShapesModule,
-    SketchbookModule,
-    PagesModule,
-    TransformModule,
-    ControlFrameModule,
-    ColorsModule,
-    PageViewportModule,
-    RulersModule,
-    PageSelectorComponent,
-    PageRibbonModule,
-    MatDialogModule,
-    MousePositionModule,
-    ZoomControlModule.forRoot({
-      presetZoomFactors: [...PRESET_ZOOM_FACTORS],
-      initialZoomFactor: INITIAL_ZOOM_FACTOR,
-    }),
-    TfxColorPickerModule,
-    ShapeInspectorModule,
-  ],
-  declarations: [ShellComponent, SketchbookViewComponent],
-  exports: [ShellComponent],
-})
+@NgModule({ declarations: [ShellComponent, SketchbookViewComponent],
+    exports: [ShellComponent], imports: [CommonModule,
+        DiagramAppMenuModule,
+        TfxMenuModule.forRoot(),
+        TfxAppBarModule,
+        MouseWheelModule,
+        UndoRedoModule,
+        SettingsModule,
+        ShapesModule,
+        SketchbookModule,
+        PagesModule,
+        TransformModule,
+        ControlFrameModule,
+        ColorsModule,
+        PageViewportModule,
+        RulersModule,
+        PageSelectorComponent,
+        PageRibbonModule,
+        MatDialogModule,
+        MousePositionModule,
+        ZoomControlModule.forRoot({
+            presetZoomFactors: [...PRESET_ZOOM_FACTORS],
+            initialZoomFactor: INITIAL_ZOOM_FACTOR,
+        }),
+        TfxColorPickerModule,
+        ShapeInspectorModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class ShellModule {}
