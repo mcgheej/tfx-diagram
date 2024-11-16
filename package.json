@@ -42,7 +42,7 @@
     "exitzero": "^1.0.1",
     "nx": "19.8.9",
     "nx-electron": "^19.0.0",
-    "prettier": "2.6.2",
+    "prettier": "^3.0.0",
     "typescript": "5.5.4"
   },
   "dependencies": {
