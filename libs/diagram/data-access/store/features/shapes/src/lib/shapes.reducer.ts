@@ -89,13 +89,13 @@ export const shapesReducer = createReducer(
         return {
           ...state,
           copyBuffer: getAllShapesInSelection(selectedShapeIds, state.shapes).map((s) =>
-            s.copy({})
+            s.copy({}),
           ),
           pasteCount: 0,
         };
       }
       return state;
-    }
+    },
   ),
   on(
     ControlFrameEffectsActions.dragStartHandle,
@@ -113,7 +113,7 @@ export const shapesReducer = createReducer(
         ...state,
         movingConnectionIds,
       };
-    }
+    },
   ),
   on(
     ControlFrameEffectsActions.dragMoveHandle,
@@ -131,7 +131,7 @@ export const shapesReducer = createReducer(
         };
       }
       return state;
-    }
+    },
   ),
   on(ControlFrameEffectsActions.dragEndHandle, (state, { connectionHook }) => {
     if (connectionHook && connectionHook.shapeId) {
@@ -153,14 +153,14 @@ export const shapesReducer = createReducer(
     (state, { movingConnectionIds, compromisedConnectionIds }) => {
       const connections = updateConnectionsDragStartSelection(
         state,
-        compromisedConnectionIds
+        compromisedConnectionIds,
       );
       return {
         ...state,
         connections,
         movingConnectionIds,
       };
-    }
+    },
   ),
   on(ControlFrameEffectsActions.dragEndSingleSelection, (state) => {
     if (state.movingConnectionIds.length === 0) {
@@ -179,7 +179,7 @@ export const shapesReducer = createReducer(
         movingConnectionIds,
         connections: updateConnectionsDragStartSelection(state, compromisedConnectionIds),
       };
-    }
+    },
   ),
   on(ControlFrameEffectsActions.dragEndMultiSelection, (state) => {
     return {
@@ -237,7 +237,7 @@ export const shapesReducer = createReducer(
         ...updateSelectedColors(state, selectedShapeIds, lineColor, 'lineColor'),
         lineColor,
       };
-    }
+    },
   ),
   on(
     ControlFrameEffectsActions.selectedShapesFillColorChange,
@@ -246,7 +246,7 @@ export const shapesReducer = createReducer(
         ...updateSelectedColors(state, selectedShapeIds, fillColor, 'fillColor'),
         fillColor,
       };
-    }
+    },
   ),
   on(
     ControlFrameEffectsActions.selectedShapesLineDashChange,
@@ -255,7 +255,7 @@ export const shapesReducer = createReducer(
         ...updateSelectedLineDash(state, selectedShapeIds, lineDash),
         lineDash,
       };
-    }
+    },
   ),
   on(
     ControlFrameEffectsActions.selectedShapesLineWidthChange,
@@ -282,7 +282,7 @@ export const shapesReducer = createReducer(
         shapes,
         lineWidth,
       };
-    }
+    },
   ),
   // on(
   //   ControlFrameEffectsActions.selectedShapesLineWidthChange,
@@ -300,7 +300,7 @@ export const shapesReducer = createReducer(
         ...updateSelectedStartEndpoints(state, selectedShapeIds, endpoint),
         startEndpoint: endpoint,
       };
-    }
+    },
   ),
   on(
     ControlFrameEffectsActions.selectedShapesFinishEndpointChange,
@@ -309,7 +309,7 @@ export const shapesReducer = createReducer(
         ...updateSelectedFinishEndpoints(state, selectedShapeIds, endpoint),
         finishEndpoint: endpoint,
       };
-    }
+    },
   ),
   on(
     ControlFrameEffectsActions.selectedShapesFontPropsChange,
@@ -319,7 +319,7 @@ export const shapesReducer = createReducer(
         ...updateSelectedFontProps(state, selectedShapeIds, props),
         fontProps: newFontProps,
       };
-    }
+    },
   ),
   on(
     ControlFrameEffectsActions.selectedShapeTextConfigChange,
@@ -337,7 +337,7 @@ export const shapesReducer = createReducer(
         }
       }
       return state;
-    }
+    },
   ),
   on(ShapesEffectsActions.firstShapeOnPage, (state, { shape }) => {
     const newShapes = new Map(state.shapes);
@@ -368,16 +368,27 @@ export const shapesReducer = createReducer(
       for (const shape of shapes) {
         newShapes.set(shape.id, shape);
       }
-      let newPasteCount = state.pasteCount;
       if (type === ShapesEffectsActions.PASTE_SHAPES_ON_PAGE) {
-        newPasteCount = a.pasteCount;
+        return {
+          ...state,
+          shapes: newShapes,
+          pasteCount: a.pasteCount,
+        };
+      }
+      if (type === ShapesEffectsActions.ALIGN_OBJECTS) {
+        const newConnections = new Map(state.connections);
+        a.compromisedConnectionIds.map((id) => newConnections.delete(id));
+        return {
+          ...state,
+          shapes: newShapes,
+          connections: newConnections,
+        };
       }
       return {
         ...state,
         shapes: newShapes,
-        pasteCount: newPasteCount,
       };
-    }
+    },
   ),
   on(ShapesEffectsActions.ungroupClick, (state, { shapes, deletedGroupIds }) => {
     const newShapes = new Map(state.shapes);
@@ -412,7 +423,7 @@ export const shapesReducer = createReducer(
         shapes: newShapes,
         connections: newConnections,
       };
-    }
+    },
   ),
   on(SketchbookEffectsActions.deletePageClick, (state, { page }) => {
     if (page.firstShapeId) {
@@ -510,21 +521,21 @@ export const shapesReducer = createReducer(
         case 'circleConnection': {
           newConnections.set(
             connectionObject.id,
-            new CircleConnection(connectionObject as CircleConnectionProps)
+            new CircleConnection(connectionObject as CircleConnectionProps),
           );
           break;
         }
         case 'rectangleConnection': {
           newConnections.set(
             connectionObject.id,
-            new RectangleConnection(connectionObject as RectangleConnectionProps)
+            new RectangleConnection(connectionObject as RectangleConnectionProps),
           );
           break;
         }
         case 'triangleConnection': {
           newConnections.set(
             connectionObject.id,
-            new TriangleConnection(connectionObject as TriangleConnectionProps)
+            new TriangleConnection(connectionObject as TriangleConnectionProps),
           );
           break;
         }
@@ -548,14 +559,14 @@ export const shapesReducer = createReducer(
       ...state,
       shapes: modifiedShapesMap,
     };
-  })
+  }),
 );
 
 const updateSelectedColors = (
   state: ShapesState,
   selectedShapeIds: string[],
   color: ColorRef,
-  lineOrFill: 'lineColor' | 'fillColor'
+  lineOrFill: 'lineColor' | 'fillColor',
 ): ShapesState => {
   if (selectedShapeIds.length === 0) {
     return state;
@@ -588,7 +599,7 @@ const updateSelectedColors = (
 const updateSelectedLineDash = (
   state: ShapesState,
   selectedShapeIds: string[],
-  lineDash: number[]
+  lineDash: number[],
 ): ShapesState => {
   if (selectedShapeIds.length === 0) {
     return state;
@@ -617,7 +628,7 @@ const updateSelectedLineDash = (
 const updateSelectedLineWidths = (
   state: ShapesState,
   selectedShapeIds: string[],
-  lineWidth: number
+  lineWidth: number,
 ): ShapesState => {
   if (selectedShapeIds.length === 0) {
     return state;
@@ -646,7 +657,7 @@ const updateSelectedLineWidths = (
 const updateSelectedStartEndpoints = (
   state: ShapesState,
   selectedShapeIds: string[],
-  endpoint: Endpoint | null
+  endpoint: Endpoint | null,
 ): ShapesState => {
   if (selectedShapeIds.length === 0) {
     return state;
@@ -675,7 +686,7 @@ const updateSelectedStartEndpoints = (
 const updateSelectedFinishEndpoints = (
   state: ShapesState,
   selectedShapeIds: string[],
-  endpoint: Endpoint | null
+  endpoint: Endpoint | null,
 ): ShapesState => {
   if (selectedShapeIds.length === 0) {
     return state;
@@ -704,7 +715,7 @@ const updateSelectedFinishEndpoints = (
 const updateSelectedFontProps = (
   state: ShapesState,
   selectedShapeIds: string[],
-  fontProps: Partial<FontProps>
+  fontProps: Partial<FontProps>,
 ): ShapesState => {
   if (selectedShapeIds.length === 0) {
     return state;
@@ -732,7 +743,7 @@ const updateSelectedFontProps = (
 
 const updateConnectionsDragStartSelection = (
   state: ShapesState,
-  compromisedConnectionIds: string[]
+  compromisedConnectionIds: string[],
 ): Map<string, Connection> => {
   if (compromisedConnectionIds.length === 0) {
     return state.connections;

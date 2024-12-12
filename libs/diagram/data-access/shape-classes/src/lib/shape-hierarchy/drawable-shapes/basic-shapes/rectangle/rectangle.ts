@@ -66,7 +66,7 @@ export const rectangleDefaults: Omit<RectangleProps, keyof ShapeProps> = {
   y: DEFAULT_Y,
   width: DEFAULT_WIDTH,
   height: DEFAULT_HEIGHT,
-  corners: '5 0 10 20',
+  corners: '0',
   lineDash: [],
   lineWidth: 0.5,
   strokeStyle: { colorSet: 'theme', ref: 'text1-3' },
@@ -131,7 +131,7 @@ export class Rectangle extends BasicShape implements RectangleProps {
   attachBoundary(
     mousePos: Point,
     t: Transform,
-    connectionHook: Connection
+    connectionHook: Connection,
   ): Connection | undefined {
     // Get the coordinates of the mouse position in viewport coords.
     const mousePosPx = pointTransform(mousePos, t);
@@ -146,7 +146,7 @@ export class Rectangle extends BasicShape implements RectangleProps {
       lineWidth,
       this.id,
       connectionHook,
-      t
+      t,
     );
   }
 
@@ -154,7 +154,7 @@ export class Rectangle extends BasicShape implements RectangleProps {
     x: number = this.x,
     y: number = this.y,
     width: number = this.width,
-    height: number = this.height
+    height: number = this.height,
   ): Rect {
     return { x, y, width, height };
   }
@@ -250,7 +250,7 @@ export class Rectangle extends BasicShape implements RectangleProps {
   highLightFrame(
     shapes: Map<string, Shape>,
     connections: Map<string, Connection>,
-    ignoreGroup = false
+    ignoreGroup = false,
   ): Shape[] {
     if (this.groupId && shapes && !ignoreGroup) {
       return Group.highlightTopFrame(this.groupId, shapes, connections);
@@ -263,7 +263,7 @@ export class Rectangle extends BasicShape implements RectangleProps {
         height: this.height,
       },
       this.id,
-      connections
+      connections,
     );
   }
 
@@ -323,7 +323,7 @@ export class Rectangle extends BasicShape implements RectangleProps {
     return rectSelectFrame(
       { x: this.x, y: this.y, width: this.width, height: this.height },
       this.id,
-      rectangleReshapersConfig
+      rectangleReshapersConfig,
     );
   }
 
@@ -334,7 +334,7 @@ export class Rectangle extends BasicShape implements RectangleProps {
   private drawRectangle(
     c: CanvasRenderingContext2D,
     params: DrawingParams,
-    t: Transform
+    t: Transform,
   ) {
     let { lineWidth } = params;
     if (lineWidth < 1) {
@@ -379,7 +379,7 @@ export class Rectangle extends BasicShape implements RectangleProps {
 
   private getCachedPathData(
     params: DrawingParams,
-    t: Transform
+    t: Transform,
   ): {
     drawOperations: PathOperation[];
     shadowDrawOperations: PathOperation[];
@@ -411,7 +411,7 @@ export class Rectangle extends BasicShape implements RectangleProps {
       width,
       height,
       this.computedCornerRadius,
-      t
+      t,
     );
     const shadowDrawOperations = constructPath(
       shadowRect.x,
@@ -420,7 +420,7 @@ export class Rectangle extends BasicShape implements RectangleProps {
       shadowRect.height,
       this.computedCornerRadius,
       t,
-      inflationPx
+      inflationPx,
     );
     const perimiter = constructSegments(
       this.x,
@@ -429,7 +429,7 @@ export class Rectangle extends BasicShape implements RectangleProps {
       this.height,
       this.computedCornerRadius,
       t,
-      this.lineWidth / 2
+      this.lineWidth / 2,
     );
 
     Rectangle.cachedPathData.set(this.id, {

@@ -1,1 +1,6 @@
-export type ShapeCategory = 'shape' | 'control-shape' | 'connector' | 'structural-shape';
+export type ShapeCategory =
+  | 'shape'
+  | 'control-shape'
+  | 'connector'
+  | 'basic-shape'
+  | 'structural-shape';

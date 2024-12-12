@@ -20,11 +20,11 @@ export const doSingleSelectionDragStart = (
   selectedShape: Shape,
   shapes: Map<string, Shape>,
   connections: Map<string, Connection>,
-  shapeSnap: boolean
+  shapeSnap: boolean,
 ) => {
   const dragOffset = selectedShape.dragOffset(
     inverseTransform(mousePos, transform),
-    shapes
+    shapes,
   );
   let movingConnectionIds: string[] = [];
   let compromisedConnectionIds: string[] = [];
@@ -34,7 +34,7 @@ export const doSingleSelectionDragStart = (
       selectedShape as Group,
       shapes,
       connections,
-      shapeSnap
+      shapeSnap,
     );
     movingConnectionIds = m;
     compromisedConnectionIds = c;
@@ -42,7 +42,7 @@ export const doSingleSelectionDragStart = (
     const { movingConnectionIds: m, compromisedConnectionIds: c } = singleShapeStart(
       selectedShape,
       connections,
-      shapeSnap
+      shapeSnap,
     );
     movingConnectionIds = m;
     compromisedConnectionIds = c;
@@ -55,14 +55,14 @@ export const doSingleSelectionDragStart = (
       frameShapes: selectedShape.outlineShapes(shapes),
       movingConnectionIds,
       compromisedConnectionIds,
-    })
+    }),
   );
 };
 
 function singleShapeStart(
   selectedShape: Shape,
   connections: Map<string, Connection>,
-  shapeSnap: boolean
+  shapeSnap: boolean,
 ): MovingConnectionsResult {
   const movingConnectionIds: string[] = [];
   const compromisedConnectionIds: string[] = [];
@@ -76,7 +76,7 @@ function singleShapeStart(
       // don't exist doesn't do any harm.
       compromisedConnectionIds.push(selectedShape.id + '_connectorStart');
       compromisedConnectionIds.push(selectedShape.id + '_connectorFinish');
-    } else if (selectedShape.category() === 'shape') {
+    } else if (selectedShape.category() === 'basic-shape') {
       // Must be a single basic shape so add any associated
       // connections to the moving connection list
       connections.forEach((connection) => {
@@ -96,7 +96,7 @@ function groupShapeStart(
   selectedGroup: Group,
   shapes: Map<string, Shape>,
   connections: Map<string, Connection>,
-  shapeSnap: boolean
+  shapeSnap: boolean,
 ): MovingConnectionsResult {
   const movingConnectionIds: string[] = [];
   const compromisedConnectionIds: string[] = [];
